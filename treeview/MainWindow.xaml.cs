@@ -13,20 +13,25 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WpfTest
+namespace treeview
 {
-    internal class PropertyNodeItem
+    public class PropertyNodeItem : ICloneable
     {
         public string Icon { get; set; }
         public string AddIcon { get; set; }
         public string EditIcon { get; set; }
         public string DeleteIcon { get; set; }
         public string DisplayName { get; set; }
-        public string Name { get; set; }
+        public string Tips { get; set; }
         public List<PropertyNodeItem> Children { get; set; }
         public PropertyNodeItem()
         {
             Children = new List<PropertyNodeItem>();
+        }
+
+        public object Clone()
+        {
+            return this.MemberwiseClone();
         }
     }
     /// <summary>
@@ -34,9 +39,15 @@ namespace WpfTest
     /// </summary>
     public partial class MainWindow : Window
     {
+        List<PropertyNodeItem> _itemList;
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        internal void UpdateItems()
+        {
+            
         }
 
         public string ADD_ICON = "add.png";
@@ -51,14 +62,14 @@ namespace WpfTest
             PropertyNodeItem node1 = new PropertyNodeItem()
             {
                 DisplayName = "Node No.1",
-                Name = "This is the discription of Node1. This is a folder.",
+                Tips = "This is the discription of Node1. This is a folder.",
                 Icon = FOLDER_ICON,
             };
 
             PropertyNodeItem node1tag1 = new PropertyNodeItem()
             {
                 DisplayName = "Tag No.1",
-                Name = "This is the discription of Tag 1. This is a tag.",
+                Tips = "This is the discription of Tag 1. This is a tag.",
                 Icon = TAG_ICON,
                 EditIcon = EDITABLE_ICON,
                 DeleteIcon = DELETE_ICON
@@ -68,7 +79,7 @@ namespace WpfTest
             PropertyNodeItem node1tag2 = new PropertyNodeItem()
             {
                 DisplayName = "Tag No.2",
-                Name = "This is the discription of Tag 2. This is a tag.",
+                Tips = "This is the discription of Tag 2. This is a tag.",
                 Icon = TAG_ICON,
                 EditIcon = EDITABLE_ICON,
                 AddIcon = ADD_ICON
@@ -79,14 +90,14 @@ namespace WpfTest
             PropertyNodeItem node2 = new PropertyNodeItem()
             {
                 DisplayName = "Node No.2",
-                Name = "This is the discription of Node 2. This is a folder.",
+                Tips = "This is the discription of Node 2. This is a folder.",
                 Icon = FOLDER_ICON,
             };
 
             PropertyNodeItem node2tag3 = new PropertyNodeItem()
             {
                 DisplayName = "Tag No.3",
-                Name = "This is the discription of Tag 3. This is a tag.",
+                Tips = "This is the discription of Tag 3. This is a tag.",
                 Icon = TAG_ICON,
                 EditIcon = EDITABLE_ICON
             };
@@ -95,7 +106,7 @@ namespace WpfTest
             PropertyNodeItem node2tag4 = new PropertyNodeItem()
             {
                 DisplayName = "Tag No.4",
-                Name = "This is the discription of Tag 4. This is a tag.",
+                Tips = "This is the discription of Tag 4. This is a tag.",
                 Icon = TAG_ICON,
                 EditIcon = EDITABLE_ICON
             };
@@ -104,6 +115,34 @@ namespace WpfTest
             itemList.Add(node2);
 
             this.treeView.ItemsSource = itemList;
+            _itemList = itemList;
+        }
+
+        private void btnAdd_Click(object sender, RoutedEventArgs e)
+        {
+            Button btn = sender as Button;
+            PropertyNodeItem item = btn.Tag as PropertyNodeItem;
+            MessageBox.Show(item.DisplayName);
+        }
+
+        private void btnEdit_Click(object sender, RoutedEventArgs e)
+        {
+            Button btn = sender as Button;
+            PropertyNodeItem item = btn.Tag as PropertyNodeItem;
+            MessageBox.Show(item.DisplayName);
+        }
+
+        private void btnDelete_Click(object sender, RoutedEventArgs e)
+        {
+            Button btn = sender as Button;
+            PropertyNodeItem item = btn.Tag as PropertyNodeItem;
+            this._itemList.Remove(item);
+        }
+
+        private void treeView_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
+        {
+            PropertyNodeItem item = treeView.SelectedValue as PropertyNodeItem;
+            itemshow.Bind(item);
         }
     }
 }
