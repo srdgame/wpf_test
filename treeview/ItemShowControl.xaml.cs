@@ -36,8 +36,6 @@ namespace treeview
         {
             PropertyNodeItem item = this.DataContext as PropertyNodeItem;
             this._item.DisplayName = item.DisplayName;
-            MainWindow main = this.Parent as MainWindow;
-            main.UpdateItems();
         }
     }
 }

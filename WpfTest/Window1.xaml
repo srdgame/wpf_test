@@ -5,14 +5,36 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:treeview"
         mc:Ignorable="d"
-        Title="Window1" Height="300" Width="300">
+        Title="Window1" Height="300" Width="300" Loaded="Window_Loaded">
     <Grid>
-        <Button x:Name="button" HorizontalAlignment="Left" Height="21" Margin="48,40,0,0" VerticalAlignment="Top" Width="19" Click="button_Click" Background="{x:Null}" BorderThickness="0">
-            <Button.Content>
-                <Image Source="add.png"/>
-            </Button.Content>
-        </Button>
-        <Image x:Name="image" HorizontalAlignment="Left" Height="100" Margin="96,141,0,0" VerticalAlignment="Top" Width="100" Source="delete.png"/>
+        <TreeView x:Name="treeView">
+            <TreeView.ItemTemplate>
+                <HierarchicalDataTemplate DataType="{x:Type local:PropertyNodeItem}" ItemsSource="{Binding Path=Children}">
+                    <StackPanel Orientation="Horizontal">
+                        <Image VerticalAlignment="Center" Source="{Binding Icon}" Width="16" Height="16" Margin="0,0,2,2"></Image>
+                        <TextBlock VerticalAlignment="Center" Text="{Binding DisplayName}"></TextBlock>
+                        <Button Background="{x:Null}" BorderThickness="0" MaxWidth="16" MaxHeight="16" Margin="2,0,0,0">
+                            <Button.Content>
+                                <Image VerticalAlignment="Center" Source="{Binding AddIcon}" ></Image>
+                            </Button.Content>
+                        </Button>
+                        <Button Background="{x:Null}" BorderThickness="0" MaxWidth="16" MaxHeight="16" Margin="2,0,0,0">
+                            <Button.Content>
+                                <Image VerticalAlignment="Center" Source="{Binding EditIcon}"></Image>
+                            </Button.Content>
+                        </Button>
+                        <Button Background="{x:Null}" BorderThickness="0" MaxWidth="16" MaxHeight="16" Margin="2,0,0,0">
+                            <Button.Content>
+                                <Image VerticalAlignment="Center" Source="{Binding DeleteIcon}"></Image>
+                            </Button.Content>
+                        </Button>
+                        <StackPanel.ToolTip>
+                            <TextBlock VerticalAlignment="Center" Text="{Binding Name}" TextWrapping="Wrap" MaxWidth="200" ></TextBlock>
+                        </StackPanel.ToolTip>
+                    </StackPanel>
+                </HierarchicalDataTemplate>
+            </TreeView.ItemTemplate>
+        </TreeView>
 
     </Grid>
 </Window>

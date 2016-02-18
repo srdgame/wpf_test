@@ -5,36 +5,62 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:treeview"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525" Loaded="Window_Loaded">
+        Title="MainWindow" Height="600" Width="800" WindowStartupLocation="CenterScreen">
     <Grid>
-        <TreeView x:Name="treeView">
-            <TreeView.ItemTemplate>
-                <HierarchicalDataTemplate DataType="{x:Type local:PropertyNodeItem}" ItemsSource="{Binding Path=Children}">
-                    <StackPanel Orientation="Horizontal">
-                        <Image VerticalAlignment="Center" Source="{Binding Icon}" Width="16" Height="16" Margin="0,0,2,2"></Image>
-                        <TextBlock VerticalAlignment="Center" Text="{Binding DisplayName}"></TextBlock>
-                        <Button Background="{x:Null}" BorderThickness="0" MaxWidth="16" MaxHeight="16" Margin="2,0,0,0">
-                            <Button.Content>
-                                <Image VerticalAlignment="Center" Source="{Binding AddIcon}" ></Image>
-                            </Button.Content>
-                        </Button>
-                        <Button Background="{x:Null}" BorderThickness="0" MaxWidth="16" MaxHeight="16" Margin="2,0,0,0">
-                            <Button.Content>
-                                <Image VerticalAlignment="Center" Source="{Binding EditIcon}"></Image>
-                            </Button.Content>
-                        </Button>
-                        <Button Background="{x:Null}" BorderThickness="0" MaxWidth="16" MaxHeight="16" Margin="2,0,0,0">
-                            <Button.Content>
-                                <Image VerticalAlignment="Center" Source="{Binding DeleteIcon}"></Image>
-                            </Button.Content>
-                        </Button>
-                        <StackPanel.ToolTip>
-                            <TextBlock VerticalAlignment="Center" Text="{Binding Name}" TextWrapping="Wrap" MaxWidth="200" ></TextBlock>
-                        </StackPanel.ToolTip>
-                    </StackPanel>
-                </HierarchicalDataTemplate>
-            </TreeView.ItemTemplate>
-        </TreeView>
+        <Grid Height="64" VerticalAlignment="Top" Background="#FFDFDFDF">
+            <Button x:Name="btn_help22" Background="{x:Null}" BorderThickness="0" HorizontalAlignment="Right" Width="64">
+                <Image Source="images/black/exit.png" Opacity="0.5"></Image>
+            </Button>
+        </Grid>
+        <StackPanel HorizontalAlignment="Left" Width="74" Margin="0,64,0,0">
+            <StackPanel.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="0"/>
+                    <GradientStop Color="White" Offset="1"/>
+                    <GradientStop Color="#FF848484"/>
+                    <GradientStop Color="#FFBDBDBD"/>
+                    <GradientStop Color="#FFDFDFDF"/>
+                </LinearGradientBrush>
+            </StackPanel.Background>
+            <Button x:Name="btn_community" Margin="5" Background="{x:Null}" BorderThickness="0">
+                <Image Source="images/black/home.png" Opacity="0.5"></Image>
+            </Button>
+            <Button x:Name="btn_users" Margin="5" Background="{x:Null}" BorderThickness="0">
+                <Image Source="images/black/community.png" Opacity="0.5"></Image>
+            </Button>
+            <Button x:Name="btn_broadcasts" Margin="5" Background="{x:Null}" BorderThickness="0">
+                <Image Source="images/black/blog.png" Opacity="0.5"></Image>
+            </Button>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Left" Width="74" Height="80" VerticalAlignment="Bottom">
+            <Button x:Name="btn_help" Margin="5" Background="{x:Null}" BorderThickness="0">
+                <Image Source="images/black/information.png" Opacity="0.5">
+                    <Image.Effect>
+                        <BlurEffect/>
+                    </Image.Effect>
+                </Image>
+            </Button>
+        </StackPanel>
+
+        <Frame x:Name="frame" Margin="74,64,0,0" BorderThickness="1" NavigationUIVisibility="Hidden" Source="/WpfTest;component/pages/Welcome.xaml">
+            <Frame.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="0"/>
+                    <GradientStop Color="White" Offset="1"/>
+                    <GradientStop Color="#FFCACACA"/>
+                    <GradientStop Color="#FFE1E1E1"/>
+                </LinearGradientBrush>
+            </Frame.Background>
+            <Frame.BorderBrush>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="0"/>
+                    <GradientStop Color="White" Offset="1"/>
+                    <GradientStop Color="#FFC6C6C6" Offset="0.778"/>
+                    <GradientStop Color="#FE5F5F5F"/>
+                    <GradientStop Color="#FE727272"/>
+                </LinearGradientBrush>
+            </Frame.BorderBrush>
+        </Frame>
 
     </Grid>
 </Window>

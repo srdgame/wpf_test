@@ -55,9 +55,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="diags\Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pages\Welcome.xaml.cs">
+      <DependentUpon>Welcome.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Window1.xaml.cs">
       <DependentUpon>Window1.xaml</DependentUpon>
     </Compile>
+    <Page Include="diags\Login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -70,6 +80,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="pages\Welcome.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Window1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -110,6 +124,250 @@
   <ItemGroup>
     <Resource Include="images\icon\add.png" />
     <Resource Include="images\icon\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\at.png" />
+    <Resource Include="images\black\acorn.png" />
+    <Resource Include="images\black\airplane-departing.png" />
+    <Resource Include="images\black\airplane-symbol.png" />
+    <Resource Include="images\black\airport.png" />
+    <Resource Include="images\black\air_plane_airport.png" />
+    <Resource Include="images\black\air_plane_airport_2.png" />
+    <Resource Include="images\black\alarm-clock-2.png" />
+    <Resource Include="images\black\alarm-clock.png" />
+    <Resource Include="images\black\anchor.png" />
+    <Resource Include="images\black\approve.png" />
+    <Resource Include="images\black\arrow.png" />
+    <Resource Include="images\black\arrow_down.png" />
+    <Resource Include="images\black\arrow_down_2.png" />
+    <Resource Include="images\black\arrow_down_left.png" />
+    <Resource Include="images\black\arrow_down_left_2.png" />
+    <Resource Include="images\black\arrow_down_right.png" />
+    <Resource Include="images\black\arrow_left.png" />
+    <Resource Include="images\black\arrow_left_2.png" />
+    <Resource Include="images\black\arrow_right.png" />
+    <Resource Include="images\black\arrow_right_2.png" />
+    <Resource Include="images\black\arrow_up.png" />
+    <Resource Include="images\black\arrow_up_1.png" />
+    <Resource Include="images\black\arrow_up_left.png" />
+    <Resource Include="images\black\arrow_up_left_2.png" />
+    <Resource Include="images\black\arrow_up_right.png" />
+    <Resource Include="images\black\arrow_up_right_2.png" />
+    <Resource Include="images\black\award.png" />
+    <Resource Include="images\black\badge.png" />
+    <Resource Include="images\black\baseball-symbol.png" />
+    <Resource Include="images\black\basketball.png" />
+    <Resource Include="images\black\battery-2.png" />
+    <Resource Include="images\black\battery.png" />
+    <Resource Include="images\black\bell.png" />
+    <Resource Include="images\black\bicycle-3.png" />
+    <Resource Include="images\black\bike.png" />
+    <Resource Include="images\black\biohazard.png" />
+    <Resource Include="images\black\black-camera-symbol.png" />
+    <Resource Include="images\black\blog.png" />
+    <Resource Include="images\black\bomb-2.png" />
+    <Resource Include="images\black\book.png" />
+    <Resource Include="images\black\button.png" />
+    <Resource Include="images\black\cafe_coffee.png" />
+    <Resource Include="images\black\cake.png" />
+    <Resource Include="images\black\calculator.png" />
+    <Resource Include="images\black\calender.png" />
+    <Resource Include="images\black\camera-symbol.png" />
+    <Resource Include="images\black\camera.png" />
+    <Resource Include="images\black\car-2.png" />
+    <Resource Include="images\black\car-battery.png" />
+    <Resource Include="images\black\car.png" />
+    <Resource Include="images\black\carabiner.png" />
+    <Resource Include="images\black\cardiology.png" />
+    <Resource Include="images\black\cashier.png" />
+    <Resource Include="images\black\cd.png" />
+    <Resource Include="images\black\cell-phone.png" />
+    <Resource Include="images\black\changing-station.png" />
+    <Resource Include="images\black\check-box.png" />
+    <Resource Include="images\black\chemistry-beaker.png" />
+    <Resource Include="images\black\cinema.png" />
+    <Resource Include="images\black\close-door.png" />
+    <Resource Include="images\black\cloud.png" />
+    <Resource Include="images\black\comment.png" />
+    <Resource Include="images\black\communism.png" />
+    <Resource Include="images\black\community.png" />
+    <Resource Include="images\black\compass.png" />
+    <Resource Include="images\black\computer-monitor.png" />
+    <Resource Include="images\black\computer.png" />
+    <Resource Include="images\black\construction.png" />
+    <Resource Include="images\black\contrast.png" />
+    <Resource Include="images\black\crayon.png" />
+    <Resource Include="images\black\credit-card.png" />
+    <Resource Include="images\black\crown.png" />
+    <Resource Include="images\black\customs.png" />
+    <Resource Include="images\black\delete.png" />
+    <Resource Include="images\black\desktop-computer.png" />
+    <Resource Include="images\black\diamond-symbol.png" />
+    <Resource Include="images\black\disapprove.png" />
+    <Resource Include="images\black\document.png" />
+    <Resource Include="images\black\download-document.png" />
+    <Resource Include="images\black\download-symbol.png" />
+    <Resource Include="images\black\download.png" />
+    <Resource Include="images\black\drinking-water.png" />
+    <Resource Include="images\black\drink_bar_cocktails.png" />
+    <Resource Include="images\black\eject.png" />
+    <Resource Include="images\black\electricity-plug-in.png" />
+    <Resource Include="images\black\elevator.png" />
+    <Resource Include="images\black\email.png" />
+    <Resource Include="images\black\email_post_letter_stamp.png" />
+    <Resource Include="images\black\erlenmeyer-flask.png" />
+    <Resource Include="images\black\escalator.png" />
+    <Resource Include="images\black\escalator_2.png" />
+    <Resource Include="images\black\escalator_up.png" />
+    <Resource Include="images\black\excitement.png" />
+    <Resource Include="images\black\eye-symbol.png" />
+    <Resource Include="images\black\eye.png" />
+    <Resource Include="images\black\female.png" />
+    <Resource Include="images\black\fir-tree.png" />
+    <Resource Include="images\black\fire-extinguisher-symbol.png" />
+    <Resource Include="images\black\fire_extinguisher.png" />
+    <Resource Include="images\black\first-aid.png" />
+    <Resource Include="images\black\flag-symbol.png" />
+    <Resource Include="images\black\flame.png" />
+    <Resource Include="images\black\flower.png" />
+    <Resource Include="images\black\fluer-de-lis.png" />
+    <Resource Include="images\black\folder.png" />
+    <Resource Include="images\black\fullscreen-2.png" />
+    <Resource Include="images\black\fullscreen.png" />
+    <Resource Include="images\black\gas.png" />
+    <Resource Include="images\black\gears.png" />
+    <Resource Include="images\black\globe-2.png" />
+    <Resource Include="images\black\globe.png" />
+    <Resource Include="images\black\hard-drive.png" />
+    <Resource Include="images\black\headlight.png" />
+    <Resource Include="images\black\headphones-2.png" />
+    <Resource Include="images\black\headphones.png" />
+    <Resource Include="images\black\health_medicine_emergency.png" />
+    <Resource Include="images\black\home.png" />
+    <Resource Include="images\black\hospital-sign.png" />
+    <Resource Include="images\black\immigration.png" />
+    <Resource Include="images\black\inbox.png" />
+    <Resource Include="images\black\incoming-call.png" />
+    <Resource Include="images\black\information.png" />
+    <Resource Include="images\black\ipad-symbol.png" />
+    <Resource Include="images\black\iphone-symbol.png" />
+    <Resource Include="images\black\justice.png" />
+    <Resource Include="images\black\key.png" />
+    <Resource Include="images\black\keyhole.png" />
+    <Resource Include="images\black\ladies_room_toilet.png" />
+    <Resource Include="images\black\life-raft.png" />
+    <Resource Include="images\black\light-bulb.png" />
+    <Resource Include="images\black\location.png" />
+    <Resource Include="images\black\lock-.png" />
+    <Resource Include="images\black\lock-symbol.png" />
+    <Resource Include="images\black\lock.png" />
+    <Resource Include="images\black\locker_bagage_key.png" />
+    <Resource Include="images\black\magnifying-glass.png" />
+    <Resource Include="images\black\mail-symbol.png" />
+    <Resource Include="images\black\mail.png" />
+    <Resource Include="images\black\male.png" />
+    <Resource Include="images\black\man_person_mens_room.png" />
+    <Resource Include="images\black\map-marker.png" />
+    <Resource Include="images\black\marina.png" />
+    <Resource Include="images\black\mars.png" />
+    <Resource Include="images\black\mercury.png" />
+    <Resource Include="images\black\microphone.png" />
+    <Resource Include="images\black\mine.png" />
+    <Resource Include="images\black\moon.png" />
+    <Resource Include="images\black\music-2.png" />
+    <Resource Include="images\black\music.png" />
+    <Resource Include="images\black\mute.png" />
+    <Resource Include="images\black\network.png" />
+    <Resource Include="images\black\no.png" />
+    <Resource Include="images\black\non-ionizing-radiation.png" />
+    <Resource Include="images\black\no_entry.png" />
+    <Resource Include="images\black\no_parking.png" />
+    <Resource Include="images\black\nuclear.png" />
+    <Resource Include="images\black\old-telephone.png" />
+    <Resource Include="images\black\open-book.png" />
+    <Resource Include="images\black\open-door.png" />
+    <Resource Include="images\black\pan.png" />
+    <Resource Include="images\black\parking.png" />
+    <Resource Include="images\black\parking_locked.png" />
+    <Resource Include="images\black\passport.png" />
+    <Resource Include="images\black\pc-computer.png" />
+    <Resource Include="images\black\pencil.png" />
+    <Resource Include="images\black\phone.png" />
+    <Resource Include="images\black\photo-camera.png" />
+    <Resource Include="images\black\picture.png" />
+    <Resource Include="images\black\pie-chart.png" />
+    <Resource Include="images\black\plug-in.png" />
+    <Resource Include="images\black\power.png" />
+    <Resource Include="images\black\present.png" />
+    <Resource Include="images\black\price-tag-symbol.png" />
+    <Resource Include="images\black\price-tag.png" />
+    <Resource Include="images\black\printer.png" />
+    <Resource Include="images\black\public_transportation.png" />
+    <Resource Include="images\black\puzzle.png" />
+    <Resource Include="images\black\railroad.png" />
+    <Resource Include="images\black\rain.png" />
+    <Resource Include="images\black\recyclable.png" />
+    <Resource Include="images\black\recycle.png" />
+    <Resource Include="images\black\refresh-bold.png" />
+    <Resource Include="images\black\refresh.png" />
+    <Resource Include="images\black\restaurant_food.png" />
+    <Resource Include="images\black\ribbon.png" />
+    <Resource Include="images\black\rocket.png" />
+    <Resource Include="images\black\rss.png" />
+    <Resource Include="images\black\running.png" />
+    <Resource Include="images\black\scale.png" />
+    <Resource Include="images\black\share.png" />
+    <Resource Include="images\black\shopping-cart-symbol.png" />
+    <Resource Include="images\black\shopping-cart.png" />
+    <Resource Include="images\black\shuffle.png" />
+    <Resource Include="images\black\smoking_allowed.png" />
+    <Resource Include="images\black\smoking_not_allowed.png" />
+    <Resource Include="images\black\snow-symbol.png" />
+    <Resource Include="images\black\snow.png" />
+    <Resource Include="images\black\speaker.png" />
+    <Resource Include="images\black\stopwatch.png" />
+    <Resource Include="images\black\sun-3.png" />
+    <Resource Include="images\black\sun-4.png" />
+    <Resource Include="images\black\sun.png" />
+    <Resource Include="images\black\sunrise.png" />
+    <Resource Include="images\black\sync.png" />
+    <Resource Include="images\black\target.png" />
+    <Resource Include="images\black\taxi.png" />
+    <Resource Include="images\black\taxi_passanger.png" />
+    <Resource Include="images\black\telephone-2.png" />
+    <Resource Include="images\black\telephone-3.png" />
+    <Resource Include="images\black\telephone-voice.png" />
+    <Resource Include="images\black\temperature.png" />
+    <Resource Include="images\black\thunderstorm.png" />
+    <Resource Include="images\black\ticket-machine.png" />
+    <Resource Include="images\black\toilets.png" />
+    <Resource Include="images\black\traffic-light.png" />
+    <Resource Include="images\black\trash-2.png" />
+    <Resource Include="images\black\trash_recycle_bin_garbage.png" />
+    <Resource Include="images\black\treble-clef.png" />
+    <Resource Include="images\black\tree.png" />
+    <Resource Include="images\black\trophy.png" />
+    <Resource Include="images\black\tshirt.png" />
+    <Resource Include="images\black\umbrella.png" />
+    <Resource Include="images\black\unlock.png" />
+    <Resource Include="images\black\upload.png" />
+    <Resource Include="images\black\usb.png" />
+    <Resource Include="images\black\usd_dollar_money_cash.png" />
+    <Resource Include="images\black\user.png" />
+    <Resource Include="images\black\venus.png" />
+    <Resource Include="images\black\voltage.png" />
+    <Resource Include="images\black\watch.png" />
+    <Resource Include="images\black\water-drop.png" />
+    <Resource Include="images\black\water.png" />
+    <Resource Include="images\black\white-star.png" />
+    <Resource Include="images\black\wireless-2.png" />
+    <Resource Include="images\black\wireless.png" />
+    <Resource Include="images\black\woman-symbol.png" />
+    <Resource Include="images\black\wrench.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="images\black\exit.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

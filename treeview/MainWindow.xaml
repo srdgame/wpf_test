@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525" Loaded="Window_Loaded">
     <Grid>
-        <TreeView x:Name="treeView" HorizontalAlignment="Left" Width="189" SelectedItemChanged="treeView_SelectedItemChanged">
+        <TreeView x:Name="treeView" SelectedItemChanged="treeView_SelectedItemChanged" HorizontalAlignment="Left" Width="189">
             <TreeView.ItemTemplate>
                 <HierarchicalDataTemplate DataType="{x:Type local:PropertyNodeItem}" ItemsSource="{Binding Path=Children}">
                     <StackPanel Orientation="Horizontal">

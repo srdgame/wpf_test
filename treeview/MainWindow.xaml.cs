@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,13 +16,24 @@ using System.Windows.Shapes;
 
 namespace treeview
 {
-    public class PropertyNodeItem : ICloneable
+    public class PropertyNodeItem : ICloneable, INotifyPropertyChanged
     {
         public string Icon { get; set; }
         public string AddIcon { get; set; }
         public string EditIcon { get; set; }
         public string DeleteIcon { get; set; }
-        public string DisplayName { get; set; }
+        public string DisplayName
+        {
+            get { return DisplayName; }
+            set
+            {
+                DisplayName = value;
+                if (PropertyChanged != null)
+                {
+                    this.PropertyChanged.Invoke(this, new PropertyChangedEventArgs("DisplayName"));
+                }
+            }
+        }
         public string Tips { get; set; }
         public List<PropertyNodeItem> Children { get; set; }
         public PropertyNodeItem()
@@ -33,6 +45,7 @@ namespace treeview
         {
             return this.MemberwiseClone();
         }
+        public event PropertyChangedEventHandler PropertyChanged;  
     }
     /// <summary>
     /// MainWindow.xaml 的交互逻辑
@@ -50,20 +63,24 @@ namespace treeview
             
         }
 
-        public string ADD_ICON = "add.png";
-        public string EDITABLE_ICON = "edit.png";
-        public string DELETE_ICON = "delete.png";
-        public string FOLDER_ICON = "folder.png";
-        public string TAG_ICON = "tag.png";
+        public string ADD_ICON = "images/icon/add.png";
+        public string EDITABLE_ICON = "images/icon/edit.png";
+        public string DELETE_ICON = "images/icon/delete.png";
+        public string FOLDER_ICON = "images/icon/folder.png";
+        public string TAG_ICON = "images/icon/tag.png";
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             List<PropertyNodeItem> itemList = new List<PropertyNodeItem>();
+
             PropertyNodeItem node1 = new PropertyNodeItem()
             {
                 DisplayName = "Node No.1",
                 Tips = "This is the discription of Node1. This is a folder.",
                 Icon = FOLDER_ICON,
+                AddIcon = ADD_ICON,
+                EditIcon = EDITABLE_ICON,
+                DeleteIcon = DELETE_ICON,
             };
 
             PropertyNodeItem node1tag1 = new PropertyNodeItem()
@@ -72,7 +89,7 @@ namespace treeview
                 Tips = "This is the discription of Tag 1. This is a tag.",
                 Icon = TAG_ICON,
                 EditIcon = EDITABLE_ICON,
-                DeleteIcon = DELETE_ICON
+                DeleteIcon = DELETE_ICON,
             };
             node1.Children.Add(node1tag1);
 
@@ -82,16 +99,19 @@ namespace treeview
                 Tips = "This is the discription of Tag 2. This is a tag.",
                 Icon = TAG_ICON,
                 EditIcon = EDITABLE_ICON,
-                AddIcon = ADD_ICON
+                DeleteIcon = DELETE_ICON,
             };
             node1.Children.Add(node1tag2);
-
             itemList.Add(node1);
+
             PropertyNodeItem node2 = new PropertyNodeItem()
             {
                 DisplayName = "Node No.2",
                 Tips = "This is the discription of Node 2. This is a folder.",
                 Icon = FOLDER_ICON,
+                AddIcon = ADD_ICON,
+                EditIcon = EDITABLE_ICON,
+                DeleteIcon = DELETE_ICON,
             };
 
             PropertyNodeItem node2tag3 = new PropertyNodeItem()
@@ -99,7 +119,8 @@ namespace treeview
                 DisplayName = "Tag No.3",
                 Tips = "This is the discription of Tag 3. This is a tag.",
                 Icon = TAG_ICON,
-                EditIcon = EDITABLE_ICON
+                EditIcon = EDITABLE_ICON,
+                DeleteIcon = DELETE_ICON,
             };
 
             node2.Children.Add(node2tag3);
@@ -108,7 +129,8 @@ namespace treeview
                 DisplayName = "Tag No.4",
                 Tips = "This is the discription of Tag 4. This is a tag.",
                 Icon = TAG_ICON,
-                EditIcon = EDITABLE_ICON
+                EditIcon = EDITABLE_ICON,
+                DeleteIcon = DELETE_ICON,
             };
 
             node2.Children.Add(node2tag4);
@@ -122,7 +144,22 @@ namespace treeview
         {
             Button btn = sender as Button;
             PropertyNodeItem item = btn.Tag as PropertyNodeItem;
-            MessageBox.Show(item.DisplayName);
+            if (item.Icon.Contains("folder.png"))
+            {
+                PropertyNodeItem new_item = new PropertyNodeItem()
+                {
+                    Icon = TAG_ICON,
+                    DisplayName = "New Tag",
+                    Tips = "",
+                    EditIcon = EDITABLE_ICON,
+                    DeleteIcon = DELETE_ICON,
+                };
+                item.Children.Add(new_item);
+                itemshow.Bind(new_item);
+                TreeViewItem treeitem = new TreeViewItem();
+                treeitem.DataContext = new_item;
+
+            }
         }
 
         private void btnEdit_Click(object sender, RoutedEventArgs e)
@@ -136,7 +173,10 @@ namespace treeview
         {
             Button btn = sender as Button;
             PropertyNodeItem item = btn.Tag as PropertyNodeItem;
-            this._itemList.Remove(item);
+            if (item.Icon.Contains("folder.png"))
+            {
+                this._itemList.Remove(item);
+            }
         }
 
         private void treeView_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
