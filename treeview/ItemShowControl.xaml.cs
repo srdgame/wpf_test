@@ -24,10 +24,11 @@ namespace treeview
         public ItemShowControl()
         {
             InitializeComponent();
-            this.DataContext = new PropertyNodeItem();
+            //this.DataContext = new PropertyNodeItem();
         }
         public void Bind(PropertyNodeItem item)
         {
+            this.DataContext = null;
             this._item = item;
             this.DataContext = item.Clone();
         }

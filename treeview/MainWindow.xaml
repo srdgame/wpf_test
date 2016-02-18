@@ -29,7 +29,7 @@
                             </Button.Content>
                         </Button>
                         <StackPanel.ToolTip>
-                            <TextBlock VerticalAlignment="Center" Text="{Binding Tips}" TextWrapping="Wrap" MaxWidth="200" ></TextBlock>
+                            <TextBlock VerticalAlignment="Center" Text="{Binding Path=Tips}" TextWrapping="Wrap" MaxWidth="200" ></TextBlock>
                         </StackPanel.ToolTip>
                     </StackPanel>
                 </HierarchicalDataTemplate>

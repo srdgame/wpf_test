@@ -9,6 +9,6 @@
       Title="TestPage">
 
     <Grid>
-        <TreeView x:Name="treeView" HorizontalAlignment="Left" Height="207" Margin="22,10,0,0" VerticalAlignment="Top" Width="220"/>
+        <Label x:Name="label" Content="Label" HorizontalAlignment="Left" VerticalAlignment="Top" Height="300" Width="300"/>
     </Grid>
 </Page>

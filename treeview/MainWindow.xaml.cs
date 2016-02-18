@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -16,43 +17,12 @@ using System.Windows.Shapes;
 
 namespace treeview
 {
-    public class PropertyNodeItem : ICloneable, INotifyPropertyChanged
-    {
-        public string Icon { get; set; }
-        public string AddIcon { get; set; }
-        public string EditIcon { get; set; }
-        public string DeleteIcon { get; set; }
-        public string DisplayName
-        {
-            get { return DisplayName; }
-            set
-            {
-                DisplayName = value;
-                if (PropertyChanged != null)
-                {
-                    this.PropertyChanged.Invoke(this, new PropertyChangedEventArgs("DisplayName"));
-                }
-            }
-        }
-        public string Tips { get; set; }
-        public List<PropertyNodeItem> Children { get; set; }
-        public PropertyNodeItem()
-        {
-            Children = new List<PropertyNodeItem>();
-        }
-
-        public object Clone()
-        {
-            return this.MemberwiseClone();
-        }
-        public event PropertyChangedEventHandler PropertyChanged;  
-    }
     /// <summary>
     /// MainWindow.xaml 的交互逻辑
     /// </summary>
     public partial class MainWindow : Window
     {
-        List<PropertyNodeItem> _itemList;
+        ObservableCollection<PropertyNodeItem> _itemList;
         public MainWindow()
         {
             InitializeComponent();
@@ -71,7 +41,7 @@ namespace treeview
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            List<PropertyNodeItem> itemList = new List<PropertyNodeItem>();
+            ObservableCollection<PropertyNodeItem> itemList = new ObservableCollection<PropertyNodeItem>();
 
             PropertyNodeItem node1 = new PropertyNodeItem()
             {
@@ -158,7 +128,6 @@ namespace treeview
                 itemshow.Bind(new_item);
                 TreeViewItem treeitem = new TreeViewItem();
                 treeitem.DataContext = new_item;
-
             }
         }
 
