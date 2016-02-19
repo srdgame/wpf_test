@@ -29,7 +29,8 @@ namespace wpf_test
         {
             this.frame_top.Navigate(new frames.TopMenu(this));
             this.frame_left.Navigate(new frames.LeftMenu(this));
-            this.frame_main.Navigate(new frames.Welcome(this));
+            //this.frame_main.Navigate(new frames.Welcome(this));
+            this.frame_main.Navigate(new frames.TestPage(this));
         }
 
         internal void ActiveDist()

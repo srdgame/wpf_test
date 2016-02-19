@@ -16,7 +16,7 @@ namespace wpf_test
         protected override void OnStartup(StartupEventArgs e)
         {
             Application.Current.ShutdownMode = System.Windows.ShutdownMode.OnExplicitShutdown;
-            LoginWindow window = new LoginWindow();
+            diags.LoginWindow window = new diags.LoginWindow();
             bool? dialogResult = window.ShowDialog();
             if ((dialogResult.HasValue == true) &&
                 (dialogResult.Value == true))

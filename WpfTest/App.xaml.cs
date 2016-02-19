@@ -13,5 +13,12 @@ namespace treeview
     /// </summary>
     public partial class App : Application
     {
+        private void Application_Startup(object sender, StartupEventArgs e)
+        {
+            //Application.Current.Resources.MergedDictionaries.Clear();
+            //ResourceDictionary resource = (ResourceDictionary)Application.LoadComponent(
+            //        new Uri("Dictionary1.xaml", UriKind.Relative));
+            //Application.Current.Resources.MergedDictionaries.Add(resource);
+        }
     }
 }

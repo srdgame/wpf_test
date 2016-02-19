@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using wpf_test.data;
 
 namespace wpf_test.frames
 {
@@ -20,10 +22,81 @@ namespace wpf_test.frames
     /// </summary>
     public partial class TestPage : Page
     {
-        public TestPage(string text)
+        public TestPage(MainWindow main)
         {
             InitializeComponent();
-            label.Content = text;
+        }
+
+        private void treeView_SelectedItemChanged(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("ok");
+        }
+        
+        private void treeView_ClickAdd(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Add");
+
+        }
+        private void treeView_ClickEdit(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Edit");
+
+        }
+
+        private void treeView_ClickDelete(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Delete");
+
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            ObservableCollection<PropertyNodeItem> itemList = new ObservableCollection<PropertyNodeItem>();
+
+            PropertyNodeItem node1 = new PropertyNodeItem(PropertyNodeType.BOLE)
+            {
+                DisplayName = "Node No.1",
+                Tips = "This is the discription of Node1. This is a folder.",
+            };
+
+            PropertyNodeItem node1tag1 = new PropertyNodeItem(PropertyNodeType.LEAF)
+            {
+                DisplayName = "Tag No.1",
+                Tips = "This is the discription of Tag 1. This is a tag.",
+            };
+            node1.Children.Add(node1tag1);
+
+            PropertyNodeItem node1tag2 = new PropertyNodeItem(PropertyNodeType.LEAF)
+            {
+                DisplayName = "Tag No.2",
+                Tips = "This is the discription of Tag 2. This is a tag.",
+            };
+            node1.Children.Add(node1tag2);
+            itemList.Add(node1);
+
+            PropertyNodeItem node2 = new PropertyNodeItem(PropertyNodeType.BOLE)
+            {
+                DisplayName = "Node No.2",
+                Tips = "This is the discription of Node 2. This is a folder.",
+            };
+
+            PropertyNodeItem node2tag3 = new PropertyNodeItem(PropertyNodeType.LEAF)
+            {
+                DisplayName = "Tag No.3",
+                Tips = "This is the discription of Tag 3. This is a tag.",
+            };
+
+            node2.Children.Add(node2tag3);
+            PropertyNodeItem node2tag4 = new PropertyNodeItem(PropertyNodeType.LEAF)
+            {
+                DisplayName = "Tag No.4",
+                Tips = "This is the discription of Tag 4. This is a tag.",
+            };
+
+            node2.Children.Add(node2tag4);
+            itemList.Add(node2);
+
+            this.treeView.ItemsSource = itemList;
         }
     }
 }
