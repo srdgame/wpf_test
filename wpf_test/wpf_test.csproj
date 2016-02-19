@@ -95,14 +95,11 @@
     <Compile Include="diags\UserDlg.xaml.cs">
       <DependentUpon>UserDlg.xaml</DependentUpon>
     </Compile>
-    <Compile Include="frames\AdEditor.xaml.cs">
-      <DependentUpon>AdEditor.xaml</DependentUpon>
-    </Compile>
     <Compile Include="frames\AdMgr.xaml.cs">
       <DependentUpon>AdMgr.xaml</DependentUpon>
     </Compile>
-    <Compile Include="frames\DistMgr.xaml.cs">
-      <DependentUpon>DistMgr.xaml</DependentUpon>
+    <Compile Include="frames\UnitMgr.xaml.cs">
+      <DependentUpon>UnitMgr.xaml</DependentUpon>
     </Compile>
     <Compile Include="frames\TestPage.xaml.cs">
       <DependentUpon>TestPage.xaml</DependentUpon>
@@ -124,15 +121,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="frames\AdEditor.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="frames\AdMgr.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="frames\DistMgr.xaml">
+    <Page Include="frames\UnitMgr.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

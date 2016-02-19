@@ -41,5 +41,10 @@ namespace wpf_test.frames
         {
             m_Main.ActiveAds();
         }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            m_Main.ActiveHelp();
+        }
     }
 }

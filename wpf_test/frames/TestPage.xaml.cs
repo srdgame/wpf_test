@@ -30,7 +30,7 @@ namespace wpf_test.frames
 
         private void treeView_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
-            MessageBox.Show("Selected!");
+            
         }
         
         private void treeView_ClickAdd(object sender, PNRoutedEventArgs e)
@@ -41,7 +41,7 @@ namespace wpf_test.frames
                 DisplayName = "New Tag",
                 Tips = "",
             };
-            //new_item.IsSelected = true;
+            new_item.IsSelected = true;
             item.Children.Add(new_item);
 
         }

@@ -24,7 +24,7 @@ namespace wpf_test.data
         public PropertyNodeType Type { get; }
         public string Icon { get { return Type.HasFlag(PropertyNodeType.LEAF) ? "/images/icon/leaf.png" : "/images/icon/folder.png";} }
         public string AddIcon { get { return Type.HasFlag(PropertyNodeType.BOLE) ? "/images/icon/add.png" : ""; } }
-        public string EditIcon { get { return Type.HasFlag(PropertyNodeType.NOEDIT) ? "" : "/images/icon/edit.png"; } }
+        //public string EditIcon { get { return Type.HasFlag(PropertyNodeType.NOEDIT) ? "" : "/images/icon/edit.png"; } }
         public string DeleteIcon { get { return Type.HasFlag(PropertyNodeType.NODELETE) ? "" : "/images/icon/delete.png"; } }
         private bool _is_expanded;
         private bool _is_selected;

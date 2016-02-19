@@ -29,18 +29,22 @@ namespace wpf_test
         {
             this.frame_top.Navigate(new frames.TopMenu(this));
             this.frame_left.Navigate(new frames.LeftMenu(this));
-            //this.frame_main.Navigate(new frames.Welcome(this));
-            this.frame_main.Navigate(new frames.TestPage(this));
+            this.frame_main.Navigate(new frames.Welcome(this));
         }
 
         internal void ActiveDist()
         {
-            this.frame_main.Navigate(new frames.DistMgr(this));
+            this.frame_main.Navigate(new frames.UnitMgr(this));
         }
 
         internal void ActiveUsers()
         {
             this.frame_main.Navigate(new frames.UsersPage(this));
+        }
+
+        internal void ActiveHelp()
+        {
+            this.frame_main.Navigate(new frames.TestPage(this));
         }
 
         internal void ActiveAds()

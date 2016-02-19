@@ -19,11 +19,13 @@
                                 <Image VerticalAlignment="Center" Source="{Binding AddIcon}" ></Image>
                             </Button.Content>
                         </Button>
+                        <!-- 
                         <Button x:Name="btnEdit" Tag="{Binding}" Background="{x:Null}" BorderThickness="0" MaxWidth="16" MaxHeight="16" Margin="2,0,0,0" Click="btnEdit_Click">
                             <Button.Content>
                                 <Image VerticalAlignment="Center" Source="{Binding EditIcon}"></Image>
                             </Button.Content>
                         </Button>
+                        -->
                         <Button x:Name="btnDelete" Tag="{Binding}" Background="{x:Null}" BorderThickness="0" MaxWidth="16" MaxHeight="16" Margin="2,0,0,0" Click="btnDelete_Click">
                             <Button.Content>
                                 <Image VerticalAlignment="Center" Source="{Binding DeleteIcon}"></Image>
