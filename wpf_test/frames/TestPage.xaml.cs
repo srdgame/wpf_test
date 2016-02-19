@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using wpf_test.ctrls;
 using wpf_test.data;
 
 namespace wpf_test.frames
@@ -27,23 +28,30 @@ namespace wpf_test.frames
             InitializeComponent();
         }
 
-        private void treeView_SelectedItemChanged(object sender, RoutedEventArgs e)
+        private void treeView_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
-            MessageBox.Show("ok");
+            MessageBox.Show("Selected!");
         }
         
-        private void treeView_ClickAdd(object sender, RoutedEventArgs e)
+        private void treeView_ClickAdd(object sender, PNRoutedEventArgs e)
         {
-            MessageBox.Show("Add");
+            PropertyNodeItem item = e.SourceItem as PropertyNodeItem;
+            PropertyNodeItem new_item = new PropertyNodeItem(PropertyNodeType.LEAF)
+            {
+                DisplayName = "New Tag",
+                Tips = "",
+            };
+            //new_item.IsSelected = true;
+            item.Children.Add(new_item);
 
         }
-        private void treeView_ClickEdit(object sender, RoutedEventArgs e)
+        private void treeView_ClickEdit(object sender, PNRoutedEventArgs e)
         {
             MessageBox.Show("Edit");
 
         }
 
-        private void treeView_ClickDelete(object sender, RoutedEventArgs e)
+        private void treeView_ClickDelete(object sender, PNRoutedEventArgs e)
         {
             MessageBox.Show("Delete");
 

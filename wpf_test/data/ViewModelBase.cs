@@ -45,7 +45,8 @@ namespace wpf_test.data
         {
             if (PropertyChanged != null)
             {
-                this.PropertyChanged.Invoke(this, new PropertyChangedEventArgs(propertyName));
+                //this.PropertyChanged.Invoke(this, new PropertyChangedEventArgs(propertyName));
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
         }
     }

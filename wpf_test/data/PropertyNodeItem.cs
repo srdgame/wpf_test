@@ -22,49 +22,15 @@ namespace wpf_test.data
     public class PropertyNodeItem : ViewModelBase, ICloneable
     {
         public PropertyNodeType Type { get; }
-        public string Icon {
-            get {
-                if (Type.HasFlag(PropertyNodeType.LEAF))
-                {
-                    return "/images/icon/leaf.png";
-                }
-                return "/images/icon/folder.png";
-            }
-        }
-        public string AddIcon
-        {
-            get
-            {
-                if (Type.HasFlag(PropertyNodeType.BOLE))
-                {
-                    return "/images/icon/add.png";
-                }
-                return "";
-            }
-        }
-        public string EditIcon
-        {
-            get
-            {
-                if (Type.HasFlag(PropertyNodeType.NOEDIT))
-                {
-                    return "";
-                }
-                return "/images/icon/edit.png";
-            }
-        }
-        public string DeleteIcon
-        {
-            get
-            {
-                if (Type.HasFlag(PropertyNodeType.NODELETE))
-                {
-                    return "";
-                }
-                return "/images/icon/delete.png";
-            }
-        }
-
+        public string Icon { get { return Type.HasFlag(PropertyNodeType.LEAF) ? "/images/icon/leaf.png" : "/images/icon/folder.png";} }
+        public string AddIcon { get { return Type.HasFlag(PropertyNodeType.BOLE) ? "/images/icon/add.png" : ""; } }
+        public string EditIcon { get { return Type.HasFlag(PropertyNodeType.NOEDIT) ? "" : "/images/icon/edit.png"; } }
+        public string DeleteIcon { get { return Type.HasFlag(PropertyNodeType.NODELETE) ? "" : "/images/icon/delete.png"; } }
+        private bool _is_expanded;
+        private bool _is_selected;
+        public bool IsExpanded { get { return _is_expanded; } set { _is_expanded = value; RaisePropertyChanged(() => IsExpanded); } }
+        //public bool IsSelected { get { return _is_selected; } set { _is_selected = value; RaisePropertyChanged(() => IsSelected); } }
+        public bool IsSelected { get { return _is_selected; } set { _is_selected = value; RaisePropertyChanged("IsSelected"); } }
         private PropertyNodeData Data;
         public string DisplayName
         {

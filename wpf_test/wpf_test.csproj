@@ -178,7 +178,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ctrls\MyTreeView.xaml">
+    <Page Include="ctrls\PNTreeView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -190,8 +190,8 @@
     <Compile Include="frames\LeftMenu.xaml.cs">
       <DependentUpon>LeftMenu.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ctrls\MyTreeView.xaml.cs">
-      <DependentUpon>MyTreeView.xaml</DependentUpon>
+    <Compile Include="ctrls\PNTreeView.xaml.cs">
+      <DependentUpon>PNTreeView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
