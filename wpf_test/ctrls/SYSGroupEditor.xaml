@@ -1,0 +1,18 @@
+﻿<UserControl x:Class="wpf_test.ctrls.SYSGroupEditor"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:wpf_test.ctrls"
+             mc:Ignorable="d" 
+             d:DesignHeight="480" d:DesignWidth="600">
+    <Grid>
+        <TextBox x:Name="text_name" HorizontalAlignment="Left" Height="23" Margin="61,12,0,0" TextWrapping="Wrap" Text="{Binding name}" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="text_desc" HorizontalAlignment="Left" Height="23" Margin="61,40,0,0" TextWrapping="Wrap" Text="{Binding desc}" VerticalAlignment="Top" Width="300"/>
+        <Label x:Name="label_name" Content="名字：" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label_desc" Content="描述：" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label_node" Content="所属：" HorizontalAlignment="Left" Margin="10,70,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="comboBox_node" HorizontalAlignment="Left" Margin="61,74,0,0" VerticalAlignment="Top" Width="120" Text="{Binding node}"/>
+        <local:RoleListView Margin="10,100,10,10"></local:RoleListView>
+    </Grid>
+</UserControl>
