@@ -89,6 +89,7 @@
     <Compile Include="ctrls\CMUserEditor.xaml.cs">
       <DependentUpon>CMUserEditor.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ctrls\PasswordHelper.cs" />
     <Compile Include="ctrls\RoleListView.xaml.cs">
       <DependentUpon>RoleListView.xaml</DependentUpon>
     </Compile>

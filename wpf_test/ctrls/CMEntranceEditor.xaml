@@ -7,12 +7,12 @@
              mc:Ignorable="d" 
              d:DesignHeight="480" d:DesignWidth="600">
     <Grid>
-        <TextBox x:Name="text_name" HorizontalAlignment="Left" Height="23" Margin="61,12,0,0" TextWrapping="Wrap" Text="{Binding name}" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="text_desc" HorizontalAlignment="Left" Height="23" Margin="61,40,0,0" TextWrapping="Wrap" Text="{Binding desc}" VerticalAlignment="Top" Width="300"/>
-        <Label x:Name="label_name" Content="名字：" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label_desc" Content="描述：" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label_node" Content="所属：" HorizontalAlignment="Left" Margin="10,70,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="comboBox_node" HorizontalAlignment="Left" Margin="61,74,0,0" VerticalAlignment="Top" Width="120" SelectedItem="{Binding node}"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="61,12,0,0" TextWrapping="Wrap" Text="{Binding name}" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="61,40,0,0" TextWrapping="Wrap" Text="{Binding desc}" VerticalAlignment="Top" Width="300"/>
+        <Label Content="名字：" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <Label Content="描述：" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top"/>
+        <Label Content="所属：" HorizontalAlignment="Left" Margin="10,70,0,0" VerticalAlignment="Top"/>
+        <ComboBox HorizontalAlignment="Left" Margin="61,74,0,0" VerticalAlignment="Top" Width="120" SelectedItem="{Binding node}"/>
 
     </Grid>
 </UserControl>

@@ -7,15 +7,15 @@
              mc:Ignorable="d" 
              d:DesignHeight="480" d:DesignWidth="600">
     <Grid>
-        <Label x:Name="label_name" Content="用户名：" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.464,2"/>
-        <TextBox x:Name="text_name" HorizontalAlignment="Left" Height="23" Margin="80,12,0,0" TextWrapping="Wrap" Text="{Binding username}" VerticalAlignment="Top" Width="120"/>
-        <Label x:Name="label_desc" Content="昵称：" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="text_desc" HorizontalAlignment="Left" Height="23" Margin="80,72,0,0" TextWrapping="Wrap" Text="{Binding nickname}" VerticalAlignment="Top" Width="120"/>
-        <Label x:Name="label_password" Content="密码：" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.464,2"/>
-        <PasswordBox x:Name="passwordBox" HorizontalAlignment="Left" Height="23" Margin="80,42,0,0" Password="{Binding password}" VerticalAlignment="Top" Width="120"/>
-        <Label x:Name="label_cellphone" Content="手机号码：" HorizontalAlignment="Left" Margin="10,100,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="text_cellphone" HorizontalAlignment="Left" Height="23" Margin="80,102,0,0" TextWrapping="Wrap" Text="{Binding cellphone}" VerticalAlignment="Top" Width="198"/>
-        <Label x:Name="label_email" Content="邮箱地址：" HorizontalAlignment="Left" Margin="10,128,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="text_email" HorizontalAlignment="Left" Height="23" Margin="80,130,0,0" TextWrapping="Wrap" Text="{Binding email}" VerticalAlignment="Top" Width="198"/>
+        <Label Content="用户名：" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.464,2"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="80,12,0,0" TextWrapping="Wrap" Text="{Binding username}" VerticalAlignment="Top" Width="120"/>
+        <Label Content="昵称：" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="80,72,0,0" TextWrapping="Wrap" Text="{Binding nickname}" VerticalAlignment="Top" Width="120"/>
+        <Label Content="密码：" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.464,2"/>
+        <PasswordBox local:PasswordHelper.Attach="True" local:PasswordHelper.Password="{Binding password, ElementName=plain, Mode=TwoWay}" HorizontalAlignment="Left" Height="23" Margin="80,42,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="手机号码：" HorizontalAlignment="Left" Margin="10,100,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="80,102,0,0" TextWrapping="Wrap" Text="{Binding cellphone}" VerticalAlignment="Top" Width="198"/>
+        <Label Content="邮箱地址：" HorizontalAlignment="Left" Margin="10,128,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="80,130,0,0" TextWrapping="Wrap" Text="{Binding email}" VerticalAlignment="Top" Width="198"/>
     </Grid>
 </UserControl>
