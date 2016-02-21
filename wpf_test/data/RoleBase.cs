@@ -8,6 +8,7 @@ namespace wpf_test.data
 {
     public class RoleBase : ViewModelBase
     {
+        public string id { get; set; }
         public string name { get; set; }
         public string desc { get; set; }
     }
