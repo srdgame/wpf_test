@@ -12,7 +12,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using wpf_test.data;
 
 namespace wpf_test.ctrls
 {
@@ -21,9 +20,8 @@ namespace wpf_test.ctrls
     /// </summary>
     public partial class CMEntranceEditor : UserControl
     {
-        public CMEntranceEditor(CMEntrance data)
+        public CMEntranceEditor()
         {
-            DataContext = data;
             InitializeComponent();
         }
     }
