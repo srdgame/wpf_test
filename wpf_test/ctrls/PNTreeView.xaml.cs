@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using wpf_test.data;
 
 namespace wpf_test.ctrls
 {
@@ -108,6 +109,20 @@ namespace wpf_test.ctrls
         }
         private void treeView_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
+            PropertyNodeItem item = treeView.SelectedItem as PropertyNodeItem;
+            if (item != null)
+            {
+                btn_Add.IsEnabled = item.Type != PropertyNodeType.LEAF;
+                btn_Delete.IsEnabled = true;
+                btn_Edit.IsEnabled = true;
+            }
+            else
+            {
+                btn_Add.IsEnabled = false;
+                btn_Delete.IsEnabled = false;
+                btn_Edit.IsEnabled = false;
+            }
+
             e.RoutedEvent = SelectedItemChangedEvent;
             RaiseEvent(e);
         }
@@ -121,5 +136,11 @@ namespace wpf_test.ctrls
         public object SelectedValue { get { return treeView.SelectedValue; } }
         public string SelectedValuePath { get { return treeView.SelectedValuePath; } set { treeView.SelectedValuePath = value; } }
 
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            btn_Add.IsEnabled = false;
+            btn_Delete.IsEnabled = false;
+            btn_Edit.IsEnabled = false;
+        }
     }
 }

@@ -12,7 +12,7 @@
         <Label x:Name="label_name" Content="名字：" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label_desc" Content="描述：" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label_node" Content="所属：" HorizontalAlignment="Left" Margin="10,70,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="comboBox_node" HorizontalAlignment="Left" Margin="61,74,0,0" VerticalAlignment="Top" Width="120" Text="{Binding node}"/>
+        <ComboBox x:Name="comboBox_node" HorizontalAlignment="Left" Margin="61,74,0,0" VerticalAlignment="Top" Width="120" SelectedItem="{Binding node}"/>
 
     </Grid>
 </UserControl>

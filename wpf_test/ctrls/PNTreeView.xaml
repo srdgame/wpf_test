@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:wpf_test.ctrls"
              xmlns:data="clr-namespace:wpf_test.data"
              mc:Ignorable="d" 
-             d:DesignHeight="480" d:DesignWidth="200">
+             d:DesignHeight="480" d:DesignWidth="200" Loaded="UserControl_Loaded">
     <Grid>
         <TreeView x:Name="treeView" SelectedItemChanged="treeView_SelectedItemChanged" Margin="0,0,0,68">
             <TreeView.ItemTemplate>

@@ -14,9 +14,9 @@
         <TextBox x:Name="text_address" HorizontalAlignment="Left" Height="23" Margin="61,70,0,0" TextWrapping="Wrap" Text="{Binding desc}" VerticalAlignment="Top" Width="300"/>
         <Label x:Name="label_address" Content="地址：" HorizontalAlignment="Left" Margin="10,70,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label_category" Content="类型：" HorizontalAlignment="Left" Margin="10,95,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="comboBox_category" HorizontalAlignment="Left" Margin="61,98,0,0" VerticalAlignment="Top" Width="120" Text="{Binding category}"/>
+        <ComboBox x:Name="comboBox_category" HorizontalAlignment="Left" Margin="61,98,0,0" VerticalAlignment="Top" Width="120" SelectedItem="{Binding category}"/>
         <Label x:Name="label_parent" Content="父节点：" HorizontalAlignment="Left" Margin="10,121,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="comboBox_parent" HorizontalAlignment="Left" Margin="73,125,0,0" VerticalAlignment="Top" Width="120" Text="{Binding category}"/>
+        <ComboBox x:Name="comboBox_parent" HorizontalAlignment="Left" Margin="73,125,0,0" VerticalAlignment="Top" Width="120" SelectedItem="{Binding parent}"/>
 
     </Grid>
 </UserControl>
