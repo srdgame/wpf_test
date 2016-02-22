@@ -7,11 +7,6 @@ using System.Threading.Tasks;
 
 namespace wpf_test.data
 { 
-    public class PropertyNodeData
-    {
-        public string DisplayName { get; set; }
-        public string Tips { get; set; }
-    }
     public enum PropertyNodeType
     {
         BOLE = 1,
@@ -31,28 +26,29 @@ namespace wpf_test.data
         public bool IsExpanded { get { return _is_expanded; } set { _is_expanded = value; RaisePropertyChanged(() => IsExpanded); } }
         //public bool IsSelected { get { return _is_selected; } set { _is_selected = value; RaisePropertyChanged(() => IsSelected); } }
         public bool IsSelected { get { return _is_selected; } set { _is_selected = value; RaisePropertyChanged("IsSelected"); } }
-        private PropertyNodeData Data;
+        private string _display_name;
         public string DisplayName
         {
-            get { return Data.DisplayName; }
+            get { return _display_name; }
             set
             {
-                if (Data.DisplayName != value)
+                if (_display_name != value)
                 {
-                    Data.DisplayName = value;
+                    _display_name = value;
                     RaisePropertyChanged(() => DisplayName);
                     //RaisePropertyChanged("DisplayName");
                 }
             }
         }
+        private string _tips;
         public string Tips
         {
-            get { return Data.Tips; }
+            get { return _tips; }
             set
             {
-                if (Data.Tips != value)
+                if (_tips != value)
                 {
-                    Data.Tips = value;
+                    _tips = value;
                     RaisePropertyChanged(() => Tips);
                 }
             }
@@ -62,7 +58,6 @@ namespace wpf_test.data
         public PropertyNodeItem(PropertyNodeType type)
         {
             Type = type;
-            Data = new PropertyNodeData();
             Children = new ObservableCollection<PropertyNodeItem>();
         }
 
