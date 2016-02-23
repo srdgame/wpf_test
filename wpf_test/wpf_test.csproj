@@ -111,15 +111,6 @@
     <Compile Include="data\RoleBase.cs" />
     <Compile Include="data\SYSGroup.cs" />
     <Compile Include="data\SYSUser.cs" />
-    <Compile Include="diags\BuildingDlg.xaml.cs">
-      <DependentUpon>BuildingDlg.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="diags\DistDlg.xaml.cs">
-      <DependentUpon>DistDlg.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="diags\UserDlg.xaml.cs">
-      <DependentUpon>UserDlg.xaml</DependentUpon>
-    </Compile>
     <Compile Include="frames\AdMgr.xaml.cs">
       <DependentUpon>AdMgr.xaml</DependentUpon>
     </Compile>
@@ -155,18 +146,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ctrls\SYSUserEditor.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="diags\BuildingDlg.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="diags\DistDlg.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="diags\UserDlg.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
