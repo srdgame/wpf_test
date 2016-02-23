@@ -8,9 +8,9 @@
              mc:Ignorable="d" 
              d:DesignHeight="480" d:DesignWidth="200" Loaded="UserControl_Loaded">
     <Grid>
-        <TreeView x:Name="treeView" SelectedItemChanged="treeView_SelectedItemChanged" Margin="0,0,0,68" SelectedValuePath="Id">
+        <TreeView x:Name="treeView" SelectedItemChanged="treeView_SelectedItemChanged" Margin="0,0,0,68" SelectedValuePath="Data">
             <TreeView.ItemTemplate>
-                <HierarchicalDataTemplate DataType="{x:Type data:PropertyNodeItem}" ItemsSource="{Binding Path=Children}">
+                <HierarchicalDataTemplate ItemsSource="{Binding Path=Children}">
                     <StackPanel Orientation="Horizontal">
                         <Image VerticalAlignment="Center" Source="{Binding Icon}" Width="16" Height="16" Margin="0,0,2,2"></Image>
                         <TextBlock VerticalAlignment="Center" Text="{Binding DisplayName}"></TextBlock>

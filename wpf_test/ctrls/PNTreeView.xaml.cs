@@ -40,7 +40,7 @@ namespace wpf_test.ctrls
             typeof(EventHandler<PNRoutedEventArgs>),
             typeof(PNTreeView));
 
-        public event RoutedEventHandler ClickAdd
+        public event EventHandler<PNRoutedEventArgs> ClickAdd
         {
             add { AddHandler(PNTreeView.ClickAddEvent, value, false); }
             remove { RemoveHandler(PNTreeView.ClickAddEvent, value); }
@@ -52,7 +52,7 @@ namespace wpf_test.ctrls
             pe.SourceItem = btn.Tag != null ? btn.Tag : treeView.SelectedItem;
 
             // Expand the click item
-            (pe.SourceItem as data.PropertyNodeItem).IsExpanded = true;
+            (pe.SourceItem as data.PropertyNodeItemBase).IsExpanded = true;
 
             RaiseEvent(pe);
         }
@@ -63,7 +63,7 @@ namespace wpf_test.ctrls
             typeof(EventHandler<PNRoutedEventArgs>),
             typeof(PNTreeView));
 
-        public event RoutedEventHandler ClickEdit
+        public event EventHandler<PNRoutedEventArgs> ClickEdit
         {
             add { AddHandler(PNTreeView.ClickEditEvent, value, false); }
             remove { RemoveHandler(PNTreeView.ClickEditEvent, value); }
@@ -83,7 +83,7 @@ namespace wpf_test.ctrls
             typeof(EventHandler<PNRoutedEventArgs>),
             typeof(PNTreeView));
 
-        public event RoutedEventHandler ClickDelete
+        public event EventHandler<PNRoutedEventArgs> ClickDelete
         {
             add { AddHandler(PNTreeView.ClickDeleteEvent, value, false); }
             remove { RemoveHandler(PNTreeView.ClickDeleteEvent, value); }
@@ -102,14 +102,14 @@ namespace wpf_test.ctrls
             typeof(RoutedPropertyChangedEventHandler<object>),
             typeof(PNTreeView));
 
-        public event RoutedEventHandler SelectedItemChanged
+        public event RoutedPropertyChangedEventHandler<object> SelectedItemChanged
         {
             add { AddHandler(PNTreeView.SelectedItemChangedEvent, value, false); }
             remove { RemoveHandler(PNTreeView.SelectedItemChangedEvent, value); }
         }
         private void treeView_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
-            PropertyNodeItem item = treeView.SelectedItem as PropertyNodeItem;
+            var item = treeView.SelectedItem as PropertyNodeItemBase;
             if (item != null)
             {
                 btn_Add.IsEnabled = item.Type != PropertyNodeType.LEAF;

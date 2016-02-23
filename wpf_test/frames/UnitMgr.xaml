@@ -10,21 +10,7 @@
       Title="UnitMgr" Loaded="Page_Loaded">
 
     <Grid>
-        <ctrls:PNTreeView x:Name="treeView" HorizontalAlignment="Left" Margin="10,10,0,10" Width="240" />
-        <ListView x:Name="listView" HorizontalAlignment="Left" Height="200" Margin="255,10,0,0" VerticalAlignment="Top" Width="535" SelectionMode="Single" SelectedIndex="0">
-            <Button Content="一号楼" Height="40" Width="53" Background="#FFE0D7D7" ForceCursor="True"/>
-            <Button Content="二号楼" Height="40" Width="53"/>
-            <Button Content="三号楼" Height="40" Width="53"/>
-            <Button Content="+" Height="40" Width="53" Click="Button_Click_Add_Building"/>
-        </ListView>
-        <ListView x:Name="listView1" HorizontalAlignment="Left" Height="179" Margin="255,215,0,0" VerticalAlignment="Top" Width="535" SelectionMode="Single" SelectedIndex="1">
-            <Button Content="一单元" Height="40" Width="53"/>
-            <Button Content="二单元" Height="40" Width="53"/>
-            <Button Content="三单元" Height="40" Width="53"/>
-        </ListView>
-        <GroupBox x:Name="groupBox" Header="门禁机状态和管理" HorizontalAlignment="Left" Margin="255,399,0,0" VerticalAlignment="Top" Width="535" Height="231">
-            <Button x:Name="button" Content="管理门禁机" HorizontalAlignment="Left" Margin="24,137,0,0" VerticalAlignment="Top" Width="112" Height="36"/>
-        </GroupBox>
-        <Image x:Name="image" HorizontalAlignment="Left" Height="64" Margin="284,446,0,0" VerticalAlignment="Top" Width="64" Source="/wpf_test;component/images/network-offline.png"/>
+        <ctrls:PNTreeView x:Name="treeView" HorizontalAlignment="Left" Margin="10,10,0,10" Width="240" ClickAdd="treeView_ClickAdd" ClickEdit="treeView_ClickEdit" ClickDelete="treeView_ClickDelete" SelectedItemChanged="treeView_SelectedItemChanged"/>
+        <Frame x:Name="frame" Margin="255,0,0,0"/>
     </Grid>
 </Page>

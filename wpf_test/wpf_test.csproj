@@ -105,14 +105,21 @@
     <Compile Include="ctrls\SYSUserEditor.xaml.cs">
       <DependentUpon>SYSUserEditor.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ctrls\TestEditor.xaml.cs">
+      <DependentUpon>TestEditor.xaml</DependentUpon>
+    </Compile>
     <Compile Include="data\CMEntrance.cs" />
     <Compile Include="data\CMNodeBase.cs" />
     <Compile Include="data\CMUser.cs" />
+    <Compile Include="data\NodeData.cs" />
     <Compile Include="data\RoleBase.cs" />
     <Compile Include="data\SYSGroup.cs" />
     <Compile Include="data\SYSUser.cs" />
     <Compile Include="frames\AdMgr.xaml.cs">
       <DependentUpon>AdMgr.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="frames\EditorPage.xaml.cs">
+      <DependentUpon>EditorPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="frames\UnitMgr.xaml.cs">
       <DependentUpon>UnitMgr.xaml</DependentUpon>
@@ -149,7 +156,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ctrls\TestEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="frames\AdMgr.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="frames\EditorPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

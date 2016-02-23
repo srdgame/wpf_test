@@ -25,12 +25,5 @@ namespace wpf_test.frames
             m_Main = main;
             InitializeComponent();
         }
-
-        private void button_add_Click(object sender, RoutedEventArgs e)
-        {
-            Window dlg = new diags.UserDlg();
-            dlg.Owner = m_Main;
-            dlg.ShowDialog();
-        }
     }
 }

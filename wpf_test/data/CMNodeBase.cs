@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace wpf_test.data
 {
-    public class CMNodeBase
+    public class CMNodeCategory
+    {
+        public string name { get; set; }
+        public int value { get; set; }
+    }
+    public class CMNodeBase : NodeData
     {
         public string id{ get; set; }
         public string name { get; set; }
@@ -16,5 +21,10 @@ namespace wpf_test.data
         public string parent { get; set; }
         public string creator { get; set; }
         public DateTime creation_time { get; set; }
+
+        public object Clone()
+        {
+            return MemberwiseClone();
+        }
     }
 }

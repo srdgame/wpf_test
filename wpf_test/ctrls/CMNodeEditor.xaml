@@ -4,19 +4,51 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:wpf_test.ctrls"
+             xmlns:data="clr-namespace:wpf_test.data"
              mc:Ignorable="d" 
-             d:DesignHeight="480" d:DesignWidth="600">
+             d:DesignHeight="480" d:DesignWidth="600" Loaded="UserControl_Loaded">
     <Grid>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="61,12,0,0" TextWrapping="Wrap" Text="{Binding name}" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="61,40,0,0" TextWrapping="Wrap" Text="{Binding desc}" VerticalAlignment="Top" Width="300"/>
         <Label Content="名字：" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="61,12,0,0" TextWrapping="Wrap" Text="{Binding name}" VerticalAlignment="Top" Width="120"/>
         <Label Content="描述：" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="61,70,0,0" TextWrapping="Wrap" Text="{Binding desc}" VerticalAlignment="Top" Width="300"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="61,40,0,0" TextWrapping="Wrap" Text="{Binding desc}" VerticalAlignment="Top" Width="300"/>
         <Label Content="地址：" HorizontalAlignment="Left" Margin="10,70,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="61,70,0,0" TextWrapping="Wrap" Text="{Binding address}" VerticalAlignment="Top" Width="300"/>
         <Label Content="类型：" HorizontalAlignment="Left" Margin="10,95,0,0" VerticalAlignment="Top"/>
-        <ComboBox HorizontalAlignment="Left" Margin="61,98,0,0" VerticalAlignment="Top" Width="120" SelectedItem="{Binding category}"/>
+        <ComboBox x:Name="categoryList" HorizontalAlignment="Left" Margin="61,98,0,0" VerticalAlignment="Top" Width="120" SelectedValue="{Binding category}" SelectedValuePath="value" DisplayMemberPath="name"/>
         <Label Content="父节点：" HorizontalAlignment="Left" Margin="10,121,0,0" VerticalAlignment="Top"/>
-        <ComboBox HorizontalAlignment="Left" Margin="73,125,0,0" VerticalAlignment="Top" Width="120" SelectedItem="{Binding parent}"/>
-
+        <ComboBox x:Name="nodeList" HorizontalAlignment="Left" Margin="73,125,0,0" VerticalAlignment="Top" Width="120" SelectedValue="{Binding parent}" SelectedValuePath="Id" DisplayMemberPath="DisplayName">
+            <ComboBoxItem>
+                <ComboBoxItem.Template>
+                    <ControlTemplate>
+                        <TreeView ItemsSource="{Binding Children}">
+                            <TreeView.ItemTemplate>
+                                <HierarchicalDataTemplate ItemsSource="{Binding Path=Children}">
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock VerticalAlignment="Center" Text="{Binding Tips}"></TextBlock>
+                                        <TextBlock VerticalAlignment="Center" Text="{Binding DisplayName}"></TextBlock>
+                                    </StackPanel>
+                                </HierarchicalDataTemplate>
+                            </TreeView.ItemTemplate>
+                        </TreeView>
+                    </ControlTemplate>
+                </ComboBoxItem.Template>
+            </ComboBoxItem>
+        </ComboBox>
+        <!--<ComboBox x:Name="nodeList" HorizontalAlignment="Left" Margin="73,125,0,0" VerticalAlignment="Top" Width="120">
+            <Expander Header="TestCS">
+                <Popup IsOpen="{Binding IsExpanded, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Expander}}}">
+                    <TreeView ItemsSource="{Binding Children}">
+                        <TreeView.Resources>
+                            <HierarchicalDataTemplate ItemsSource="{Binding Children}" DataType="{x:Type data:CMNodeBase}">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding DisplayName}"></TextBlock>
+                                </StackPanel>
+                            </HierarchicalDataTemplate>
+                        </TreeView.Resources>
+                    </TreeView>
+                </Popup>
+            </Expander>
+        </ComboBox>-->
     </Grid>
 </UserControl>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using wpf_test.data;
 
 namespace wpf_test.ctrls
 {
@@ -20,9 +22,15 @@ namespace wpf_test.ctrls
     /// </summary>
     public partial class SYSGroupEditor : UserControl
     {
+        public ObservableCollection<CMNodeBase> NodeList { get; set; }
         public SYSGroupEditor()
         {
             InitializeComponent();
+        }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            nodeList.ItemsSource = NodeList;
         }
     }
 }

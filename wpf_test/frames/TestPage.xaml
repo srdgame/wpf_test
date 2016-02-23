@@ -10,6 +10,7 @@
       Title="TestPage" Loaded="Page_Loaded">
 
     <Grid>
-        <ctrls:PNTreeView x:Name="treeView" SelectedItemChanged="treeView_SelectedItemChanged" HorizontalAlignment="Left" Width="200" Margin="10,10,0,10" ClickAdd="treeView_ClickAdd" ClickEdit="treeView_ClickEdit" ClickDelete="treeView_ClickDelete"/>
+        <ctrls:PNTreeView x:Name="treeView" SelectedItemChanged="treeView_SelectedItemChanged" HorizontalAlignment="Left" Width="240" Margin="10,10,0,10" ClickAdd="treeView_ClickAdd" ClickEdit="treeView_ClickEdit" ClickDelete="treeView_ClickDelete"/>
+        <Frame x:Name="frame" Margin="255,0,0,0"/>
     </Grid>
 </Page>
