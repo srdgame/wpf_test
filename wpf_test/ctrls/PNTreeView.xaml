@@ -8,7 +8,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="480" d:DesignWidth="200" Loaded="UserControl_Loaded">
     <Grid>
-        <TreeView x:Name="treeView" SelectedItemChanged="treeView_SelectedItemChanged" Margin="0,0,0,68">
+        <TreeView x:Name="treeView" SelectedItemChanged="treeView_SelectedItemChanged" Margin="0,0,0,68" SelectedValuePath="Id">
             <TreeView.ItemTemplate>
                 <HierarchicalDataTemplate DataType="{x:Type data:PropertyNodeItem}" ItemsSource="{Binding Path=Children}">
                     <StackPanel Orientation="Horizontal">

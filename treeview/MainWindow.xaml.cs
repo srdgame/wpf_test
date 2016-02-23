@@ -45,6 +45,7 @@ namespace treeview
 
             PropertyNodeItem node1 = new PropertyNodeItem()
             {
+                Id = Guid.NewGuid().ToString(),
                 DisplayName = "Node No.1",
                 Tips = "This is the discription of Node1. This is a folder.",
                 Icon = FOLDER_ICON,
@@ -150,7 +151,7 @@ namespace treeview
 
         private void treeView_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
-            PropertyNodeItem item = treeView.SelectedValue as PropertyNodeItem;
+            PropertyNodeItem item = treeView.SelectedItem as PropertyNodeItem;
             itemshow.Bind(item);
         }
     }

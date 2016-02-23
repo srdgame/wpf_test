@@ -16,6 +16,7 @@ namespace wpf_test.data
     }
     public class PropertyNodeItem : ViewModelBase, ICloneable
     {
+        public string Id { get; set; }
         public PropertyNodeType Type { get; }
         public string Icon { get { return Type.HasFlag(PropertyNodeType.LEAF) ? "/images/icon/leaf.png" : "/images/icon/folder.png";} }
         public string AddIcon { get { return Type.HasFlag(PropertyNodeType.BOLE) ? "/images/icon/add.png" : ""; } }

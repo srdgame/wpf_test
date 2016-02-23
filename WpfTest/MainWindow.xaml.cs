@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace treeview
+namespace WpfTest
 {
 
     /// <summary>
@@ -23,6 +23,15 @@ namespace treeview
     {
         public MainWindow()
         {
+            //Type t = Type.GetType("WpfTest.diags.Login");
+            //object login = Activator.CreateInstance(t);
+            //Window dlg = login as Window;
+            //dlg.ShowDialog();
+            Type t = Type.GetType("WpfTest.Window1");
+            var w = Activator.CreateInstance(t);
+            var dlg = w as Window1;
+            dlg.ShowDialog();
+
             InitializeComponent();
         }
 

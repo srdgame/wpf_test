@@ -9,6 +9,7 @@ namespace treeview
 {
     public class PropertyNodeData
     {
+        public string Id { get; set; }
         public string DisplayName { get; set; }
         public string Tips { get; set; }
     }
@@ -20,6 +21,18 @@ namespace treeview
         public string DeleteIcon { get; set; }
 
         private PropertyNodeData Data;
+        public string Id
+        {
+            get { return Data.Id; }
+            set
+            {
+                if (Data.Id != value)
+                {
+                    Data.Id = value;
+                    RaisePropertyChanged(() => Id);
+                }
+            }
+        }
         public string DisplayName
         {
             get { return Data.DisplayName; }
