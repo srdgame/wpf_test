@@ -23,8 +23,18 @@ namespace wpf_test.ctrls
     /// </summary>
     public partial class CMNodeEditor : UserControl
     {
-        public ObservableCollection<CMNodeCategory> Categories { get; set; }
-        public IEnumerable NodeList { get; set; }
+        public ObservableCollection<CMNodeCategory> Categories
+        {
+            get
+            {
+                return categoryList.ItemsSource as ObservableCollection<CMNodeCategory>;
+            }
+            set
+            {
+                categoryList.ItemsSource = value;
+            }
+        }
+        public IEnumerable<object> NodeList { set { nodeList.ItemsSource = value; }  }
         public CMNodeEditor()
         {
             InitializeComponent();
@@ -32,9 +42,7 @@ namespace wpf_test.ctrls
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            categoryList.ItemsSource = Categories;
-            nodeList.Items.Clear();
-            nodeList.ItemsSource = NodeList;
+           // categoryList.ItemsSource = Categories;
         }
     }
 }

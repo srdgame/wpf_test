@@ -17,38 +17,6 @@
         <Label Content="类型：" HorizontalAlignment="Left" Margin="10,95,0,0" VerticalAlignment="Top"/>
         <ComboBox x:Name="categoryList" HorizontalAlignment="Left" Margin="61,98,0,0" VerticalAlignment="Top" Width="120" SelectedValue="{Binding category}" SelectedValuePath="value" DisplayMemberPath="name"/>
         <Label Content="父节点：" HorizontalAlignment="Left" Margin="10,121,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="nodeList" HorizontalAlignment="Left" Margin="73,125,0,0" VerticalAlignment="Top" Width="120" SelectedValue="{Binding parent}" SelectedValuePath="Id" DisplayMemberPath="DisplayName">
-            <ComboBoxItem>
-                <ComboBoxItem.Template>
-                    <ControlTemplate>
-                        <TreeView ItemsSource="{Binding Children}">
-                            <TreeView.ItemTemplate>
-                                <HierarchicalDataTemplate ItemsSource="{Binding Path=Children}">
-                                    <StackPanel Orientation="Horizontal">
-                                        <TextBlock VerticalAlignment="Center" Text="{Binding Tips}"></TextBlock>
-                                        <TextBlock VerticalAlignment="Center" Text="{Binding DisplayName}"></TextBlock>
-                                    </StackPanel>
-                                </HierarchicalDataTemplate>
-                            </TreeView.ItemTemplate>
-                        </TreeView>
-                    </ControlTemplate>
-                </ComboBoxItem.Template>
-            </ComboBoxItem>
-        </ComboBox>
-        <!--<ComboBox x:Name="nodeList" HorizontalAlignment="Left" Margin="73,125,0,0" VerticalAlignment="Top" Width="120">
-            <Expander Header="TestCS">
-                <Popup IsOpen="{Binding IsExpanded, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Expander}}}">
-                    <TreeView ItemsSource="{Binding Children}">
-                        <TreeView.Resources>
-                            <HierarchicalDataTemplate ItemsSource="{Binding Children}" DataType="{x:Type data:CMNodeBase}">
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="{Binding DisplayName}"></TextBlock>
-                                </StackPanel>
-                            </HierarchicalDataTemplate>
-                        </TreeView.Resources>
-                    </TreeView>
-                </Popup>
-            </Expander>
-        </ComboBox>-->
+        <local:ComboTree x:Name="nodeList" HorizontalAlignment="Left" Margin="73,125,0,0" VerticalAlignment="Top" Width="120" SelectedValue="{Binding parent}" SelectedValuePath="Id"/>
     </Grid>
 </UserControl>

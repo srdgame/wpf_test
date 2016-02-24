@@ -53,6 +53,7 @@ namespace wpf_test.frames
                 name = "中关村东路",
                 desc = "中关村东路下辖小区.",
                 category = 400,
+                parent = haidian.Data.id,
                 address = "Address....."
             });
             var zdhbuilding = new PropertyNodeItem<CMNodeBase>(PropertyNodeType.LEAF, new CMNodeBase()
@@ -61,6 +62,7 @@ namespace wpf_test.frames
                 name = "自动化大厦",
                 desc = "中关村东路95号.",
                 category = 300,
+                parent = zgceast.Data.id,
                 address = "Address....."
             });
             zgceast.Children.Add(zdhbuilding);
@@ -72,6 +74,7 @@ namespace wpf_test.frames
                 name = "翠宫",
                 desc = "翠宫饭店.",
                 category = 300,
+                parent = haidian.Data.id,
                 address = "cuigong....."
             });
             haidian.Children.Add(cg);

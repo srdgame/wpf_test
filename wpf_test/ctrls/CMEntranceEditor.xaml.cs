@@ -22,7 +22,7 @@ namespace wpf_test.ctrls
     /// </summary>
     public partial class CMEntranceEditor : UserControl
     {
-        public ObservableCollection<CMNodeBase> NodeList { get; set; }
+        public IEnumerable<object> NodeList { set { nodeList.ItemsSource = value; }  }
         public CMEntranceEditor()
         {
             InitializeComponent();
@@ -30,7 +30,6 @@ namespace wpf_test.ctrls
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            nodeList.ItemsSource = NodeList;
         }
     }
 }

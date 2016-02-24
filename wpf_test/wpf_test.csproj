@@ -89,6 +89,9 @@
     <Compile Include="ctrls\CMUserEditor.xaml.cs">
       <DependentUpon>CMUserEditor.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ctrls\ComboTree.xaml.cs">
+      <DependentUpon>ComboTree.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ctrls\PasswordHelper.cs" />
     <Compile Include="ctrls\RoleListView.xaml.cs">
       <DependentUpon>RoleListView.xaml</DependentUpon>
@@ -135,6 +138,10 @@
     <Page Include="ctrls\CMUserEditor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ctrls\ComboTree.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="ctrls\RoleListView.xaml">
       <SubType>Designer</SubType>

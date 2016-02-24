@@ -12,7 +12,7 @@
         <Label Content="描述：" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="61,40,0,0" TextWrapping="Wrap" Text="{Binding desc}" VerticalAlignment="Top" Width="300"/>
         <Label Content="所属：" HorizontalAlignment="Left" Margin="10,70,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="nodeList" HorizontalAlignment="Left" Margin="61,74,0,0" VerticalAlignment="Top" Width="120" SelectedItem="{Binding node}" SelectedValuePath="id" DisplayMemberPath="name"/>
+        <local:ComboTree x:Name="nodeList" HorizontalAlignment="Left" Margin="61,74,0,0"  VerticalAlignment="Top" Width="120" SelectedValue="{Binding node}" SelectedValuePath="Id"/>
         <local:RoleListView x:Name="roleListView" Margin="10,100,10,10"></local:RoleListView>
     </Grid>
 </UserControl>
