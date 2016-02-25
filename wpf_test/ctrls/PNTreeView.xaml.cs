@@ -52,7 +52,7 @@ namespace wpf_test.ctrls
             PNRoutedEventArgs pe = new PNRoutedEventArgs(ClickAddEvent, e.Source);
             Button btn = sender as Button;
             pe.SourceItem = btn.Tag != null ? btn.Tag : SelectedItem;
-            pe.SourceData = (pe.SourceItem as PropertyNodeItem).Data;
+            pe.SourceData = (pe.SourceItem as PropertyNodeItem).Owner;
             // Expand the click item
             (pe.SourceItem as data.PropertyNodeItem).IsExpanded = true;
 
@@ -76,7 +76,7 @@ namespace wpf_test.ctrls
             PNRoutedEventArgs pe = new PNRoutedEventArgs(ClickEditEvent, e.Source);
             Button btn = sender as Button;
             pe.SourceItem = btn.Tag != null ? btn.Tag : SelectedItem;
-            pe.SourceData = (pe.SourceItem as PropertyNodeItem).Data;
+            pe.SourceData = (pe.SourceItem as PropertyNodeItem).Owner;
             RaiseEvent(pe);
         }
 
@@ -96,7 +96,7 @@ namespace wpf_test.ctrls
             PNRoutedEventArgs pe = new PNRoutedEventArgs(ClickDeleteEvent, e.Source);
             Button btn = sender as Button;
             pe.SourceItem = btn.Tag != null ? btn.Tag : SelectedItem;
-            pe.SourceData = (pe.SourceItem as PropertyNodeItem).Data;
+            pe.SourceData = (pe.SourceItem as PropertyNodeItem).Owner;
             RaiseEvent(pe);
         }
 

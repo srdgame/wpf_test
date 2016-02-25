@@ -119,18 +119,24 @@ namespace wpf_test.ctrls
         private static void OnSelectedValueChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             var thisControl = d as ComboTree;
-            var item = thisControl.comboBox.Items[0] as ComboBoxItem;
+            var cbItemDisplay = thisControl.comboBox.Items[0] as ComboBoxItem;
+            //if (cbItemDisplay.Tag != null && cbItemDisplay.Tag.Equals(e.NewValue))
+            //{
+            //    return;
+            //}
             if (thisControl.SelectedValuePath != null && thisControl.SelectedValuePath != string.Empty)
             {
                 PropertyInfo pi = thisControl.ItemsSource.FirstOrDefault().GetType().GetProperty(thisControl.SelectedValuePath);
                 PropertyInfo cpi = thisControl.ItemsSource.FirstOrDefault().GetType().GetProperty(thisControl.ChildrenPath);
-                item.DataContext = FindItem(thisControl.ItemsSource, pi, cpi, e.NewValue);
+                cbItemDisplay.DataContext = FindItem(thisControl.ItemsSource, pi, cpi, e.NewValue);
             }
             else
             {
                 PropertyInfo cpi = thisControl.ItemsSource.FirstOrDefault().GetType().GetProperty(thisControl.ChildrenPath);
-                item.DataContext = FindItem(thisControl.ItemsSource, null, cpi, e.NewValue);
+                cbItemDisplay.DataContext = FindItem(thisControl.ItemsSource, null, cpi, e.NewValue);
             }
+            if (cbItemDisplay.DataContext != null)
+                cbItemDisplay.Tag = e.NewValue;
         }
 
         public static readonly RoutedEvent SelectionChangedEvent =
@@ -149,12 +155,19 @@ namespace wpf_test.ctrls
         {
             var cbItemDisplay = comboBox.Items[0] as ComboBoxItem;
             cbItemDisplay.DataContext = e.NewValue;
-            SelectedValue = cbItemDisplay.DataContext;
         }
 
         private void comboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            comboBox.SelectedItem = comboBox.Items[0];
+            var cbItemDisplay = comboBox.Items[0] as ComboBoxItem;
+            comboBox.SelectedItem = cbItemDisplay;
+            var data = cbItemDisplay.DataContext;
+            if (data != null)
+            {
+                SelectedValue = data.GetType().GetProperty(this.SelectedValuePath).GetValue(data);
+                cbItemDisplay.Tag = SelectedValue;
+            }
+
             e.RoutedEvent = SelectionChangedEvent;
             e.Source = this;
             RaiseEvent(e);

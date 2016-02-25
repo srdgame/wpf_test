@@ -158,7 +158,10 @@ namespace wpf_test.frames
         {
             var page = frame.Content as EditorPage;
             var item = treeView.SelectedItem as PropertyNodeItem;
-            item.Data = page.EditorData as CMNodeBase;
+
+            var data = treeView.SelectedData as CMNodeBase;
+
+            data = page.EditorData as CMNodeBase;
             item.IsNew = false;
         }
     }

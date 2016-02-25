@@ -48,9 +48,11 @@ namespace wpf_test.frames
         private void treeView_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
             var v = treeView.SelectedItem as PropertyNodeItem;
+            var data = treeView.SelectedData as TestData;
+
             var page = new frames.EditorPage()
             {
-                Editor = new TestEditor() { DataContext = v.Data.Clone() },
+                Editor = new TestEditor() { DataContext = data.Clone() },
             };
             page.Save += OnSave;
             frame.Navigate(page);
@@ -64,8 +66,8 @@ namespace wpf_test.frames
         {
             var page = frame.Content as EditorPage;
             var item = treeView.SelectedItem as PropertyNodeItem;
-            var data = page.EditorData as TestData;
-            item.Data = data;
+            var data = treeView.SelectedData as TestData;
+            data = page.EditorData as TestData;
             item.IsNew = false;
         }
 

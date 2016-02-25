@@ -58,10 +58,7 @@ namespace wpf_test.data
         {
             Parent = parent;
             Children = new NodeDataList();
-            Item = new PropertyNodeItem()
-            {
-                Data = this,
-            };
+            Item = new PropertyNodeItem(this);
         }
     }
 }

@@ -9,7 +9,7 @@ namespace wpf_test.data
 {
     public class PropertyNodeItem : ViewModelBase
     {
-        private bool _is_expanded = true;
+        private bool _is_expanded = false;
         private bool _is_selected = false;
         private bool _is_new = false;
 
@@ -32,19 +32,14 @@ namespace wpf_test.data
         //public string EditIcon { get { return Type.HasFlag(PropertyNodeType.NOEDIT) ? "" : "/images/icon/edit.png"; } }
         public string DeleteIcon { get { return Type.HasFlag(NodeType.NODELETE) ? "" : "/images/icon/delete.png"; } }
 
-        private IPNTreeItem _data;
-        public IPNTreeItem Data
-        {
-            get { return _data; }
-            set
-            {
-                _data = value;
-                UpdateGUI();
-            }
-        }
-        public NodeType Type { get { return Data.Type; } }
-        public string DisplayName {  get { return Data.DisplayName; } }
-        public string Tips { get { return Data.Tips; } }
+        public IPNTreeItem Owner { get; private set; }
+        public NodeType Type { get { return Owner.Type; } }
+        public string DisplayName {  get { return Owner.DisplayName; } }
+        public string Tips { get { return Owner.Tips; } }
 
+        public PropertyNodeItem(IPNTreeItem owner)
+        {
+            Owner = owner;
+        }
     }
 }
