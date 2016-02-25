@@ -20,13 +20,19 @@ namespace wpf_test.frames
 {
     public class TestData : NodeData
     {
+        public NodeType type { get; set; }
         public string id { get; set; }
         public string name { get; set; }
         public string desc { get; set; }
 
-        public object Clone()
+        public override NodeType Type { get { return type; } }
+
+        public override string Id { get { return id; } }
+        public override string DisplayName { get { return name; } }
+        public override string Tips { get { return desc; } }
+        public TestData(TestData parent = null) : base(parent)
         {
-            return MemberwiseClone();
+
         }
     }
     /// <summary>
@@ -41,14 +47,14 @@ namespace wpf_test.frames
 
         private void treeView_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
-            var v = treeView.SelectedValue as ICloneable;
+            var v = treeView.SelectedItem as PropertyNodeItem;
             var page = new frames.EditorPage()
             {
-                Editor = new TestEditor() { DataContext = v.Clone() },
+                Editor = new TestEditor() { DataContext = v.Data.Clone() },
             };
             page.Save += OnSave;
             frame.Navigate(page);
-            if ((treeView.SelectedItem as PropertyNodeItemBase).Type.HasFlag(PropertyNodeType.NOLOCK))
+            if (v.IsNew)
             {
                 page.IsEditable = true;
             }
@@ -57,24 +63,26 @@ namespace wpf_test.frames
         private void OnSave(object sender, RoutedEventArgs e)
         {
             var page = frame.Content as EditorPage;
-            var item = treeView.SelectedItem as PropertyNodeItem<TestData>;
-            item.Data = page.EditorData as TestData;
-            if (item.Type.HasFlag(PropertyNodeType.NOLOCK))
-                item.Type ^= PropertyNodeType.NOLOCK;
+            var item = treeView.SelectedItem as PropertyNodeItem;
+            var data = page.EditorData as TestData;
+            item.Data = data;
+            item.IsNew = false;
         }
 
         private void treeView_ClickAdd(object sender, PNRoutedEventArgs e)
         {
-            var item = e.SourceItem as PropertyNodeItem<TestData>;
-            var new_item = new PropertyNodeItem<TestData>(PropertyNodeType.LEAF, new TestData()
+            var item = e.SourceItem as PropertyNodeItem;
+            var data = e.SourceData as TestData;
+            var new_item = new TestData()
             {
+                type = NodeType.LEAF,
                 id = Guid.NewGuid().ToString(),
                 name = "New Tag",
                 desc = "",
-            });
-            new_item.Type |= PropertyNodeType.NOLOCK;
-            item.Children.Add(new_item);
-            new_item.IsSelected = true;
+            };
+            new_item.Item.IsNew = true;
+            data.Children.Add(new_item);
+            new_item.Item.IsSelected = true;
         }
         private void treeView_ClickEdit(object sender, PNRoutedEventArgs e)
         {
@@ -89,55 +97,50 @@ namespace wpf_test.frames
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            var itemList = new ObservableCollection<PropertyNodeItem<TestData>>();
+            var itemList = new NodeDataList();
 
-            var node1 = new PropertyNodeItem<TestData>(PropertyNodeType.BOLE, new TestData()
+            var node1 = new TestData()
             {
+                type = NodeType.BOLE,
                 id = Guid.NewGuid().ToString(),
                 name = "Node No.1",
                 desc = "This is the discription of Node1. This is a folder.",
-            });
+            };
 
-            var node1tag1 = new PropertyNodeItem<TestData>(PropertyNodeType.LEAF, new TestData()
+            var node1tag1 = new TestData(node1)
             {
+                type = NodeType.LEAF,
                 id = Guid.NewGuid().ToString(),
                 name = "Tag No.1",
                 desc = "This is the discription of Tag 1. This is a tag.",
-            });
-            node1.Children.Add(node1tag1);
+            };
 
-            var node1tag2 = new PropertyNodeItem<TestData>(PropertyNodeType.LEAF, new TestData()
+            var node1tag2 = new TestData(node1)
             {
+                type = NodeType.LEAF,
                 id = Guid.NewGuid().ToString(),
                 name = "Tag No.2",
                 desc = "This is the discription of Tag 2. This is a tag.",
-            });
-            node1.Children.Add(node1tag2);
+            };
+
             itemList.Add(node1);
 
-            var node2 = new PropertyNodeItem<TestData>(PropertyNodeType.BOLE, new TestData()
-            {
-                id = Guid.NewGuid().ToString(),
-                name = "Node No.2",
-                desc = "This is the discription of Node 2. This is a folder.",
-            });
+            var node2 =  new TestData()
+                {
+                    type = NodeType.BOLE,
+                    id = Guid.NewGuid().ToString(),
+                    name = "Node No.2",
+                    desc = "This is the discription of Node 2. This is a folder.",
+            };
 
-            var node2tag3 = new PropertyNodeItem<TestData>(PropertyNodeType.LEAF, new TestData()
-            {
-                id = Guid.NewGuid().ToString(),
-                name = "Tag No.3",
-                desc = "This is the discription of Tag 3. This is a tag.",
-            });
+            var node2tag3 = new TestData(node2)
+                {
+                    type = NodeType.LEAF,
+                    id = Guid.NewGuid().ToString(),
+                    name = "Tag No.3",
+                    desc = "This is the discription of Tag 3. This is a tag.",
+            };
 
-            node2.Children.Add(node2tag3);
-            var node2tag4 = new PropertyNodeItem<TestData>(PropertyNodeType.LEAF, new TestData()
-            {
-                id = Guid.NewGuid().ToString(),
-                name = "Tag No.4",
-                desc = "This is the discription of Tag 4. This is a tag.",
-            });
-
-            node2.Children.Add(node2tag4);
             itemList.Add(node2);
 
             this.treeView.ItemsSource = itemList;

@@ -24,7 +24,7 @@ namespace wpf_test.frames
     public partial class UnitMgr : Page
     {
         private ObservableCollection<CMNodeCategory> _categories;
-        private ObservableCollection<PropertyNodeItem<CMNodeBase>> _item_list;
+        private NodeDataList _item_list;
         private MainWindow m_Main;
 
         public UnitMgr(MainWindow main)
@@ -36,58 +36,82 @@ namespace wpf_test.frames
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            var itemList = new ObservableCollection<PropertyNodeItem<CMNodeBase>>();
+            var itemList = new NodeDataList();
+            var bj = new CMNodeBase()
+            {
+                id = Guid.NewGuid().ToString(),
+                name = "北京市",
+                desc = "北京市行政区.",
+                category = 900,
+                address = "Address....."
+            };
 
-            var haidian = new PropertyNodeItem<CMNodeBase>(PropertyNodeType.BOLE, new CMNodeBase()
+            var haidian = new CMNodeBase(bj)
             {
                 id = Guid.NewGuid().ToString(),
                 name = "海淀区",
                 desc = "海淀行政区.",
-                category = 400,
+                category = 900,
                 address = "Address....."
-            });
+            };
 
-            var zgceast = new PropertyNodeItem<CMNodeBase>(PropertyNodeType.BOLE, new CMNodeBase()
+            var zgceast = new CMNodeBase(haidian)
             {
                 id = Guid.NewGuid().ToString(),
                 name = "中关村东路",
                 desc = "中关村东路下辖小区.",
                 category = 400,
-                parent = haidian.Data.id,
                 address = "Address....."
-            });
-            var zdhbuilding = new PropertyNodeItem<CMNodeBase>(PropertyNodeType.LEAF, new CMNodeBase()
+            };
+            var zdhbuilding = new CMNodeBase(zgceast)
             {
                 id = Guid.NewGuid().ToString(),
                 name = "自动化大厦",
                 desc = "中关村东路95号.",
                 category = 300,
-                parent = zgceast.Data.id,
                 address = "Address....."
-            });
-            zgceast.Children.Add(zdhbuilding);
-            haidian.Children.Add(zgceast);
+            };
+            var f12 = new CMNodeBase(zdhbuilding)
+            {
+                id = Guid.NewGuid().ToString(),
+                name = "12F",
+                desc = "12 floor",
+                category = 200,
+            };
+            var u1214 = new CMNodeBase(f12)
+            {
+                id = Guid.NewGuid().ToString(),
+                name = "1214",
+                desc = "1214 Romm",
+                category = 100,
+            };
+            var u1216 = new CMNodeBase(f12)
+            {
+                id = Guid.NewGuid().ToString(),
+                name = "1216",
+                desc = "1216 Romm",
+                category = 100,
+            };
 
-            var cg = new PropertyNodeItem<CMNodeBase>(PropertyNodeType.LEAF, new CMNodeBase()
+            var cg = new CMNodeBase(haidian)
             {
                 id = Guid.NewGuid().ToString(),
                 name = "翠宫",
                 desc = "翠宫饭店.",
                 category = 300,
-                parent = haidian.Data.id,
                 address = "cuigong....."
-            });
-            haidian.Children.Add(cg);
-            itemList.Add(haidian);
-            var chaoyang = new PropertyNodeItem<CMNodeBase>(PropertyNodeType.BOLE, new CMNodeBase()
+            };
+
+            var chaoyang = new CMNodeBase(bj)
             {
                 id = Guid.NewGuid().ToString(),
-                name = "海区",
-                desc = "海行政区.",
-                category = 400,
+                name = "朝阳区",
+                desc = "北京市朝阳行政区.",
+                category = 900,
                 address = "Address....."
-            });
-            itemList.Add(chaoyang);
+            };
+
+            itemList.Add(bj);
             _item_list = itemList;
 
             this.treeView.ItemsSource = itemList;
@@ -95,6 +119,7 @@ namespace wpf_test.frames
             _categories.Add(new CMNodeCategory() { name = "单元", value = 200 });
             _categories.Add(new CMNodeCategory() { name = "楼房", value = 300 });
             _categories.Add(new CMNodeCategory() { name = "小区", value = 400 });
+            _categories.Add(new CMNodeCategory() { name = "行政区域", value = 900 });
         }
 
         private void treeView_ClickAdd(object sender, PNRoutedEventArgs e)
@@ -115,7 +140,7 @@ namespace wpf_test.frames
 
         private void treeView_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
-            var v = treeView.SelectedValue as ICloneable;
+            var v = treeView.SelectedData as ICloneable;
             var page = new frames.EditorPage()
             {
                 Editor = new CMNodeEditor()
@@ -132,8 +157,9 @@ namespace wpf_test.frames
         private void OnSave(object sender, RoutedEventArgs e)
         {
             var page = frame.Content as EditorPage;
-            var item = treeView.SelectedItem as PropertyNodeItem<CMNodeBase>;
+            var item = treeView.SelectedItem as PropertyNodeItem;
             item.Data = page.EditorData as CMNodeBase;
+            item.IsNew = false;
         }
     }
 }

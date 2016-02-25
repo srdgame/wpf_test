@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -23,6 +24,7 @@ namespace wpf_test.ctrls
         public PNRoutedEventArgs(RoutedEvent routedEvent, object source) : base(routedEvent, source) { }
 
         public object SourceItem { get; set; }
+        public object SourceData { get; set; }
     }
     /// <summary>
     /// MyTreeView.xaml 的交互逻辑
@@ -49,10 +51,10 @@ namespace wpf_test.ctrls
         {
             PNRoutedEventArgs pe = new PNRoutedEventArgs(ClickAddEvent, e.Source);
             Button btn = sender as Button;
-            pe.SourceItem = btn.Tag != null ? btn.Tag : treeView.SelectedItem;
-
+            pe.SourceItem = btn.Tag != null ? btn.Tag : SelectedItem;
+            pe.SourceData = (pe.SourceItem as PropertyNodeItem).Data;
             // Expand the click item
-            (pe.SourceItem as data.PropertyNodeItemBase).IsExpanded = true;
+            (pe.SourceItem as data.PropertyNodeItem).IsExpanded = true;
 
             RaiseEvent(pe);
         }
@@ -73,7 +75,8 @@ namespace wpf_test.ctrls
         {
             PNRoutedEventArgs pe = new PNRoutedEventArgs(ClickEditEvent, e.Source);
             Button btn = sender as Button;
-            pe.SourceItem = btn.Tag != null ? btn.Tag : treeView.SelectedItem;
+            pe.SourceItem = btn.Tag != null ? btn.Tag : SelectedItem;
+            pe.SourceData = (pe.SourceItem as PropertyNodeItem).Data;
             RaiseEvent(pe);
         }
 
@@ -92,7 +95,8 @@ namespace wpf_test.ctrls
         {
             PNRoutedEventArgs pe = new PNRoutedEventArgs(ClickDeleteEvent, e.Source);
             Button btn = sender as Button;
-            pe.SourceItem = btn.Tag != null ? btn.Tag : treeView.SelectedItem;
+            pe.SourceItem = btn.Tag != null ? btn.Tag : SelectedItem;
+            pe.SourceData = (pe.SourceItem as PropertyNodeItem).Data;
             RaiseEvent(pe);
         }
 
@@ -109,10 +113,10 @@ namespace wpf_test.ctrls
         }
         private void treeView_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
-            var item = treeView.SelectedItem as PropertyNodeItemBase;
+            var item = SelectedItem as PropertyNodeItem;
             if (item != null)
             {
-                btn_Add.IsEnabled = item.Type != PropertyNodeType.LEAF;
+                btn_Add.IsEnabled = item.Type != NodeType.LEAF;
                 btn_Delete.IsEnabled = true;
                 btn_Edit.IsEnabled = true;
             }
@@ -132,9 +136,8 @@ namespace wpf_test.ctrls
             get { return treeView.ItemsSource; }
             set { treeView.ItemsSource = value; }
         }
-        public object SelectedItem { get { return treeView.SelectedItem; } }
-        public object SelectedValue { get { return treeView.SelectedValue; } }
-        public string SelectedValuePath { get { return treeView.SelectedValuePath; } set { treeView.SelectedValuePath = value; } }
+        public object SelectedItem { get { return treeView.SelectedValue; } }
+        public object SelectedData { get { return treeView.SelectedItem; } }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
