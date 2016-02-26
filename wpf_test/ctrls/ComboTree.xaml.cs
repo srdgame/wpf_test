@@ -120,10 +120,10 @@ namespace wpf_test.ctrls
         {
             var thisControl = d as ComboTree;
             var cbItemDisplay = thisControl.comboBox.Items[0] as ComboBoxItem;
-            //if (cbItemDisplay.Tag != null && cbItemDisplay.Tag.Equals(e.NewValue))
-            //{
-            //    return;
-            //}
+            if (cbItemDisplay.Tag != null && cbItemDisplay.Tag.Equals(e.NewValue))
+            {
+                return;
+            }
             if (thisControl.SelectedValuePath != null && thisControl.SelectedValuePath != string.Empty)
             {
                 PropertyInfo pi = thisControl.ItemsSource.FirstOrDefault().GetType().GetProperty(thisControl.SelectedValuePath);
@@ -166,6 +166,12 @@ namespace wpf_test.ctrls
             {
                 SelectedValue = data.GetType().GetProperty(this.SelectedValuePath).GetValue(data);
                 cbItemDisplay.Tag = SelectedValue;
+            }
+            else
+            {
+                cbItemDisplay.Tag = null;
+                SelectedValue = null;
+                cbItemDisplay.DataContext = new ComboBoxItem();
             }
 
             e.RoutedEvent = SelectionChangedEvent;

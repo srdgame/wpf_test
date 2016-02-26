@@ -44,5 +44,16 @@ namespace wpf_test.data
             if (parent != null)
                 this.parent = parent.id;
         }
+
+        public override void UpdateData(object data)
+        {
+            var d = data as CMNodeBase;
+
+        }
+
+        public override object CloneData()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

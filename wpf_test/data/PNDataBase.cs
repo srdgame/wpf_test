@@ -33,10 +33,8 @@ namespace wpf_test.data
         public abstract string Id { get; }
         public abstract string DisplayName { get; }
         public abstract string Tips { get; }
-        public object Clone()
-        {
-            return MemberwiseClone();
-        }
+        public abstract void UpdateData(object data);
+        public abstract object CloneData();
 
         public PNTreeViewItem Item { get; private set; }
 

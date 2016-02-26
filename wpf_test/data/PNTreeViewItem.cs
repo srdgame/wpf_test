@@ -14,12 +14,14 @@ namespace wpf_test.data
         NODELETE = 4,
         NOEDIT = 8,
     }
-    public interface IPNTreeViewItem : ICloneable
+    public interface IPNTreeViewItem
     {
         PNItemType Type { get; }
         string Id { get; }
         string DisplayName { get; }
         string Tips { get; }
+        void UpdateData(object data);
+        object CloneData();
     }
     public class PNTreeViewItem : ViewModelBase
     {

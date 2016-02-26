@@ -20,6 +20,7 @@ namespace wpf_test.ctrls
     /// </summary>
     public partial class TestEditor : UserControl
     {
+        public IEnumerable<object> NodeList { set { nodeList.ItemsSource = value; }  }
         public TestEditor()
         {
             InitializeComponent();
