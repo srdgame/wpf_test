@@ -18,14 +18,14 @@ using wpf_test.data;
 
 namespace wpf_test.frames
 {
-    public class TestData : NodeData
+    public class TestData : PNDataBase
     {
-        public NodeType type { get; set; }
+        public PNItemType type { get; set; }
         public string id { get; set; }
         public string name { get; set; }
         public string desc { get; set; }
 
-        public override NodeType Type { get { return type; } }
+        public override PNItemType Type { get { return type; } }
 
         public override string Id { get { return id; } }
         public override string DisplayName { get { return name; } }
@@ -47,7 +47,7 @@ namespace wpf_test.frames
 
         private void treeView_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
-            var v = treeView.SelectedItem as PropertyNodeItem;
+            var v = treeView.SelectedItem as PNTreeViewItem;
             var data = treeView.SelectedData as TestData;
 
             var page = new frames.EditorPage()
@@ -65,7 +65,7 @@ namespace wpf_test.frames
         private void OnSave(object sender, RoutedEventArgs e)
         {
             var page = frame.Content as EditorPage;
-            var item = treeView.SelectedItem as PropertyNodeItem;
+            var item = treeView.SelectedItem as PNTreeViewItem;
             var data = treeView.SelectedData as TestData;
             data = page.EditorData as TestData;
             item.IsNew = false;
@@ -73,11 +73,11 @@ namespace wpf_test.frames
 
         private void treeView_ClickAdd(object sender, PNRoutedEventArgs e)
         {
-            var item = e.SourceItem as PropertyNodeItem;
+            var item = e.SourceItem as PNTreeViewItem;
             var data = e.SourceData as TestData;
             var new_item = new TestData()
             {
-                type = NodeType.LEAF,
+                type = PNItemType.LEAF,
                 id = Guid.NewGuid().ToString(),
                 name = "New Tag",
                 desc = "",
@@ -103,7 +103,7 @@ namespace wpf_test.frames
 
             var node1 = new TestData()
             {
-                type = NodeType.BOLE,
+                type = PNItemType.BOLE,
                 id = Guid.NewGuid().ToString(),
                 name = "Node No.1",
                 desc = "This is the discription of Node1. This is a folder.",
@@ -111,7 +111,7 @@ namespace wpf_test.frames
 
             var node1tag1 = new TestData(node1)
             {
-                type = NodeType.LEAF,
+                type = PNItemType.LEAF,
                 id = Guid.NewGuid().ToString(),
                 name = "Tag No.1",
                 desc = "This is the discription of Tag 1. This is a tag.",
@@ -119,7 +119,7 @@ namespace wpf_test.frames
 
             var node1tag2 = new TestData(node1)
             {
-                type = NodeType.LEAF,
+                type = PNItemType.LEAF,
                 id = Guid.NewGuid().ToString(),
                 name = "Tag No.2",
                 desc = "This is the discription of Tag 2. This is a tag.",
@@ -129,7 +129,7 @@ namespace wpf_test.frames
 
             var node2 =  new TestData()
                 {
-                    type = NodeType.BOLE,
+                    type = PNItemType.BOLE,
                     id = Guid.NewGuid().ToString(),
                     name = "Node No.2",
                     desc = "This is the discription of Node 2. This is a folder.",
@@ -137,7 +137,7 @@ namespace wpf_test.frames
 
             var node2tag3 = new TestData(node2)
                 {
-                    type = NodeType.LEAF,
+                    type = PNItemType.LEAF,
                     id = Guid.NewGuid().ToString(),
                     name = "Tag No.3",
                     desc = "This is the discription of Tag 3. This is a tag.",

@@ -7,27 +7,13 @@ using System.Threading.Tasks;
 
 namespace wpf_test.data
 {
-    public enum NodeType
-    {
-        BOLE = 1,
-        LEAF = 2,
-        NODELETE = 4,
-        NOEDIT = 8,
-    }
-    public interface IPNTreeItem : ICloneable
-    {
-        NodeType Type { get; }
-        string Id { get; }
-        string DisplayName { get; }
-        string Tips { get; }
-    }
-    public class NodeDataList : ObservableCollection<NodeData> { }
-    public abstract class NodeData : IPNTreeItem
+    public class NodeDataList : ObservableCollection<PNDataBase> { }
+    public abstract class PNDataBase : IPNTreeViewItem
     { 
         public NodeDataList Children { get; private set; }
 
-        private NodeData _parent;
-        public NodeData Parent
+        private PNDataBase _parent;
+        public PNDataBase Parent
         {
             get { return _parent; }
             set
@@ -43,7 +29,7 @@ namespace wpf_test.data
             }
         }
 
-        public abstract NodeType Type { get; }
+        public abstract PNItemType Type { get; }
         public abstract string Id { get; }
         public abstract string DisplayName { get; }
         public abstract string Tips { get; }
@@ -52,13 +38,13 @@ namespace wpf_test.data
             return MemberwiseClone();
         }
 
-        public PropertyNodeItem Item { get; private set; }
+        public PNTreeViewItem Item { get; private set; }
 
-        public NodeData(NodeData parent)
+        public PNDataBase(PNDataBase parent)
         {
             Parent = parent;
             Children = new NodeDataList();
-            Item = new PropertyNodeItem(this);
+            Item = new PNTreeViewItem(this);
         }
     }
 }

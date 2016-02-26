@@ -157,7 +157,7 @@ namespace wpf_test.frames
         private void OnSave(object sender, RoutedEventArgs e)
         {
             var page = frame.Content as EditorPage;
-            var item = treeView.SelectedItem as PropertyNodeItem;
+            var item = treeView.SelectedItem as PNTreeViewItem;
 
             var data = treeView.SelectedData as CMNodeBase;
 

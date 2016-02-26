@@ -52,9 +52,9 @@ namespace wpf_test.ctrls
             PNRoutedEventArgs pe = new PNRoutedEventArgs(ClickAddEvent, e.Source);
             Button btn = sender as Button;
             pe.SourceItem = btn.Tag != null ? btn.Tag : SelectedItem;
-            pe.SourceData = (pe.SourceItem as PropertyNodeItem).Owner;
+            pe.SourceData = (pe.SourceItem as PNTreeViewItem).Owner;
             // Expand the click item
-            (pe.SourceItem as data.PropertyNodeItem).IsExpanded = true;
+            (pe.SourceItem as data.PNTreeViewItem).IsExpanded = true;
 
             RaiseEvent(pe);
         }
@@ -76,7 +76,7 @@ namespace wpf_test.ctrls
             PNRoutedEventArgs pe = new PNRoutedEventArgs(ClickEditEvent, e.Source);
             Button btn = sender as Button;
             pe.SourceItem = btn.Tag != null ? btn.Tag : SelectedItem;
-            pe.SourceData = (pe.SourceItem as PropertyNodeItem).Owner;
+            pe.SourceData = (pe.SourceItem as PNTreeViewItem).Owner;
             RaiseEvent(pe);
         }
 
@@ -96,7 +96,7 @@ namespace wpf_test.ctrls
             PNRoutedEventArgs pe = new PNRoutedEventArgs(ClickDeleteEvent, e.Source);
             Button btn = sender as Button;
             pe.SourceItem = btn.Tag != null ? btn.Tag : SelectedItem;
-            pe.SourceData = (pe.SourceItem as PropertyNodeItem).Owner;
+            pe.SourceData = (pe.SourceItem as PNTreeViewItem).Owner;
             RaiseEvent(pe);
         }
 
@@ -113,10 +113,10 @@ namespace wpf_test.ctrls
         }
         private void treeView_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
-            var item = SelectedItem as PropertyNodeItem;
+            var item = SelectedItem as PNTreeViewItem;
             if (item != null)
             {
-                btn_Add.IsEnabled = item.Type != NodeType.LEAF;
+                btn_Add.IsEnabled = item.Type != PNItemType.LEAF;
                 btn_Delete.IsEnabled = true;
                 btn_Edit.IsEnabled = true;
             }

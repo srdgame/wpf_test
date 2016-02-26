@@ -11,7 +11,7 @@ namespace wpf_test.data
         public string name { get; set; }
         public int value { get; set; }
     }
-    public class CMNodeBase : NodeData
+    public class CMNodeBase : PNDataBase
     {
         public string id { get; set; }
         public string name { get; set; }
@@ -22,16 +22,16 @@ namespace wpf_test.data
         public string creator { get; set; }
         public DateTime creation_time { get; set; }
 
-        public override NodeType Type
+        public override PNItemType Type
         {
             get
             {
                 // TODO:
                 if (category == 100)
-                    return NodeType.LEAF;
+                    return PNItemType.LEAF;
                 if (category != 900)
-                    return NodeType.BOLE;
-                return NodeType.BOLE | NodeType.NODELETE | NodeType.NOEDIT;
+                    return PNItemType.BOLE;
+                return PNItemType.BOLE | PNItemType.NODELETE | PNItemType.NOEDIT;
             }
         }
 

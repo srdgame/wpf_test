@@ -10,7 +10,7 @@
     <Grid>
         <TreeView x:Name="treeView" SelectedItemChanged="treeView_SelectedItemChanged" Margin="0,0,0,68" SelectedValuePath="Item">
             <TreeView.ItemTemplate>
-                <HierarchicalDataTemplate ItemsSource="{Binding Path=Children}" DataType="{x:Type data:PropertyNodeItem}">
+                <HierarchicalDataTemplate ItemsSource="{Binding Path=Children}" DataType="{x:Type data:PNTreeViewItem}">
                     <StackPanel x:Name="panel" Orientation="Horizontal" DataContext="{Binding Item}">
                         <Image VerticalAlignment="Center" Source="{Binding Icon}" Width="16" Height="16" Margin="0,0,2,2"></Image>
                         <TextBlock VerticalAlignment="Center" Text="{Binding DisplayName}"></TextBlock>

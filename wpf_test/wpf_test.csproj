@@ -114,7 +114,7 @@
     <Compile Include="data\CMEntrance.cs" />
     <Compile Include="data\CMNodeBase.cs" />
     <Compile Include="data\CMUser.cs" />
-    <Compile Include="data\NodeData.cs" />
+    <Compile Include="data\PNDataBase.cs" />
     <Compile Include="data\RoleBase.cs" />
     <Compile Include="data\SYSGroup.cs" />
     <Compile Include="data\SYSUser.cs" />
@@ -133,7 +133,7 @@
     <Compile Include="frames\TopMenu.xaml.cs">
       <DependentUpon>TopMenu.xaml</DependentUpon>
     </Compile>
-    <Compile Include="data\PropertyNodeItem.cs" />
+    <Compile Include="data\PNTreeViewItem.cs" />
     <Compile Include="data\ViewModelBase.cs" />
     <Page Include="ctrls\CMUserEditor.xaml">
       <SubType>Designer</SubType>
