@@ -39,7 +39,7 @@ namespace wpf_test.frames
             return this.MemberwiseClone();
         }
     }
-    public class TestData : PNDataBase
+    public class TestData : PNTreeViewItem
     {
         private rpc_test_data _data;
         public rpc_test_data Data { get { return _data; } }
@@ -67,7 +67,7 @@ namespace wpf_test.frames
             _data.type = d.type;
         }
 
-        public override object CloneData()
+        public override object GetData()
         {
             return _data.Clone();
         }
@@ -81,23 +81,23 @@ namespace wpf_test.frames
         {
             InitializeComponent();
         }
-        NodeDataList _item_list;
+        PNTreeViewItemList _item_list;
         private void treeView_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
-            var v = treeView.SelectedItem as PNTreeViewItem;
-            var data = treeView.SelectedData as TestData;
+            var item = treeView.SelectedItem as TestData;
+            var data = treeView.SelectedValue as TestData;
 
             var page = new frames.EditorPage()
             {
                 Editor = new TestEditor()
                 {
-                    DataContext = data.CloneData(),
+                    DataContext = item.GetData(),
                     NodeList = _item_list,
                 },
             };
             page.Save += OnSave;
             frame.Navigate(page);
-            if (v.IsNew)
+            if (item.IsNew)
             {
                 page.IsEditable = true;
             }
@@ -107,24 +107,23 @@ namespace wpf_test.frames
         {
             var page = frame.Content as EditorPage;
             var item = treeView.SelectedItem as PNTreeViewItem;
-            var data = treeView.SelectedData as TestData;
-            data = page.EditorData as TestData;
+            item.UpdateData(page.EditorData);
+            item.UpdateGUI();
             item.IsNew = false;
         }
 
         private void treeView_ClickAdd(object sender, PNRoutedEventArgs e)
         {
-            var item = e.SourceItem as PNTreeViewItem;
-            var data = e.SourceData as TestData;
+            var item = e.SourceItem as TestData;
             var new_item = new TestData(new rpc_test_data()
             {
                 type = PNItemType.LEAF,
                 id = Guid.NewGuid().ToString(),
                 name = "New Tag",
                 desc = "",
-            }, data);
-            new_item.Item.IsNew = true;
-            new_item.Item.IsSelected = true;
+            }, item);
+            new_item.IsNew = true;
+            new_item.IsSelected = true;
         }
         private void treeView_ClickEdit(object sender, PNRoutedEventArgs e)
         {
@@ -139,7 +138,7 @@ namespace wpf_test.frames
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            var itemList = new NodeDataList();
+            var itemList = new PNTreeViewItemList();
 
             var node1 = new rpc_test_data()
             {

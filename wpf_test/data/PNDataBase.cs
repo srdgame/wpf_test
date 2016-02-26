@@ -7,13 +7,14 @@ using System.Threading.Tasks;
 
 namespace wpf_test.data
 {
+    /*
     public class NodeDataList : ObservableCollection<PNDataBase> { }
     public abstract class PNDataBase : IPNTreeViewItem
     { 
         public NodeDataList Children { get; private set; }
 
         private PNDataBase _parent;
-        public PNDataBase Parent
+        public IPNTreeViewItem Parent
         {
             get { return _parent; }
             set
@@ -21,10 +22,16 @@ namespace wpf_test.data
                 if (_parent != value)
                 {
                     if (_parent != null)
+                    {
                         _parent.Children.Remove(this);
-                    _parent = value;
+                        _parent.Item.UpdateGUI();
+                    }
+                    _parent = value as PNDataBase;
                     if (_parent != null)
+                    {
                         _parent.Children.Add(this);
+                        _parent.Item.UpdateGUI();
+                    }
                 }
             }
         }
@@ -45,4 +52,5 @@ namespace wpf_test.data
             Item = new PNTreeViewItem(this);
         }
     }
+    */
 }

@@ -14,16 +14,29 @@ namespace wpf_test.data
         NODELETE = 4,
         NOEDIT = 8,
     }
+    public class PNTreeViewItemList : ObservableCollection<IPNTreeViewItem> { }
     public interface IPNTreeViewItem
     {
         PNItemType Type { get; }
         string Id { get; }
         string DisplayName { get; }
         string Tips { get; }
+
+        bool IsExpanded { get; set; }
+        bool IsSelected { get; set; }
+        bool IsNew { get; set; }
+
+        string Icon { get; }
+        string AddIcon { get; }
+        string DeleteIcon { get; }
+
+        PNTreeViewItemList Children { get; }
+
         void UpdateData(object data);
-        object CloneData();
+        object GetData();
     }
-    public class PNTreeViewItem : ViewModelBase
+
+    public abstract class PNTreeViewItem : ViewModelBase, IPNTreeViewItem
     {
         private bool _is_expanded = false;
         private bool _is_selected = false;
@@ -33,7 +46,46 @@ namespace wpf_test.data
         public bool IsSelected { get { return _is_selected; } set { _is_selected = value; RaisePropertyChanged(() => IsSelected); } }
         //public bool IsSelected { get { return _is_selected; } set { _is_selected = value; RaisePropertyChanged("IsSelected"); } }
         public bool IsNew { get { return _is_new; } set { _is_new = value; RaisePropertyChanged(() => IsNew); } }
-        
+
+
+        public string Icon { get { return Type.HasFlag(PNItemType.LEAF) ? "/images/icon/leaf.png" : "/images/icon/folder.png"; } }
+        public string AddIcon { get { return Type.HasFlag(PNItemType.BOLE) ? "/images/icon/add.png" : ""; } }
+        //public string EditIcon { get { return Type.HasFlag(PropertyNodeType.NOEDIT) ? "" : "/images/icon/edit.png"; } }
+        public string DeleteIcon { get { return Type.HasFlag(PNItemType.NODELETE) ? "" : "/images/icon/delete.png"; } }
+
+        public PNTreeViewItemList Children { get; private set; }
+
+        private PNTreeViewItem _parent;
+        public PNTreeViewItem Parent
+        {
+            get { return _parent; }
+            set
+            {
+                if (_parent != value)
+                {
+                    if (_parent != null)
+                    {
+                        _parent.Children.Remove(this);
+                        _parent.UpdateGUI();
+                    }
+                    _parent = value;
+                    if (_parent != null)
+                    {
+                        _parent.Children.Add(this);
+                        _parent.UpdateGUI();
+                    }
+                }
+            }
+        }
+
+        public abstract PNItemType Type { get; }
+        public abstract string Id { get; }
+        public abstract string DisplayName { get; }
+        public abstract string Tips { get; }
+
+        public abstract void UpdateData(object data);
+        public abstract object GetData();
+
         public void UpdateGUI()
         {
             RaisePropertyChanged(() => Type);
@@ -43,19 +95,11 @@ namespace wpf_test.data
             RaisePropertyChanged(() => AddIcon);
             RaisePropertyChanged(() => DeleteIcon);
         }
-        public string Icon { get { return Type.HasFlag(PNItemType.LEAF) ? "/images/icon/leaf.png" : "/images/icon/folder.png"; } }
-        public string AddIcon { get { return Type.HasFlag(PNItemType.BOLE) ? "/images/icon/add.png" : ""; } }
-        //public string EditIcon { get { return Type.HasFlag(PropertyNodeType.NOEDIT) ? "" : "/images/icon/edit.png"; } }
-        public string DeleteIcon { get { return Type.HasFlag(PNItemType.NODELETE) ? "" : "/images/icon/delete.png"; } }
 
-        public IPNTreeViewItem Owner { get; private set; }
-        public PNItemType Type { get { return Owner.Type; } }
-        public string DisplayName {  get { return Owner.DisplayName; } }
-        public string Tips { get { return Owner.Tips; } }
-
-        public PNTreeViewItem(IPNTreeViewItem owner)
+        public PNTreeViewItem(PNTreeViewItem parent = null)
         {
-            Owner = owner;
+            Parent = parent;
+            Children = new PNTreeViewItemList();
         }
     }
 }

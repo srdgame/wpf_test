@@ -11,7 +11,7 @@ namespace wpf_test.data
         public string name { get; set; }
         public int value { get; set; }
     }
-    public class CMNodeBase : PNDataBase
+    public class CMNodeBase : PNTreeViewItem
     {
         public string id { get; set; }
         public string name { get; set; }
@@ -51,7 +51,7 @@ namespace wpf_test.data
 
         }
 
-        public override object CloneData()
+        public override object GetData()
         {
             throw new NotImplementedException();
         }

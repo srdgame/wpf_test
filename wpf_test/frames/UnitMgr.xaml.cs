@@ -24,7 +24,7 @@ namespace wpf_test.frames
     public partial class UnitMgr : Page
     {
         private ObservableCollection<CMNodeCategory> _categories;
-        private NodeDataList _item_list;
+        private PNTreeViewItemList _item_list;
         private MainWindow m_Main;
 
         public UnitMgr(MainWindow main)
@@ -36,7 +36,7 @@ namespace wpf_test.frames
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            var itemList = new NodeDataList();
+            var itemList = new PNTreeViewItemList();
             var bj = new CMNodeBase()
             {
                 id = Guid.NewGuid().ToString(),
@@ -140,7 +140,7 @@ namespace wpf_test.frames
 
         private void treeView_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
-            var v = treeView.SelectedData as ICloneable;
+            var v = treeView.SelectedValue as ICloneable;
             var page = new frames.EditorPage()
             {
                 Editor = new CMNodeEditor()
@@ -159,7 +159,7 @@ namespace wpf_test.frames
             var page = frame.Content as EditorPage;
             var item = treeView.SelectedItem as PNTreeViewItem;
 
-            var data = treeView.SelectedData as CMNodeBase;
+            var data = treeView.SelectedValue as CMNodeBase;
 
             data = page.EditorData as CMNodeBase;
             item.IsNew = false;

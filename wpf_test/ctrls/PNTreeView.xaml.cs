@@ -24,7 +24,6 @@ namespace wpf_test.ctrls
         public PNRoutedEventArgs(RoutedEvent routedEvent, object source) : base(routedEvent, source) { }
 
         public object SourceItem { get; set; }
-        public object SourceData { get; set; }
     }
     /// <summary>
     /// MyTreeView.xaml 的交互逻辑
@@ -52,7 +51,6 @@ namespace wpf_test.ctrls
             PNRoutedEventArgs pe = new PNRoutedEventArgs(ClickAddEvent, e.Source);
             Button btn = sender as Button;
             pe.SourceItem = btn.Tag != null ? btn.Tag : SelectedItem;
-            pe.SourceData = (pe.SourceItem as PNTreeViewItem).Owner;
             // Expand the click item
             (pe.SourceItem as data.PNTreeViewItem).IsExpanded = true;
 
@@ -76,7 +74,6 @@ namespace wpf_test.ctrls
             PNRoutedEventArgs pe = new PNRoutedEventArgs(ClickEditEvent, e.Source);
             Button btn = sender as Button;
             pe.SourceItem = btn.Tag != null ? btn.Tag : SelectedItem;
-            pe.SourceData = (pe.SourceItem as PNTreeViewItem).Owner;
             RaiseEvent(pe);
         }
 
@@ -96,7 +93,6 @@ namespace wpf_test.ctrls
             PNRoutedEventArgs pe = new PNRoutedEventArgs(ClickDeleteEvent, e.Source);
             Button btn = sender as Button;
             pe.SourceItem = btn.Tag != null ? btn.Tag : SelectedItem;
-            pe.SourceData = (pe.SourceItem as PNTreeViewItem).Owner;
             RaiseEvent(pe);
         }
 
@@ -136,8 +132,8 @@ namespace wpf_test.ctrls
             get { return treeView.ItemsSource; }
             set { treeView.ItemsSource = value; }
         }
-        public object SelectedItem { get { return treeView.SelectedValue; } }
-        public object SelectedData { get { return treeView.SelectedItem; } }
+        public object SelectedItem { get { return treeView.SelectedItem; } }
+        public object SelectedValue { get { return treeView.SelectedValue; } }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
