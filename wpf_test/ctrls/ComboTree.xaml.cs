@@ -33,72 +33,6 @@ namespace wpf_test.ctrls
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
         }
-        public IEnumerable<object> ItemsSource
-        {
-            get { return GetValue(ItemsSourceProperty) as IEnumerable<object>; }
-            set { SetValue(ItemsSourceProperty, value); }
-        }
-        public static readonly DependencyProperty ItemsSourceProperty =
-            DependencyProperty.Register(
-                "ItemsSource",
-                typeof(IEnumerable<object>),
-                typeof(ComboTree),
-                new FrameworkPropertyMetadata(new PropertyChangedCallback(OnItemsSourceChanged)));
-
-        private static void OnItemsSourceChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            var thisControl = d as ComboTree;
-            thisControl.comboBox.DataContext = e.NewValue;
-        }
-        private string _children_path;
-        public string ChildrenPath
-        {
-            get { return GetValue(ChildrenPathProperty) as string; }
-            set { SetValue(ChildrenPathProperty, value); }
-        }
-        public static readonly DependencyProperty ChildrenPathProperty =
-            DependencyProperty.Register(
-                "ChildrenPath",
-                typeof(string),
-                typeof(ComboTree),
-                new FrameworkPropertyMetadata("Children", new PropertyChangedCallback(OnChildrenPathChanged)));
-
-        private static void OnChildrenPathChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            var thisControl = d as ComboTree;
-            thisControl._children_path = e.NewValue as string;
-        }
-
-        private string _select_value_path;
-        public string SelectedValuePath
-        {
-            get { return GetValue(SelectedValuePathProperty) as string; }
-            set { SetValue(SelectedValuePathProperty, value); }
-        }
-        public static readonly DependencyProperty SelectedValuePathProperty =
-            DependencyProperty.Register(
-                "SelectedValuePath",
-                typeof(string),
-                typeof(ComboTree),
-                new FrameworkPropertyMetadata(string.Empty, new PropertyChangedCallback(OnSelectedValuePathChanged)));
-
-        private static void OnSelectedValuePathChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            var thisControl = d as ComboTree;
-            thisControl._select_value_path = e.NewValue as string;
-        }
-
-        public object SelectedValue
-        {
-            get { return GetValue(SelectedValueProperty); }
-            set { SetValue(SelectedValueProperty, value); }
-        }
-        public static readonly DependencyProperty SelectedValueProperty =
-            DependencyProperty.Register(
-                "SelectedValue",
-                typeof(object),
-                typeof(ComboTree),
-                new FrameworkPropertyMetadata(new PropertyChangedCallback(OnSelectedValueChanged)));
 
         private static object FindItem(IEnumerable items, PropertyInfo pi, PropertyInfo cpi, object value)
         {
@@ -115,28 +49,125 @@ namespace wpf_test.ctrls
             }
             return null;
         }
+        private void UpdateDisplayItem()
+        {
+            if (ItemsSource == null)
+                return;
+            if (SelectedValue == null)
+                return;
+
+            var cbItemDisplay = comboBox.Items[0] as ComboBoxItem;
+            if (SelectedValuePath != null && SelectedValuePath != string.Empty)
+            {
+                PropertyInfo pi = ItemsSource.FirstOrDefault().GetType().GetProperty(SelectedValuePath);
+                PropertyInfo cpi = ItemsSource.FirstOrDefault().GetType().GetProperty(ChildrenPath);
+                cbItemDisplay.DataContext = FindItem(ItemsSource, pi, cpi, SelectedValue);
+            }
+            else
+            {
+                PropertyInfo cpi = ItemsSource.FirstOrDefault().GetType().GetProperty(ChildrenPath);
+                cbItemDisplay.DataContext = FindItem(ItemsSource, null, cpi, SelectedValue);
+            }
+        }
+
+        public IEnumerable<object> ItemsSource
+        {
+            get { return GetValue(ItemsSourceProperty) as IEnumerable<object>; }
+            set { SetValue(ItemsSourceProperty, value); }
+        }
+        public static readonly DependencyProperty ItemsSourceProperty =
+            DependencyProperty.Register(
+                "ItemsSource",
+                typeof(IEnumerable<object>),
+                typeof(ComboTree),
+                new FrameworkPropertyMetadata(null, new PropertyChangedCallback(OnItemsSourceChanged)));
+
+        private static void OnItemsSourceChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var thisControl = d as ComboTree;
+            thisControl.UpdateDisplayItem();
+        }
+
+        public string ChildrenPath
+        {
+            get { return GetValue(ChildrenPathProperty) as string; }
+            //set { SetValue(ChildrenPathProperty, value); }
+        }
+        public static readonly DependencyProperty ChildrenPathProperty =
+            DependencyProperty.Register(
+                "ChildrenPath",
+                typeof(string),
+                typeof(ComboTree),
+                new FrameworkPropertyMetadata("Children", 
+                    FrameworkPropertyMetadataOptions.BindsTwoWayByDefault,
+                    new PropertyChangedCallback(OnChildrenPathChanged)));
+
+        private static void OnChildrenPathChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var thisControl = d as ComboTree;
+            thisControl.UpdateDisplayItem();
+        }
+
+
+        public string SelectedValuePath
+        {
+            get { return GetValue(SelectedValuePathProperty) as string; }
+            set { SetValue(SelectedValuePathProperty, value); }
+        }
+        public static readonly DependencyProperty SelectedValuePathProperty =
+            DependencyProperty.Register(
+                "SelectedValuePath",
+                typeof(string),
+                typeof(ComboTree),
+                new FrameworkPropertyMetadata(string.Empty,
+                    FrameworkPropertyMetadataOptions.BindsTwoWayByDefault,
+                    new PropertyChangedCallback(OnSelectedValuePathChanged)));
+
+        private static void OnSelectedValuePathChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var thisControl = d as ComboTree;
+            thisControl.UpdateDisplayItem();
+        }
+
+        public object SelectedValue
+        {
+            get { return GetValue(SelectedValueProperty); }
+            set { SetValue(SelectedValueProperty, value); }
+        }
+        public static readonly DependencyProperty SelectedValueProperty =
+            DependencyProperty.Register(
+                "SelectedValue",
+                typeof(object),
+                typeof(ComboTree),
+                new FrameworkPropertyMetadata(null, 
+                    FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, 
+                    new PropertyChangedCallback(OnSelectedValueChanged)));
 
         private static void OnSelectedValueChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             var thisControl = d as ComboTree;
+            thisControl.UpdateDisplayItem();
+        }
+
+        public object SelectedItem
+        {
+            get { return GetValue(SelectedItemProperty); }
+            set { SetValue(SelectedItemProperty, value); }
+        }
+        public static readonly DependencyProperty SelectedItemProperty =
+            DependencyProperty.Register(
+                "SelectedItem",
+                typeof(object),
+                typeof(ComboTree),
+                new FrameworkPropertyMetadata(null,
+                    FrameworkPropertyMetadataOptions.BindsTwoWayByDefault,
+                    new PropertyChangedCallback(OnSelectedItemChanged)));
+
+        private static void OnSelectedItemChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var thisControl = d as ComboTree;
             var cbItemDisplay = thisControl.comboBox.Items[0] as ComboBoxItem;
-            if (cbItemDisplay.Tag != null && cbItemDisplay.Tag.Equals(e.NewValue))
-            {
-                return;
-            }
-            if (thisControl.SelectedValuePath != null && thisControl.SelectedValuePath != string.Empty)
-            {
-                PropertyInfo pi = thisControl.ItemsSource.FirstOrDefault().GetType().GetProperty(thisControl.SelectedValuePath);
-                PropertyInfo cpi = thisControl.ItemsSource.FirstOrDefault().GetType().GetProperty(thisControl.ChildrenPath);
-                cbItemDisplay.DataContext = FindItem(thisControl.ItemsSource, pi, cpi, e.NewValue);
-            }
-            else
-            {
-                PropertyInfo cpi = thisControl.ItemsSource.FirstOrDefault().GetType().GetProperty(thisControl.ChildrenPath);
-                cbItemDisplay.DataContext = FindItem(thisControl.ItemsSource, null, cpi, e.NewValue);
-            }
-            if (cbItemDisplay.DataContext != null)
-                cbItemDisplay.Tag = e.NewValue;
+            cbItemDisplay.DataContext = e.NewValue;
         }
 
         public static readonly RoutedEvent SelectionChangedEvent =
@@ -154,24 +185,24 @@ namespace wpf_test.ctrls
         private void treeView_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
             var cbItemDisplay = comboBox.Items[0] as ComboBoxItem;
-            cbItemDisplay.DataContext = e.NewValue;
+            cbItemDisplay.Tag = e.NewValue;
         }
 
         private void comboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            // Update the selected item in combobox, or you will not see the content for item0
             var cbItemDisplay = comboBox.Items[0] as ComboBoxItem;
             comboBox.SelectedItem = cbItemDisplay;
-            var data = cbItemDisplay.DataContext;
-            if (data != null)
+
+            // Update the Selected Item and Value
+            SelectedItem = cbItemDisplay.Tag;
+            if (SelectedItem != null)
             {
-                SelectedValue = data.GetType().GetProperty(this.SelectedValuePath).GetValue(data);
-                cbItemDisplay.Tag = SelectedValue;
+                SelectedValue = SelectedItem.GetType().GetProperty(this.SelectedValuePath).GetValue(SelectedItem);
             }
             else
             {
-                cbItemDisplay.Tag = null;
                 SelectedValue = null;
-                cbItemDisplay.DataContext = new ComboBoxItem();
             }
 
             e.RoutedEvent = SelectionChangedEvent;

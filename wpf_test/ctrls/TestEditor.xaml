@@ -5,13 +5,14 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:wpf_test.ctrls"
              mc:Ignorable="d" 
+             x:Name="_this"
              d:DesignHeight="300" d:DesignWidth="600">
     <Grid>
         <Label Content="名称：" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.464,2"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="80,12,0,0" TextWrapping="Wrap" Text="{Binding name}" VerticalAlignment="Top" Width="120"/>
         <Label Content="描述：" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="80,40,0,0" TextWrapping="Wrap" Text="{Binding desc}" VerticalAlignment="Top" Width="397"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="80,40,0,0" TextWrapping="Wrap" Text="TTT" VerticalAlignment="Top" Width="397"/>
         <Label Content="父节点：" HorizontalAlignment="Left" Margin="10,121,0,0" VerticalAlignment="Top"/>
-        <local:ComboTree x:Name="nodeList" HorizontalAlignment="Left" Margin="73,125,0,0" VerticalAlignment="Top" Width="120" SelectedValue="{Binding parent}" SelectedValuePath="Data"/>
+        <local:ComboTree x:Name="nodeList" HorizontalAlignment="Left" Margin="73,125,0,0" VerticalAlignment="Top" Width="120" SelectedValue="{Binding parent}" SelectedValuePath="Data" ItemsSource="{Binding NodeList, ElementName=_this}"/>
     </Grid>
 </UserControl>

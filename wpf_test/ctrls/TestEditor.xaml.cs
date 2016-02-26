@@ -20,7 +20,15 @@ namespace wpf_test.ctrls
     /// </summary>
     public partial class TestEditor : UserControl
     {
-        public IEnumerable<object> NodeList { set { nodeList.ItemsSource = value; }  }
+        //public IEnumerable<object> NodeList { set { nodeList.ItemsSource = value; }  }
+        public static readonly DependencyProperty NodeListProperty =
+            DependencyProperty.Register("NodeList", typeof(IEnumerable<object>), typeof(TestEditor), new FrameworkPropertyMetadata(null));
+
+        public IEnumerable<object> NodeList
+        {
+            get { return (IEnumerable<object>)GetValue(NodeListProperty); }
+            set { SetValue(NodeListProperty, value); }
+        }
         public TestEditor()
         {
             InitializeComponent();

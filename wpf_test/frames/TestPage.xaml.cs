@@ -133,7 +133,16 @@ namespace wpf_test.frames
 
         private void treeView_ClickDelete(object sender, PNRoutedEventArgs e)
         {
-            MessageBox.Show("Delete");
+            var item = e.SourceItem as PNTreeViewItem;
+            var parent = item.Parent;
+            if (parent != null)
+            {
+                parent.Children.Remove(item);
+            }
+            else
+            {
+                _item_list.Remove(item);
+            }
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)

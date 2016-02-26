@@ -5,14 +5,16 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:wpf_test.ctrls"
              mc:Ignorable="d" 
-             d:DesignHeight="23" d:DesignWidth="120" Loaded="UserControl_Loaded">
+             d:DesignHeight="23" d:DesignWidth="120"
+             x:Name="_this"
+             Loaded="UserControl_Loaded">
     <Grid>
         <ComboBox x:Name="comboBox" SelectedIndex="0" SelectionChanged="comboBox_SelectionChanged">
             <ComboBoxItem Content="{Binding DisplayName}" Visibility="Collapsed"></ComboBoxItem>
             <ComboBoxItem>
                 <ComboBoxItem.Template>
                     <ControlTemplate>
-                        <TreeView Name="treeView" Margin="0" ItemsSource="{Binding}" SelectedItemChanged="treeView_SelectedItemChanged">
+                        <TreeView Name="treeView" Margin="0" ItemsSource="{Binding Path=ItemsSource, ElementName=_this }" SelectedItemChanged="treeView_SelectedItemChanged">
                             <TreeView.ItemContainerStyle>
                                 <Style TargetType="TreeViewItem">
                                     <Setter Property="IsExpanded" Value="{Binding IsExpand}"></Setter>

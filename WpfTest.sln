@@ -13,6 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "comboxtreeview", "comboxtre
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfComboboxTreeview", "WpfComboboxTreeview\WpfComboboxTreeview.csproj", "{80BF9B84-1A94-4352-813B-0A7858F642F9}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{23D40788-4220-46CD-8F1F-48AE303DCBBA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "binding_test", "binding_test\binding_test.csproj", "{543E4B23-EAAA-48E4-B8B0-2C4E994E48EE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,8 +43,19 @@ Global
 		{80BF9B84-1A94-4352-813B-0A7858F642F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{80BF9B84-1A94-4352-813B-0A7858F642F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{80BF9B84-1A94-4352-813B-0A7858F642F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{543E4B23-EAAA-48E4-B8B0-2C4E994E48EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{543E4B23-EAAA-48E4-B8B0-2C4E994E48EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{543E4B23-EAAA-48E4-B8B0-2C4E994E48EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{543E4B23-EAAA-48E4-B8B0-2C4E994E48EE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6C858062-FB03-4957-ACCF-DDE8D6A754BA} = {23D40788-4220-46CD-8F1F-48AE303DCBBA}
+		{711D2493-33CB-44C8-A8AF-395D7F0B05EC} = {23D40788-4220-46CD-8F1F-48AE303DCBBA}
+		{9C29091E-30E6-4973-B5C6-F8105BE0EC6A} = {23D40788-4220-46CD-8F1F-48AE303DCBBA}
+		{80BF9B84-1A94-4352-813B-0A7858F642F9} = {23D40788-4220-46CD-8F1F-48AE303DCBBA}
+		{543E4B23-EAAA-48E4-B8B0-2C4E994E48EE} = {23D40788-4220-46CD-8F1F-48AE303DCBBA}
 	EndGlobalSection
 EndGlobal
