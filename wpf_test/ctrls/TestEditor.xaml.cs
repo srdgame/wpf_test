@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using wpf_test.data;
 
 namespace wpf_test.ctrls
 {
@@ -28,6 +29,14 @@ namespace wpf_test.ctrls
         {
             get { return (IEnumerable<object>)GetValue(NodeListProperty); }
             set { SetValue(NodeListProperty, value); }
+        }
+        public static readonly DependencyProperty SelectedNodeProperty =
+            DependencyProperty.Register("SelectedNode", typeof(object), typeof(TestEditor), new FrameworkPropertyMetadata(null, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault));
+
+        public object SelectedNode
+        {
+            get { return GetValue(SelectedNodeProperty); }
+            set { SetValue(SelectedNodeProperty, value); }
         }
         public TestEditor()
         {

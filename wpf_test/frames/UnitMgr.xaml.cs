@@ -37,7 +37,7 @@ namespace wpf_test.frames
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             var itemList = new PNTreeViewItemList();
-            var bj = new CMNodeBase()
+            var bj = new cm_node_rpc()
             {
                 id = Guid.NewGuid().ToString(),
                 name = "北京市",
@@ -46,7 +46,7 @@ namespace wpf_test.frames
                 address = "Address....."
             };
 
-            var haidian = new CMNodeBase(bj)
+            var haidian = new cm_node_rpc(bj)
             {
                 id = Guid.NewGuid().ToString(),
                 name = "海淀区",
@@ -55,7 +55,7 @@ namespace wpf_test.frames
                 address = "Address....."
             };
 
-            var zgceast = new CMNodeBase(haidian)
+            var zgceast = new cm_node_rpc(haidian)
             {
                 id = Guid.NewGuid().ToString(),
                 name = "中关村东路",
@@ -63,7 +63,7 @@ namespace wpf_test.frames
                 category = 400,
                 address = "Address....."
             };
-            var zdhbuilding = new CMNodeBase(zgceast)
+            var zdhbuilding = new cm_node_rpc(zgceast)
             {
                 id = Guid.NewGuid().ToString(),
                 name = "自动化大厦",
@@ -71,21 +71,21 @@ namespace wpf_test.frames
                 category = 300,
                 address = "Address....."
             };
-            var f12 = new CMNodeBase(zdhbuilding)
+            var f12 = new cm_node_rpc(zdhbuilding)
             {
                 id = Guid.NewGuid().ToString(),
                 name = "12F",
                 desc = "12 floor",
                 category = 200,
             };
-            var u1214 = new CMNodeBase(f12)
+            var u1214 = new cm_node_rpc(f12)
             {
                 id = Guid.NewGuid().ToString(),
                 name = "1214",
                 desc = "1214 Romm",
                 category = 100,
             };
-            var u1216 = new CMNodeBase(f12)
+            var u1216 = new cm_node_rpc(f12)
             {
                 id = Guid.NewGuid().ToString(),
                 name = "1216",
@@ -93,7 +93,7 @@ namespace wpf_test.frames
                 category = 100,
             };
 
-            var cg = new CMNodeBase(haidian)
+            var cg = new cm_node_rpc(haidian)
             {
                 id = Guid.NewGuid().ToString(),
                 name = "翠宫",
@@ -102,7 +102,7 @@ namespace wpf_test.frames
                 address = "cuigong....."
             };
 
-            var chaoyang = new CMNodeBase(bj)
+            var chaoyang = new cm_node_rpc(bj)
             {
                 id = Guid.NewGuid().ToString(),
                 name = "朝阳区",
@@ -111,7 +111,7 @@ namespace wpf_test.frames
                 address = "Address....."
             };
 
-            itemList.Add(bj);
+            itemList.Add(new CMNode(bj));
             _item_list = itemList;
 
             this.treeView.ItemsSource = itemList;
@@ -159,9 +159,9 @@ namespace wpf_test.frames
             var page = frame.Content as EditorPage;
             var item = treeView.SelectedItem as PNTreeViewItem;
 
-            var data = treeView.SelectedValue as CMNodeBase;
+            var data = treeView.SelectedValue as CMNode;
 
-            data = page.EditorData as CMNodeBase;
+            data = page.EditorData as CMNode;
             item.IsNew = false;
         }
     }

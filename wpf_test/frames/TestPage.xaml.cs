@@ -85,7 +85,6 @@ namespace wpf_test.frames
         private void treeView_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
             var item = treeView.SelectedItem as TestData;
-            var data = treeView.SelectedValue as TestData;
 
             var page = new frames.EditorPage()
             {
@@ -93,6 +92,7 @@ namespace wpf_test.frames
                 {
                     DataContext = item.GetData(),
                     NodeList = _item_list,
+                    //SelectedNode = item.Parent,
                 },
             };
             page.Save += OnSave;
@@ -109,6 +109,7 @@ namespace wpf_test.frames
             var item = treeView.SelectedItem as PNTreeViewItem;
             item.UpdateData(page.EditorData);
             item.UpdateGUI();
+            item.Parent = (page.Editor as TestEditor).SelectedNode as TestData;
             item.IsNew = false;
         }
 
