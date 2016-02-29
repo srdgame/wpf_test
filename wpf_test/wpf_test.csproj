@@ -106,6 +106,9 @@
     <Compile Include="ctrls\CMNodeEditor.xaml.cs">
       <DependentUpon>CMNodeEditor.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ctrls\SYSRoleEditor.xaml.cs">
+      <DependentUpon>SYSRoleEditor.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ctrls\SYSUserEditor.xaml.cs">
       <DependentUpon>SYSUserEditor.xaml</DependentUpon>
     </Compile>
@@ -116,7 +119,7 @@
     <Compile Include="data\CMNode.cs" />
     <Compile Include="data\CMUser.cs" />
     <Compile Include="data\PNDataBase.cs" />
-    <Compile Include="data\RoleBase.cs" />
+    <Compile Include="data\SYSRole.cs" />
     <Compile Include="data\SYSGroup.cs" />
     <Compile Include="data\SYSUser.cs" />
     <Compile Include="frames\AdMgr.xaml.cs">
@@ -157,6 +160,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ctrls\CMNodeEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ctrls\SYSRoleEditor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

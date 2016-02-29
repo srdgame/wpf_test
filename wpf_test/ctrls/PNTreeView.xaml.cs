@@ -112,9 +112,9 @@ namespace wpf_test.ctrls
             var item = SelectedItem as PNTreeViewItem;
             if (item != null)
             {
-                btn_Add.IsEnabled = item.Type != PNItemType.LEAF;
-                btn_Delete.IsEnabled = true;
-                btn_Edit.IsEnabled = true;
+                btn_Add.IsEnabled = !item.Type.HasFlag(PNItemType.NOADD);
+                btn_Delete.IsEnabled = !item.Type.HasFlag(PNItemType.NODELETE);
+                btn_Edit.IsEnabled = !item.Type.HasFlag(PNItemType.NOEDIT);
             }
             else
             {

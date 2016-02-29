@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace wpf_test.data
 {
-    public class sys_user_rpc
+    public class sys_user_rpc : ICloneable
     {
         public string id { get; set; }
         public string username { get; set; }
@@ -17,5 +17,10 @@ namespace wpf_test.data
         public string email { get; set; }
         public sys_user_rpc creator { get; set; }
         public DateTime creation_time { get; set; }
+
+        public object Clone()
+        {
+            return this.MemberwiseClone();
+        }
     }
 }

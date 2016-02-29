@@ -11,8 +11,9 @@ namespace wpf_test.data
     {
         BOLE = 1,
         LEAF = 2,
-        NODELETE = 4,
-        NOEDIT = 8,
+        NOADD = 64,
+        NOEDIT = 128,
+        NODELETE = 256,
     }
     public class PNTreeViewItemList : ObservableCollection<IPNTreeViewItem> { }
     public interface IPNTreeViewItem
@@ -51,7 +52,7 @@ namespace wpf_test.data
 
 
         public string Icon { get { return Type.HasFlag(PNItemType.LEAF) ? "/images/icon/leaf.png" : "/images/icon/folder.png"; } }
-        public string AddIcon { get { return Type.HasFlag(PNItemType.BOLE) ? "/images/icon/add.png" : ""; } }
+        public string AddIcon { get { return Type.HasFlag(PNItemType.NOADD) ? "" : "/images/icon/add.png" ; } }
         //public string EditIcon { get { return Type.HasFlag(PropertyNodeType.NOEDIT) ? "" : "/images/icon/edit.png"; } }
         public string DeleteIcon { get { return Type.HasFlag(PNItemType.NODELETE) ? "" : "/images/icon/delete.png"; } }
 
@@ -88,6 +89,7 @@ namespace wpf_test.data
 
         public abstract void UpdateData(object data);
         public abstract object CloneData();
+        public abstract System.Type Editor { get; }
 
         public void UpdateGUI()
         {

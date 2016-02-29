@@ -49,6 +49,14 @@ namespace wpf_test.frames
         public override string DisplayName { get { return _data.name; } }
         public override string Tips { get { return _data.desc; } }
 
+        public override Type Editor
+        {
+            get
+            {
+                return typeof(ctrls.TestEditor);
+            }
+        }
+
         public TestData(test_data_rpc data, TestData parent = null) : base(parent)
         {
             _data = data;

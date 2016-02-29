@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 
 namespace wpf_test.data
 {
@@ -56,6 +57,14 @@ namespace wpf_test.data
         public override string DisplayName { get { return _data.name; } }
         public override string Tips { get { return _data.desc; } }
         public override object Data { get { return _data; } }
+
+        public override System.Type Editor
+        {
+            get
+            {
+                return typeof(ctrls.CMNodeEditor);
+            }
+        }
 
         public CMNode(cm_node_rpc data, CMNode parent = null) : base(parent)
         {
