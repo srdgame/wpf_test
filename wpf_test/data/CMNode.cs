@@ -55,6 +55,7 @@ namespace wpf_test.data
         public override string Id { get { return _data.id; } }
         public override string DisplayName { get { return _data.name; } }
         public override string Tips { get { return _data.desc; } }
+        public override object Data { get { return _data; } }
 
         public CMNode(cm_node_rpc data, CMNode parent = null) : base(parent)
         {
@@ -76,7 +77,7 @@ namespace wpf_test.data
             _data.category = d.category;
         }
 
-        public override object GetData()
+        public override object CloneData()
         {
             return _data.Clone();
         }

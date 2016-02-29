@@ -23,18 +23,24 @@ namespace wpf_test.ctrls
     /// </summary>
     public partial class CMNodeEditor : UserControl
     {
+
+        public static readonly DependencyProperty CategoriesProperty =
+            DependencyProperty.Register("Categories", typeof(ObservableCollection<CMNodeCategory>), typeof(CMNodeEditor), new FrameworkPropertyMetadata(null));
+
         public ObservableCollection<CMNodeCategory> Categories
         {
-            get
-            {
-                return categoryList.ItemsSource as ObservableCollection<CMNodeCategory>;
-            }
-            set
-            {
-                categoryList.ItemsSource = value;
-            }
+            get { return (ObservableCollection<CMNodeCategory>)GetValue(CategoriesProperty); }
+            set { SetValue(CategoriesProperty, value); }
         }
-        public IEnumerable<object> NodeList { set { nodeList.ItemsSource = value; }  }
+
+        public static readonly DependencyProperty NodeListProperty =
+            DependencyProperty.Register("NodeList", typeof(IEnumerable<object>), typeof(CMNodeEditor), new FrameworkPropertyMetadata(null));
+
+        public IEnumerable<object> NodeList
+        {
+            get { return (IEnumerable<object>)GetValue(NodeListProperty); }
+            set { SetValue(NodeListProperty, value); }
+        }
         public CMNodeEditor()
         {
             InitializeComponent();

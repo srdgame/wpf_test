@@ -53,7 +53,7 @@ namespace wpf_test.ctrls
         {
             if (ItemsSource == null)
                 return;
-            if (SelectedValue == null)
+            if (SelectedValue == null && SelectedItem == null)
                 return;
 
             var cbItemDisplay = comboBox.Items[0] as ComboBoxItem;
@@ -61,12 +61,14 @@ namespace wpf_test.ctrls
             {
                 PropertyInfo pi = ItemsSource.FirstOrDefault().GetType().GetProperty(SelectedValuePath);
                 PropertyInfo cpi = ItemsSource.FirstOrDefault().GetType().GetProperty(ChildrenPath);
-                cbItemDisplay.DataContext = FindItem(ItemsSource, pi, cpi, SelectedValue);
+                SelectedItem = FindItem(ItemsSource, pi, cpi, SelectedValue);
+                //cbItemDisplay.DataContext = FindItem(ItemsSource, pi, cpi, SelectedValue);
             }
             else
             {
                 PropertyInfo cpi = ItemsSource.FirstOrDefault().GetType().GetProperty(ChildrenPath);
-                cbItemDisplay.DataContext = FindItem(ItemsSource, null, cpi, SelectedValue);
+                SelectedItem = FindItem(ItemsSource, null, cpi, SelectedValue);
+                //cbItemDisplay.DataContext = FindItem(ItemsSource, null, cpi, SelectedValue);
             }
         }
 
@@ -199,10 +201,6 @@ namespace wpf_test.ctrls
             if (SelectedItem != null)
             {
                 SelectedValue = SelectedItem.GetType().GetProperty(this.SelectedValuePath).GetValue(SelectedItem);
-            }
-            else
-            {
-                SelectedValue = null;
             }
 
             e.RoutedEvent = SelectionChangedEvent;

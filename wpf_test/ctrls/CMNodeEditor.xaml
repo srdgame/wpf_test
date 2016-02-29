@@ -6,6 +6,7 @@
              xmlns:local="clr-namespace:wpf_test.ctrls"
              xmlns:data="clr-namespace:wpf_test.data"
              mc:Ignorable="d" 
+             x:Name="_this"
              d:DesignHeight="480" d:DesignWidth="600" Loaded="UserControl_Loaded">
     <Grid>
         <Label Content="名字：" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
@@ -15,8 +16,8 @@
         <Label Content="地址：" HorizontalAlignment="Left" Margin="10,70,0,0" VerticalAlignment="Top"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="61,70,0,0" TextWrapping="Wrap" Text="{Binding address}" VerticalAlignment="Top" Width="300"/>
         <Label Content="类型：" HorizontalAlignment="Left" Margin="10,95,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="categoryList" HorizontalAlignment="Left" Margin="61,98,0,0" VerticalAlignment="Top" Width="120" SelectedValue="{Binding category}" SelectedValuePath="value" DisplayMemberPath="name"/>
+        <ComboBox x:Name="categoryList" HorizontalAlignment="Left" Margin="61,98,0,0" VerticalAlignment="Top" Width="120" SelectedValue="{Binding category}" SelectedValuePath="value" ItemsSource="{Binding Categories, ElementName=_this}" DisplayMemberPath="name"/>
         <Label Content="父节点：" HorizontalAlignment="Left" Margin="10,121,0,0" VerticalAlignment="Top"/>
-        <local:ComboTree x:Name="nodeList" HorizontalAlignment="Left" Margin="73,125,0,0" VerticalAlignment="Top" Width="120" SelectedValue="{Binding parent}" SelectedValuePath="Id"/>
+        <local:ComboTree x:Name="nodeList" HorizontalAlignment="Left" Margin="73,125,0,0" VerticalAlignment="Top" Width="120" SelectedValue="{Binding parent}"  SelectedValuePath="Data" ItemsSource="{Binding NodeList, ElementName=_this}"/>
     </Grid>
 </UserControl>

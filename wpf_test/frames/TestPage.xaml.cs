@@ -18,18 +18,18 @@ using wpf_test.data;
 
 namespace wpf_test.frames
 {
-    public class rpc_test_data : ICloneable
+    public class test_data_rpc : ICloneable
     {
         public PNItemType type { get; set; }
         public string id { get; set; }
         public string name { get; set; }
         public string desc { get; set; }
-        public rpc_test_data parent { get; set; }
-        public List<rpc_test_data> children;
-        public rpc_test_data(rpc_test_data parent = null)
+        public test_data_rpc parent { get; set; }
+        public List<test_data_rpc> children;
+        public test_data_rpc(test_data_rpc parent = null)
         {
             this.parent = parent;
-            children = new List<rpc_test_data>();
+            children = new List<test_data_rpc>();
             if (this.parent != null)
                 parent.children.Add(this);
         }
@@ -41,14 +41,15 @@ namespace wpf_test.frames
     }
     public class TestData : PNTreeViewItem
     {
-        private rpc_test_data _data;
-        public rpc_test_data Data { get { return _data; } }
+        private test_data_rpc _data;
+        public override object Data { get { return _data; } }
         public override PNItemType Type { get { return _data.type; } }
 
         public override string Id { get { return _data.id; } }
         public override string DisplayName { get { return _data.name; } }
         public override string Tips { get { return _data.desc; } }
-        public TestData(rpc_test_data data, TestData parent = null) : base(parent)
+
+        public TestData(test_data_rpc data, TestData parent = null) : base(parent)
         {
             _data = data;
             TestData tmp;
@@ -60,14 +61,14 @@ namespace wpf_test.frames
 
         public override void UpdateData(object data)
         {
-            var d = data as rpc_test_data;
+            var d = data as test_data_rpc;
             _data.name = d.name;
             _data.desc = d.desc;
             _data.parent = d.parent;
             _data.type = d.type;
         }
 
-        public override object GetData()
+        public override object CloneData()
         {
             return _data.Clone();
         }
@@ -90,7 +91,7 @@ namespace wpf_test.frames
             {
                 Editor = new TestEditor()
                 {
-                    DataContext = item.GetData(),
+                    DataContext = item.CloneData(),
                     NodeList = _item_list,
                     //SelectedNode = item.Parent,
                 },
@@ -111,17 +112,25 @@ namespace wpf_test.frames
             item.UpdateGUI();
             item.Parent = (page.Editor as TestEditor).SelectedNode as TestData;
             item.IsNew = false;
+
+            var item_p = item.Parent;
+            while (item_p != null)
+            {
+                item_p.IsExpanded = true;
+                item_p = item_p.Parent;
+            }
         }
 
         private void treeView_ClickAdd(object sender, PNRoutedEventArgs e)
         {
             var item = e.SourceItem as TestData;
-            var new_item = new TestData(new rpc_test_data()
+            var new_item = new TestData(new test_data_rpc()
             {
                 type = PNItemType.LEAF,
                 id = Guid.NewGuid().ToString(),
                 name = "New Tag",
                 desc = "",
+                parent = item.Data as test_data_rpc,
             }, item);
             new_item.IsNew = true;
             new_item.IsSelected = true;
@@ -150,7 +159,7 @@ namespace wpf_test.frames
         {
             var itemList = new PNTreeViewItemList();
 
-            var node1 = new rpc_test_data()
+            var node1 = new test_data_rpc()
             {
                 type = PNItemType.BOLE,
                 id = Guid.NewGuid().ToString(),
@@ -158,7 +167,7 @@ namespace wpf_test.frames
                 desc = "This is the discription of Node1. This is a folder.",
             };
 
-            var node1tag1 = new rpc_test_data(node1)
+            var node1tag1 = new test_data_rpc(node1)
             {
                 type = PNItemType.LEAF,
                 id = Guid.NewGuid().ToString(),
@@ -166,7 +175,7 @@ namespace wpf_test.frames
                 desc = "This is the discription of Tag 1. This is a tag.",
             };
 
-            var node1tag2 = new rpc_test_data(node1)
+            var node1tag2 = new test_data_rpc(node1)
             {
                 type = PNItemType.LEAF,
                 id = Guid.NewGuid().ToString(),
@@ -174,7 +183,7 @@ namespace wpf_test.frames
                 desc = "This is the discription of Tag 2. This is a tag.",
             };
 
-            new rpc_test_data(node1tag2)
+            new test_data_rpc(node1tag2)
             {
                 type = PNItemType.BOLE,
                 id = Guid.NewGuid().ToString(),
@@ -184,7 +193,7 @@ namespace wpf_test.frames
 
             itemList.Add(new TestData(node1));
 
-            var node2 =  new rpc_test_data()
+            var node2 =  new test_data_rpc()
                 {
                     type = PNItemType.BOLE,
                     id = Guid.NewGuid().ToString(),
@@ -192,7 +201,7 @@ namespace wpf_test.frames
                     desc = "This is the discription of Node 2. This is a folder.",
             };
 
-            var node2tag3 = new rpc_test_data(node2)
+            var node2tag3 = new test_data_rpc(node2)
                 {
                     type = PNItemType.LEAF,
                     id = Guid.NewGuid().ToString(),

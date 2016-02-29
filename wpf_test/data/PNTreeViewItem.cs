@@ -33,7 +33,9 @@ namespace wpf_test.data
         PNTreeViewItemList Children { get; }
 
         void UpdateData(object data);
-        object GetData();
+        object CloneData();
+        // For UI Binding Only
+        object Data { get; }
     }
 
     public abstract class PNTreeViewItem : ViewModelBase, IPNTreeViewItem
@@ -82,9 +84,10 @@ namespace wpf_test.data
         public abstract string Id { get; }
         public abstract string DisplayName { get; }
         public abstract string Tips { get; }
+        public abstract object Data { get; }
 
         public abstract void UpdateData(object data);
-        public abstract object GetData();
+        public abstract object CloneData();
 
         public void UpdateGUI()
         {

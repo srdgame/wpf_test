@@ -124,7 +124,16 @@ namespace wpf_test.frames
 
         private void treeView_ClickAdd(object sender, PNRoutedEventArgs e)
         {
-
+            var item = e.SourceItem as CMNode;
+            var new_item = new CMNode(new cm_node_rpc()
+            {
+                id = Guid.NewGuid().ToString(),
+                name = "New Node",
+                desc = "",
+                parent = item.Data as cm_node_rpc,
+            }, item);
+            new_item.IsNew = true;
+            new_item.IsSelected = true;
         }
 
         private void treeView_ClickEdit(object sender, PNRoutedEventArgs e)
@@ -135,33 +144,46 @@ namespace wpf_test.frames
 
         private void treeView_ClickDelete(object sender, PNRoutedEventArgs e)
         {
-
+            var item = e.SourceItem as PNTreeViewItem;
+            var parent = item.Parent;
+            if (parent != null)
+            {
+                parent.Children.Remove(item);
+            }
+            else
+            {
+                _item_list.Remove(item);
+            }
         }
 
         private void treeView_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
-            var v = treeView.SelectedValue as ICloneable;
+            var v = treeView.SelectedItem as CMNode;
             var page = new frames.EditorPage()
             {
                 Editor = new CMNodeEditor()
                 {
-                    DataContext = v.Clone(),
+                    DataContext = v.CloneData(),
                     Categories = _categories,
                     NodeList = _item_list,
                 },
             };
             page.Save += OnSave;
             frame.Navigate(page);
+
+            if (v.IsNew)
+            {
+                page.IsEditable = true;
+            }
         }
 
         private void OnSave(object sender, RoutedEventArgs e)
         {
             var page = frame.Content as EditorPage;
             var item = treeView.SelectedItem as PNTreeViewItem;
-
-            var data = treeView.SelectedValue as CMNode;
-
-            data = page.EditorData as CMNode;
+            item.UpdateData(page.EditorData);
+            item.UpdateGUI();
+            item.Parent = (page.Editor as CMNodeEditor).nodeList.SelectedItem as CMNode;
             item.IsNew = false;
         }
     }
