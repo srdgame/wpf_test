@@ -49,13 +49,7 @@ namespace wpf_test.frames
         public override string DisplayName { get { return _data.name; } }
         public override string Tips { get { return _data.desc; } }
 
-        public override Type Editor
-        {
-            get
-            {
-                return typeof(ctrls.TestEditor);
-            }
-        }
+        public override string Editor { get { return "TestEditor"; } }
 
         public TestData(test_data_rpc data, TestData parent = null) : base(parent)
         {
@@ -94,15 +88,20 @@ namespace wpf_test.frames
         private void treeView_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
             var item = treeView.SelectedItem as TestData;
+            var editor = item.CreateEditor(item.CloneData());
+            (editor as TestEditor).NodeList = _item_list;
 
             var page = new frames.EditorPage()
             {
+                Editor = editor,
+                /*
                 Editor = new TestEditor()
                 {
                     DataContext = item.CloneData(),
                     NodeList = _item_list,
                     //SelectedNode = item.Parent,
                 },
+                */
             };
             page.Save += OnSave;
             frame.Navigate(page);

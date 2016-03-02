@@ -5,7 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:wpf_test"
         mc:Ignorable="d"
-        Title="管理程序" Height="720" Width="1024" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
+        Title="管理程序" 
+        Height="720" Width="1024"
+        MinHeight="720" MinWidth="1024"
+        WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
     <Grid>
         <Frame x:Name="frame_left" HorizontalAlignment="Left" Width="120" Margin="0,64,0,0"/>
         <Frame x:Name="frame_main" Margin="120,64,0,0" NavigationUIVisibility="Hidden"/>

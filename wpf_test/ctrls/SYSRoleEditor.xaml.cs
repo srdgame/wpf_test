@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using wpf_test.data;
 
 namespace wpf_test.ctrls
 {
@@ -20,9 +23,51 @@ namespace wpf_test.ctrls
     /// </summary>
     public partial class SYSRoleEditor : UserControl
     {
+        public static readonly DependencyProperty PermissionListProperty =
+            DependencyProperty.Register("PermissionList", typeof(IEnumerable), typeof(SYSRoleEditor), new FrameworkPropertyMetadata(null));
+
+        public IEnumerable PermissionList
+        {
+            get { return (IEnumerable)GetValue(PermissionListProperty); }
+            set { SetValue(PermissionListProperty, value); }
+        }
+
+        public static readonly DependencyProperty SelectedListProperty =
+            DependencyProperty.Register("SelectedList", typeof(IList), typeof(SYSRoleEditor),
+                new FrameworkPropertyMetadata(null,  FrameworkPropertyMetadataOptions.BindsTwoWayByDefault));
+
+        public IList SelectedList
+        {
+            get { return (IList)GetValue(SelectedListProperty); }
+            set { SetValue(SelectedListProperty, value); }
+        }
+        private ObservableCollection<SYSRolePermission> _permission_List;
+        private List<sys_role_permission_rpc> _permission_List2;
         public SYSRoleEditor()
         {
             InitializeComponent();
+        }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            _permission_List = new ObservableCollection<SYSRolePermission>();
+            _permission_List2 = new List<sys_role_permission_rpc>();
+            /*
+            ad 广告操作
+            community 社区操作
+            entrance 编辑门禁
+            role 角色管理操作
+            user 用户操作  
+            */
+            _permission_List.Add(new SYSRolePermission(new sys_role_permission_rpc() { name = "ad", desc = "广告操作" }));
+            _permission_List.Add(new SYSRolePermission(new sys_role_permission_rpc() { name = "community", desc = "社区操作" }));
+            _permission_List.Add(new SYSRolePermission(new sys_role_permission_rpc() { name = "entrance", desc = "编辑门禁" }));
+            _permission_List.Add(new SYSRolePermission(new sys_role_permission_rpc() { name = "role", desc = "角色管理操作" }));
+            _permission_List.Add(new SYSRolePermission(new sys_role_permission_rpc() { name = "user", desc = "用户操作" }));
+            _permission_List2.Add(new sys_role_permission_rpc() { name = "user", desc = "用户操作" });
+            PermissionList = _permission_List;
+            SelectedList = _permission_List2;
+            //listView.ItemsSelected = SelectedList;
         }
     }
 }

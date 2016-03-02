@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using wpf_test.ctrls;
 using wpf_test.data;
 
 namespace wpf_test.frames
@@ -71,11 +72,11 @@ namespace wpf_test.frames
             }
         }
 
-        public override System.Type Editor
+        public override string Editor
         {
             get
             {
-                throw new NotImplementedException();
+                return string.Empty;
             }
         }
 
@@ -98,36 +99,24 @@ namespace wpf_test.frames
     /// </summary>
     public partial class UsersPage : Page
     {
-        public ObservableCollection<sys_role_permission_rpc> PersmissionList;
         private MainWindow m_Main;
         public UsersPage(MainWindow main)
         {
             m_Main = main;
-            PersmissionList = new ObservableCollection<sys_role_permission_rpc>();
             InitializeComponent();
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            /*
-            ad 广告操作
-            community 社区操作
-            entrance 编辑门禁
-            role 角色管理操作
-            user 用户操作  
-            */
-            PersmissionList.Add(new sys_role_permission_rpc() { name = "ad", desc = "广告操作" });
-            PersmissionList.Add(new sys_role_permission_rpc() { name = "community", desc = "社区操作" });
-            PersmissionList.Add(new sys_role_permission_rpc() { name = "entrance", desc = "编辑门禁" });
-            PersmissionList.Add(new sys_role_permission_rpc() { name = "role", desc = "角色管理操作" });
-            PersmissionList.Add(new sys_role_permission_rpc() { name = "user", desc = "用户操作" });
 
-            var sys = new CateDataItem( new CateData() { name = "System", desc = "System Edit", type = PNItemType.BOLE | PNItemType.NOEDIT } );
-            var sys_roles = new CateDataItem(new CateData() { name = "Roles", desc = "Roles Edit", type = PNItemType.BOLE | PNItemType.NOEDIT }, sys);
+            var sys = new CateDataItem( new CateData() { name = "System", desc = "System Edit", type = PNItemType.BOLE | PNItemType.NOEDIT | PNItemType.NOADD | PNItemType.NODELETE} );
+            var sys_roles = new CateDataItem(new CateData() { name = "Roles", desc = "Roles Edit", type = PNItemType.BOLE | PNItemType.NOEDIT | PNItemType.NODELETE }, sys);
             var role1 = new SYSRole(new sys_role_rpc() { name = "Role1", desc = "Role1" }, sys_roles);
             var role2 = new SYSRole(new sys_role_rpc() { name = "Role2", desc = "Role2" }, sys_roles);
-            var sys_groups = new CateDataItem(new CateData() { name = "Groups", desc = "Groups Edit", type = PNItemType.BOLE | PNItemType.NOEDIT }, sys);
-            var sys_users = new CateDataItem(new CateData() { name = "Users", desc = "Users Edit", type = PNItemType.BOLE | PNItemType.NOEDIT }, sys);
+            var sys_groups = new CateDataItem(new CateData() { name = "Groups", desc = "Groups Edit", type = PNItemType.BOLE | PNItemType.NOEDIT | PNItemType.NODELETE }, sys);
+            var group1 = new SYSGroup(new sys_group_rpc() { name = "Group1", desc = "Group1" }, sys_groups);
+            var group2 = new SYSGroup(new sys_group_rpc() { name = "Group2", desc = "Group2" }, sys_groups);
+            var sys_users = new CateDataItem(new CateData() { name = "Users", desc = "Users Edit", type = PNItemType.BOLE | PNItemType.NOEDIT | PNItemType.NODELETE }, sys);
             // Get roles
             PNTreeViewItemList categories = new PNTreeViewItemList();
             categories.Add(sys);
@@ -151,8 +140,33 @@ namespace wpf_test.frames
 
         private void treeView_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
+            var item = treeView.SelectedItem as PNTreeViewItem;
+            var editor = item.CreateEditor(item.CloneData());
+            if (editor == null)
+            {
+                frame.Navigate(null);
+                return;
+            }
 
+            var page = new frames.EditorPage()
+            {
+                Editor = editor,
+            };
+            page.Save += OnSave;
+            frame.Navigate(page);
+            if (item.IsNew)
+            {
+                page.IsEditable = true;
+            }
         }
 
+        private void OnSave(object sender, RoutedEventArgs e)
+        {
+            var page = frame.Content as EditorPage;
+            var item = treeView.SelectedItem as PNTreeViewItem;
+            item.UpdateData(page.EditorData);
+            item.UpdateGUI();
+            item.IsNew = false;
+        }
     }
 }

@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 
 namespace wpf_test.data
 {
@@ -89,7 +90,20 @@ namespace wpf_test.data
 
         public abstract void UpdateData(object data);
         public abstract object CloneData();
-        public abstract System.Type Editor { get; }
+        public abstract string Editor { get; }
+
+        public UserControl CreateEditor(object data_context)
+        {
+            var ename = this.Editor;
+            if (ename == null || ename == string.Empty)
+                return null;
+
+            var type = System.Type.GetType("wpf_test.ctrls." + ename);
+
+            UserControl editor = Activator.CreateInstance(type) as UserControl;
+            editor.DataContext = data_context;
+            return editor;
+        }
 
         public void UpdateGUI()
         {

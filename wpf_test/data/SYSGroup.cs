@@ -23,62 +23,40 @@ namespace wpf_test.data
     }
     public class SYSGroup : PNTreeViewItem
     {
-        public override object Data
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public override string DisplayName
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public override Type Editor
-        {
-            get
-            {
-                return typeof(ctrls.SYSGroupEditor);
-            }
-        }
-
-        public override string Id
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public override string Tips
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
-
+        private sys_group_rpc _data;
         public override PNItemType Type
         {
             get
             {
-                throw new NotImplementedException();
+                return PNItemType.LEAF | PNItemType.NOADD;
             }
         }
 
-        public override object CloneData()
+
+        public override string Id { get { return _data.id; } }
+        public override string DisplayName { get { return _data.name; } }
+        public override string Tips { get { return _data.desc; } }
+        public override object Data { get { return _data; } }
+
+        public override string Editor { get { return "SYSGroupEditor"; } }
+
+        public SYSGroup(sys_group_rpc data, PNTreeViewItem parent = null) : base(parent)
         {
-            throw new NotImplementedException();
+            _data = data;
         }
 
         public override void UpdateData(object data)
         {
-            throw new NotImplementedException();
+            var d = data as sys_group_rpc;
+            _data.name = d.name;
+            _data.desc = d.desc;
+            _data.node = d.node;
+            _data.is_system = d.is_system;
+        }
+
+        public override object CloneData()
+        {
+            return _data.Clone();
         }
     }
 }

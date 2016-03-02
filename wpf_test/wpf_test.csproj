@@ -87,6 +87,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="api\FakeAPI.cs" />
+    <Compile Include="ctrls\CheckableListView.xaml.cs">
+      <DependentUpon>CheckableListView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ctrls\CMUserEditor.xaml.cs">
       <DependentUpon>CMUserEditor.xaml</DependentUpon>
     </Compile>
@@ -96,6 +99,9 @@
     <Compile Include="ctrls\PasswordHelper.cs" />
     <Compile Include="ctrls\RoleListView.xaml.cs">
       <DependentUpon>RoleListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ctrls\DefaultEditor.xaml.cs">
+      <DependentUpon>DefaultEditor.xaml</DependentUpon>
     </Compile>
     <Compile Include="ctrls\SYSGroupEditor.xaml.cs">
       <DependentUpon>SYSGroupEditor.xaml</DependentUpon>
@@ -115,6 +121,7 @@
     <Compile Include="ctrls\TestEditor.xaml.cs">
       <DependentUpon>TestEditor.xaml</DependentUpon>
     </Compile>
+    <Compile Include="data\CheckableListViewItem.cs" />
     <Compile Include="data\CMEntrance.cs" />
     <Compile Include="data\CMNode.cs" />
     <Compile Include="data\CMUser.cs" />
@@ -139,6 +146,10 @@
     </Compile>
     <Compile Include="data\PNTreeViewItem.cs" />
     <Compile Include="data\ViewModelBase.cs" />
+    <Page Include="ctrls\CheckableListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ctrls\CMUserEditor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -148,6 +159,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="ctrls\RoleListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ctrls\DefaultEditor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
