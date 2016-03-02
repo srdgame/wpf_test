@@ -9,6 +9,7 @@
     <Grid>
         <local:UserControl1 x:Name="userCtrl" HorizontalAlignment="Left" VerticalAlignment="Top" TestValue="{Binding Test, Mode=TwoWay}"/>
         <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="112,86,0,0" VerticalAlignment="Top" Width="115" Click="button_Click" Height="97"/>
+        <local:ListViewCtrl x:Name="listView" HorizontalAlignment="Left" Margin="280,35,0,0" VerticalAlignment="Top" Height="169" Width="204"/>
 
     </Grid>
 </Window>

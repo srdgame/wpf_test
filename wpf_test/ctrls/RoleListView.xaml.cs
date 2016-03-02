@@ -72,8 +72,7 @@ namespace wpf_test.ctrls
             DependencyProperty.Register("ItemsSelected", typeof(IList), typeof(RoleListView),
                 new FrameworkPropertyMetadata(null, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault,
                     new PropertyChangedCallback(OnSelectedItemsChanged)));
-
-
+        
         public IList ItemsSelected
         {
             get { return GetValue(ItemsSelectedProperty) as IList; }

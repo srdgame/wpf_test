@@ -15,37 +15,32 @@ using System.Windows.Shapes;
 
 namespace binding_test
 {
-    public class TestData
+    class ListViewData
     {
-        public string Test { get; set; }
+        public string name { get; set; }
+        public string desc { get; set; }
     }
     /// <summary>
-    /// MainWindow.xaml 的交互逻辑
+    /// ListView.xaml 的交互逻辑
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class ListViewCtrl : UserControl
     {
-        public MainWindow()
+        public List<object> ItemsList { get; set; }
+        public ListViewCtrl()
         {
-            InitializeComponent();
-        }
-
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            this.DataContext = new TestData()
-            {
-                Test = "Hello World",
-            };
-
-
             //var list = new List<object>();
             //list.Add(new ListViewData() { name = "T1", desc = "TDDD" });
             //list.Add(new ListViewData() { name = "T2", desc = "TDDD2" });
-            //listView.ItemsList = list;
+            //ItemsList = list;
+            InitializeComponent();
         }
 
-        private void button_Click(object sender, RoutedEventArgs e)
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show((this.DataContext as TestData).Test);
+            //var list = new List<object>();
+            //list.Add(new ListViewData() { name = "T1", desc = "TDDD" });
+            //list.Add(new ListViewData() { name = "T2", desc = "TDDD2" });
+            //ItemsList = list;
         }
     }
 }
