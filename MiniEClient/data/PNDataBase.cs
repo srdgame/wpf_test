@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace wpf_test.data
+namespace MiniEClient.data
 {
     /*
     public class NodeDataList : ObservableCollection<PNDataBase> { }

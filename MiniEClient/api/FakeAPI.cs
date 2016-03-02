@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace wpf_test.api
+namespace MiniEClient.api
 {
     class FakeAPI
     {

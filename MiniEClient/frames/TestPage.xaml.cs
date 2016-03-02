@@ -13,10 +13,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using wpf_test.ctrls;
-using wpf_test.data;
+using MiniEClient.ctrls;
+using MiniEClient.data;
 
-namespace wpf_test.frames
+namespace MiniEClient.frames
 {
     public class test_data_rpc : ICloneable
     {

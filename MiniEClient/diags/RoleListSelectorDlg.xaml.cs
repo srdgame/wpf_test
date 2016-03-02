@@ -12,9 +12,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using wpf_test.data;
+using MiniEClient.data;
 
-namespace wpf_test.diags
+namespace MiniEClient.diags
 {
     /// <summary>
     /// RoleListSelectorDlg.xaml 的交互逻辑

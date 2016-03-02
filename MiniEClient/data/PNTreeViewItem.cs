@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 
-namespace wpf_test.data
+namespace MiniEClient.data
 {
     public enum PNItemType
     {
@@ -98,7 +98,7 @@ namespace wpf_test.data
             if (ename == null || ename == string.Empty)
                 return null;
 
-            var type = System.Type.GetType("wpf_test.ctrls." + ename);
+            var type = System.Type.GetType("MiniEClient.ctrls." + ename);
 
             UserControl editor = Activator.CreateInstance(type) as UserControl;
             editor.DataContext = data_context;

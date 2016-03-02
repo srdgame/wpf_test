@@ -15,9 +15,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using wpf_test.data;
+using MiniEClient.data;
 
-namespace wpf_test.ctrls
+namespace MiniEClient.ctrls
 {
     public class PNRoutedEventArgs : RoutedEventArgs
     {

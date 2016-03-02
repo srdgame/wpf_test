@@ -16,7 +16,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace wpf_test.ctrls
+namespace MiniEClient.ctrls
 {
     /// <summary>
     /// RoleListView.xaml 的交互逻辑

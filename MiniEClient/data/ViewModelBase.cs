@@ -6,7 +6,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace wpf_test.data
+namespace MiniEClient.data
 {
     public class ViewModelBase : INotifyPropertyChanged
     {

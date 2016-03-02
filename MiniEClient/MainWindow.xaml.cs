@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace wpf_test
+namespace MiniEClient
 {
     /// <summary>
     /// MainWindow.xaml 的交互逻辑

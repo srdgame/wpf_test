@@ -1,0 +1,20 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:local="clr-namespace:ComboBoxTreeViewSample"
+        x:Class="WpfComboboxTreeview.MainWindow"
+        Title="MainWindow" Height="350" Width="525">
+    <Window.Resources>
+        <HierarchicalDataTemplate x:Key="treeViewDataTemplate" ItemsSource="{Binding Children}">
+            <TextBlock Text="{Binding Title}" />
+        </HierarchicalDataTemplate>
+    </Window.Resources>
+    <Grid x:Name="LayoutRoot" Background="White">
+
+        <local:ComboBoxTreeView x:Name="comboBox" ItemsSource="{Binding Items}" SelectedItem="{Binding SelectedItem}" 
+                                ItemTemplate="{StaticResource treeViewDataTemplate}"
+                                HorizontalAlignment="Center" VerticalAlignment="Top" Width="200" Margin="0,10,0,0" />
+        <!--<TreeView>
+            <TreeViewItem ItemContainerStyle="{DynamicResource TreeViewItemStyle1}">Test1</TreeViewItem>
+        </TreeView>-->
+    </Grid>
+</Window>

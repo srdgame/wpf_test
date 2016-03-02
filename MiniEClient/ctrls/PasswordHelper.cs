@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace wpf_test.ctrls
+namespace MiniEClient.ctrls
 {
     public static class PasswordHelper
     {

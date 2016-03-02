@@ -1,9 +1,9 @@
-﻿<Page x:Class="wpf_test.frames.LeftMenu"
+﻿<Page x:Class="MiniEClient.frames.LeftMenu"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:wpf_test.frames"
+      xmlns:local="clr-namespace:MiniEClient.frames"
       mc:Ignorable="d" 
       d:DesignHeight="500" d:DesignWidth="120"
       Title="LeftMenu">
@@ -18,18 +18,18 @@
         </Grid.Background>
         <StackPanel>
             <Button x:Name="btn_dist" Height="70"  BorderThickness="0" Background="{x:Null}" Click="btn_dist_Click">
-                <Image Source="/wpf_test;component/images/dist.png" Stretch="Fill" Height="64" />
+                <Image Source="/images/dist.png" Stretch="Fill" Height="64" />
             </Button>
             <Button x:Name="btn_users" Height="64" BorderThickness="0" Background="{x:Null}" Click="btn_users_Click">
-                <Image Source="/wpf_test;component/images/users.png" Stretch="Fill" Height="64" />
+                <Image Source="/images/users.png" Stretch="Fill" Height="64" />
             </Button>
             <Button x:Name="btn_ads" Height="64" BorderThickness="0" Background="{x:Null}" Click="btn_ads_Click">
-                <Image Source="/wpf_test;component/images/公告.png" Stretch="Fill" Height="64" />
+                <Image Source="/images/公告.png" Stretch="Fill" Height="64" />
             </Button>
         </StackPanel>
         <StackPanel VerticalAlignment="Bottom" >
             <Button x:Name="button" Height="64" BorderThickness="0" Background="{x:Null}" Click="button_Click">
-                <Image Source="/wpf_test;component/images/help.png" Stretch="Fill" Height="64" />
+                <Image Source="/images/help.png" Stretch="Fill" Height="64" />
             </Button>
         </StackPanel>
     </Grid>

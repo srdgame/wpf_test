@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace wpf_test.frames
+namespace MiniEClient.frames
 {
     /// <summary>
     /// EditorPage.xaml 的交互逻辑

@@ -12,10 +12,10 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using wpf_test.ctrls;
-using wpf_test.data;
+using MiniEClient.ctrls;
+using MiniEClient.data;
 
-namespace wpf_test.frames
+namespace MiniEClient.frames
 {
     class CateData : ICloneable
     {
