@@ -129,6 +129,9 @@
     <Compile Include="data\SYSRole.cs" />
     <Compile Include="data\SYSGroup.cs" />
     <Compile Include="data\SYSUser.cs" />
+    <Compile Include="diags\RoleListSelectorDlg.xaml.cs">
+      <DependentUpon>RoleListSelectorDlg.xaml</DependentUpon>
+    </Compile>
     <Compile Include="frames\AdMgr.xaml.cs">
       <DependentUpon>AdMgr.xaml</DependentUpon>
     </Compile>
@@ -187,6 +190,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ctrls\TestEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="diags\RoleListSelectorDlg.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

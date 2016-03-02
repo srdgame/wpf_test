@@ -20,6 +20,11 @@ namespace wpf_test.data
         {
             return this.MemberwiseClone();
         }
+        public sys_group_rpc()
+        {
+            group_roles = new List<sys_role_rpc>();
+            group_users = new List<sys_user_rpc>();
+        }
     }
     public class SYSGroup : PNTreeViewItem
     {

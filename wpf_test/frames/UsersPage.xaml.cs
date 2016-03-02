@@ -116,6 +116,9 @@ namespace wpf_test.frames
             var sys_groups = new CateDataItem(new CateData() { name = "Groups", desc = "Groups Edit", type = PNItemType.BOLE | PNItemType.NOEDIT | PNItemType.NODELETE }, sys);
             var group1 = new SYSGroup(new sys_group_rpc() { name = "Group1", desc = "Group1" }, sys_groups);
             var group2 = new SYSGroup(new sys_group_rpc() { name = "Group2", desc = "Group2" }, sys_groups);
+            (group1.Data as sys_group_rpc).group_roles.Add(role1.Data as sys_role_rpc);
+            (group2.Data as sys_group_rpc).group_roles.Add(role1.Data as sys_role_rpc);
+            (group2.Data as sys_group_rpc).group_roles.Add(role2.Data as sys_role_rpc);
             var sys_users = new CateDataItem(new CateData() { name = "Users", desc = "Users Edit", type = PNItemType.BOLE | PNItemType.NOEDIT | PNItemType.NODELETE }, sys);
             // Get roles
             PNTreeViewItemList categories = new PNTreeViewItemList();

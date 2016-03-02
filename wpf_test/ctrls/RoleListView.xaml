@@ -10,21 +10,17 @@
     <Grid>
         <GroupBox Header="权限">
             <Grid>
-                <ListView Margin="0,0,0,54">
-                    <ListView.ItemTemplate>
-                        <HierarchicalDataTemplate DataType="{x:Type data:SYSRole}" ItemsSource="{Binding Path=Children}">
-                            <StackPanel Orientation="Horizontal">
-                                <Image VerticalAlignment="Center" Source="/images/users.png" Width="16" Height="16" Margin="0,0,2,2"></Image>
-                                <TextBlock VerticalAlignment="Center" Text="{Binding name}"></TextBlock>
-                                <StackPanel.ToolTip>
-                                    <TextBlock VerticalAlignment="Center" Text="{Binding Path=desc}" TextWrapping="Wrap" MaxWidth="200" ></TextBlock>
-                                </StackPanel.ToolTip>
-                            </StackPanel>
-                        </HierarchicalDataTemplate>
-                    </ListView.ItemTemplate>
+                <ListView x:Name="listView" Margin="0,0,0,54" ItemsSource="{Binding Path=ItemsSelectedList, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn DisplayMemberBinding="{Binding id}" Header="ID" Width="0"></GridViewColumn>
+                            <GridViewColumn DisplayMemberBinding="{Binding name}" Header="Name"></GridViewColumn>
+                            <GridViewColumn DisplayMemberBinding="{Binding desc}" Header="Description"></GridViewColumn>
+                        </GridView>
+                    </ListView.View>
                 </ListView>
-                <Button x:Name="button_add" Content="增加" HorizontalAlignment="Left" Margin="10,0,0,24" Width="75" Height="25" VerticalAlignment="Bottom"/>
-                <Button x:Name="button_delete" Content="删除" HorizontalAlignment="Left" Margin="99,0,0,24" VerticalAlignment="Bottom" Width="75" Height="25"/>
+                <Button x:Name="button_add" Content="增加" HorizontalAlignment="Left" Margin="10,0,0,24" Width="75" Height="25" VerticalAlignment="Bottom" Click="button_add_Click"/>
+                <Button x:Name="button_delete" Content="删除" HorizontalAlignment="Left" Margin="99,0,0,24" VerticalAlignment="Bottom" Width="75" Height="25" Click="button_delete_Click"/>
             </Grid>
         </GroupBox>
     </Grid>
