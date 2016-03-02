@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfTest", "WpfTest\WpfTest.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "treeview", "treeview\treeview.csproj", "{711D2493-33CB-44C8-A8AF-395D7F0B05EC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wpf_test", "wpf_test\wpf_test.csproj", "{3FA43ECB-7554-4C91-B04C-9C8225D6C033}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "comboxtreeview", "comboxtreeview\comboxtreeview.csproj", "{9C29091E-30E6-4973-B5C6-F8105BE0EC6A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfComboboxTreeview", "WpfComboboxTreeview\WpfComboboxTreeview.csproj", "{80BF9B84-1A94-4352-813B-0A7858F642F9}"
@@ -31,10 +29,6 @@ Global
 		{711D2493-33CB-44C8-A8AF-395D7F0B05EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{711D2493-33CB-44C8-A8AF-395D7F0B05EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{711D2493-33CB-44C8-A8AF-395D7F0B05EC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3FA43ECB-7554-4C91-B04C-9C8225D6C033}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3FA43ECB-7554-4C91-B04C-9C8225D6C033}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3FA43ECB-7554-4C91-B04C-9C8225D6C033}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3FA43ECB-7554-4C91-B04C-9C8225D6C033}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9C29091E-30E6-4973-B5C6-F8105BE0EC6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9C29091E-30E6-4973-B5C6-F8105BE0EC6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9C29091E-30E6-4973-B5C6-F8105BE0EC6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
