@@ -28,7 +28,7 @@ namespace MiniEClient.data
         public override string ID { get { return _data.name; } }
         public override string Name { get { return _data.name; } }
         public override string Desc { get { return _data.desc; } }
-        public override object Value { get { return _data; } }
+        public override object Value { get { return new sys_role_permission_rpc() { perm = _data}; } }
 
         public bool Equals(sys_permission_rpc rpc)
         {
@@ -39,6 +39,10 @@ namespace MiniEClient.data
             var rpc = obj as sys_permission_rpc;
             if (rpc != null)
                 return Equals(rpc);
+            var o = obj as sys_role_permission_rpc;
+            if (o != null)
+                return Equals(o.perm);
+
             return base.Equals(obj);
         }
         public override int GetHashCode()

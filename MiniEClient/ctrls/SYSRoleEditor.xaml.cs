@@ -65,6 +65,12 @@ namespace MiniEClient.ctrls
             _permission_List.Add(new SYSPermission(new sys_permission_rpc() { name = "entrance", desc = "编辑门禁" }));
             _permission_List.Add(new SYSPermission(new sys_permission_rpc() { name = "role", desc = "角色管理操作" }));
             _permission_List.Add(new SYSPermission(new sys_permission_rpc() { name = "user", desc = "用户操作" }));
+
+            //var list = (Application.Current as App).Client.Proxy.get_permissions();
+            //foreach(var item in list)
+            //{
+            //    _permission_List.Add(new SYSPermission(item));
+            //}
             _permission_List2.Add(new sys_permission_rpc() { name = "user", desc = "用户操作" });
             PermissionList = _permission_List;
             SelectedList = _permission_List2;

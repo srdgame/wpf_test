@@ -18,7 +18,7 @@
         <Label Content="邮箱地址：" HorizontalAlignment="Left" Margin="10,128,0,0" VerticalAlignment="Top"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="80,130,0,0" TextWrapping="Wrap" Text="{Binding email}" VerticalAlignment="Top" Width="198"/>
         <Label Content="代码：" HorizontalAlignment="Left" Margin="10,158,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="80,158,0,0" TextWrapping="Wrap" Text="{Binding code}" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="80,158,0,0" TextWrapping="Wrap" Text="{Binding code}" VerticalAlignment="Top" Width="198"/>
 
     </Grid>
 </UserControl>

@@ -51,7 +51,7 @@ namespace MiniEClient.ctrls
         private static void OnItemsSourceChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             var thisControl = d as CheckableListView;
-            thisControl.UpdateListView();
+            //thisControl.UpdateListView();
         }
 
         public IEnumerable ItemsSource
@@ -74,7 +74,7 @@ namespace MiniEClient.ctrls
         private static void OnSelectedItemsChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             var thisControl = d as CheckableListView;
-            thisControl.UpdateListView();
+            //thisControl.UpdateListView();
         }
 
         private void listView_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -84,12 +84,17 @@ namespace MiniEClient.ctrls
 
             foreach (object item in e.RemovedItems)
             {
+                List<object> remove_list = new List<object>();
                 foreach (object obj in ItemsSelected)
                 {
                     if ((item as CheckableListViewItem).Equals(obj))
                     {
-                        ItemsSelected.Remove(obj);
+                        remove_list.Add(obj);
                     }
+                }
+                foreach (object obj in remove_list)
+                {
+                    ItemsSelected.Remove(obj);
                 }
                 //ItemsSelected.Remove(item);
             }
@@ -98,6 +103,11 @@ namespace MiniEClient.ctrls
             {
                 ItemsSelected.Add((item as CheckableListViewItem).Value);
             }
+        }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            UpdateListView();
         }
     }
 }

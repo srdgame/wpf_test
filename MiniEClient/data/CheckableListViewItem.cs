@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace MiniEClient.data
 {
-    public interface Wrapper<T>
-    {
-        T Value { get; }
-        bool Equals(T obj); 
-    }
     public abstract class CheckableListViewItem : ViewModelBase
     {
-        public bool IsSelected { get; set; }
+        private bool _is_selected = false;
+        public bool IsSelected
+        {
+            get { return _is_selected; }
+            set { _is_selected = value; RaisePropertyChanged(() => IsSelected); }
+        }
         public abstract string ID { get; }
         public abstract string Name { get; }
         public abstract string Desc { get; }

@@ -109,37 +109,47 @@ namespace MiniEClient.frames
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-
             var sys = new CateDataItem( new CateData() { name = "System", desc = "System Edit", type = PNItemType.BOLE | PNItemType.NOEDIT | PNItemType.NOADD | PNItemType.NODELETE} );
             var sys_roles = new CateDataItem(new CateData() { name = "Roles", desc = "Roles Edit", type = PNItemType.BOLE | PNItemType.NOEDIT | PNItemType.NODELETE }, sys);
-            var role1 = new SYSRole(new sys_role_rpc() { name = "Role1", desc = "Role1" }, sys_roles);
-            var role2 = new SYSRole(new sys_role_rpc() { name = "Role2", desc = "Role2" }, sys_roles);
             var sys_groups = new CateDataItem(new CateData() { name = "Groups", desc = "Groups Edit", type = PNItemType.BOLE | PNItemType.NOEDIT | PNItemType.NODELETE }, sys);
-            var group1 = new SYSGroup(new sys_group_rpc() { name = "Group1", desc = "Group1" }, sys_groups);
-            var group2 = new SYSGroup(new sys_group_rpc() { name = "Group2", desc = "Group2" }, sys_groups);
-            (group1.Data as sys_group_rpc).group_roles.Add(role1.Data as sys_role_rpc);
-            (group2.Data as sys_group_rpc).group_roles.Add(role1.Data as sys_role_rpc);
-            (group2.Data as sys_group_rpc).group_roles.Add(role2.Data as sys_role_rpc);
             var sys_users = new CateDataItem(new CateData() { name = "Users", desc = "Users Edit", type = PNItemType.BOLE | PNItemType.NOEDIT | PNItemType.NODELETE }, sys);
+
+            var roles = m_Main.Client.get_roles();
+            foreach (var item in roles)
+            {
+                new SYSRole(item, sys_roles);
+            }
+            var groups = m_Main.Client.get_groups();
+            foreach( var item in groups)
+            {
+                new SYSGroup(item, sys_groups);
+                foreach (var user in item.group_users)
+                {
+                    new SYSUser(user, sys_users);
+                }
+            }
+
             // Get roles
-            PNTreeViewItemList categories = new PNTreeViewItemList();
-            categories.Add(sys);
+            PNTreeViewItemList treeList = new PNTreeViewItemList();
+            treeList.Add(sys);
 
-            treeView.ItemsSource = categories;
+            treeView.ItemsSource = treeList;
         }
-        private void treeView_ClickAdd(object sender, ctrls.PNRoutedEventArgs e)
+        private void treeView_ClickAdd(object sender, PNRoutedEventArgs e)
         {
 
         }
 
-        private void treeView_ClickDelete(object sender, ctrls.PNRoutedEventArgs e)
+        private void treeView_ClickDelete(object sender, PNRoutedEventArgs e)
         {
 
         }
 
-        private void treeView_ClickEdit(object sender, ctrls.PNRoutedEventArgs e)
+        private void treeView_ClickEdit(object sender, PNRoutedEventArgs e)
         {
-
+            var page = frame.Content as EditorPage;
+            if (page != null)
+                page.IsEditable = true;
         }
 
         private void treeView_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
