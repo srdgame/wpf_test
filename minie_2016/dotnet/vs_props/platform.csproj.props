@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2009-2015 ZeroC, Inc. All rights reserved. -->
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+ <PropertyGroup>
+    <sdk_root>$(Registry:HKEY_LOCAL_MACHINE\Software\vistek\dev@sdk_root)</sdk_root>
+    <vsdk_build_dir>$(Registry:HKEY_LOCAL_MACHINE\Software\vistek\dev@vsdk_build_dir)</vsdk_build_dir>
+    <OutputPath Condition=" '$(vsdk_build_dir)' == '' ">$(SolutionDir)minie\__output\$(Platform)\$(Configuration)\</OutputPath>
+    <BaseIntermediateOutputPath Condition=" '$(vsdk_build_dir)' == '' ">$(SolutionDir)minie\__obj\$(Platform)\</BaseIntermediateOutputPath>
+    <BaseOutputPath Condition=" '$(vsdk_build_dir)' == '' ">$(SolutionDir)minie\__output\$(Platform)\$(Configuration)\</BaseOutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(vsdk_build_dir)' != ''">
+    <OutputPath>$(vsdk_build_dir)minie\__output\$(Platform)\$(Configuration)\</OutputPath>
+    <BaseIntermediateOutputPath>$(vsdk_build_dir)minie\__obj\$(Platform)\</BaseIntermediateOutputPath>
+    <BaseOutputPath>$(vsdk_build_dir)minie\__output\$(Platform)\$(Configuration)\</BaseOutputPath>
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,4 @@
+C:\Users\cch\Documents\Visual Studio 2015\Projects\MiniEClient\minie_2016\dotnet\minie\__output\AnyCPU\Debug\minie.irpc.dll
+C:\Users\cch\Documents\Visual Studio 2015\Projects\MiniEClient\minie_2016\dotnet\minie\__output\AnyCPU\Debug\minie.irpc.pdb
+C:\Users\cch\Documents\Visual Studio 2015\Projects\MiniEClient\minie_2016\dotnet\minie\__obj\AnyCPU\Debug\minie.irpc.dll
+C:\Users\cch\Documents\Visual Studio 2015\Projects\MiniEClient\minie_2016\dotnet\minie\__obj\AnyCPU\Debug\minie.irpc.pdb

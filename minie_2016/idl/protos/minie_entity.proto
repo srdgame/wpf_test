@@ -1,0 +1,191 @@
+// Copyright 2015, Google Inc.
+// All rights reserved.
+//
+// Redistribution and use in source and binary forms, with or without
+// modification, are permitted provided that the following conditions are
+// met:
+//
+//     * Redistributions of source code must retain the above copyright
+// notice, this list of conditions and the following disclaimer.
+//     * Redistributions in binary form must reproduce the above
+// copyright notice, this list of conditions and the following disclaimer
+// in the documentation and/or other materials provided with the
+// distribution.
+//     * Neither the name of Google Inc. nor the names of its
+// contributors may be used to endorse or promote products derived from
+// this software without specific prior written permission.
+//
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+syntax = "proto3";
+
+option java_package = "ex.grpc";
+option objc_class_prefix = "RTG";
+
+package minie.grpc;
+
+enum PermissionMode
+{
+	pm_DENY = 0;
+	pm_SELECT = 1;
+	pm_UPDATE = 2;
+	pm_INSERT = 4;
+	pm_DELETE = 8;
+}
+enum AccessMethod
+{
+	NONE = 0;
+	ONEPRESS = 1;
+	SHOCK = 2;
+	SHARP = 3;
+	ACCESSCARD = 4;
+	TRAFFICCARD = 5;
+}
+message sys_user_rpc
+{
+	string id 				= 0x00000001;
+	string name 		= 0x00000002;
+	string cellphone 		= 0x00000003;
+	string fullname 			= 0x00000004;
+	string code 			= 0x00000005;
+	string email 			= 0x00000007;
+	string password 		= 0x00000008;
+  
+	repeated sys_group_rpc user_groups 	= 0x00001000;
+	repeated sys_role_rpc user_roles = 0x00001001;
+}
+message sys_group_rpc
+{
+	string id = 1;
+	string name = 2;
+	string desc = 3;
+	bool is_system = 4;
+	cm_community_rpc community = 5;
+	sys_user_rpc creator = 6;
+	string creation_time = 7;
+	repeated sys_user_rpc group_users = 0x00001000;
+	repeated sys_role_rpc group_roles = 0x00001001;
+}
+
+message sys_role_rpc
+{
+	string name = 1;
+	string desc = 2;
+	repeated sys_role_permission_rpc role_permissions = 0x00001000;
+	repeated sys_group_rpc role_groups = 0x00001001;
+	repeated sys_user_rpc role_users = 0x00001002;
+}
+message sys_permission_rpc
+{
+	string name = 1;
+	string desc = 2;
+}
+
+
+message sys_role_permission_rpc
+{
+	string id = 1;
+	PermissionMode mode = 2;
+	sys_role_rpc role = 3;
+	sys_permission_rpc perm = 4;
+	string creation_time = 5;
+	string valid_thru_time = 6;
+}
+message um_user_rpc
+{
+	string id 				= 0x00000001;
+	string nickname 		= 0x00000002;
+	string cellphone 		= 0x00000003;
+	string name 			= 0x00000004;
+	string id_card 			= 0x00000005;
+	string telephone 		= 0x00000006;
+	string email 			= 0x00000007;
+	string password 		= 0x00000008;
+  
+	repeated cm_room_rpc rooms = 0x00001000;
+	repeated cm_room_user_rpc user_rooms = 0x00001001;
+	repeated um_user_friend_rpc user_friends = 0x00001002;
+}
+message um_user_friend_rpc
+{
+  string id 				= 0x00000001;
+  string creation_time 		= 0x00000002;
+  um_user_rpc user 			= 0x00000003;
+  um_user_rpc userfriend 	= 0x00000004;
+  repeated um_friend_privilege_rpc friend_privileges = 0x00001000;
+}
+message um_friend_privilege_rpc
+{
+  string id 						= 0x00000001;
+  um_user_friend_rpc user_friend 	= 0x00000002;
+  cm_entrance_rpc entrance 			= 0x00000003;
+  string valid_from_time 			= 0x00000004;
+  string valid_to_time 				= 0x00000005;
+  string creation_time 				= 0x00000006;
+}
+
+
+message cm_community_rpc
+{
+  string id 					 = 0x00000001;
+  string name 					 = 0x00000002;
+  string province 				 = 0x00000003;
+  string city 					 = 0x00000004;
+  string county 				 = 0x00000005;
+  string address 				 = 0x00000006;
+  string creation_time 			 = 0x00000007;
+  sys_user_rpc creator 			 = 0x00000008;
+  repeated cm_entrance_rpc entrances = 0x00001000;
+  repeated sys_group_rpc groups = 0x00001001;
+}
+
+message cm_entrance_rpc
+{
+  string id 				= 0x00000001;
+  string address 			= 0x00000002;
+  string name 				= 0x00000003;
+  string creation_time 		= 0x00000004;
+  sys_user_rpc creator 			= 0x00000005;
+  cm_community_rpc community 	= 0x00000006;
+  repeated cm_room_rpc rooms = 0x00001000;
+}
+message cm_room_rpc
+{
+  string id 					 = 0x00000001;
+  string address 				 = 0x00000002;
+  string creation_time 			 = 0x00000003;
+  um_user_rpc host				 = 0x00000004;
+  cm_entrance_rpc entrance			 = 0x000000054;
+  sys_user_rpc creator				 = 0x00000006;
+  repeated cm_room_user_rpc users = 0x00001000;
+}
+
+message cm_room_user_rpc
+{
+  string id 				= 0x00000001;
+  cm_room_rpc room	 			= 0x00000002;
+  um_user_rpc user 				= 0x00000003;
+  bool is_host		 		= 0x00000004;
+  string creation_time		= 0x00000005;
+  sys_user_rpc creator			= 0x00000006;
+}
+
+
+message sys_access_history_rpc
+{
+	uint64 id = 1;
+	um_user_rpc user = 2;
+	AccessMethod mode = 3;
+	string access_time = 4;
+	string visit_privilege_id = 5;
+}

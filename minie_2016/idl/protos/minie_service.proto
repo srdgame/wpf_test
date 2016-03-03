@@ -1,0 +1,155 @@
+// Copyright 2015, Google Inc.
+// All rights reserved.
+//
+// Redistribution and use in source and binary forms, with or without
+// modification, are permitted provided that the following conditions are
+// met:
+//
+//     * Redistributions of source code must retain the above copyright
+// notice, this list of conditions and the following disclaimer.
+//     * Redistributions in binary form must reproduce the above
+// copyright notice, this list of conditions and the following disclaimer
+// in the documentation and/or other materials provided with the
+// distribution.
+//     * Neither the name of Google Inc. nor the names of its
+// contributors may be used to endorse or promote products derived from
+// this software without specific prior written permission.
+//
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+syntax = "proto3";
+
+option java_package = "ex.grpc";
+option objc_class_prefix = "RTG";
+
+import public "minie_entity.proto";
+package minie.grpc;
+message login_msg
+{
+	string username = 1;
+	string password = 2;
+	bool fill_oauth_scope = 10; 
+}
+
+message session_ctx
+{
+	string user_id = 10;
+	string token = 11;
+	string valid_thru_time = 12; 
+	string oauth_scope = 13;
+}
+ 
+message register_msg
+{
+	string cellphone = 1;
+	string password = 2;
+}
+	
+message check_register_msg_resp
+{
+	bool can_use = 1;
+}
+
+message find_user_message
+{
+	um_user_rpc user = 1;
+}
+
+message void_msg
+{
+}
+
+// Interface exported by the server.
+service MinieAppService
+{
+	rpc check_register(register_msg) returns(check_register_msg_resp){}
+	rpc register_user(register_msg) returns (session_ctx){}
+	rpc login(login_msg) returns (session_ctx){}
+	rpc get_current_user(session_ctx) returns(um_user_rpc) {}
+	rpc find_user(find_user_message) returns(find_user_message) {}
+	rpc invite_friend(um_user_rpc) returns(void_msg) {}
+}
+service MinieBackendService {
+
+  rpc login(login_msg) returns (session_ctx) {}
+  rpc get_current_user(session_ctx) returns(sys_user_rpc) {}
+  
+  rpc get_communities(data_request) returns (stream cm_community_rpc) {}
+  rpc get_entrances(data_request) returns (stream cm_entrance_rpc) {}
+  rpc get_rooms(data_request) returns (stream cm_room_rpc) {}
+  rpc get_users(data_request) returns (stream um_user_rpc) {}
+  rpc get_permissions(data_request) returns (stream sys_permission_rpc) {}
+  rpc get_roles(data_request) returns (stream sys_role_rpc) {}
+  rpc get_groups(data_request) returns (stream sys_group_rpc) {}
+  
+  rpc select_data(data_request) returns (data_response) {}
+  rpc insert_data(data_request) returns (data_response) {}
+  rpc update_data(data_request) returns (data_response) {}
+  rpc delete_data(data_request) returns (data_response) {}
+
+  rpc subscribe(session_ctx) returns (stream backend_callback_entities) {}
+ 
+}
+
+message data_request
+{
+	string token = 1;
+	string id = 2;
+	bool recursive = 3;
+	cm_community_rpc community = 100;
+	cm_entrance_rpc entrance = 101;
+	cm_room_rpc room = 102;
+	cm_room_user_rpc room2user = 103;
+	
+	um_user_rpc user = 200;
+	um_user_friend_rpc user2friend = 201;
+	um_friend_privilege_rpc privilege = 202;
+	
+	sys_permission_rpc perm = 300;
+	sys_role_rpc role = 301;
+	sys_group_rpc group = 302;
+
+	repeated string related_field_names = 0x00001000;
+	repeated string clauses = 0x00001002;
+}
+message data_response
+{
+	cm_community_rpc community = 100;
+	cm_entrance_rpc entrance = 101;
+	cm_room_rpc room = 102;
+	cm_room_user_rpc room2user = 103;
+	
+	um_user_rpc user = 200;
+	um_user_friend_rpc user2friend = 201;
+	um_friend_privilege_rpc friend_privilege = 202;
+	
+	sys_permission_rpc perm = 300;
+	sys_role_rpc role = 301;
+	sys_group_rpc role2group = 302;
+}
+
+
+
+message app_entities
+{
+}
+message backend_callback_entities
+{
+	oneof oneof_name {
+		sys_user_rpc user = 1;
+		sys_group_rpc group = 2;
+		sys_role_rpc role = 3;
+		sys_permission_rpc perm = 4;
+		sys_role_permission_rpc role_perm = 5;
+	}
+}
