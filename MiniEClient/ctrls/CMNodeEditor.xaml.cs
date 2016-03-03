@@ -15,6 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MiniEClient.data;
+using minie.irpc;
 
 namespace MiniEClient.ctrls
 {
@@ -25,11 +26,11 @@ namespace MiniEClient.ctrls
     {
 
         public static readonly DependencyProperty CategoriesProperty =
-            DependencyProperty.Register("Categories", typeof(ObservableCollection<CMNodeCategory>), typeof(CMNodeEditor), new FrameworkPropertyMetadata(null));
+            DependencyProperty.Register("Categories", typeof(ObservableCollection<object>), typeof(CMNodeEditor), new FrameworkPropertyMetadata(null));
 
-        public ObservableCollection<CMNodeCategory> Categories
+        public ObservableCollection<object> Categories
         {
-            get { return (ObservableCollection<CMNodeCategory>)GetValue(CategoriesProperty); }
+            get { return (ObservableCollection<object>)GetValue(CategoriesProperty); }
             set { SetValue(CategoriesProperty, value); }
         }
 

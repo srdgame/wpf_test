@@ -1,2 +1,8 @@
 ﻿1. 
 Do not show the leaf nodes in parent comboxtree
+
+2.
+API return user with its' password
+
+3. 
+API return node list parent is null

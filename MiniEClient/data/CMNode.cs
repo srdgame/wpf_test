@@ -10,9 +10,28 @@ namespace MiniEClient.data
 {
     public class CMNodeCategory
     {
-        public string name { get; set; }
-        public int value { get; set; }
+        private cm_node_category_rpc _data;
+
+        public int id { get { return _data.id; } }
+        public string name { get { return _data.desc; } }
+        public string desc { get { return _data.desc; } }
+        public CMNodeCategory(cm_node_category_rpc data)
+        {
+            _data = data;
+        }
+        public override bool Equals(object obj)
+        {
+            var o = obj as cm_node_category_rpc;
+            if (o == null)
+                return false;
+            return o.id == id;
+        }
+        public override int GetHashCode()
+        {
+            return _data.id.GetHashCode();
+        }
     }
+
     //public class cm_node_rpc : ICloneable
     //{
     //    public string id { get; set; }
@@ -67,6 +86,9 @@ namespace MiniEClient.data
             CMNode tmp;
             foreach (var element in data.children)
             {
+                // FIXME: Hack for correct parent
+                if (element.parent == null)
+                    element.parent = data;
                 tmp = new CMNode(element, this);
             }
         }

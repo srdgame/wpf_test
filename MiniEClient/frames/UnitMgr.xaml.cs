@@ -24,7 +24,7 @@ namespace MiniEClient.frames
     /// </summary>
     public partial class UnitMgr : Page
     {
-        private ObservableCollection<CMNodeCategory> _categories;
+        private ObservableCollection<object> _categories;
         private PNTreeViewItemList _item_list;
         private MainWindow m_Main;
 
@@ -32,7 +32,7 @@ namespace MiniEClient.frames
         {
             m_Main = main;
             InitializeComponent();
-            _categories = new ObservableCollection<CMNodeCategory>();
+            _categories = new ObservableCollection<object>();
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
@@ -45,6 +45,15 @@ namespace MiniEClient.frames
                 {
                     itemList.Add(new CMNode(node));
 
+                }
+                _item_list = itemList;
+
+                this.treeView.ItemsSource = itemList;
+
+                var clist = m_Main.Client.get_node_categories();
+                foreach (cm_node_category_rpc c in clist)
+                {
+                    _categories.Add( c );
                 }
             }
             catch (Exception ex)
@@ -128,14 +137,15 @@ namespace MiniEClient.frames
             //};
 
             //itemList.Add(new CMNode(bj));
-            _item_list = itemList;
+            //_item_list = itemList;
 
-            this.treeView.ItemsSource = itemList;
-            _categories.Add(new CMNodeCategory() { name = "住户", value = 100 });
-            _categories.Add(new CMNodeCategory() { name = "单元", value = 200 });
-            _categories.Add(new CMNodeCategory() { name = "楼房", value = 300 });
-            _categories.Add(new CMNodeCategory() { name = "小区", value = 400 });
-            _categories.Add(new CMNodeCategory() { name = "行政区域", value = 900 });
+            //this.treeView.ItemsSource = itemList;
+            
+            //_categories.Add(new CMNodeCategory() { name = "住户", value = 100 });
+            //_categories.Add(new CMNodeCategory() { name = "单元", value = 200 });
+            //_categories.Add(new CMNodeCategory() { name = "楼房", value = 300 });
+            //_categories.Add(new CMNodeCategory() { name = "小区", value = 400 });
+            //_categories.Add(new CMNodeCategory() { name = "行政区域", value = 900 });
         }
 
         private void treeView_ClickAdd(object sender, PNRoutedEventArgs e)
