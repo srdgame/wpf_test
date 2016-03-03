@@ -3,29 +3,30 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using minie.irpc;
 
 namespace MiniEClient.data
 {
-    public class sys_group_rpc : ICloneable
-    {
-        public string id { get; set; }
-        public string name { get; set; }
-        public string desc { get; set; }
-        public CMNode node { get; set; }
-        public bool is_system { get; set; }
-        public List<sys_role_rpc> group_roles { get; set; }
-        public List<sys_user_rpc> group_users { get; set; }
+    //public class sys_group_rpc : ICloneable
+    //{
+    //    public string id { get; set; }
+    //    public string name { get; set; }
+    //    public string desc { get; set; }
+    //    public CMNode node { get; set; }
+    //    public bool is_system { get; set; }
+    //    public List<sys_role_rpc> group_roles { get; set; }
+    //    public List<sys_user_rpc> group_users { get; set; }
 
-        public object Clone()
-        {
-            return this.MemberwiseClone();
-        }
-        public sys_group_rpc()
-        {
-            group_roles = new List<sys_role_rpc>();
-            group_users = new List<sys_user_rpc>();
-        }
-    }
+    //    public object Clone()
+    //    {
+    //        return this.MemberwiseClone();
+    //    }
+    //    public sys_group_rpc()
+    //    {
+    //        group_roles = new List<sys_role_rpc>();
+    //        group_users = new List<sys_user_rpc>();
+    //    }
+    //}
     public class SYSGroup : PNTreeViewItem
     {
         private sys_group_rpc _data;

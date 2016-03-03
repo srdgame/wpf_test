@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MiniEClient.ctrls;
 using MiniEClient.data;
+using minie.irpc;
 
 namespace MiniEClient.frames
 {
@@ -37,81 +38,96 @@ namespace MiniEClient.frames
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             var itemList = new PNTreeViewItemList();
-            var bj = new cm_node_rpc()
+            try
             {
-                id = Guid.NewGuid().ToString(),
-                name = "北京市",
-                desc = "北京市行政区.",
-                category = 900,
-                address = "Address....."
-            };
+                var list = m_Main.Client.get_nodes();
+                foreach(cm_node_rpc node in list)
+                {
+                    itemList.Add(new CMNode(node));
 
-            var haidian = new cm_node_rpc(bj)
+                }
+            }
+            catch (Exception ex)
             {
-                id = Guid.NewGuid().ToString(),
-                name = "海淀区",
-                desc = "海淀行政区.",
-                category = 900,
-                address = "Address....."
-            };
+                throw ex;
+            }
 
-            var zgceast = new cm_node_rpc(haidian)
-            {
-                id = Guid.NewGuid().ToString(),
-                name = "中关村东路",
-                desc = "中关村东路下辖小区.",
-                category = 400,
-                address = "Address....."
-            };
-            var zdhbuilding = new cm_node_rpc(zgceast)
-            {
-                id = Guid.NewGuid().ToString(),
-                name = "自动化大厦",
-                desc = "中关村东路95号.",
-                category = 300,
-                address = "Address....."
-            };
-            var f12 = new cm_node_rpc(zdhbuilding)
-            {
-                id = Guid.NewGuid().ToString(),
-                name = "12F",
-                desc = "12 floor",
-                category = 200,
-            };
-            var u1214 = new cm_node_rpc(f12)
-            {
-                id = Guid.NewGuid().ToString(),
-                name = "1214",
-                desc = "1214 Romm",
-                category = 100,
-            };
-            var u1216 = new cm_node_rpc(f12)
-            {
-                id = Guid.NewGuid().ToString(),
-                name = "1216",
-                desc = "1216 Romm",
-                category = 100,
-            };
+            //var itemList = new PNTreeViewItemList();
+            //var bj = new cm_node_rpc()
+            //{
+            //    id = Guid.NewGuid().ToString(),
+            //    name = "北京市",
+            //    desc = "北京市行政区.",
+            //    category = 900,
+            //    address = "Address....."
+            //};
 
-            var cg = new cm_node_rpc(haidian)
-            {
-                id = Guid.NewGuid().ToString(),
-                name = "翠宫",
-                desc = "翠宫饭店.",
-                category = 300,
-                address = "cuigong....."
-            };
+            //var haidian = new cm_node_rpc(bj)
+            //{
+            //    id = Guid.NewGuid().ToString(),
+            //    name = "海淀区",
+            //    desc = "海淀行政区.",
+            //    category = 900,
+            //    address = "Address....."
+            //};
 
-            var chaoyang = new cm_node_rpc(bj)
-            {
-                id = Guid.NewGuid().ToString(),
-                name = "朝阳区",
-                desc = "北京市朝阳行政区.",
-                category = 900,
-                address = "Address....."
-            };
+            //var zgceast = new cm_node_rpc(haidian)
+            //{
+            //    id = Guid.NewGuid().ToString(),
+            //    name = "中关村东路",
+            //    desc = "中关村东路下辖小区.",
+            //    category = 400,
+            //    address = "Address....."
+            //};
+            //var zdhbuilding = new cm_node_rpc(zgceast)
+            //{
+            //    id = Guid.NewGuid().ToString(),
+            //    name = "自动化大厦",
+            //    desc = "中关村东路95号.",
+            //    category = 300,
+            //    address = "Address....."
+            //};
+            //var f12 = new cm_node_rpc(zdhbuilding)
+            //{
+            //    id = Guid.NewGuid().ToString(),
+            //    name = "12F",
+            //    desc = "12 floor",
+            //    category = 200,
+            //};
+            //var u1214 = new cm_node_rpc(f12)
+            //{
+            //    id = Guid.NewGuid().ToString(),
+            //    name = "1214",
+            //    desc = "1214 Romm",
+            //    category = 100,
+            //};
+            //var u1216 = new cm_node_rpc(f12)
+            //{
+            //    id = Guid.NewGuid().ToString(),
+            //    name = "1216",
+            //    desc = "1216 Romm",
+            //    category = 100,
+            //};
 
-            itemList.Add(new CMNode(bj));
+            //var cg = new cm_node_rpc(haidian)
+            //{
+            //    id = Guid.NewGuid().ToString(),
+            //    name = "翠宫",
+            //    desc = "翠宫饭店.",
+            //    category = 300,
+            //    address = "cuigong....."
+            //};
+
+            //var chaoyang = new cm_node_rpc(bj)
+            //{
+            //    id = Guid.NewGuid().ToString(),
+            //    name = "朝阳区",
+            //    desc = "北京市朝阳行政区.",
+            //    category = 900,
+            //    address = "Address....."
+            //};
+
+            //itemList.Add(new CMNode(bj));
             _item_list = itemList;
 
             this.treeView.ItemsSource = itemList;

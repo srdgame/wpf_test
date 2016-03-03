@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using minie.irpc;
 
 namespace MiniEClient
 {
@@ -13,16 +14,17 @@ namespace MiniEClient
     /// </summary>
     public partial class App : Application
     {
+        public minie_backend_client Client { get; set; }
         protected override void OnStartup(StartupEventArgs e)
         {
-            Application.Current.ShutdownMode = System.Windows.ShutdownMode.OnExplicitShutdown;
+            Current.ShutdownMode = ShutdownMode.OnExplicitShutdown;
             diags.LoginWindow window = new diags.LoginWindow();
             bool? dialogResult = window.ShowDialog();
             if ((dialogResult.HasValue == true) &&
                 (dialogResult.Value == true))
             {
                 base.OnStartup(e);
-                Application.Current.ShutdownMode = ShutdownMode.OnMainWindowClose;
+                Current.ShutdownMode = ShutdownMode.OnMainWindowClose;
             }
             else
             {

@@ -17,6 +17,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "binding_test", "tests\bindi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiniEClient", "MiniEClient\MiniEClient.csproj", "{3FA43ECB-7554-4C91-B04C-9C8225D6C033}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "csv_object", "tests\csv_object\csv_object.csproj", "{C1375C98-7B3A-4E22-821D-BD0065476AC7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "minie.irpc", "minie_2016\dotnet\minie.irpc\minie.irpc.csproj", "{75EDD43E-0977-4DF3-AC1B-539B212B2A6C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +51,14 @@ Global
 		{3FA43ECB-7554-4C91-B04C-9C8225D6C033}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3FA43ECB-7554-4C91-B04C-9C8225D6C033}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3FA43ECB-7554-4C91-B04C-9C8225D6C033}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1375C98-7B3A-4E22-821D-BD0065476AC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1375C98-7B3A-4E22-821D-BD0065476AC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1375C98-7B3A-4E22-821D-BD0065476AC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1375C98-7B3A-4E22-821D-BD0065476AC7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75EDD43E-0977-4DF3-AC1B-539B212B2A6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75EDD43E-0977-4DF3-AC1B-539B212B2A6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75EDD43E-0977-4DF3-AC1B-539B212B2A6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75EDD43E-0977-4DF3-AC1B-539B212B2A6C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -57,5 +69,6 @@ Global
 		{9C29091E-30E6-4973-B5C6-F8105BE0EC6A} = {23D40788-4220-46CD-8F1F-48AE303DCBBA}
 		{80BF9B84-1A94-4352-813B-0A7858F642F9} = {23D40788-4220-46CD-8F1F-48AE303DCBBA}
 		{543E4B23-EAAA-48E4-B8B0-2C4E994E48EE} = {23D40788-4220-46CD-8F1F-48AE303DCBBA}
+		{C1375C98-7B3A-4E22-821D-BD0065476AC7} = {23D40788-4220-46CD-8F1F-48AE303DCBBA}
 	EndGlobalSection
 EndGlobal

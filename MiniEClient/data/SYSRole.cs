@@ -3,23 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using minie.irpc;
 
 namespace MiniEClient.data
 {
-    public class sys_role_permission_rpc : ICloneable
-    {
-        public string name { get; set; }
-        public string desc { get; set; }
+    //public class sys_role_permission_rpc : ICloneable
+    //{
+    //    public string name { get; set; }
+    //    public string desc { get; set; }
 
-        public object Clone()
-        {
-            return this.MemberwiseClone();
-        }
-    }
-    public class SYSRolePermission : CheckableListViewItem
+    //    public object Clone()
+    //    {
+    //        return this.MemberwiseClone();
+    //    }
+    //}
+    public class SYSPermission : CheckableListViewItem
     {
-        private sys_role_permission_rpc _data;
-        public SYSRolePermission(sys_role_permission_rpc data)
+        private sys_permission_rpc _data;
+        public SYSPermission(sys_permission_rpc data)
         {
             _data = data;
         }
@@ -29,13 +30,13 @@ namespace MiniEClient.data
         public override string Desc { get { return _data.desc; } }
         public override object Value { get { return _data; } }
 
-        public bool Equals(sys_role_permission_rpc rpc)
+        public bool Equals(sys_permission_rpc rpc)
         {
             return _data.name == rpc.name;
         }
         public override bool Equals(object obj)
         {
-            var rpc = obj as sys_role_permission_rpc;
+            var rpc = obj as sys_permission_rpc;
             if (rpc != null)
                 return Equals(rpc);
             return base.Equals(obj);
@@ -45,27 +46,27 @@ namespace MiniEClient.data
             return _data.name.GetHashCode();
         }
     }
-    public class sys_role_rpc : ICloneable
-    {
-        public string id { get; set; }
-        public string name { get; set; }
-        public string desc { get; set; }
-        public List<sys_role_permission_rpc> role_permissions { get; set; }
-        public List<sys_group_rpc> role_groups { get; set; }
+    //public class sys_role_rpc : ICloneable
+    //{
+    //    public string id { get; set; }
+    //    public string name { get; set; }
+    //    public string desc { get; set; }
+    //    public List<sys_role_permission_rpc> role_permissions { get; set; }
+    //    public List<sys_group_rpc> role_groups { get; set; }
 
-        public sys_role_rpc()
-        {
-            role_permissions = new List<sys_role_permission_rpc>();
-            role_permissions.Add(new sys_role_permission_rpc() { name = "role", desc= "角色管理操作" });
-            role_groups = new List<sys_group_rpc>();
-        }
+    //    public sys_role_rpc()
+    //    {
+    //        role_permissions = new List<sys_role_permission_rpc>();
+    //        role_permissions.Add(new sys_role_permission_rpc() { name = "role", desc= "角色管理操作" });
+    //        role_groups = new List<sys_group_rpc>();
+    //    }
 
-        public object Clone()
-        {
-            // TODO:
-            return this.MemberwiseClone();
-        }
-    }
+    //    public object Clone()
+    //    {
+    //        // TODO:
+    //        return this.MemberwiseClone();
+    //    }
+    //}
     public class SYSRole : PNTreeViewItem
     {
         private sys_role_rpc _data;
@@ -78,7 +79,7 @@ namespace MiniEClient.data
         }
 
 
-        public override string Id { get { return _data.id; } }
+        public override string Id { get { return _data.name; } }
         public override string DisplayName { get { return _data.name; } }
         public override string Tips { get { return _data.desc; } }
         public override object Data { get { return _data; } }

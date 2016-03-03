@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using minie.irpc;
 
 namespace MiniEClient
 {
@@ -20,8 +21,11 @@ namespace MiniEClient
     /// </summary>
     public partial class MainWindow : Window
     {
+        public BackendServicePrx Client { get; set; }
+        public sys_user_rpc UserInfo { get; set; }
         public MainWindow()
         {
+            Client = (Application.Current as App).Client.Proxy;
             InitializeComponent();
         }
 
@@ -30,6 +34,14 @@ namespace MiniEClient
             this.frame_top.Navigate(new frames.TopMenu(this));
             this.frame_left.Navigate(new frames.LeftMenu(this));
             this.frame_main.Navigate(new frames.Welcome(this));
+            try
+            {
+                UserInfo = Client.get_current_user_info();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         internal void ActiveDist()

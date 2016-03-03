@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+using minie.irpc;
 
 namespace MiniEClient.data
 {
@@ -12,30 +13,30 @@ namespace MiniEClient.data
         public string name { get; set; }
         public int value { get; set; }
     }
-    public class cm_node_rpc : ICloneable
-    {
-        public string id { get; set; }
-        public string name { get; set; }
-        public string desc { get; set; }
-        public string address { get; set; }
-        public int category { get; set; }
-        public cm_node_rpc parent { get; set; }
-        public List<cm_node_rpc> children;
-        public sys_user_rpc creator { get; set; }
-        public DateTime creation_time { get; set; }
+    //public class cm_node_rpc : ICloneable
+    //{
+    //    public string id { get; set; }
+    //    public string name { get; set; }
+    //    public string desc { get; set; }
+    //    public string address { get; set; }
+    //    public int category { get; set; }
+    //    public cm_node_rpc parent { get; set; }
+    //    public List<cm_node_rpc> children;
+    //    public sys_user_rpc creator { get; set; }
+    //    public DateTime creation_time { get; set; }
 
-        public cm_node_rpc(cm_node_rpc parent = null)
-        {
-            this.parent = parent;
-            children = new List<cm_node_rpc>();
-            if (this.parent != null)
-                parent.children.Add(this);
-        }
-        public object Clone()
-        {
-            return this.MemberwiseClone();
-        }
-    }
+    //    public cm_node_rpc(cm_node_rpc parent = null)
+    //    {
+    //        this.parent = parent;
+    //        children = new List<cm_node_rpc>();
+    //        if (this.parent != null)
+    //            parent.children.Add(this);
+    //    }
+    //    public object Clone()
+    //    {
+    //        return this.MemberwiseClone();
+    //    }
+    //}
     public class CMNode : PNTreeViewItem
     {
         private cm_node_rpc _data;
@@ -44,9 +45,9 @@ namespace MiniEClient.data
             get
             {
                 // TODO:
-                if (_data.category == 100)
+                if (_data.category.id == 100)
                     return PNItemType.LEAF;
-                if (_data.category != 900)
+                if (_data.category.id != 900)
                     return PNItemType.BOLE;
                 return PNItemType.BOLE | PNItemType.NODELETE | PNItemType.NOEDIT;
             }

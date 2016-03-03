@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using MiniEClient.ctrls;
 using MiniEClient.data;
+using minie.irpc;
 
 namespace MiniEClient.frames
 {
