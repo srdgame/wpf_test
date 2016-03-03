@@ -51,7 +51,7 @@ namespace MiniEClient.ctrls
         private static void OnItemsSourceChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             var thisControl = d as CheckableListView;
-            //thisControl.UpdateListView();
+            thisControl.UpdateListView();
         }
 
         public IEnumerable ItemsSource
@@ -74,7 +74,7 @@ namespace MiniEClient.ctrls
         private static void OnSelectedItemsChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             var thisControl = d as CheckableListView;
-            //thisControl.UpdateListView();
+            thisControl.UpdateListView();
         }
 
         private void listView_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -90,6 +90,7 @@ namespace MiniEClient.ctrls
                     if ((item as CheckableListViewItem).Equals(obj))
                     {
                         remove_list.Add(obj);
+                        break;
                     }
                 }
                 foreach (object obj in remove_list)
@@ -99,7 +100,23 @@ namespace MiniEClient.ctrls
                 //ItemsSelected.Remove(item);
             }
 
+            List<object> add_list = new List<object>();
             foreach (object item in e.AddedItems)
+            {
+                add_list.Add(item);
+            }
+            foreach (object item in e.AddedItems)
+            {
+                foreach (object obj in ItemsSelected)
+                {
+                    if ((item as CheckableListViewItem).Equals(obj))
+                    {
+                        add_list.Remove(item);
+                        break;
+                    }
+                }
+            }
+            foreach (object item in add_list)
             {
                 ItemsSelected.Add((item as CheckableListViewItem).Value);
             }
@@ -107,7 +124,6 @@ namespace MiniEClient.ctrls
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            UpdateListView();
         }
     }
 }

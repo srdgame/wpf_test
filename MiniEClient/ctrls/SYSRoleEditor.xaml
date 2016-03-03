@@ -6,6 +6,7 @@
              xmlns:local="clr-namespace:MiniEClient.ctrls"
              mc:Ignorable="d"
              d:DesignHeight="600" d:DesignWidth="800"
+             x:Name="_this"
              Loaded="UserControl_Loaded">
     <Grid>
         <Label Content="名字：" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
@@ -13,6 +14,6 @@
         <Label Content="描述：" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="61,40,0,0" TextWrapping="Wrap" Text="{Binding desc}" VerticalAlignment="Top" Width="300"/>
         <!--<local:CheckableListView x:Name="listView" Margin="10,70,10,10"  ItemsSource="{Binding Path=PermissionList, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" ItemsSelected="{Binding Path=SelectedList, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"></local:CheckableListView>-->
-        <local:CheckableListView x:Name="listView" Margin="10,70,10,10"  ItemsSource="{Binding Path=PermissionList, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" ItemsSelected="{Binding role_permissions}"></local:CheckableListView>
+        <local:CheckableListView x:Name="listView" Margin="10,70,10,10" ItemsSelected="{Binding role_permissions}" ItemsSource="{Binding Path=PermissionList, ElementName=_this}" ></local:CheckableListView>
     </Grid>
 </UserControl>
