@@ -47,9 +47,10 @@ namespace MiniEClient.ctrls
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            var list = new ObservableCollection<object>();
-            list.Add(new sys_role_rpc() { name = "T1", desc = "Desc1" });
-            list.Add(new sys_role_rpc() { name = "T1", desc = "Desc1" });
+            //var list = new ObservableCollection<object>();
+            //list.Add(new sys_role_rpc() { name = "T1", desc = "Desc1" });
+            //list.Add(new sys_role_rpc() { name = "T1", desc = "Desc1" });
+            var list = (App.Current as App).Client.Proxy.get_roles();
             RoleList = list;
         }
         

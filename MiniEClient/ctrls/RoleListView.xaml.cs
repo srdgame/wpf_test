@@ -28,6 +28,15 @@ namespace MiniEClient.ctrls
             InitializeComponent();
         }
 
+        static bool FindItem(IList list, object item)
+        {
+            foreach( object i in list)
+            {
+                if (i.Equals(item))
+                    return true;
+            }
+            return false;
+        }
         private void button_add_Click(object sender, RoutedEventArgs e)
         {
             var dlg = new diags.RoleListSelectorDlg() { ItemsSource = ItemsSource };
@@ -37,7 +46,8 @@ namespace MiniEClient.ctrls
             {
                 foreach(object item in dlg.SelectedItems)
                 {
-                    if (!ItemsSelected.Contains(item))
+                    //if (!ItemsSelected.Contains(item))
+                    if (!FindItem(ItemsSelected, item))
                     {
                         ItemsSelected.Add(item);
                         ItemsSelectedList.Add(item);
