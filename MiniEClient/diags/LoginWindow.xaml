@@ -15,12 +15,20 @@
         <PasswordBox ctrls:PasswordHelper.Attach="True" ctrls:PasswordHelper.Password="{Binding _password, ElementName=_this}" HorizontalAlignment="Left" Height="23" Margin="122,173,0,0" VerticalAlignment="Top" Width="161"  TabIndex="2"/>
         <Label Content="密码：" HorizontalAlignment="Left" Height="27" Margin="44,173,0,0" VerticalAlignment="Top"/>
         <Button x:Name="button_login" Content="登入" HorizontalAlignment="Left" Height="60" Margin="330,136,0,0" VerticalAlignment="Top" Width="85" TabIndex="3" Click="button_login_Click"/>
-        <Label Content="帮助" HorizontalAlignment="Left" Height="41" Margin="353,231,0,-1" VerticalAlignment="Top" Width="121" TabIndex="9"/>
         <Expander Header="更多" HorizontalAlignment="Left" Margin="44,0,0,17" VerticalAlignment="Bottom">
             <Grid Background="#FFE5E5E5">
                 <TextBox Text="{Binding _ip, ElementName=_this}" Margin="0,0,-76,0" Height="23"></TextBox>
                 <TextBox Text="{Binding _port, ElementName=_this}" Margin="130,0,-130,0" Height="23"></TextBox>
             </Grid>
         </Expander>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="10,10,0,0">
+            <TextBlock>
+                 <Hyperlink NavigateUri="http://www.baidu.com/help" ctrls:HyperlinkExtensions.IsExternal="true">帮助</Hyperlink>
+            </TextBlock>
+            <TextBlock Text="  "></TextBlock>
+            <TextBlock>
+                 <Hyperlink NavigateUri="http://www.baidu.com/about" ctrls:HyperlinkExtensions.IsExternal="true">《用户协议》</Hyperlink>
+            </TextBlock>
+        </StackPanel>
     </Grid>
 </Window>

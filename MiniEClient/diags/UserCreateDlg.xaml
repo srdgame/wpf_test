@@ -6,25 +6,31 @@
         xmlns:local="clr-namespace:MiniEClient.diags"
         xmlns:ctrls="clr-namespace:MiniEClient.ctrls"
         mc:Ignorable="d"
-        Title="UserCreateDlg"
+        Title="注册用户"
         Height="300" Width="400"
         Loaded="Window_Loaded"
         x:Name="_this"
-        ResizeMode="NoResize" WindowStartupLocation="CenterOwner">
+        ResizeMode="NoResize" WindowStartupLocation="CenterOwner" ShowInTaskbar="False">
     <Grid>
-        <GroupBox x:Name="step1"  Visibility="Visible">
+        <GroupBox x:Name="step1"  Visibility="Visible" BorderThickness="0">
             <Grid>
                 <Label Content="手机号:" HorizontalAlignment="Left" Margin="18,21,0,0" VerticalAlignment="Top"/>
-                <TextBox x:Name="textCellphone" HorizontalAlignment="Left" Height="23" Margin="89,23,0,0" TextWrapping="Wrap" Text="{Binding _cellphone, ElementName=_this, StringFormat={}{D11}}" VerticalAlignment="Top" Width="183"/>
-                <Button x:Name="btn_get_code" Content="Get Code" Margin="186,92,0,0" Height="37" VerticalAlignment="Top" HorizontalAlignment="Left" Width="86" Click="btn_get_code_Click" Background="#FFEEEEEE"/>
+                <TextBox x:Name="textCellphone" HorizontalAlignment="Left" Height="23" Margin="89,23,0,0" TextWrapping="Wrap" Text="{Binding _cellphone, ElementName=_this, StringFormat={}{D11}}" VerticalAlignment="Top" Width="214"/>
+                <Button x:Name="btn_get_code" Content="获取短信验证码" Margin="186,92,0,0" Height="37" VerticalAlignment="Top" HorizontalAlignment="Left" Width="117" Click="btn_get_code_Click" Background="#FFEEEEEE"/>
                 <Label Content="密码:" HorizontalAlignment="Left" Margin="30,62,0,0" VerticalAlignment="Top"/>
-                <PasswordBox  HorizontalAlignment="Left" Height="23" Margin="89,64,0,0" VerticalAlignment="Top" Width="183" ctrls:PasswordHelper.Attach="True" ctrls:PasswordHelper.Password="{Binding _password, ElementName=plain, Mode=TwoWay}"/>
+                <PasswordBox  HorizontalAlignment="Left" Height="23" Margin="89,64,0,0" VerticalAlignment="Top" Width="214" ctrls:PasswordHelper.Attach="True" ctrls:PasswordHelper.Password="{Binding _password, ElementName=plain, Mode=TwoWay}"/>
                 <Label Content="验证码:" HorizontalAlignment="Left" Margin="18,100,0,0" VerticalAlignment="Top"/>
-                <TextBox x:Name="textCode" HorizontalAlignment="Left" Height="23" Margin="89,102,0,0" TextWrapping="Wrap" Text="{Binding _code, ElementName=_this}" VerticalAlignment="Top" Width="92"/>
-                <Button x:Name="btn_reg" Content="Register" Margin="149,161,0,0" Height="39" VerticalAlignment="Top" HorizontalAlignment="Left" Width="86" Click="btn_reg_Click" Background="#FFCAF5FF"/>
+                <TextBox x:Name="textCode" HorizontalAlignment="Left" Height="23" Margin="89,102,0,0" TextWrapping="Wrap" Text="{Binding _code, ElementName=_this}" VerticalAlignment="Top" Width="72"/>
+                <CheckBox x:Name="checkBox" HorizontalAlignment="Left" Margin="89,148,0,0" VerticalAlignment="Top">
+                    <TextBlock>
+                        <Run>阅读并接受</Run>
+                        <Hyperlink NavigateUri="http://www.baidu.com" ctrls:HyperlinkExtensions.IsExternal="true">《用户协议》</Hyperlink>
+                    </TextBlock>
+                </CheckBox>
+                <Button x:Name="btn_reg" Content="注册" Margin="89,178,0,0" Height="39" VerticalAlignment="Top" HorizontalAlignment="Left" Width="214" Click="btn_reg_Click" Background="#FFEAF1F5"/>
             </Grid>
         </GroupBox>
-        <GroupBox x:Name="editor" Visibility="Hidden">
+        <GroupBox x:Name="editor" Visibility="Hidden" BorderThickness="0">
             <Grid>
                 <ctrls:CMUserEditor DataContext="{Binding _user, ElementName=_this}"/>
                 <Button x:Name="button" Content="Finish" Margin="150,0,150,10" VerticalAlignment="Bottom" Height="42" Click="button_Click"/>

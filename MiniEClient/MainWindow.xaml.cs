@@ -25,7 +25,9 @@ namespace MiniEClient
         public sys_user_rpc UserInfo { get; set; }
         public MainWindow()
         {
-            Client = (Application.Current as App).Client.Proxy;
+            var client = (Application.Current as App).Client;
+            if (client != null)
+                Client = client.Proxy;
             InitializeComponent();
         }
 
@@ -47,7 +49,12 @@ namespace MiniEClient
             dlg.Owner = this;
             dlg.ShowDialog();
         }
-
+        internal void Logout()
+        {
+            Client.logout();
+            System.Diagnostics.Process.Start(App.ResourceAssembly.Location);
+            Close();
+        }
         internal void ActiveDist()
         {
             this.frame_main.Navigate(new frames.UnitMgr());

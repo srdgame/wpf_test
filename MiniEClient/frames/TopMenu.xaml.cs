@@ -29,8 +29,7 @@ namespace MiniEClient.frames
 
         private void btn_logout_Click(object sender, RoutedEventArgs e)
         {
-            m_Main.Client.logout();
-            m_Main.Close();
+            m_Main.Logout();
         }
 
         private void btn_user_reg_Click(object sender, RoutedEventArgs e)

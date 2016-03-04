@@ -108,6 +108,7 @@
     <Compile Include="ctrls\ComboTree.xaml.cs">
       <DependentUpon>ComboTree.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ctrls\HyperlinkExtensions.cs" />
     <Compile Include="ctrls\PasswordHelper.cs" />
     <Compile Include="ctrls\RoleListView.xaml.cs">
       <DependentUpon>RoleListView.xaml</DependentUpon>

@@ -157,6 +157,13 @@ namespace MiniEClient.frames
                 name = "New Node",
                 desc = "",
                 parent = item.Data as cm_node_rpc,
+                children = new List<cm_node_rpc>(),
+                category = new cm_node_category_rpc()
+                {
+                    id = 100,
+                    name = "room",
+                    desc = "住户"
+                },
             }, item);
             new_item.IsNew = true;
             new_item.IsSelected = true;
