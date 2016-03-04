@@ -32,30 +32,6 @@ namespace MiniEClient.data
         }
     }
 
-    //public class cm_node_rpc : ICloneable
-    //{
-    //    public string id { get; set; }
-    //    public string name { get; set; }
-    //    public string desc { get; set; }
-    //    public string address { get; set; }
-    //    public int category { get; set; }
-    //    public cm_node_rpc parent { get; set; }
-    //    public List<cm_node_rpc> children;
-    //    public sys_user_rpc creator { get; set; }
-    //    public DateTime creation_time { get; set; }
-
-    //    public cm_node_rpc(cm_node_rpc parent = null)
-    //    {
-    //        this.parent = parent;
-    //        children = new List<cm_node_rpc>();
-    //        if (this.parent != null)
-    //            parent.children.Add(this);
-    //    }
-    //    public object Clone()
-    //    {
-    //        return this.MemberwiseClone();
-    //    }
-    //}
     public class CMNode : PNTreeViewItem
     {
         private cm_node_rpc _data;
@@ -96,6 +72,7 @@ namespace MiniEClient.data
         public override void UpdateData(object data)
         {
             var d = data as cm_node_rpc;
+            _data.id = d.id;
             _data.name = d.name;
             _data.desc = d.desc;
             _data.address = d.address;

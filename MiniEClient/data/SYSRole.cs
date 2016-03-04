@@ -17,16 +17,7 @@ namespace MiniEClient.data
             return obj1.Equals(obj2);
         }
     }
-    //public class sys_role_permission_rpc : ICloneable
-    //{
-    //    public string name { get; set; }
-    //    public string desc { get; set; }
 
-    //    public object Clone()
-    //    {
-    //        return this.MemberwiseClone();
-    //    }
-    //}
     public class SYSPermission : CheckableListViewItem
     {
         private sys_permission_rpc _data;
