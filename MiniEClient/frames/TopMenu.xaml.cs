@@ -20,9 +20,22 @@ namespace MiniEClient.frames
     /// </summary>
     public partial class TopMenu : Page
     {
-        public TopMenu(MainWindow main)
+        MainWindow m_Main { get; set; }
+        public TopMenu()
         {
+            m_Main = App.Current.MainWindow as MainWindow;
             InitializeComponent();
+        }
+
+        private void btn_logout_Click(object sender, RoutedEventArgs e)
+        {
+            m_Main.Client.logout();
+            m_Main.Close();
+        }
+
+        private void btn_user_reg_Click(object sender, RoutedEventArgs e)
+        {
+            m_Main.CreateUser();
         }
     }
 }

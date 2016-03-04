@@ -144,6 +144,9 @@
     <Compile Include="diags\RoleListSelectorDlg.xaml.cs">
       <DependentUpon>RoleListSelectorDlg.xaml</DependentUpon>
     </Compile>
+    <Compile Include="diags\UserCreateDlg.xaml.cs">
+      <DependentUpon>UserCreateDlg.xaml</DependentUpon>
+    </Compile>
     <Compile Include="frames\AdMgr.xaml.cs">
       <DependentUpon>AdMgr.xaml</DependentUpon>
     </Compile>
@@ -206,6 +209,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="diags\RoleListSelectorDlg.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="diags\UserCreateDlg.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -368,6 +375,726 @@
       <Project>{75edd43e-0977-4df3-ac1b-539b212b2a6c}</Project>
       <Name>minie.irpc</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\acorn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\air_plane_airport.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\air_plane_airport_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\airplane-departing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\airplane-symbol.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\airport.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\alarm-clock-2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\alarm-clock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\anchor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\approve.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\arrow_down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\arrow_down_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\arrow_down_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\arrow_down_left_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\arrow_down_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\arrow_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\arrow_left_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\arrow_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\arrow_right_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\arrow_up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\arrow_up_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\arrow_up_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\arrow_up_left_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\arrow_up_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\arrow_up_right_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\at.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\award.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\badge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\baseball-symbol.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\basketball.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\battery-2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\battery.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\bell.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\bicycle-3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\bike.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\biohazard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\black-camera-symbol.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\blog.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\bomb-2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\book.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\cafe_coffee.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\cake.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\calculator.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\calender.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\camera-symbol.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\camera.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\car-2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\car-battery.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\car.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\carabiner.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\cardiology.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\cashier.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\cd.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\cell-phone.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\changing-station.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\check-box.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\chemistry-beaker.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\cinema.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\close-door.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\cloud.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\comment.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\communism.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\community.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\compass.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\computer-monitor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\computer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\construction.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\contrast.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\crayon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\credit-card.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\crown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\customs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\desktop-computer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\diamond-symbol.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\disapprove.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\document.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\download-document.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\download-symbol.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\download.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\drink_bar_cocktails.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\drinking-water.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\eject.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\electricity-plug-in.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\elevator.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\email.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\email_post_letter_stamp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\erlenmeyer-flask.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\escalator.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\escalator_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\escalator_up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\excitement.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\exit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\eye-symbol.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\eye.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\female.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\fir-tree.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\fire-extinguisher-symbol.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\fire_extinguisher.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\first-aid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\flag-symbol.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\flame.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\flower.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\fluer-de-lis.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\folder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\fullscreen-2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\fullscreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\gas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\gears.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\globe-2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\globe.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\hard-drive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\headlight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\headphones-2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\headphones.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\health_medicine_emergency.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\hospital-sign.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\immigration.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\inbox.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\incoming-call.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\information.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\ipad-symbol.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\iphone-symbol.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\justice.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\key.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\keyhole.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\ladies_room_toilet.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\life-raft.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\light-bulb.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\location.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\lock-.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\lock-symbol.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\lock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\locker_bagage_key.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\magnifying-glass.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\mail-symbol.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\mail.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\male.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\man_person_mens_room.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\map-marker.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\marina.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\mars.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\mercury.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\microphone.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\mine.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\moon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\music-2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\music.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\mute.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\network.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\no.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\no_entry.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\no_parking.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\non-ionizing-radiation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\nuclear.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\old-telephone.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\open-book.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\open-door.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\pan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\parking.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\parking_locked.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\passport.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\pc-computer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\pencil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\phone.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\photo-camera.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\picture.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\pie-chart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\plug-in.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\power.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\present.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\price-tag-symbol.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\price-tag.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\printer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\public_transportation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\puzzle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\railroad.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\rain.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\recyclable.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\recycle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\refresh-bold.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\restaurant_food.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\ribbon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\rocket.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\rss.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\running.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\scale.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\share.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\shopping-cart-symbol.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\shopping-cart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\shuffle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\smoking_allowed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\smoking_not_allowed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\snow-symbol.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\snow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\speaker.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\stopwatch.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\sun-3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\sun-4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\sun.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\sunrise.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\sync.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\target.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\taxi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\taxi_passanger.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\telephone-2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\telephone-3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\telephone-voice.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\temperature.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\thunderstorm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\ticket-machine.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\toilets.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\traffic-light.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\trash-2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\trash_recycle_bin_garbage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\treble-clef.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\tree.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\trophy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\tshirt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\umbrella.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\unlock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\upload.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\usb.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\usd_dollar_money_cash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\venus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\voltage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\watch.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\water-drop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\water.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\white-star.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\wireless-2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\wireless.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\woman-symbol.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\wrench.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\black\add_user.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(LOCALAPPDATA)\ZeroC\IceBuilder\IceBuilder.CSharp.props" />

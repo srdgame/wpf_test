@@ -80,7 +80,7 @@ namespace MiniEClient.frames
     /// </summary>
     public partial class TestPage : Page
     {
-        public TestPage(MainWindow main)
+        public TestPage()
         {
             InitializeComponent();
         }

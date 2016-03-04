@@ -21,9 +21,9 @@ namespace MiniEClient.frames
     public partial class LeftMenu : Page
     {
         private MainWindow m_Main;
-        public LeftMenu(MainWindow main)
+        public LeftMenu()
         {
-            m_Main = main;
+            m_Main = App.Current.MainWindow as MainWindow;
             InitializeComponent();
         }
 

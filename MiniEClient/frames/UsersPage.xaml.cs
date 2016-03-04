@@ -101,10 +101,10 @@ namespace MiniEClient.frames
     public partial class UsersPage : Page
     {
         private MainWindow m_Main;
-        public UsersPage(MainWindow main)
+        public UsersPage()
         {
             var i = sys_role_rpc_equals.instance;
-            m_Main = main;
+            m_Main = App.Current.MainWindow as MainWindow;
             InitializeComponent();
         }
 

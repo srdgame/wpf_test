@@ -31,9 +31,6 @@ namespace MiniEClient
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            this.frame_top.Navigate(new frames.TopMenu(this));
-            this.frame_left.Navigate(new frames.LeftMenu(this));
-            this.frame_main.Navigate(new frames.Welcome(this));
             try
             {
                 UserInfo = Client.get_current_user_info();
@@ -44,24 +41,31 @@ namespace MiniEClient
             }
         }
 
+        internal void CreateUser()
+        {
+            var dlg = new diags.UserCreateDlg();
+            dlg.Owner = this;
+            dlg.ShowDialog();
+        }
+
         internal void ActiveDist()
         {
-            this.frame_main.Navigate(new frames.UnitMgr(this));
+            this.frame_main.Navigate(new frames.UnitMgr());
         }
 
         internal void ActiveUsers()
         {
-            this.frame_main.Navigate(new frames.UsersPage(this));
+            this.frame_main.Navigate(new frames.UsersPage());
         }
 
         internal void ActiveHelp()
         {
-            this.frame_main.Navigate(new frames.TestPage(this));
+            this.frame_main.Navigate(new frames.TestPage());
         }
 
         internal void ActiveAds()
         {
-            this.frame_main.Navigate(new frames.AdMgr(this));
+            this.frame_main.Navigate(new frames.AdMgr());
         }
 
     }

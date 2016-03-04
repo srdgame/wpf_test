@@ -18,18 +18,21 @@
         </Grid.Background>
         <StackPanel>
             <Button x:Name="btn_dist" Height="70"  BorderThickness="0" Background="{x:Null}" Click="btn_dist_Click">
-                <Image Source="/images/dist.png" Stretch="Fill" Height="64" />
+                <Image Source="/images/dist.png" Stretch="Fill" Height="64" Opacity="0.7"/>
             </Button>
             <Button x:Name="btn_users" Height="64" BorderThickness="0" Background="{x:Null}" Click="btn_users_Click">
-                <Image Source="/images/users.png" Stretch="Fill" Height="64" />
+                <Image Source="/images/users.png" Stretch="Fill" Height="64"  Opacity="0.7"/>
             </Button>
             <Button x:Name="btn_ads" Height="64" BorderThickness="0" Background="{x:Null}" Click="btn_ads_Click">
-                <Image Source="/images/公告.png" Stretch="Fill" Height="64" />
+                <Image Source="/images/公告.png" Stretch="Fill" Height="64"  Opacity="0.7"/>
             </Button>
         </StackPanel>
         <StackPanel VerticalAlignment="Bottom" >
             <Button x:Name="button" Height="64" BorderThickness="0" Background="{x:Null}" Click="button_Click">
-                <Image Source="/images/help.png" Stretch="Fill" Height="64" />
+                <Image Source="/images/help.png" Stretch="Fill" Height="64" Opacity="0.7" />
+                <Button.ToolTip>
+                    <TextBlock VerticalAlignment="Center" Text="Help......" TextWrapping="Wrap" MaxWidth="200" ></TextBlock>
+                </Button.ToolTip>
             </Button>
         </StackPanel>
     </Grid>

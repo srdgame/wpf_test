@@ -20,7 +20,7 @@ namespace MiniEClient.frames
     /// </summary>
     public partial class Welcome : Page
     {
-        public Welcome(MainWindow main)
+        public Welcome()
         {
             InitializeComponent();
         }

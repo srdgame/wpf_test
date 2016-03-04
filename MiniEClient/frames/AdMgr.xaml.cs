@@ -20,9 +20,8 @@ namespace MiniEClient.frames
     /// </summary>
     public partial class AdMgr : Page
     {
-        public AdMgr(MainWindow main)
+        public AdMgr()
         {
-            m_Main = main;
             InitializeComponent();
         }
 

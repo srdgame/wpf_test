@@ -18,7 +18,7 @@ namespace MiniEClient
         protected override void OnStartup(StartupEventArgs e)
         {
             Current.ShutdownMode = ShutdownMode.OnExplicitShutdown;
-            diags.LoginWindow window = new diags.LoginWindow();
+            var window = new diags.LoginWindow();
             bool? dialogResult = window.ShowDialog();
             if ((dialogResult.HasValue == true) &&
                 (dialogResult.Value == true))

@@ -12,5 +12,31 @@
         <Grid.Background>
             <ImageBrush ImageSource="/images/banner.jpg"/>
         </Grid.Background>
+        <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+            <Button x:Name="btn_user_reg" Width="64" BorderThickness="0" Background="{x:Null}" Click="btn_user_reg_Click">
+                <Image Source="/images/black/add_user.png" Stretch="Fill"  Height="48" Width="48" />
+                <Button.ToolTip>
+                    <TextBlock VerticalAlignment="Center" Text="Create new user." TextWrapping="Wrap" MaxWidth="200" ></TextBlock>
+                </Button.ToolTip>
+            </Button>
+            <Button x:Name="btn_user_msg" Width="64" BorderThickness="0" Background="{x:Null}" Click="btn_logout_Click">
+                <Image Source="/images/black/comment.png" Stretch="Fill" Height="48" Width="48" />
+                <Button.ToolTip>
+                    <TextBlock VerticalAlignment="Center" Text="User messages" TextWrapping="Wrap" MaxWidth="200" ></TextBlock>
+                </Button.ToolTip>
+            </Button>
+            <Button x:Name="btn_email" Width="64" BorderThickness="0" Background="{x:Null}" Click="btn_logout_Click">
+                <Image Source="/images/black/email_post_letter_stamp.png" Stretch="Fill" Height="64" />
+                <Button.ToolTip>
+                    <TextBlock VerticalAlignment="Center" Text="User emails" TextWrapping="Wrap" MaxWidth="200" ></TextBlock>
+                </Button.ToolTip>
+            </Button>
+            <Button x:Name="btn_logout" Width="64" BorderThickness="0" Background="{x:Null}" Click="btn_logout_Click">
+                <Image Source="/images/black/exit.png" Stretch="Fill" Height="64" />
+                <Button.ToolTip>
+                    <TextBlock VerticalAlignment="Center" Text="Logout" TextWrapping="Wrap" MaxWidth="200" ></TextBlock>
+                </Button.ToolTip>
+            </Button>
+        </StackPanel>
     </Grid>
 </Page>

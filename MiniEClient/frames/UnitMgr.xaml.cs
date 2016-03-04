@@ -28,9 +28,9 @@ namespace MiniEClient.frames
         private PNTreeViewItemList _item_list;
         private MainWindow m_Main;
 
-        public UnitMgr(MainWindow main)
+        public UnitMgr()
         {
-            m_Main = main;
+            m_Main = App.Current.MainWindow as MainWindow;
             InitializeComponent();
             _categories = new ObservableCollection<object>();
         }
