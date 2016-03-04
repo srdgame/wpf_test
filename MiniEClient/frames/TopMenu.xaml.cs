@@ -36,5 +36,10 @@ namespace MiniEClient.frames
         {
             m_Main.CreateUser();
         }
+
+        private void btn_user_msg_Click(object sender, RoutedEventArgs e)
+        {
+            m_Main.ActiveMsg();
+        }
     }
 }

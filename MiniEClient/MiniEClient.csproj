@@ -109,6 +109,9 @@
       <DependentUpon>ComboTree.xaml</DependentUpon>
     </Compile>
     <Compile Include="ctrls\HyperlinkExtensions.cs" />
+    <Compile Include="ctrls\MessageList.xaml.cs">
+      <DependentUpon>MessageList.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ctrls\PasswordHelper.cs" />
     <Compile Include="ctrls\RoleListView.xaml.cs">
       <DependentUpon>RoleListView.xaml</DependentUpon>
@@ -154,6 +157,9 @@
     <Compile Include="frames\EditorPage.xaml.cs">
       <DependentUpon>EditorPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="frames\MessagesPage.xaml.cs">
+      <DependentUpon>MessagesPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="frames\UnitMgr.xaml.cs">
       <DependentUpon>UnitMgr.xaml</DependentUpon>
     </Compile>
@@ -176,6 +182,10 @@
     <Page Include="ctrls\ComboTree.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ctrls\MessageList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ctrls\RoleListView.xaml">
       <SubType>Designer</SubType>
@@ -222,6 +232,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="frames\EditorPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="frames\MessagesPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

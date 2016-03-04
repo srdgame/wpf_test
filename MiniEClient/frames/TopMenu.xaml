@@ -19,7 +19,7 @@
                     <TextBlock VerticalAlignment="Center" Text="Create new user." TextWrapping="Wrap" MaxWidth="200" ></TextBlock>
                 </Button.ToolTip>
             </Button>
-            <Button x:Name="btn_user_msg" Width="64" BorderThickness="0" Background="{x:Null}" Click="btn_logout_Click">
+            <Button x:Name="btn_user_msg" Width="64" BorderThickness="0" Background="{x:Null}" Click="btn_user_msg_Click">
                 <Image Source="/images/black/comment.png" Stretch="Fill" Height="48" Width="48" />
                 <Button.ToolTip>
                     <TextBlock VerticalAlignment="Center" Text="User messages" TextWrapping="Wrap" MaxWidth="200" ></TextBlock>

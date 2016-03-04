@@ -43,18 +43,6 @@ namespace MiniEClient
             }
         }
 
-        internal void CreateUser()
-        {
-            var dlg = new diags.UserCreateDlg();
-            dlg.Owner = this;
-            dlg.ShowDialog();
-        }
-        internal void Logout()
-        {
-            Client.logout();
-            System.Diagnostics.Process.Start(App.ResourceAssembly.Location);
-            Close();
-        }
         internal void ActiveDist()
         {
             this.frame_main.Navigate(new frames.UnitMgr());
@@ -75,5 +63,22 @@ namespace MiniEClient
             this.frame_main.Navigate(new frames.AdMgr());
         }
 
+        internal void ActiveMsg()
+        {
+            this.frame_main.Navigate(new frames.MessagesPage());
+        }
+
+        internal void CreateUser()
+        {
+            var dlg = new diags.UserCreateDlg();
+            dlg.Owner = this;
+            dlg.ShowDialog();
+        }
+        internal void Logout()
+        {
+            Client.logout();
+            System.Diagnostics.Process.Start(App.ResourceAssembly.Location);
+            Close();
+        }
     }
 }
