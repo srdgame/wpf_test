@@ -103,6 +103,7 @@ namespace MiniEClient.frames
         private MainWindow m_Main;
         public UsersPage(MainWindow main)
         {
+            var i = sys_role_rpc_equals.instance;
             m_Main = main;
             InitializeComponent();
         }

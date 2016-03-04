@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MiniEClient.data;
 
 namespace MiniEClient.ctrls
 {
@@ -32,7 +33,7 @@ namespace MiniEClient.ctrls
         {
             foreach( object i in list)
             {
-                if (i.Equals(item))
+                if (EqualsChecker.Check(item, i))
                     return true;
             }
             return false;

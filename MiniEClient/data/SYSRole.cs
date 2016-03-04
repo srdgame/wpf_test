@@ -7,6 +7,16 @@ using minie.irpc;
 
 namespace MiniEClient.data
 {
+    public class sys_role_rpc_equals : EqualsRegister<sys_role_rpc, sys_role_rpc_equals>
+    {
+        protected override bool Equals(sys_role_rpc obj1, object obj2)
+        {
+            var o = obj2 as sys_role_rpc;
+            if (o != null)
+                return obj1.name == o.name;
+            return obj1.Equals(obj2);
+        }
+    }
     //public class sys_role_permission_rpc : ICloneable
     //{
     //    public string name { get; set; }
