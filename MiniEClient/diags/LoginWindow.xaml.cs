@@ -46,6 +46,10 @@ namespace MiniEClient.diags
             catch (Exception e1)
             {
                 Console.WriteLine("{0} Exception caught", e1);
+                var msg = e1.Message;
+                if (msg.Length == 0)
+                    msg = e1.InnerException.Message;
+                MessageBox.Show(msg, e1.Source, MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
 

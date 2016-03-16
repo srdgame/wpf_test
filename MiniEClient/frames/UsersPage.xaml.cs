@@ -174,11 +174,41 @@ namespace MiniEClient.frames
                 page.IsEditable = true;
             }
         }
+        private int UpdateNode(sys_group_rpc group, bool isNew)
+        {
+            var data = group.Clone() as sys_group_rpc;
+            var group_users = data.group_users;
+            var group_roles = data.group_roles;
+            data.group_users = new List<sys_user_rpc>();
+            foreach ( var item in group_users)
+            {
+                var user = item.Clone() as sys_user_rpc;
+                user.user_groups = null;
+                user.user_roles = null;
+                data.group_users.Add(user);
+            }
+            data.group_roles = new List<sys_role_rpc>();
+            foreach (var item in group_roles)
+            {
+                var role = item.Clone() as sys_role_rpc;
+                role.role_groups = null;
+                role.role_users = null;
+                role.role_permissions = null;
+                data.group_roles.Add(role);
+            }
 
+            return isNew ? m_Main.Client.add_sys_group(data) : m_Main.Client.update_sys_group(data);
+        }
         private void OnSave(object sender, RoutedEventArgs e)
         {
             var page = frame.Content as EditorPage;
             var item = treeView.SelectedItem as PNTreeViewItem;
+            var data = page.EditorData as sys_group_rpc;
+            if (UpdateNode(data, false) != 0)
+            {
+                page.Editor.DataContext = item.CloneData();
+                return;
+            }
             item.UpdateData(page.EditorData);
             item.UpdateGUI();
             item.IsNew = false;

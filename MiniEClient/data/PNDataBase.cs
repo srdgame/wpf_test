@@ -8,6 +8,23 @@ using System.Threading.Tasks;
 
 namespace MiniEClient.data
 {
+    //public static class ToStringExClass
+    //{
+    //    public static string ToStringEx(this cm_entrance_rpc obj)
+    //    {
+    //        return string.Format("{0} Ex!!!", obj.ToString());
+    //    }
+    //    public static string ToStringEx(this object obj)
+    //    {
+    //        return string.Format("{0} Ex!!!", obj.ToString());
+    //    }
+    //    public static void test()
+    //    {
+    //        cm_entrance_rpc rpc = new cm_entrance_rpc();
+    //        rpc.ToStringEx();
+    //    }
+    //}
+
     public class EqualsChecker
     {
         private static Dictionary<string, Func<object, object, bool>> Expressions = new Dictionary<string, Func<object, object, bool>>();

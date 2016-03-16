@@ -183,6 +183,27 @@ namespace minie
         public delegate void Callback_BackendService_add_role_user(int ret__);
 
         [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.6.1")]
+        public delegate void Callback_BackendService_remove_user_group(int ret__);
+
+        [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.6.1")]
+        public delegate void Callback_BackendService_remove_role_group(int ret__);
+
+        [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.6.1")]
+        public delegate void Callback_BackendService_remove_role_user(int ret__);
+
+        [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.6.1")]
+        public delegate void Callback_BackendService_add_sys_group(int ret__);
+
+        [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.6.1")]
+        public delegate void Callback_BackendService_add_sys_user(int ret__);
+
+        [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.6.1")]
+        public delegate void Callback_BackendService_add_cm_node(int ret__);
+
+        [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.6.1")]
+        public delegate void Callback_BackendService_add_cm_entrance(int ret__);
+
+        [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.6.1")]
         public delegate void Callback_BackendService_update_sys_group(int ret__);
 
         [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.6.1")]
@@ -193,6 +214,30 @@ namespace minie
 
         [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.6.1")]
         public delegate void Callback_BackendService_update_cm_entrance(int ret__);
+
+        [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.6.1")]
+        public delegate void Callback_BackendService_get_sys_group(minie.irpc.sys_group_rpc ret__);
+
+        [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.6.1")]
+        public delegate void Callback_BackendService_get_sys_user(minie.irpc.sys_user_rpc ret__);
+
+        [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.6.1")]
+        public delegate void Callback_BackendService_get_cm_node(minie.irpc.cm_node_rpc ret__);
+
+        [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.6.1")]
+        public delegate void Callback_BackendService_get_cm_entrance(minie.irpc.cm_entrance_rpc ret__);
+
+        [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.6.1")]
+        public delegate void Callback_BackendService_remove_sys_group(int ret__);
+
+        [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.6.1")]
+        public delegate void Callback_BackendService_remove_sys_user(int ret__);
+
+        [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.6.1")]
+        public delegate void Callback_BackendService_remove_cm_node(int ret__);
+
+        [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.6.1")]
+        public delegate void Callback_BackendService_remove_cm_entrance(int ret__);
     }
 }
 
@@ -328,38 +373,115 @@ namespace minie
 
             minie.irpc.cm_user_rpc end_register_app_user_step2(Ice.AsyncResult r__);
 
-            int add_user_group(minie.irpc.sys_user_rpc user, minie.irpc.sys_group_rpc group);
-            int add_user_group(minie.irpc.sys_user_rpc user, minie.irpc.sys_group_rpc group, _System.Collections.Generic.Dictionary<string, string> context__);
+            int add_user_group(string groupID, string userID);
+            int add_user_group(string groupID, string userID, _System.Collections.Generic.Dictionary<string, string> context__);
 
-            Ice.AsyncResult<minie.irpc.Callback_BackendService_add_user_group> begin_add_user_group(minie.irpc.sys_user_rpc user, minie.irpc.sys_group_rpc group);
-            Ice.AsyncResult<minie.irpc.Callback_BackendService_add_user_group> begin_add_user_group(minie.irpc.sys_user_rpc user, minie.irpc.sys_group_rpc group, _System.Collections.Generic.Dictionary<string, string> ctx__);
+            Ice.AsyncResult<minie.irpc.Callback_BackendService_add_user_group> begin_add_user_group(string groupID, string userID);
+            Ice.AsyncResult<minie.irpc.Callback_BackendService_add_user_group> begin_add_user_group(string groupID, string userID, _System.Collections.Generic.Dictionary<string, string> ctx__);
 
-            Ice.AsyncResult begin_add_user_group(minie.irpc.sys_user_rpc user, minie.irpc.sys_group_rpc group, Ice.AsyncCallback cb__, object cookie__);
-            Ice.AsyncResult begin_add_user_group(minie.irpc.sys_user_rpc user, minie.irpc.sys_group_rpc group, _System.Collections.Generic.Dictionary<string, string> ctx__, Ice.AsyncCallback cb__, object cookie__);
+            Ice.AsyncResult begin_add_user_group(string groupID, string userID, Ice.AsyncCallback cb__, object cookie__);
+            Ice.AsyncResult begin_add_user_group(string groupID, string userID, _System.Collections.Generic.Dictionary<string, string> ctx__, Ice.AsyncCallback cb__, object cookie__);
 
             int end_add_user_group(Ice.AsyncResult r__);
 
-            int add_role_group(minie.irpc.sys_role_rpc role, minie.irpc.sys_group_rpc group);
-            int add_role_group(minie.irpc.sys_role_rpc role, minie.irpc.sys_group_rpc group, _System.Collections.Generic.Dictionary<string, string> context__);
+            int add_role_group(string groupID, string roleID);
+            int add_role_group(string groupID, string roleID, _System.Collections.Generic.Dictionary<string, string> context__);
 
-            Ice.AsyncResult<minie.irpc.Callback_BackendService_add_role_group> begin_add_role_group(minie.irpc.sys_role_rpc role, minie.irpc.sys_group_rpc group);
-            Ice.AsyncResult<minie.irpc.Callback_BackendService_add_role_group> begin_add_role_group(minie.irpc.sys_role_rpc role, minie.irpc.sys_group_rpc group, _System.Collections.Generic.Dictionary<string, string> ctx__);
+            Ice.AsyncResult<minie.irpc.Callback_BackendService_add_role_group> begin_add_role_group(string groupID, string roleID);
+            Ice.AsyncResult<minie.irpc.Callback_BackendService_add_role_group> begin_add_role_group(string groupID, string roleID, _System.Collections.Generic.Dictionary<string, string> ctx__);
 
-            Ice.AsyncResult begin_add_role_group(minie.irpc.sys_role_rpc role, minie.irpc.sys_group_rpc group, Ice.AsyncCallback cb__, object cookie__);
-            Ice.AsyncResult begin_add_role_group(minie.irpc.sys_role_rpc role, minie.irpc.sys_group_rpc group, _System.Collections.Generic.Dictionary<string, string> ctx__, Ice.AsyncCallback cb__, object cookie__);
+            Ice.AsyncResult begin_add_role_group(string groupID, string roleID, Ice.AsyncCallback cb__, object cookie__);
+            Ice.AsyncResult begin_add_role_group(string groupID, string roleID, _System.Collections.Generic.Dictionary<string, string> ctx__, Ice.AsyncCallback cb__, object cookie__);
 
             int end_add_role_group(Ice.AsyncResult r__);
 
-            int add_role_user(minie.irpc.sys_role_rpc role, minie.irpc.sys_user_rpc user);
-            int add_role_user(minie.irpc.sys_role_rpc role, minie.irpc.sys_user_rpc user, _System.Collections.Generic.Dictionary<string, string> context__);
+            int add_role_user(string userID, string roleID);
+            int add_role_user(string userID, string roleID, _System.Collections.Generic.Dictionary<string, string> context__);
 
-            Ice.AsyncResult<minie.irpc.Callback_BackendService_add_role_user> begin_add_role_user(minie.irpc.sys_role_rpc role, minie.irpc.sys_user_rpc user);
-            Ice.AsyncResult<minie.irpc.Callback_BackendService_add_role_user> begin_add_role_user(minie.irpc.sys_role_rpc role, minie.irpc.sys_user_rpc user, _System.Collections.Generic.Dictionary<string, string> ctx__);
+            Ice.AsyncResult<minie.irpc.Callback_BackendService_add_role_user> begin_add_role_user(string userID, string roleID);
+            Ice.AsyncResult<minie.irpc.Callback_BackendService_add_role_user> begin_add_role_user(string userID, string roleID, _System.Collections.Generic.Dictionary<string, string> ctx__);
 
-            Ice.AsyncResult begin_add_role_user(minie.irpc.sys_role_rpc role, minie.irpc.sys_user_rpc user, Ice.AsyncCallback cb__, object cookie__);
-            Ice.AsyncResult begin_add_role_user(minie.irpc.sys_role_rpc role, minie.irpc.sys_user_rpc user, _System.Collections.Generic.Dictionary<string, string> ctx__, Ice.AsyncCallback cb__, object cookie__);
+            Ice.AsyncResult begin_add_role_user(string userID, string roleID, Ice.AsyncCallback cb__, object cookie__);
+            Ice.AsyncResult begin_add_role_user(string userID, string roleID, _System.Collections.Generic.Dictionary<string, string> ctx__, Ice.AsyncCallback cb__, object cookie__);
 
             int end_add_role_user(Ice.AsyncResult r__);
+
+            int remove_user_group(string groupID, string userID);
+            int remove_user_group(string groupID, string userID, _System.Collections.Generic.Dictionary<string, string> context__);
+
+            Ice.AsyncResult<minie.irpc.Callback_BackendService_remove_user_group> begin_remove_user_group(string groupID, string userID);
+            Ice.AsyncResult<minie.irpc.Callback_BackendService_remove_user_group> begin_remove_user_group(string groupID, string userID, _System.Collections.Generic.Dictionary<string, string> ctx__);
+
+            Ice.AsyncResult begin_remove_user_group(string groupID, string userID, Ice.AsyncCallback cb__, object cookie__);
+            Ice.AsyncResult begin_remove_user_group(string groupID, string userID, _System.Collections.Generic.Dictionary<string, string> ctx__, Ice.AsyncCallback cb__, object cookie__);
+
+            int end_remove_user_group(Ice.AsyncResult r__);
+
+            int remove_role_group(string groupID, string roleID);
+            int remove_role_group(string groupID, string roleID, _System.Collections.Generic.Dictionary<string, string> context__);
+
+            Ice.AsyncResult<minie.irpc.Callback_BackendService_remove_role_group> begin_remove_role_group(string groupID, string roleID);
+            Ice.AsyncResult<minie.irpc.Callback_BackendService_remove_role_group> begin_remove_role_group(string groupID, string roleID, _System.Collections.Generic.Dictionary<string, string> ctx__);
+
+            Ice.AsyncResult begin_remove_role_group(string groupID, string roleID, Ice.AsyncCallback cb__, object cookie__);
+            Ice.AsyncResult begin_remove_role_group(string groupID, string roleID, _System.Collections.Generic.Dictionary<string, string> ctx__, Ice.AsyncCallback cb__, object cookie__);
+
+            int end_remove_role_group(Ice.AsyncResult r__);
+
+            int remove_role_user(string userID, string roleID);
+            int remove_role_user(string userID, string roleID, _System.Collections.Generic.Dictionary<string, string> context__);
+
+            Ice.AsyncResult<minie.irpc.Callback_BackendService_remove_role_user> begin_remove_role_user(string userID, string roleID);
+            Ice.AsyncResult<minie.irpc.Callback_BackendService_remove_role_user> begin_remove_role_user(string userID, string roleID, _System.Collections.Generic.Dictionary<string, string> ctx__);
+
+            Ice.AsyncResult begin_remove_role_user(string userID, string roleID, Ice.AsyncCallback cb__, object cookie__);
+            Ice.AsyncResult begin_remove_role_user(string userID, string roleID, _System.Collections.Generic.Dictionary<string, string> ctx__, Ice.AsyncCallback cb__, object cookie__);
+
+            int end_remove_role_user(Ice.AsyncResult r__);
+
+            int add_sys_group(minie.irpc.sys_group_rpc group);
+            int add_sys_group(minie.irpc.sys_group_rpc group, _System.Collections.Generic.Dictionary<string, string> context__);
+
+            Ice.AsyncResult<minie.irpc.Callback_BackendService_add_sys_group> begin_add_sys_group(minie.irpc.sys_group_rpc group);
+            Ice.AsyncResult<minie.irpc.Callback_BackendService_add_sys_group> begin_add_sys_group(minie.irpc.sys_group_rpc group, _System.Collections.Generic.Dictionary<string, string> ctx__);
+
+            Ice.AsyncResult begin_add_sys_group(minie.irpc.sys_group_rpc group, Ice.AsyncCallback cb__, object cookie__);
+            Ice.AsyncResult begin_add_sys_group(minie.irpc.sys_group_rpc group, _System.Collections.Generic.Dictionary<string, string> ctx__, Ice.AsyncCallback cb__, object cookie__);
+
+            int end_add_sys_group(Ice.AsyncResult r__);
+
+            int add_sys_user(minie.irpc.sys_user_rpc user);
+            int add_sys_user(minie.irpc.sys_user_rpc user, _System.Collections.Generic.Dictionary<string, string> context__);
+
+            Ice.AsyncResult<minie.irpc.Callback_BackendService_add_sys_user> begin_add_sys_user(minie.irpc.sys_user_rpc user);
+            Ice.AsyncResult<minie.irpc.Callback_BackendService_add_sys_user> begin_add_sys_user(minie.irpc.sys_user_rpc user, _System.Collections.Generic.Dictionary<string, string> ctx__);
+
+            Ice.AsyncResult begin_add_sys_user(minie.irpc.sys_user_rpc user, Ice.AsyncCallback cb__, object cookie__);
+            Ice.AsyncResult begin_add_sys_user(minie.irpc.sys_user_rpc user, _System.Collections.Generic.Dictionary<string, string> ctx__, Ice.AsyncCallback cb__, object cookie__);
+
+            int end_add_sys_user(Ice.AsyncResult r__);
+
+            int add_cm_node(minie.irpc.cm_node_rpc node);
+            int add_cm_node(minie.irpc.cm_node_rpc node, _System.Collections.Generic.Dictionary<string, string> context__);
+
+            Ice.AsyncResult<minie.irpc.Callback_BackendService_add_cm_node> begin_add_cm_node(minie.irpc.cm_node_rpc node);
+            Ice.AsyncResult<minie.irpc.Callback_BackendService_add_cm_node> begin_add_cm_node(minie.irpc.cm_node_rpc node, _System.Collections.Generic.Dictionary<string, string> ctx__);
+
+            Ice.AsyncResult begin_add_cm_node(minie.irpc.cm_node_rpc node, Ice.AsyncCallback cb__, object cookie__);
+            Ice.AsyncResult begin_add_cm_node(minie.irpc.cm_node_rpc node, _System.Collections.Generic.Dictionary<string, string> ctx__, Ice.AsyncCallback cb__, object cookie__);
+
+            int end_add_cm_node(Ice.AsyncResult r__);
+
+            int add_cm_entrance(minie.irpc.cm_entrance_rpc entrance);
+            int add_cm_entrance(minie.irpc.cm_entrance_rpc entrance, _System.Collections.Generic.Dictionary<string, string> context__);
+
+            Ice.AsyncResult<minie.irpc.Callback_BackendService_add_cm_entrance> begin_add_cm_entrance(minie.irpc.cm_entrance_rpc entrance);
+            Ice.AsyncResult<minie.irpc.Callback_BackendService_add_cm_entrance> begin_add_cm_entrance(minie.irpc.cm_entrance_rpc entrance, _System.Collections.Generic.Dictionary<string, string> ctx__);
+
+            Ice.AsyncResult begin_add_cm_entrance(minie.irpc.cm_entrance_rpc entrance, Ice.AsyncCallback cb__, object cookie__);
+            Ice.AsyncResult begin_add_cm_entrance(minie.irpc.cm_entrance_rpc entrance, _System.Collections.Generic.Dictionary<string, string> ctx__, Ice.AsyncCallback cb__, object cookie__);
+
+            int end_add_cm_entrance(Ice.AsyncResult r__);
 
             int update_sys_group(minie.irpc.sys_group_rpc group);
             int update_sys_group(minie.irpc.sys_group_rpc group, _System.Collections.Generic.Dictionary<string, string> context__);
@@ -404,6 +526,94 @@ namespace minie
             Ice.AsyncResult begin_update_cm_entrance(minie.irpc.cm_entrance_rpc entrance, _System.Collections.Generic.Dictionary<string, string> ctx__, Ice.AsyncCallback cb__, object cookie__);
 
             int end_update_cm_entrance(Ice.AsyncResult r__);
+
+            minie.irpc.sys_group_rpc get_sys_group(string groupID);
+            minie.irpc.sys_group_rpc get_sys_group(string groupID, _System.Collections.Generic.Dictionary<string, string> context__);
+
+            Ice.AsyncResult<minie.irpc.Callback_BackendService_get_sys_group> begin_get_sys_group(string groupID);
+            Ice.AsyncResult<minie.irpc.Callback_BackendService_get_sys_group> begin_get_sys_group(string groupID, _System.Collections.Generic.Dictionary<string, string> ctx__);
+
+            Ice.AsyncResult begin_get_sys_group(string groupID, Ice.AsyncCallback cb__, object cookie__);
+            Ice.AsyncResult begin_get_sys_group(string groupID, _System.Collections.Generic.Dictionary<string, string> ctx__, Ice.AsyncCallback cb__, object cookie__);
+
+            minie.irpc.sys_group_rpc end_get_sys_group(Ice.AsyncResult r__);
+
+            minie.irpc.sys_user_rpc get_sys_user(string userID);
+            minie.irpc.sys_user_rpc get_sys_user(string userID, _System.Collections.Generic.Dictionary<string, string> context__);
+
+            Ice.AsyncResult<minie.irpc.Callback_BackendService_get_sys_user> begin_get_sys_user(string userID);
+            Ice.AsyncResult<minie.irpc.Callback_BackendService_get_sys_user> begin_get_sys_user(string userID, _System.Collections.Generic.Dictionary<string, string> ctx__);
+
+            Ice.AsyncResult begin_get_sys_user(string userID, Ice.AsyncCallback cb__, object cookie__);
+            Ice.AsyncResult begin_get_sys_user(string userID, _System.Collections.Generic.Dictionary<string, string> ctx__, Ice.AsyncCallback cb__, object cookie__);
+
+            minie.irpc.sys_user_rpc end_get_sys_user(Ice.AsyncResult r__);
+
+            minie.irpc.cm_node_rpc get_cm_node(string nodeID);
+            minie.irpc.cm_node_rpc get_cm_node(string nodeID, _System.Collections.Generic.Dictionary<string, string> context__);
+
+            Ice.AsyncResult<minie.irpc.Callback_BackendService_get_cm_node> begin_get_cm_node(string nodeID);
+            Ice.AsyncResult<minie.irpc.Callback_BackendService_get_cm_node> begin_get_cm_node(string nodeID, _System.Collections.Generic.Dictionary<string, string> ctx__);
+
+            Ice.AsyncResult begin_get_cm_node(string nodeID, Ice.AsyncCallback cb__, object cookie__);
+            Ice.AsyncResult begin_get_cm_node(string nodeID, _System.Collections.Generic.Dictionary<string, string> ctx__, Ice.AsyncCallback cb__, object cookie__);
+
+            minie.irpc.cm_node_rpc end_get_cm_node(Ice.AsyncResult r__);
+
+            minie.irpc.cm_entrance_rpc get_cm_entrance(string entranceID);
+            minie.irpc.cm_entrance_rpc get_cm_entrance(string entranceID, _System.Collections.Generic.Dictionary<string, string> context__);
+
+            Ice.AsyncResult<minie.irpc.Callback_BackendService_get_cm_entrance> begin_get_cm_entrance(string entranceID);
+            Ice.AsyncResult<minie.irpc.Callback_BackendService_get_cm_entrance> begin_get_cm_entrance(string entranceID, _System.Collections.Generic.Dictionary<string, string> ctx__);
+
+            Ice.AsyncResult begin_get_cm_entrance(string entranceID, Ice.AsyncCallback cb__, object cookie__);
+            Ice.AsyncResult begin_get_cm_entrance(string entranceID, _System.Collections.Generic.Dictionary<string, string> ctx__, Ice.AsyncCallback cb__, object cookie__);
+
+            minie.irpc.cm_entrance_rpc end_get_cm_entrance(Ice.AsyncResult r__);
+
+            int remove_sys_group(string groupID);
+            int remove_sys_group(string groupID, _System.Collections.Generic.Dictionary<string, string> context__);
+
+            Ice.AsyncResult<minie.irpc.Callback_BackendService_remove_sys_group> begin_remove_sys_group(string groupID);
+            Ice.AsyncResult<minie.irpc.Callback_BackendService_remove_sys_group> begin_remove_sys_group(string groupID, _System.Collections.Generic.Dictionary<string, string> ctx__);
+
+            Ice.AsyncResult begin_remove_sys_group(string groupID, Ice.AsyncCallback cb__, object cookie__);
+            Ice.AsyncResult begin_remove_sys_group(string groupID, _System.Collections.Generic.Dictionary<string, string> ctx__, Ice.AsyncCallback cb__, object cookie__);
+
+            int end_remove_sys_group(Ice.AsyncResult r__);
+
+            int remove_sys_user(string userID);
+            int remove_sys_user(string userID, _System.Collections.Generic.Dictionary<string, string> context__);
+
+            Ice.AsyncResult<minie.irpc.Callback_BackendService_remove_sys_user> begin_remove_sys_user(string userID);
+            Ice.AsyncResult<minie.irpc.Callback_BackendService_remove_sys_user> begin_remove_sys_user(string userID, _System.Collections.Generic.Dictionary<string, string> ctx__);
+
+            Ice.AsyncResult begin_remove_sys_user(string userID, Ice.AsyncCallback cb__, object cookie__);
+            Ice.AsyncResult begin_remove_sys_user(string userID, _System.Collections.Generic.Dictionary<string, string> ctx__, Ice.AsyncCallback cb__, object cookie__);
+
+            int end_remove_sys_user(Ice.AsyncResult r__);
+
+            int remove_cm_node(string nodeID);
+            int remove_cm_node(string nodeID, _System.Collections.Generic.Dictionary<string, string> context__);
+
+            Ice.AsyncResult<minie.irpc.Callback_BackendService_remove_cm_node> begin_remove_cm_node(string nodeID);
+            Ice.AsyncResult<minie.irpc.Callback_BackendService_remove_cm_node> begin_remove_cm_node(string nodeID, _System.Collections.Generic.Dictionary<string, string> ctx__);
+
+            Ice.AsyncResult begin_remove_cm_node(string nodeID, Ice.AsyncCallback cb__, object cookie__);
+            Ice.AsyncResult begin_remove_cm_node(string nodeID, _System.Collections.Generic.Dictionary<string, string> ctx__, Ice.AsyncCallback cb__, object cookie__);
+
+            int end_remove_cm_node(Ice.AsyncResult r__);
+
+            int remove_cm_entrance(string entranceID);
+            int remove_cm_entrance(string entranceID, _System.Collections.Generic.Dictionary<string, string> context__);
+
+            Ice.AsyncResult<minie.irpc.Callback_BackendService_remove_cm_entrance> begin_remove_cm_entrance(string entranceID);
+            Ice.AsyncResult<minie.irpc.Callback_BackendService_remove_cm_entrance> begin_remove_cm_entrance(string entranceID, _System.Collections.Generic.Dictionary<string, string> ctx__);
+
+            Ice.AsyncResult begin_remove_cm_entrance(string entranceID, Ice.AsyncCallback cb__, object cookie__);
+            Ice.AsyncResult begin_remove_cm_entrance(string entranceID, _System.Collections.Generic.Dictionary<string, string> ctx__, Ice.AsyncCallback cb__, object cookie__);
+
+            int end_remove_cm_entrance(Ice.AsyncResult r__);
         }
     }
 }
@@ -449,11 +659,25 @@ namespace minie
 
             minie.irpc.cm_user_rpc register_app_user_step2(string cellphone, string password, int verifyCode, Ice.Current current__);
 
-            int add_user_group(minie.irpc.sys_user_rpc user, minie.irpc.sys_group_rpc group, Ice.Current current__);
+            int add_user_group(string groupID, string userID, Ice.Current current__);
 
-            int add_role_group(minie.irpc.sys_role_rpc role, minie.irpc.sys_group_rpc group, Ice.Current current__);
+            int add_role_group(string groupID, string roleID, Ice.Current current__);
 
-            int add_role_user(minie.irpc.sys_role_rpc role, minie.irpc.sys_user_rpc user, Ice.Current current__);
+            int add_role_user(string userID, string roleID, Ice.Current current__);
+
+            int remove_user_group(string groupID, string userID, Ice.Current current__);
+
+            int remove_role_group(string groupID, string roleID, Ice.Current current__);
+
+            int remove_role_user(string userID, string roleID, Ice.Current current__);
+
+            int add_sys_group(minie.irpc.sys_group_rpc group, Ice.Current current__);
+
+            int add_sys_user(minie.irpc.sys_user_rpc user, Ice.Current current__);
+
+            int add_cm_node(minie.irpc.cm_node_rpc node, Ice.Current current__);
+
+            int add_cm_entrance(minie.irpc.cm_entrance_rpc entrance, Ice.Current current__);
 
             int update_sys_group(minie.irpc.sys_group_rpc group, Ice.Current current__);
 
@@ -462,6 +686,22 @@ namespace minie
             int update_cm_node(minie.irpc.cm_node_rpc node, Ice.Current current__);
 
             int update_cm_entrance(minie.irpc.cm_entrance_rpc entrance, Ice.Current current__);
+
+            minie.irpc.sys_group_rpc get_sys_group(string groupID, Ice.Current current__);
+
+            minie.irpc.sys_user_rpc get_sys_user(string userID, Ice.Current current__);
+
+            minie.irpc.cm_node_rpc get_cm_node(string nodeID, Ice.Current current__);
+
+            minie.irpc.cm_entrance_rpc get_cm_entrance(string entranceID, Ice.Current current__);
+
+            int remove_sys_group(string groupID, Ice.Current current__);
+
+            int remove_sys_user(string userID, Ice.Current current__);
+
+            int remove_cm_node(string nodeID, Ice.Current current__);
+
+            int remove_cm_entrance(string entranceID, Ice.Current current__);
         }
 
         [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.6.1")]
@@ -485,11 +725,25 @@ namespace minie
 
             minie.irpc.cm_user_rpc register_app_user_step2(string cellphone, string password, int verifyCode);
 
-            int add_user_group(minie.irpc.sys_user_rpc user, minie.irpc.sys_group_rpc group);
+            int add_user_group(string groupID, string userID);
 
-            int add_role_group(minie.irpc.sys_role_rpc role, minie.irpc.sys_group_rpc group);
+            int add_role_group(string groupID, string roleID);
 
-            int add_role_user(minie.irpc.sys_role_rpc role, minie.irpc.sys_user_rpc user);
+            int add_role_user(string userID, string roleID);
+
+            int remove_user_group(string groupID, string userID);
+
+            int remove_role_group(string groupID, string roleID);
+
+            int remove_role_user(string userID, string roleID);
+
+            int add_sys_group(minie.irpc.sys_group_rpc group);
+
+            int add_sys_user(minie.irpc.sys_user_rpc user);
+
+            int add_cm_node(minie.irpc.cm_node_rpc node);
+
+            int add_cm_entrance(minie.irpc.cm_entrance_rpc entrance);
 
             int update_sys_group(minie.irpc.sys_group_rpc group);
 
@@ -498,6 +752,22 @@ namespace minie
             int update_cm_node(minie.irpc.cm_node_rpc node);
 
             int update_cm_entrance(minie.irpc.cm_entrance_rpc entrance);
+
+            minie.irpc.sys_group_rpc get_sys_group(string groupID);
+
+            minie.irpc.sys_user_rpc get_sys_user(string userID);
+
+            minie.irpc.cm_node_rpc get_cm_node(string nodeID);
+
+            minie.irpc.cm_entrance_rpc get_cm_entrance(string entranceID);
+
+            int remove_sys_group(string groupID);
+
+            int remove_sys_user(string userID);
+
+            int remove_cm_node(string nodeID);
+
+            int remove_cm_entrance(string entranceID);
         }
     }
 }
@@ -916,52 +1186,116 @@ namespace minie
         {
             #region Synchronous operations
 
-            public int add_role_group(minie.irpc.sys_role_rpc role, minie.irpc.sys_group_rpc group)
+            public int add_cm_entrance(minie.irpc.cm_entrance_rpc entrance)
             {
-                return this.add_role_group(role, group, null, false);
+                return this.add_cm_entrance(entrance, null, false);
             }
 
-            public int add_role_group(minie.irpc.sys_role_rpc role, minie.irpc.sys_group_rpc group, _System.Collections.Generic.Dictionary<string, string> context__)
+            public int add_cm_entrance(minie.irpc.cm_entrance_rpc entrance, _System.Collections.Generic.Dictionary<string, string> context__)
             {
-                return this.add_role_group(role, group, context__, true);
+                return this.add_cm_entrance(entrance, context__, true);
             }
 
-            private int add_role_group(minie.irpc.sys_role_rpc role, minie.irpc.sys_group_rpc group, _System.Collections.Generic.Dictionary<string, string> context__, bool explicitCtx__)
+            private int add_cm_entrance(minie.irpc.cm_entrance_rpc entrance, _System.Collections.Generic.Dictionary<string, string> context__, bool explicitCtx__)
+            {
+                checkTwowayOnly__(__add_cm_entrance_name);
+                return end_add_cm_entrance(begin_add_cm_entrance(entrance, context__, explicitCtx__, true, null, null));
+            }
+
+            public int add_cm_node(minie.irpc.cm_node_rpc node)
+            {
+                return this.add_cm_node(node, null, false);
+            }
+
+            public int add_cm_node(minie.irpc.cm_node_rpc node, _System.Collections.Generic.Dictionary<string, string> context__)
+            {
+                return this.add_cm_node(node, context__, true);
+            }
+
+            private int add_cm_node(minie.irpc.cm_node_rpc node, _System.Collections.Generic.Dictionary<string, string> context__, bool explicitCtx__)
+            {
+                checkTwowayOnly__(__add_cm_node_name);
+                return end_add_cm_node(begin_add_cm_node(node, context__, explicitCtx__, true, null, null));
+            }
+
+            public int add_role_group(string groupID, string roleID)
+            {
+                return this.add_role_group(groupID, roleID, null, false);
+            }
+
+            public int add_role_group(string groupID, string roleID, _System.Collections.Generic.Dictionary<string, string> context__)
+            {
+                return this.add_role_group(groupID, roleID, context__, true);
+            }
+
+            private int add_role_group(string groupID, string roleID, _System.Collections.Generic.Dictionary<string, string> context__, bool explicitCtx__)
             {
                 checkTwowayOnly__(__add_role_group_name);
-                return end_add_role_group(begin_add_role_group(role, group, context__, explicitCtx__, true, null, null));
+                return end_add_role_group(begin_add_role_group(groupID, roleID, context__, explicitCtx__, true, null, null));
             }
 
-            public int add_role_user(minie.irpc.sys_role_rpc role, minie.irpc.sys_user_rpc user)
+            public int add_role_user(string userID, string roleID)
             {
-                return this.add_role_user(role, user, null, false);
+                return this.add_role_user(userID, roleID, null, false);
             }
 
-            public int add_role_user(minie.irpc.sys_role_rpc role, minie.irpc.sys_user_rpc user, _System.Collections.Generic.Dictionary<string, string> context__)
+            public int add_role_user(string userID, string roleID, _System.Collections.Generic.Dictionary<string, string> context__)
             {
-                return this.add_role_user(role, user, context__, true);
+                return this.add_role_user(userID, roleID, context__, true);
             }
 
-            private int add_role_user(minie.irpc.sys_role_rpc role, minie.irpc.sys_user_rpc user, _System.Collections.Generic.Dictionary<string, string> context__, bool explicitCtx__)
+            private int add_role_user(string userID, string roleID, _System.Collections.Generic.Dictionary<string, string> context__, bool explicitCtx__)
             {
                 checkTwowayOnly__(__add_role_user_name);
-                return end_add_role_user(begin_add_role_user(role, user, context__, explicitCtx__, true, null, null));
+                return end_add_role_user(begin_add_role_user(userID, roleID, context__, explicitCtx__, true, null, null));
             }
 
-            public int add_user_group(minie.irpc.sys_user_rpc user, minie.irpc.sys_group_rpc group)
+            public int add_sys_group(minie.irpc.sys_group_rpc group)
             {
-                return this.add_user_group(user, group, null, false);
+                return this.add_sys_group(group, null, false);
             }
 
-            public int add_user_group(minie.irpc.sys_user_rpc user, minie.irpc.sys_group_rpc group, _System.Collections.Generic.Dictionary<string, string> context__)
+            public int add_sys_group(minie.irpc.sys_group_rpc group, _System.Collections.Generic.Dictionary<string, string> context__)
             {
-                return this.add_user_group(user, group, context__, true);
+                return this.add_sys_group(group, context__, true);
             }
 
-            private int add_user_group(minie.irpc.sys_user_rpc user, minie.irpc.sys_group_rpc group, _System.Collections.Generic.Dictionary<string, string> context__, bool explicitCtx__)
+            private int add_sys_group(minie.irpc.sys_group_rpc group, _System.Collections.Generic.Dictionary<string, string> context__, bool explicitCtx__)
+            {
+                checkTwowayOnly__(__add_sys_group_name);
+                return end_add_sys_group(begin_add_sys_group(group, context__, explicitCtx__, true, null, null));
+            }
+
+            public int add_sys_user(minie.irpc.sys_user_rpc user)
+            {
+                return this.add_sys_user(user, null, false);
+            }
+
+            public int add_sys_user(minie.irpc.sys_user_rpc user, _System.Collections.Generic.Dictionary<string, string> context__)
+            {
+                return this.add_sys_user(user, context__, true);
+            }
+
+            private int add_sys_user(minie.irpc.sys_user_rpc user, _System.Collections.Generic.Dictionary<string, string> context__, bool explicitCtx__)
+            {
+                checkTwowayOnly__(__add_sys_user_name);
+                return end_add_sys_user(begin_add_sys_user(user, context__, explicitCtx__, true, null, null));
+            }
+
+            public int add_user_group(string groupID, string userID)
+            {
+                return this.add_user_group(groupID, userID, null, false);
+            }
+
+            public int add_user_group(string groupID, string userID, _System.Collections.Generic.Dictionary<string, string> context__)
+            {
+                return this.add_user_group(groupID, userID, context__, true);
+            }
+
+            private int add_user_group(string groupID, string userID, _System.Collections.Generic.Dictionary<string, string> context__, bool explicitCtx__)
             {
                 checkTwowayOnly__(__add_user_group_name);
-                return end_add_user_group(begin_add_user_group(user, group, context__, explicitCtx__, true, null, null));
+                return end_add_user_group(begin_add_user_group(groupID, userID, context__, explicitCtx__, true, null, null));
             }
 
             public _System.Collections.Generic.List<minie.irpc.cm_user_rpc> find_app_user(string keywords)
@@ -978,6 +1312,38 @@ namespace minie
             {
                 checkTwowayOnly__(__find_app_user_name);
                 return end_find_app_user(begin_find_app_user(keywords, context__, explicitCtx__, true, null, null));
+            }
+
+            public minie.irpc.cm_entrance_rpc get_cm_entrance(string entranceID)
+            {
+                return this.get_cm_entrance(entranceID, null, false);
+            }
+
+            public minie.irpc.cm_entrance_rpc get_cm_entrance(string entranceID, _System.Collections.Generic.Dictionary<string, string> context__)
+            {
+                return this.get_cm_entrance(entranceID, context__, true);
+            }
+
+            private minie.irpc.cm_entrance_rpc get_cm_entrance(string entranceID, _System.Collections.Generic.Dictionary<string, string> context__, bool explicitCtx__)
+            {
+                checkTwowayOnly__(__get_cm_entrance_name);
+                return end_get_cm_entrance(begin_get_cm_entrance(entranceID, context__, explicitCtx__, true, null, null));
+            }
+
+            public minie.irpc.cm_node_rpc get_cm_node(string nodeID)
+            {
+                return this.get_cm_node(nodeID, null, false);
+            }
+
+            public minie.irpc.cm_node_rpc get_cm_node(string nodeID, _System.Collections.Generic.Dictionary<string, string> context__)
+            {
+                return this.get_cm_node(nodeID, context__, true);
+            }
+
+            private minie.irpc.cm_node_rpc get_cm_node(string nodeID, _System.Collections.Generic.Dictionary<string, string> context__, bool explicitCtx__)
+            {
+                checkTwowayOnly__(__get_cm_node_name);
+                return end_get_cm_node(begin_get_cm_node(nodeID, context__, explicitCtx__, true, null, null));
             }
 
             public minie.irpc.sys_user_rpc get_current_user_info()
@@ -1076,6 +1442,38 @@ namespace minie
                 return end_get_roles(begin_get_roles(context__, explicitCtx__, true, null, null));
             }
 
+            public minie.irpc.sys_group_rpc get_sys_group(string groupID)
+            {
+                return this.get_sys_group(groupID, null, false);
+            }
+
+            public minie.irpc.sys_group_rpc get_sys_group(string groupID, _System.Collections.Generic.Dictionary<string, string> context__)
+            {
+                return this.get_sys_group(groupID, context__, true);
+            }
+
+            private minie.irpc.sys_group_rpc get_sys_group(string groupID, _System.Collections.Generic.Dictionary<string, string> context__, bool explicitCtx__)
+            {
+                checkTwowayOnly__(__get_sys_group_name);
+                return end_get_sys_group(begin_get_sys_group(groupID, context__, explicitCtx__, true, null, null));
+            }
+
+            public minie.irpc.sys_user_rpc get_sys_user(string userID)
+            {
+                return this.get_sys_user(userID, null, false);
+            }
+
+            public minie.irpc.sys_user_rpc get_sys_user(string userID, _System.Collections.Generic.Dictionary<string, string> context__)
+            {
+                return this.get_sys_user(userID, context__, true);
+            }
+
+            private minie.irpc.sys_user_rpc get_sys_user(string userID, _System.Collections.Generic.Dictionary<string, string> context__, bool explicitCtx__)
+            {
+                checkTwowayOnly__(__get_sys_user_name);
+                return end_get_sys_user(begin_get_sys_user(userID, context__, explicitCtx__, true, null, null));
+            }
+
             public bool register_app_user_step1(string cellphone)
             {
                 return this.register_app_user_step1(cellphone, null, false);
@@ -1106,6 +1504,118 @@ namespace minie
             {
                 checkTwowayOnly__(__register_app_user_step2_name);
                 return end_register_app_user_step2(begin_register_app_user_step2(cellphone, password, verifyCode, context__, explicitCtx__, true, null, null));
+            }
+
+            public int remove_cm_entrance(string entranceID)
+            {
+                return this.remove_cm_entrance(entranceID, null, false);
+            }
+
+            public int remove_cm_entrance(string entranceID, _System.Collections.Generic.Dictionary<string, string> context__)
+            {
+                return this.remove_cm_entrance(entranceID, context__, true);
+            }
+
+            private int remove_cm_entrance(string entranceID, _System.Collections.Generic.Dictionary<string, string> context__, bool explicitCtx__)
+            {
+                checkTwowayOnly__(__remove_cm_entrance_name);
+                return end_remove_cm_entrance(begin_remove_cm_entrance(entranceID, context__, explicitCtx__, true, null, null));
+            }
+
+            public int remove_cm_node(string nodeID)
+            {
+                return this.remove_cm_node(nodeID, null, false);
+            }
+
+            public int remove_cm_node(string nodeID, _System.Collections.Generic.Dictionary<string, string> context__)
+            {
+                return this.remove_cm_node(nodeID, context__, true);
+            }
+
+            private int remove_cm_node(string nodeID, _System.Collections.Generic.Dictionary<string, string> context__, bool explicitCtx__)
+            {
+                checkTwowayOnly__(__remove_cm_node_name);
+                return end_remove_cm_node(begin_remove_cm_node(nodeID, context__, explicitCtx__, true, null, null));
+            }
+
+            public int remove_role_group(string groupID, string roleID)
+            {
+                return this.remove_role_group(groupID, roleID, null, false);
+            }
+
+            public int remove_role_group(string groupID, string roleID, _System.Collections.Generic.Dictionary<string, string> context__)
+            {
+                return this.remove_role_group(groupID, roleID, context__, true);
+            }
+
+            private int remove_role_group(string groupID, string roleID, _System.Collections.Generic.Dictionary<string, string> context__, bool explicitCtx__)
+            {
+                checkTwowayOnly__(__remove_role_group_name);
+                return end_remove_role_group(begin_remove_role_group(groupID, roleID, context__, explicitCtx__, true, null, null));
+            }
+
+            public int remove_role_user(string userID, string roleID)
+            {
+                return this.remove_role_user(userID, roleID, null, false);
+            }
+
+            public int remove_role_user(string userID, string roleID, _System.Collections.Generic.Dictionary<string, string> context__)
+            {
+                return this.remove_role_user(userID, roleID, context__, true);
+            }
+
+            private int remove_role_user(string userID, string roleID, _System.Collections.Generic.Dictionary<string, string> context__, bool explicitCtx__)
+            {
+                checkTwowayOnly__(__remove_role_user_name);
+                return end_remove_role_user(begin_remove_role_user(userID, roleID, context__, explicitCtx__, true, null, null));
+            }
+
+            public int remove_sys_group(string groupID)
+            {
+                return this.remove_sys_group(groupID, null, false);
+            }
+
+            public int remove_sys_group(string groupID, _System.Collections.Generic.Dictionary<string, string> context__)
+            {
+                return this.remove_sys_group(groupID, context__, true);
+            }
+
+            private int remove_sys_group(string groupID, _System.Collections.Generic.Dictionary<string, string> context__, bool explicitCtx__)
+            {
+                checkTwowayOnly__(__remove_sys_group_name);
+                return end_remove_sys_group(begin_remove_sys_group(groupID, context__, explicitCtx__, true, null, null));
+            }
+
+            public int remove_sys_user(string userID)
+            {
+                return this.remove_sys_user(userID, null, false);
+            }
+
+            public int remove_sys_user(string userID, _System.Collections.Generic.Dictionary<string, string> context__)
+            {
+                return this.remove_sys_user(userID, context__, true);
+            }
+
+            private int remove_sys_user(string userID, _System.Collections.Generic.Dictionary<string, string> context__, bool explicitCtx__)
+            {
+                checkTwowayOnly__(__remove_sys_user_name);
+                return end_remove_sys_user(begin_remove_sys_user(userID, context__, explicitCtx__, true, null, null));
+            }
+
+            public int remove_user_group(string groupID, string userID)
+            {
+                return this.remove_user_group(groupID, userID, null, false);
+            }
+
+            public int remove_user_group(string groupID, string userID, _System.Collections.Generic.Dictionary<string, string> context__)
+            {
+                return this.remove_user_group(groupID, userID, context__, true);
+            }
+
+            private int remove_user_group(string groupID, string userID, _System.Collections.Generic.Dictionary<string, string> context__, bool explicitCtx__)
+            {
+                checkTwowayOnly__(__remove_user_group_name);
+                return end_remove_user_group(begin_remove_user_group(groupID, userID, context__, explicitCtx__, true, null, null));
             }
 
             public int update_cm_entrance(minie.irpc.cm_entrance_rpc entrance)
@@ -1191,24 +1701,214 @@ namespace minie
 
             #region Asynchronous operations
 
-            public Ice.AsyncResult<minie.irpc.Callback_BackendService_add_role_group> begin_add_role_group(minie.irpc.sys_role_rpc role, minie.irpc.sys_group_rpc group)
+            public Ice.AsyncResult<minie.irpc.Callback_BackendService_add_cm_entrance> begin_add_cm_entrance(minie.irpc.cm_entrance_rpc entrance)
             {
-                return begin_add_role_group(role, group, null, false, false, null, null);
+                return begin_add_cm_entrance(entrance, null, false, false, null, null);
             }
 
-            public Ice.AsyncResult<minie.irpc.Callback_BackendService_add_role_group> begin_add_role_group(minie.irpc.sys_role_rpc role, minie.irpc.sys_group_rpc group, _System.Collections.Generic.Dictionary<string, string> ctx__)
+            public Ice.AsyncResult<minie.irpc.Callback_BackendService_add_cm_entrance> begin_add_cm_entrance(minie.irpc.cm_entrance_rpc entrance, _System.Collections.Generic.Dictionary<string, string> ctx__)
             {
-                return begin_add_role_group(role, group, ctx__, true, false, null, null);
+                return begin_add_cm_entrance(entrance, ctx__, true, false, null, null);
             }
 
-            public Ice.AsyncResult begin_add_role_group(minie.irpc.sys_role_rpc role, minie.irpc.sys_group_rpc group, Ice.AsyncCallback cb__, object cookie__)
+            public Ice.AsyncResult begin_add_cm_entrance(minie.irpc.cm_entrance_rpc entrance, Ice.AsyncCallback cb__, object cookie__)
             {
-                return begin_add_role_group(role, group, null, false, false, cb__, cookie__);
+                return begin_add_cm_entrance(entrance, null, false, false, cb__, cookie__);
             }
 
-            public Ice.AsyncResult begin_add_role_group(minie.irpc.sys_role_rpc role, minie.irpc.sys_group_rpc group, _System.Collections.Generic.Dictionary<string, string> ctx__, Ice.AsyncCallback cb__, object cookie__)
+            public Ice.AsyncResult begin_add_cm_entrance(minie.irpc.cm_entrance_rpc entrance, _System.Collections.Generic.Dictionary<string, string> ctx__, Ice.AsyncCallback cb__, object cookie__)
             {
-                return begin_add_role_group(role, group, ctx__, true, false, cb__, cookie__);
+                return begin_add_cm_entrance(entrance, ctx__, true, false, cb__, cookie__);
+            }
+
+            private const string __add_cm_entrance_name = "add_cm_entrance";
+
+            public int end_add_cm_entrance(Ice.AsyncResult r__)
+            {
+                IceInternal.OutgoingAsync outAsync__ = IceInternal.OutgoingAsync.check(r__, this, __add_cm_entrance_name);
+                try
+                {
+                    if(!outAsync__.wait())
+                    {
+                        try
+                        {
+                            outAsync__.throwUserException();
+                        }
+                        catch(Ice.UserException ex__)
+                        {
+                            throw new Ice.UnknownUserException(ex__.ice_name(), ex__);
+                        }
+                    }
+                    int ret__;
+                    IceInternal.BasicStream is__ = outAsync__.startReadParams();
+                    ret__ = is__.readInt();
+                    outAsync__.endReadParams();
+                    return ret__;
+                }
+                finally
+                {
+                    outAsync__.cacheMessageBuffers();
+                }
+            }
+
+            private Ice.AsyncResult<minie.irpc.Callback_BackendService_add_cm_entrance> begin_add_cm_entrance(minie.irpc.cm_entrance_rpc entrance, _System.Collections.Generic.Dictionary<string, string> ctx__, bool explicitContext__, bool synchronous__, Ice.AsyncCallback cb__, object cookie__)
+            {
+                checkAsyncTwowayOnly__(__add_cm_entrance_name);
+                IceInternal.TwowayOutgoingAsync<minie.irpc.Callback_BackendService_add_cm_entrance> result__ =  getTwowayOutgoingAsync<minie.irpc.Callback_BackendService_add_cm_entrance>(__add_cm_entrance_name, add_cm_entrance_completed__, cookie__);
+                if(cb__ != null)
+                {
+                    result__.whenCompletedWithAsyncCallback(cb__);
+                }
+                try
+                {
+                    result__.prepare(__add_cm_entrance_name, Ice.OperationMode.Normal, ctx__, explicitContext__, synchronous__);
+                    IceInternal.BasicStream os__ = result__.startWriteParams(Ice.FormatType.DefaultFormat);
+                    os__.writeObject(entrance);
+                    os__.writePendingObjects();
+                    result__.endWriteParams();
+                    result__.invoke();
+                }
+                catch(Ice.Exception ex__)
+                {
+                    result__.abort(ex__);
+                }
+                return result__;
+            }
+
+            private void add_cm_entrance_completed__(Ice.AsyncResult r__, minie.irpc.Callback_BackendService_add_cm_entrance cb__, Ice.ExceptionCallback excb__)
+            {
+                int ret__;
+                try
+                {
+                    ret__ = end_add_cm_entrance(r__);
+                }
+                catch(Ice.Exception ex__)
+                {
+                    if(excb__ != null)
+                    {
+                        excb__(ex__);
+                    }
+                    return;
+                }
+                if(cb__ != null)
+                {
+                    cb__(ret__);
+                }
+            }
+
+            public Ice.AsyncResult<minie.irpc.Callback_BackendService_add_cm_node> begin_add_cm_node(minie.irpc.cm_node_rpc node)
+            {
+                return begin_add_cm_node(node, null, false, false, null, null);
+            }
+
+            public Ice.AsyncResult<minie.irpc.Callback_BackendService_add_cm_node> begin_add_cm_node(minie.irpc.cm_node_rpc node, _System.Collections.Generic.Dictionary<string, string> ctx__)
+            {
+                return begin_add_cm_node(node, ctx__, true, false, null, null);
+            }
+
+            public Ice.AsyncResult begin_add_cm_node(minie.irpc.cm_node_rpc node, Ice.AsyncCallback cb__, object cookie__)
+            {
+                return begin_add_cm_node(node, null, false, false, cb__, cookie__);
+            }
+
+            public Ice.AsyncResult begin_add_cm_node(minie.irpc.cm_node_rpc node, _System.Collections.Generic.Dictionary<string, string> ctx__, Ice.AsyncCallback cb__, object cookie__)
+            {
+                return begin_add_cm_node(node, ctx__, true, false, cb__, cookie__);
+            }
+
+            private const string __add_cm_node_name = "add_cm_node";
+
+            public int end_add_cm_node(Ice.AsyncResult r__)
+            {
+                IceInternal.OutgoingAsync outAsync__ = IceInternal.OutgoingAsync.check(r__, this, __add_cm_node_name);
+                try
+                {
+                    if(!outAsync__.wait())
+                    {
+                        try
+                        {
+                            outAsync__.throwUserException();
+                        }
+                        catch(Ice.UserException ex__)
+                        {
+                            throw new Ice.UnknownUserException(ex__.ice_name(), ex__);
+                        }
+                    }
+                    int ret__;
+                    IceInternal.BasicStream is__ = outAsync__.startReadParams();
+                    ret__ = is__.readInt();
+                    outAsync__.endReadParams();
+                    return ret__;
+                }
+                finally
+                {
+                    outAsync__.cacheMessageBuffers();
+                }
+            }
+
+            private Ice.AsyncResult<minie.irpc.Callback_BackendService_add_cm_node> begin_add_cm_node(minie.irpc.cm_node_rpc node, _System.Collections.Generic.Dictionary<string, string> ctx__, bool explicitContext__, bool synchronous__, Ice.AsyncCallback cb__, object cookie__)
+            {
+                checkAsyncTwowayOnly__(__add_cm_node_name);
+                IceInternal.TwowayOutgoingAsync<minie.irpc.Callback_BackendService_add_cm_node> result__ =  getTwowayOutgoingAsync<minie.irpc.Callback_BackendService_add_cm_node>(__add_cm_node_name, add_cm_node_completed__, cookie__);
+                if(cb__ != null)
+                {
+                    result__.whenCompletedWithAsyncCallback(cb__);
+                }
+                try
+                {
+                    result__.prepare(__add_cm_node_name, Ice.OperationMode.Normal, ctx__, explicitContext__, synchronous__);
+                    IceInternal.BasicStream os__ = result__.startWriteParams(Ice.FormatType.DefaultFormat);
+                    os__.writeObject(node);
+                    os__.writePendingObjects();
+                    result__.endWriteParams();
+                    result__.invoke();
+                }
+                catch(Ice.Exception ex__)
+                {
+                    result__.abort(ex__);
+                }
+                return result__;
+            }
+
+            private void add_cm_node_completed__(Ice.AsyncResult r__, minie.irpc.Callback_BackendService_add_cm_node cb__, Ice.ExceptionCallback excb__)
+            {
+                int ret__;
+                try
+                {
+                    ret__ = end_add_cm_node(r__);
+                }
+                catch(Ice.Exception ex__)
+                {
+                    if(excb__ != null)
+                    {
+                        excb__(ex__);
+                    }
+                    return;
+                }
+                if(cb__ != null)
+                {
+                    cb__(ret__);
+                }
+            }
+
+            public Ice.AsyncResult<minie.irpc.Callback_BackendService_add_role_group> begin_add_role_group(string groupID, string roleID)
+            {
+                return begin_add_role_group(groupID, roleID, null, false, false, null, null);
+            }
+
+            public Ice.AsyncResult<minie.irpc.Callback_BackendService_add_role_group> begin_add_role_group(string groupID, string roleID, _System.Collections.Generic.Dictionary<string, string> ctx__)
+            {
+                return begin_add_role_group(groupID, roleID, ctx__, true, false, null, null);
+            }
+
+            public Ice.AsyncResult begin_add_role_group(string groupID, string roleID, Ice.AsyncCallback cb__, object cookie__)
+            {
+                return begin_add_role_group(groupID, roleID, null, false, false, cb__, cookie__);
+            }
+
+            public Ice.AsyncResult begin_add_role_group(string groupID, string roleID, _System.Collections.Generic.Dictionary<string, string> ctx__, Ice.AsyncCallback cb__, object cookie__)
+            {
+                return begin_add_role_group(groupID, roleID, ctx__, true, false, cb__, cookie__);
             }
 
             private const string __add_role_group_name = "add_role_group";
@@ -1241,7 +1941,7 @@ namespace minie
                 }
             }
 
-            private Ice.AsyncResult<minie.irpc.Callback_BackendService_add_role_group> begin_add_role_group(minie.irpc.sys_role_rpc role, minie.irpc.sys_group_rpc group, _System.Collections.Generic.Dictionary<string, string> ctx__, bool explicitContext__, bool synchronous__, Ice.AsyncCallback cb__, object cookie__)
+            private Ice.AsyncResult<minie.irpc.Callback_BackendService_add_role_group> begin_add_role_group(string groupID, string roleID, _System.Collections.Generic.Dictionary<string, string> ctx__, bool explicitContext__, bool synchronous__, Ice.AsyncCallback cb__, object cookie__)
             {
                 checkAsyncTwowayOnly__(__add_role_group_name);
                 IceInternal.TwowayOutgoingAsync<minie.irpc.Callback_BackendService_add_role_group> result__ =  getTwowayOutgoingAsync<minie.irpc.Callback_BackendService_add_role_group>(__add_role_group_name, add_role_group_completed__, cookie__);
@@ -1253,9 +1953,8 @@ namespace minie
                 {
                     result__.prepare(__add_role_group_name, Ice.OperationMode.Normal, ctx__, explicitContext__, synchronous__);
                     IceInternal.BasicStream os__ = result__.startWriteParams(Ice.FormatType.DefaultFormat);
-                    os__.writeObject(role);
-                    os__.writeObject(group);
-                    os__.writePendingObjects();
+                    os__.writeString(groupID);
+                    os__.writeString(roleID);
                     result__.endWriteParams();
                     result__.invoke();
                 }
@@ -1287,24 +1986,24 @@ namespace minie
                 }
             }
 
-            public Ice.AsyncResult<minie.irpc.Callback_BackendService_add_role_user> begin_add_role_user(minie.irpc.sys_role_rpc role, minie.irpc.sys_user_rpc user)
+            public Ice.AsyncResult<minie.irpc.Callback_BackendService_add_role_user> begin_add_role_user(string userID, string roleID)
             {
-                return begin_add_role_user(role, user, null, false, false, null, null);
+                return begin_add_role_user(userID, roleID, null, false, false, null, null);
             }
 
-            public Ice.AsyncResult<minie.irpc.Callback_BackendService_add_role_user> begin_add_role_user(minie.irpc.sys_role_rpc role, minie.irpc.sys_user_rpc user, _System.Collections.Generic.Dictionary<string, string> ctx__)
+            public Ice.AsyncResult<minie.irpc.Callback_BackendService_add_role_user> begin_add_role_user(string userID, string roleID, _System.Collections.Generic.Dictionary<string, string> ctx__)
             {
-                return begin_add_role_user(role, user, ctx__, true, false, null, null);
+                return begin_add_role_user(userID, roleID, ctx__, true, false, null, null);
             }
 
-            public Ice.AsyncResult begin_add_role_user(minie.irpc.sys_role_rpc role, minie.irpc.sys_user_rpc user, Ice.AsyncCallback cb__, object cookie__)
+            public Ice.AsyncResult begin_add_role_user(string userID, string roleID, Ice.AsyncCallback cb__, object cookie__)
             {
-                return begin_add_role_user(role, user, null, false, false, cb__, cookie__);
+                return begin_add_role_user(userID, roleID, null, false, false, cb__, cookie__);
             }
 
-            public Ice.AsyncResult begin_add_role_user(minie.irpc.sys_role_rpc role, minie.irpc.sys_user_rpc user, _System.Collections.Generic.Dictionary<string, string> ctx__, Ice.AsyncCallback cb__, object cookie__)
+            public Ice.AsyncResult begin_add_role_user(string userID, string roleID, _System.Collections.Generic.Dictionary<string, string> ctx__, Ice.AsyncCallback cb__, object cookie__)
             {
-                return begin_add_role_user(role, user, ctx__, true, false, cb__, cookie__);
+                return begin_add_role_user(userID, roleID, ctx__, true, false, cb__, cookie__);
             }
 
             private const string __add_role_user_name = "add_role_user";
@@ -1337,7 +2036,7 @@ namespace minie
                 }
             }
 
-            private Ice.AsyncResult<minie.irpc.Callback_BackendService_add_role_user> begin_add_role_user(minie.irpc.sys_role_rpc role, minie.irpc.sys_user_rpc user, _System.Collections.Generic.Dictionary<string, string> ctx__, bool explicitContext__, bool synchronous__, Ice.AsyncCallback cb__, object cookie__)
+            private Ice.AsyncResult<minie.irpc.Callback_BackendService_add_role_user> begin_add_role_user(string userID, string roleID, _System.Collections.Generic.Dictionary<string, string> ctx__, bool explicitContext__, bool synchronous__, Ice.AsyncCallback cb__, object cookie__)
             {
                 checkAsyncTwowayOnly__(__add_role_user_name);
                 IceInternal.TwowayOutgoingAsync<minie.irpc.Callback_BackendService_add_role_user> result__ =  getTwowayOutgoingAsync<minie.irpc.Callback_BackendService_add_role_user>(__add_role_user_name, add_role_user_completed__, cookie__);
@@ -1349,9 +2048,8 @@ namespace minie
                 {
                     result__.prepare(__add_role_user_name, Ice.OperationMode.Normal, ctx__, explicitContext__, synchronous__);
                     IceInternal.BasicStream os__ = result__.startWriteParams(Ice.FormatType.DefaultFormat);
-                    os__.writeObject(role);
-                    os__.writeObject(user);
-                    os__.writePendingObjects();
+                    os__.writeString(userID);
+                    os__.writeString(roleID);
                     result__.endWriteParams();
                     result__.invoke();
                 }
@@ -1383,24 +2081,214 @@ namespace minie
                 }
             }
 
-            public Ice.AsyncResult<minie.irpc.Callback_BackendService_add_user_group> begin_add_user_group(minie.irpc.sys_user_rpc user, minie.irpc.sys_group_rpc group)
+            public Ice.AsyncResult<minie.irpc.Callback_BackendService_add_sys_group> begin_add_sys_group(minie.irpc.sys_group_rpc group)
             {
-                return begin_add_user_group(user, group, null, false, false, null, null);
+                return begin_add_sys_group(group, null, false, false, null, null);
             }
 
-            public Ice.AsyncResult<minie.irpc.Callback_BackendService_add_user_group> begin_add_user_group(minie.irpc.sys_user_rpc user, minie.irpc.sys_group_rpc group, _System.Collections.Generic.Dictionary<string, string> ctx__)
+            public Ice.AsyncResult<minie.irpc.Callback_BackendService_add_sys_group> begin_add_sys_group(minie.irpc.sys_group_rpc group, _System.Collections.Generic.Dictionary<string, string> ctx__)
             {
-                return begin_add_user_group(user, group, ctx__, true, false, null, null);
+                return begin_add_sys_group(group, ctx__, true, false, null, null);
             }
 
-            public Ice.AsyncResult begin_add_user_group(minie.irpc.sys_user_rpc user, minie.irpc.sys_group_rpc group, Ice.AsyncCallback cb__, object cookie__)
+            public Ice.AsyncResult begin_add_sys_group(minie.irpc.sys_group_rpc group, Ice.AsyncCallback cb__, object cookie__)
             {
-                return begin_add_user_group(user, group, null, false, false, cb__, cookie__);
+                return begin_add_sys_group(group, null, false, false, cb__, cookie__);
             }
 
-            public Ice.AsyncResult begin_add_user_group(minie.irpc.sys_user_rpc user, minie.irpc.sys_group_rpc group, _System.Collections.Generic.Dictionary<string, string> ctx__, Ice.AsyncCallback cb__, object cookie__)
+            public Ice.AsyncResult begin_add_sys_group(minie.irpc.sys_group_rpc group, _System.Collections.Generic.Dictionary<string, string> ctx__, Ice.AsyncCallback cb__, object cookie__)
             {
-                return begin_add_user_group(user, group, ctx__, true, false, cb__, cookie__);
+                return begin_add_sys_group(group, ctx__, true, false, cb__, cookie__);
+            }
+
+            private const string __add_sys_group_name = "add_sys_group";
+
+            public int end_add_sys_group(Ice.AsyncResult r__)
+            {
+                IceInternal.OutgoingAsync outAsync__ = IceInternal.OutgoingAsync.check(r__, this, __add_sys_group_name);
+                try
+                {
+                    if(!outAsync__.wait())
+                    {
+                        try
+                        {
+                            outAsync__.throwUserException();
+                        }
+                        catch(Ice.UserException ex__)
+                        {
+                            throw new Ice.UnknownUserException(ex__.ice_name(), ex__);
+                        }
+                    }
+                    int ret__;
+                    IceInternal.BasicStream is__ = outAsync__.startReadParams();
+                    ret__ = is__.readInt();
+                    outAsync__.endReadParams();
+                    return ret__;
+                }
+                finally
+                {
+                    outAsync__.cacheMessageBuffers();
+                }
+            }
+
+            private Ice.AsyncResult<minie.irpc.Callback_BackendService_add_sys_group> begin_add_sys_group(minie.irpc.sys_group_rpc group, _System.Collections.Generic.Dictionary<string, string> ctx__, bool explicitContext__, bool synchronous__, Ice.AsyncCallback cb__, object cookie__)
+            {
+                checkAsyncTwowayOnly__(__add_sys_group_name);
+                IceInternal.TwowayOutgoingAsync<minie.irpc.Callback_BackendService_add_sys_group> result__ =  getTwowayOutgoingAsync<minie.irpc.Callback_BackendService_add_sys_group>(__add_sys_group_name, add_sys_group_completed__, cookie__);
+                if(cb__ != null)
+                {
+                    result__.whenCompletedWithAsyncCallback(cb__);
+                }
+                try
+                {
+                    result__.prepare(__add_sys_group_name, Ice.OperationMode.Normal, ctx__, explicitContext__, synchronous__);
+                    IceInternal.BasicStream os__ = result__.startWriteParams(Ice.FormatType.DefaultFormat);
+                    os__.writeObject(group);
+                    os__.writePendingObjects();
+                    result__.endWriteParams();
+                    result__.invoke();
+                }
+                catch(Ice.Exception ex__)
+                {
+                    result__.abort(ex__);
+                }
+                return result__;
+            }
+
+            private void add_sys_group_completed__(Ice.AsyncResult r__, minie.irpc.Callback_BackendService_add_sys_group cb__, Ice.ExceptionCallback excb__)
+            {
+                int ret__;
+                try
+                {
+                    ret__ = end_add_sys_group(r__);
+                }
+                catch(Ice.Exception ex__)
+                {
+                    if(excb__ != null)
+                    {
+                        excb__(ex__);
+                    }
+                    return;
+                }
+                if(cb__ != null)
+                {
+                    cb__(ret__);
+                }
+            }
+
+            public Ice.AsyncResult<minie.irpc.Callback_BackendService_add_sys_user> begin_add_sys_user(minie.irpc.sys_user_rpc user)
+            {
+                return begin_add_sys_user(user, null, false, false, null, null);
+            }
+
+            public Ice.AsyncResult<minie.irpc.Callback_BackendService_add_sys_user> begin_add_sys_user(minie.irpc.sys_user_rpc user, _System.Collections.Generic.Dictionary<string, string> ctx__)
+            {
+                return begin_add_sys_user(user, ctx__, true, false, null, null);
+            }
+
+            public Ice.AsyncResult begin_add_sys_user(minie.irpc.sys_user_rpc user, Ice.AsyncCallback cb__, object cookie__)
+            {
+                return begin_add_sys_user(user, null, false, false, cb__, cookie__);
+            }
+
+            public Ice.AsyncResult begin_add_sys_user(minie.irpc.sys_user_rpc user, _System.Collections.Generic.Dictionary<string, string> ctx__, Ice.AsyncCallback cb__, object cookie__)
+            {
+                return begin_add_sys_user(user, ctx__, true, false, cb__, cookie__);
+            }
+
+            private const string __add_sys_user_name = "add_sys_user";
+
+            public int end_add_sys_user(Ice.AsyncResult r__)
+            {
+                IceInternal.OutgoingAsync outAsync__ = IceInternal.OutgoingAsync.check(r__, this, __add_sys_user_name);
+                try
+                {
+                    if(!outAsync__.wait())
+                    {
+                        try
+                        {
+                            outAsync__.throwUserException();
+                        }
+                        catch(Ice.UserException ex__)
+                        {
+                            throw new Ice.UnknownUserException(ex__.ice_name(), ex__);
+                        }
+                    }
+                    int ret__;
+                    IceInternal.BasicStream is__ = outAsync__.startReadParams();
+                    ret__ = is__.readInt();
+                    outAsync__.endReadParams();
+                    return ret__;
+                }
+                finally
+                {
+                    outAsync__.cacheMessageBuffers();
+                }
+            }
+
+            private Ice.AsyncResult<minie.irpc.Callback_BackendService_add_sys_user> begin_add_sys_user(minie.irpc.sys_user_rpc user, _System.Collections.Generic.Dictionary<string, string> ctx__, bool explicitContext__, bool synchronous__, Ice.AsyncCallback cb__, object cookie__)
+            {
+                checkAsyncTwowayOnly__(__add_sys_user_name);
+                IceInternal.TwowayOutgoingAsync<minie.irpc.Callback_BackendService_add_sys_user> result__ =  getTwowayOutgoingAsync<minie.irpc.Callback_BackendService_add_sys_user>(__add_sys_user_name, add_sys_user_completed__, cookie__);
+                if(cb__ != null)
+                {
+                    result__.whenCompletedWithAsyncCallback(cb__);
+                }
+                try
+                {
+                    result__.prepare(__add_sys_user_name, Ice.OperationMode.Normal, ctx__, explicitContext__, synchronous__);
+                    IceInternal.BasicStream os__ = result__.startWriteParams(Ice.FormatType.DefaultFormat);
+                    os__.writeObject(user);
+                    os__.writePendingObjects();
+                    result__.endWriteParams();
+                    result__.invoke();
+                }
+                catch(Ice.Exception ex__)
+                {
+                    result__.abort(ex__);
+                }
+                return result__;
+            }
+
+            private void add_sys_user_completed__(Ice.AsyncResult r__, minie.irpc.Callback_BackendService_add_sys_user cb__, Ice.ExceptionCallback excb__)
+            {
+                int ret__;
+                try
+                {
+                    ret__ = end_add_sys_user(r__);
+                }
+                catch(Ice.Exception ex__)
+                {
+                    if(excb__ != null)
+                    {
+                        excb__(ex__);
+                    }
+                    return;
+                }
+                if(cb__ != null)
+                {
+                    cb__(ret__);
+                }
+            }
+
+            public Ice.AsyncResult<minie.irpc.Callback_BackendService_add_user_group> begin_add_user_group(string groupID, string userID)
+            {
+                return begin_add_user_group(groupID, userID, null, false, false, null, null);
+            }
+
+            public Ice.AsyncResult<minie.irpc.Callback_BackendService_add_user_group> begin_add_user_group(string groupID, string userID, _System.Collections.Generic.Dictionary<string, string> ctx__)
+            {
+                return begin_add_user_group(groupID, userID, ctx__, true, false, null, null);
+            }
+
+            public Ice.AsyncResult begin_add_user_group(string groupID, string userID, Ice.AsyncCallback cb__, object cookie__)
+            {
+                return begin_add_user_group(groupID, userID, null, false, false, cb__, cookie__);
+            }
+
+            public Ice.AsyncResult begin_add_user_group(string groupID, string userID, _System.Collections.Generic.Dictionary<string, string> ctx__, Ice.AsyncCallback cb__, object cookie__)
+            {
+                return begin_add_user_group(groupID, userID, ctx__, true, false, cb__, cookie__);
             }
 
             private const string __add_user_group_name = "add_user_group";
@@ -1433,7 +2321,7 @@ namespace minie
                 }
             }
 
-            private Ice.AsyncResult<minie.irpc.Callback_BackendService_add_user_group> begin_add_user_group(minie.irpc.sys_user_rpc user, minie.irpc.sys_group_rpc group, _System.Collections.Generic.Dictionary<string, string> ctx__, bool explicitContext__, bool synchronous__, Ice.AsyncCallback cb__, object cookie__)
+            private Ice.AsyncResult<minie.irpc.Callback_BackendService_add_user_group> begin_add_user_group(string groupID, string userID, _System.Collections.Generic.Dictionary<string, string> ctx__, bool explicitContext__, bool synchronous__, Ice.AsyncCallback cb__, object cookie__)
             {
                 checkAsyncTwowayOnly__(__add_user_group_name);
                 IceInternal.TwowayOutgoingAsync<minie.irpc.Callback_BackendService_add_user_group> result__ =  getTwowayOutgoingAsync<minie.irpc.Callback_BackendService_add_user_group>(__add_user_group_name, add_user_group_completed__, cookie__);
@@ -1445,9 +2333,8 @@ namespace minie
                 {
                     result__.prepare(__add_user_group_name, Ice.OperationMode.Normal, ctx__, explicitContext__, synchronous__);
                     IceInternal.BasicStream os__ = result__.startWriteParams(Ice.FormatType.DefaultFormat);
-                    os__.writeObject(user);
-                    os__.writeObject(group);
-                    os__.writePendingObjects();
+                    os__.writeString(groupID);
+                    os__.writeString(userID);
                     result__.endWriteParams();
                     result__.invoke();
                 }
@@ -1559,6 +2446,200 @@ namespace minie
                 try
                 {
                     ret__ = end_find_app_user(r__);
+                }
+                catch(Ice.Exception ex__)
+                {
+                    if(excb__ != null)
+                    {
+                        excb__(ex__);
+                    }
+                    return;
+                }
+                if(cb__ != null)
+                {
+                    cb__(ret__);
+                }
+            }
+
+            public Ice.AsyncResult<minie.irpc.Callback_BackendService_get_cm_entrance> begin_get_cm_entrance(string entranceID)
+            {
+                return begin_get_cm_entrance(entranceID, null, false, false, null, null);
+            }
+
+            public Ice.AsyncResult<minie.irpc.Callback_BackendService_get_cm_entrance> begin_get_cm_entrance(string entranceID, _System.Collections.Generic.Dictionary<string, string> ctx__)
+            {
+                return begin_get_cm_entrance(entranceID, ctx__, true, false, null, null);
+            }
+
+            public Ice.AsyncResult begin_get_cm_entrance(string entranceID, Ice.AsyncCallback cb__, object cookie__)
+            {
+                return begin_get_cm_entrance(entranceID, null, false, false, cb__, cookie__);
+            }
+
+            public Ice.AsyncResult begin_get_cm_entrance(string entranceID, _System.Collections.Generic.Dictionary<string, string> ctx__, Ice.AsyncCallback cb__, object cookie__)
+            {
+                return begin_get_cm_entrance(entranceID, ctx__, true, false, cb__, cookie__);
+            }
+
+            private const string __get_cm_entrance_name = "get_cm_entrance";
+
+            public minie.irpc.cm_entrance_rpc end_get_cm_entrance(Ice.AsyncResult r__)
+            {
+                IceInternal.OutgoingAsync outAsync__ = IceInternal.OutgoingAsync.check(r__, this, __get_cm_entrance_name);
+                try
+                {
+                    if(!outAsync__.wait())
+                    {
+                        try
+                        {
+                            outAsync__.throwUserException();
+                        }
+                        catch(Ice.UserException ex__)
+                        {
+                            throw new Ice.UnknownUserException(ex__.ice_name(), ex__);
+                        }
+                    }
+                    minie.irpc.cm_entrance_rpc ret__;
+                    IceInternal.BasicStream is__ = outAsync__.startReadParams();
+                    IceInternal.ParamPatcher<minie.irpc.cm_entrance_rpc> ret__PP = new IceInternal.ParamPatcher<minie.irpc.cm_entrance_rpc>(minie.irpc.cm_entrance_rpc.ice_staticId());
+                    is__.readObject(ret__PP);
+                    is__.readPendingObjects();
+                    outAsync__.endReadParams();
+                    ret__ = ret__PP.value;
+                    return ret__;
+                }
+                finally
+                {
+                    outAsync__.cacheMessageBuffers();
+                }
+            }
+
+            private Ice.AsyncResult<minie.irpc.Callback_BackendService_get_cm_entrance> begin_get_cm_entrance(string entranceID, _System.Collections.Generic.Dictionary<string, string> ctx__, bool explicitContext__, bool synchronous__, Ice.AsyncCallback cb__, object cookie__)
+            {
+                checkAsyncTwowayOnly__(__get_cm_entrance_name);
+                IceInternal.TwowayOutgoingAsync<minie.irpc.Callback_BackendService_get_cm_entrance> result__ =  getTwowayOutgoingAsync<minie.irpc.Callback_BackendService_get_cm_entrance>(__get_cm_entrance_name, get_cm_entrance_completed__, cookie__);
+                if(cb__ != null)
+                {
+                    result__.whenCompletedWithAsyncCallback(cb__);
+                }
+                try
+                {
+                    result__.prepare(__get_cm_entrance_name, Ice.OperationMode.Normal, ctx__, explicitContext__, synchronous__);
+                    IceInternal.BasicStream os__ = result__.startWriteParams(Ice.FormatType.DefaultFormat);
+                    os__.writeString(entranceID);
+                    result__.endWriteParams();
+                    result__.invoke();
+                }
+                catch(Ice.Exception ex__)
+                {
+                    result__.abort(ex__);
+                }
+                return result__;
+            }
+
+            private void get_cm_entrance_completed__(Ice.AsyncResult r__, minie.irpc.Callback_BackendService_get_cm_entrance cb__, Ice.ExceptionCallback excb__)
+            {
+                minie.irpc.cm_entrance_rpc ret__;
+                try
+                {
+                    ret__ = end_get_cm_entrance(r__);
+                }
+                catch(Ice.Exception ex__)
+                {
+                    if(excb__ != null)
+                    {
+                        excb__(ex__);
+                    }
+                    return;
+                }
+                if(cb__ != null)
+                {
+                    cb__(ret__);
+                }
+            }
+
+            public Ice.AsyncResult<minie.irpc.Callback_BackendService_get_cm_node> begin_get_cm_node(string nodeID)
+            {
+                return begin_get_cm_node(nodeID, null, false, false, null, null);
+            }
+
+            public Ice.AsyncResult<minie.irpc.Callback_BackendService_get_cm_node> begin_get_cm_node(string nodeID, _System.Collections.Generic.Dictionary<string, string> ctx__)
+            {
+                return begin_get_cm_node(nodeID, ctx__, true, false, null, null);
+            }
+
+            public Ice.AsyncResult begin_get_cm_node(string nodeID, Ice.AsyncCallback cb__, object cookie__)
+            {
+                return begin_get_cm_node(nodeID, null, false, false, cb__, cookie__);
+            }
+
+            public Ice.AsyncResult begin_get_cm_node(string nodeID, _System.Collections.Generic.Dictionary<string, string> ctx__, Ice.AsyncCallback cb__, object cookie__)
+            {
+                return begin_get_cm_node(nodeID, ctx__, true, false, cb__, cookie__);
+            }
+
+            private const string __get_cm_node_name = "get_cm_node";
+
+            public minie.irpc.cm_node_rpc end_get_cm_node(Ice.AsyncResult r__)
+            {
+                IceInternal.OutgoingAsync outAsync__ = IceInternal.OutgoingAsync.check(r__, this, __get_cm_node_name);
+                try
+                {
+                    if(!outAsync__.wait())
+                    {
+                        try
+                        {
+                            outAsync__.throwUserException();
+                        }
+                        catch(Ice.UserException ex__)
+                        {
+                            throw new Ice.UnknownUserException(ex__.ice_name(), ex__);
+                        }
+                    }
+                    minie.irpc.cm_node_rpc ret__;
+                    IceInternal.BasicStream is__ = outAsync__.startReadParams();
+                    IceInternal.ParamPatcher<minie.irpc.cm_node_rpc> ret__PP = new IceInternal.ParamPatcher<minie.irpc.cm_node_rpc>(minie.irpc.cm_node_rpc.ice_staticId());
+                    is__.readObject(ret__PP);
+                    is__.readPendingObjects();
+                    outAsync__.endReadParams();
+                    ret__ = ret__PP.value;
+                    return ret__;
+                }
+                finally
+                {
+                    outAsync__.cacheMessageBuffers();
+                }
+            }
+
+            private Ice.AsyncResult<minie.irpc.Callback_BackendService_get_cm_node> begin_get_cm_node(string nodeID, _System.Collections.Generic.Dictionary<string, string> ctx__, bool explicitContext__, bool synchronous__, Ice.AsyncCallback cb__, object cookie__)
+            {
+                checkAsyncTwowayOnly__(__get_cm_node_name);
+                IceInternal.TwowayOutgoingAsync<minie.irpc.Callback_BackendService_get_cm_node> result__ =  getTwowayOutgoingAsync<minie.irpc.Callback_BackendService_get_cm_node>(__get_cm_node_name, get_cm_node_completed__, cookie__);
+                if(cb__ != null)
+                {
+                    result__.whenCompletedWithAsyncCallback(cb__);
+                }
+                try
+                {
+                    result__.prepare(__get_cm_node_name, Ice.OperationMode.Normal, ctx__, explicitContext__, synchronous__);
+                    IceInternal.BasicStream os__ = result__.startWriteParams(Ice.FormatType.DefaultFormat);
+                    os__.writeString(nodeID);
+                    result__.endWriteParams();
+                    result__.invoke();
+                }
+                catch(Ice.Exception ex__)
+                {
+                    result__.abort(ex__);
+                }
+                return result__;
+            }
+
+            private void get_cm_node_completed__(Ice.AsyncResult r__, minie.irpc.Callback_BackendService_get_cm_node cb__, Ice.ExceptionCallback excb__)
+            {
+                minie.irpc.cm_node_rpc ret__;
+                try
+                {
+                    ret__ = end_get_cm_node(r__);
                 }
                 catch(Ice.Exception ex__)
                 {
@@ -2134,6 +3215,200 @@ namespace minie
                 }
             }
 
+            public Ice.AsyncResult<minie.irpc.Callback_BackendService_get_sys_group> begin_get_sys_group(string groupID)
+            {
+                return begin_get_sys_group(groupID, null, false, false, null, null);
+            }
+
+            public Ice.AsyncResult<minie.irpc.Callback_BackendService_get_sys_group> begin_get_sys_group(string groupID, _System.Collections.Generic.Dictionary<string, string> ctx__)
+            {
+                return begin_get_sys_group(groupID, ctx__, true, false, null, null);
+            }
+
+            public Ice.AsyncResult begin_get_sys_group(string groupID, Ice.AsyncCallback cb__, object cookie__)
+            {
+                return begin_get_sys_group(groupID, null, false, false, cb__, cookie__);
+            }
+
+            public Ice.AsyncResult begin_get_sys_group(string groupID, _System.Collections.Generic.Dictionary<string, string> ctx__, Ice.AsyncCallback cb__, object cookie__)
+            {
+                return begin_get_sys_group(groupID, ctx__, true, false, cb__, cookie__);
+            }
+
+            private const string __get_sys_group_name = "get_sys_group";
+
+            public minie.irpc.sys_group_rpc end_get_sys_group(Ice.AsyncResult r__)
+            {
+                IceInternal.OutgoingAsync outAsync__ = IceInternal.OutgoingAsync.check(r__, this, __get_sys_group_name);
+                try
+                {
+                    if(!outAsync__.wait())
+                    {
+                        try
+                        {
+                            outAsync__.throwUserException();
+                        }
+                        catch(Ice.UserException ex__)
+                        {
+                            throw new Ice.UnknownUserException(ex__.ice_name(), ex__);
+                        }
+                    }
+                    minie.irpc.sys_group_rpc ret__;
+                    IceInternal.BasicStream is__ = outAsync__.startReadParams();
+                    IceInternal.ParamPatcher<minie.irpc.sys_group_rpc> ret__PP = new IceInternal.ParamPatcher<minie.irpc.sys_group_rpc>(minie.irpc.sys_group_rpc.ice_staticId());
+                    is__.readObject(ret__PP);
+                    is__.readPendingObjects();
+                    outAsync__.endReadParams();
+                    ret__ = ret__PP.value;
+                    return ret__;
+                }
+                finally
+                {
+                    outAsync__.cacheMessageBuffers();
+                }
+            }
+
+            private Ice.AsyncResult<minie.irpc.Callback_BackendService_get_sys_group> begin_get_sys_group(string groupID, _System.Collections.Generic.Dictionary<string, string> ctx__, bool explicitContext__, bool synchronous__, Ice.AsyncCallback cb__, object cookie__)
+            {
+                checkAsyncTwowayOnly__(__get_sys_group_name);
+                IceInternal.TwowayOutgoingAsync<minie.irpc.Callback_BackendService_get_sys_group> result__ =  getTwowayOutgoingAsync<minie.irpc.Callback_BackendService_get_sys_group>(__get_sys_group_name, get_sys_group_completed__, cookie__);
+                if(cb__ != null)
+                {
+                    result__.whenCompletedWithAsyncCallback(cb__);
+                }
+                try
+                {
+                    result__.prepare(__get_sys_group_name, Ice.OperationMode.Normal, ctx__, explicitContext__, synchronous__);
+                    IceInternal.BasicStream os__ = result__.startWriteParams(Ice.FormatType.DefaultFormat);
+                    os__.writeString(groupID);
+                    result__.endWriteParams();
+                    result__.invoke();
+                }
+                catch(Ice.Exception ex__)
+                {
+                    result__.abort(ex__);
+                }
+                return result__;
+            }
+
+            private void get_sys_group_completed__(Ice.AsyncResult r__, minie.irpc.Callback_BackendService_get_sys_group cb__, Ice.ExceptionCallback excb__)
+            {
+                minie.irpc.sys_group_rpc ret__;
+                try
+                {
+                    ret__ = end_get_sys_group(r__);
+                }
+                catch(Ice.Exception ex__)
+                {
+                    if(excb__ != null)
+                    {
+                        excb__(ex__);
+                    }
+                    return;
+                }
+                if(cb__ != null)
+                {
+                    cb__(ret__);
+                }
+            }
+
+            public Ice.AsyncResult<minie.irpc.Callback_BackendService_get_sys_user> begin_get_sys_user(string userID)
+            {
+                return begin_get_sys_user(userID, null, false, false, null, null);
+            }
+
+            public Ice.AsyncResult<minie.irpc.Callback_BackendService_get_sys_user> begin_get_sys_user(string userID, _System.Collections.Generic.Dictionary<string, string> ctx__)
+            {
+                return begin_get_sys_user(userID, ctx__, true, false, null, null);
+            }
+
+            public Ice.AsyncResult begin_get_sys_user(string userID, Ice.AsyncCallback cb__, object cookie__)
+            {
+                return begin_get_sys_user(userID, null, false, false, cb__, cookie__);
+            }
+
+            public Ice.AsyncResult begin_get_sys_user(string userID, _System.Collections.Generic.Dictionary<string, string> ctx__, Ice.AsyncCallback cb__, object cookie__)
+            {
+                return begin_get_sys_user(userID, ctx__, true, false, cb__, cookie__);
+            }
+
+            private const string __get_sys_user_name = "get_sys_user";
+
+            public minie.irpc.sys_user_rpc end_get_sys_user(Ice.AsyncResult r__)
+            {
+                IceInternal.OutgoingAsync outAsync__ = IceInternal.OutgoingAsync.check(r__, this, __get_sys_user_name);
+                try
+                {
+                    if(!outAsync__.wait())
+                    {
+                        try
+                        {
+                            outAsync__.throwUserException();
+                        }
+                        catch(Ice.UserException ex__)
+                        {
+                            throw new Ice.UnknownUserException(ex__.ice_name(), ex__);
+                        }
+                    }
+                    minie.irpc.sys_user_rpc ret__;
+                    IceInternal.BasicStream is__ = outAsync__.startReadParams();
+                    IceInternal.ParamPatcher<minie.irpc.sys_user_rpc> ret__PP = new IceInternal.ParamPatcher<minie.irpc.sys_user_rpc>(minie.irpc.sys_user_rpc.ice_staticId());
+                    is__.readObject(ret__PP);
+                    is__.readPendingObjects();
+                    outAsync__.endReadParams();
+                    ret__ = ret__PP.value;
+                    return ret__;
+                }
+                finally
+                {
+                    outAsync__.cacheMessageBuffers();
+                }
+            }
+
+            private Ice.AsyncResult<minie.irpc.Callback_BackendService_get_sys_user> begin_get_sys_user(string userID, _System.Collections.Generic.Dictionary<string, string> ctx__, bool explicitContext__, bool synchronous__, Ice.AsyncCallback cb__, object cookie__)
+            {
+                checkAsyncTwowayOnly__(__get_sys_user_name);
+                IceInternal.TwowayOutgoingAsync<minie.irpc.Callback_BackendService_get_sys_user> result__ =  getTwowayOutgoingAsync<minie.irpc.Callback_BackendService_get_sys_user>(__get_sys_user_name, get_sys_user_completed__, cookie__);
+                if(cb__ != null)
+                {
+                    result__.whenCompletedWithAsyncCallback(cb__);
+                }
+                try
+                {
+                    result__.prepare(__get_sys_user_name, Ice.OperationMode.Normal, ctx__, explicitContext__, synchronous__);
+                    IceInternal.BasicStream os__ = result__.startWriteParams(Ice.FormatType.DefaultFormat);
+                    os__.writeString(userID);
+                    result__.endWriteParams();
+                    result__.invoke();
+                }
+                catch(Ice.Exception ex__)
+                {
+                    result__.abort(ex__);
+                }
+                return result__;
+            }
+
+            private void get_sys_user_completed__(Ice.AsyncResult r__, minie.irpc.Callback_BackendService_get_sys_user cb__, Ice.ExceptionCallback excb__)
+            {
+                minie.irpc.sys_user_rpc ret__;
+                try
+                {
+                    ret__ = end_get_sys_user(r__);
+                }
+                catch(Ice.Exception ex__)
+                {
+                    if(excb__ != null)
+                    {
+                        excb__(ex__);
+                    }
+                    return;
+                }
+                if(cb__ != null)
+                {
+                    cb__(ret__);
+                }
+            }
+
             public Ice.AsyncResult<minie.irpc.Callback_BackendService_register_app_user_step1> begin_register_app_user_step1(string cellphone)
             {
                 return begin_register_app_user_step1(cellphone, null, false, false, null, null);
@@ -2316,6 +3591,667 @@ namespace minie
                 try
                 {
                     ret__ = end_register_app_user_step2(r__);
+                }
+                catch(Ice.Exception ex__)
+                {
+                    if(excb__ != null)
+                    {
+                        excb__(ex__);
+                    }
+                    return;
+                }
+                if(cb__ != null)
+                {
+                    cb__(ret__);
+                }
+            }
+
+            public Ice.AsyncResult<minie.irpc.Callback_BackendService_remove_cm_entrance> begin_remove_cm_entrance(string entranceID)
+            {
+                return begin_remove_cm_entrance(entranceID, null, false, false, null, null);
+            }
+
+            public Ice.AsyncResult<minie.irpc.Callback_BackendService_remove_cm_entrance> begin_remove_cm_entrance(string entranceID, _System.Collections.Generic.Dictionary<string, string> ctx__)
+            {
+                return begin_remove_cm_entrance(entranceID, ctx__, true, false, null, null);
+            }
+
+            public Ice.AsyncResult begin_remove_cm_entrance(string entranceID, Ice.AsyncCallback cb__, object cookie__)
+            {
+                return begin_remove_cm_entrance(entranceID, null, false, false, cb__, cookie__);
+            }
+
+            public Ice.AsyncResult begin_remove_cm_entrance(string entranceID, _System.Collections.Generic.Dictionary<string, string> ctx__, Ice.AsyncCallback cb__, object cookie__)
+            {
+                return begin_remove_cm_entrance(entranceID, ctx__, true, false, cb__, cookie__);
+            }
+
+            private const string __remove_cm_entrance_name = "remove_cm_entrance";
+
+            public int end_remove_cm_entrance(Ice.AsyncResult r__)
+            {
+                IceInternal.OutgoingAsync outAsync__ = IceInternal.OutgoingAsync.check(r__, this, __remove_cm_entrance_name);
+                try
+                {
+                    if(!outAsync__.wait())
+                    {
+                        try
+                        {
+                            outAsync__.throwUserException();
+                        }
+                        catch(Ice.UserException ex__)
+                        {
+                            throw new Ice.UnknownUserException(ex__.ice_name(), ex__);
+                        }
+                    }
+                    int ret__;
+                    IceInternal.BasicStream is__ = outAsync__.startReadParams();
+                    ret__ = is__.readInt();
+                    outAsync__.endReadParams();
+                    return ret__;
+                }
+                finally
+                {
+                    outAsync__.cacheMessageBuffers();
+                }
+            }
+
+            private Ice.AsyncResult<minie.irpc.Callback_BackendService_remove_cm_entrance> begin_remove_cm_entrance(string entranceID, _System.Collections.Generic.Dictionary<string, string> ctx__, bool explicitContext__, bool synchronous__, Ice.AsyncCallback cb__, object cookie__)
+            {
+                checkAsyncTwowayOnly__(__remove_cm_entrance_name);
+                IceInternal.TwowayOutgoingAsync<minie.irpc.Callback_BackendService_remove_cm_entrance> result__ =  getTwowayOutgoingAsync<minie.irpc.Callback_BackendService_remove_cm_entrance>(__remove_cm_entrance_name, remove_cm_entrance_completed__, cookie__);
+                if(cb__ != null)
+                {
+                    result__.whenCompletedWithAsyncCallback(cb__);
+                }
+                try
+                {
+                    result__.prepare(__remove_cm_entrance_name, Ice.OperationMode.Normal, ctx__, explicitContext__, synchronous__);
+                    IceInternal.BasicStream os__ = result__.startWriteParams(Ice.FormatType.DefaultFormat);
+                    os__.writeString(entranceID);
+                    result__.endWriteParams();
+                    result__.invoke();
+                }
+                catch(Ice.Exception ex__)
+                {
+                    result__.abort(ex__);
+                }
+                return result__;
+            }
+
+            private void remove_cm_entrance_completed__(Ice.AsyncResult r__, minie.irpc.Callback_BackendService_remove_cm_entrance cb__, Ice.ExceptionCallback excb__)
+            {
+                int ret__;
+                try
+                {
+                    ret__ = end_remove_cm_entrance(r__);
+                }
+                catch(Ice.Exception ex__)
+                {
+                    if(excb__ != null)
+                    {
+                        excb__(ex__);
+                    }
+                    return;
+                }
+                if(cb__ != null)
+                {
+                    cb__(ret__);
+                }
+            }
+
+            public Ice.AsyncResult<minie.irpc.Callback_BackendService_remove_cm_node> begin_remove_cm_node(string nodeID)
+            {
+                return begin_remove_cm_node(nodeID, null, false, false, null, null);
+            }
+
+            public Ice.AsyncResult<minie.irpc.Callback_BackendService_remove_cm_node> begin_remove_cm_node(string nodeID, _System.Collections.Generic.Dictionary<string, string> ctx__)
+            {
+                return begin_remove_cm_node(nodeID, ctx__, true, false, null, null);
+            }
+
+            public Ice.AsyncResult begin_remove_cm_node(string nodeID, Ice.AsyncCallback cb__, object cookie__)
+            {
+                return begin_remove_cm_node(nodeID, null, false, false, cb__, cookie__);
+            }
+
+            public Ice.AsyncResult begin_remove_cm_node(string nodeID, _System.Collections.Generic.Dictionary<string, string> ctx__, Ice.AsyncCallback cb__, object cookie__)
+            {
+                return begin_remove_cm_node(nodeID, ctx__, true, false, cb__, cookie__);
+            }
+
+            private const string __remove_cm_node_name = "remove_cm_node";
+
+            public int end_remove_cm_node(Ice.AsyncResult r__)
+            {
+                IceInternal.OutgoingAsync outAsync__ = IceInternal.OutgoingAsync.check(r__, this, __remove_cm_node_name);
+                try
+                {
+                    if(!outAsync__.wait())
+                    {
+                        try
+                        {
+                            outAsync__.throwUserException();
+                        }
+                        catch(Ice.UserException ex__)
+                        {
+                            throw new Ice.UnknownUserException(ex__.ice_name(), ex__);
+                        }
+                    }
+                    int ret__;
+                    IceInternal.BasicStream is__ = outAsync__.startReadParams();
+                    ret__ = is__.readInt();
+                    outAsync__.endReadParams();
+                    return ret__;
+                }
+                finally
+                {
+                    outAsync__.cacheMessageBuffers();
+                }
+            }
+
+            private Ice.AsyncResult<minie.irpc.Callback_BackendService_remove_cm_node> begin_remove_cm_node(string nodeID, _System.Collections.Generic.Dictionary<string, string> ctx__, bool explicitContext__, bool synchronous__, Ice.AsyncCallback cb__, object cookie__)
+            {
+                checkAsyncTwowayOnly__(__remove_cm_node_name);
+                IceInternal.TwowayOutgoingAsync<minie.irpc.Callback_BackendService_remove_cm_node> result__ =  getTwowayOutgoingAsync<minie.irpc.Callback_BackendService_remove_cm_node>(__remove_cm_node_name, remove_cm_node_completed__, cookie__);
+                if(cb__ != null)
+                {
+                    result__.whenCompletedWithAsyncCallback(cb__);
+                }
+                try
+                {
+                    result__.prepare(__remove_cm_node_name, Ice.OperationMode.Normal, ctx__, explicitContext__, synchronous__);
+                    IceInternal.BasicStream os__ = result__.startWriteParams(Ice.FormatType.DefaultFormat);
+                    os__.writeString(nodeID);
+                    result__.endWriteParams();
+                    result__.invoke();
+                }
+                catch(Ice.Exception ex__)
+                {
+                    result__.abort(ex__);
+                }
+                return result__;
+            }
+
+            private void remove_cm_node_completed__(Ice.AsyncResult r__, minie.irpc.Callback_BackendService_remove_cm_node cb__, Ice.ExceptionCallback excb__)
+            {
+                int ret__;
+                try
+                {
+                    ret__ = end_remove_cm_node(r__);
+                }
+                catch(Ice.Exception ex__)
+                {
+                    if(excb__ != null)
+                    {
+                        excb__(ex__);
+                    }
+                    return;
+                }
+                if(cb__ != null)
+                {
+                    cb__(ret__);
+                }
+            }
+
+            public Ice.AsyncResult<minie.irpc.Callback_BackendService_remove_role_group> begin_remove_role_group(string groupID, string roleID)
+            {
+                return begin_remove_role_group(groupID, roleID, null, false, false, null, null);
+            }
+
+            public Ice.AsyncResult<minie.irpc.Callback_BackendService_remove_role_group> begin_remove_role_group(string groupID, string roleID, _System.Collections.Generic.Dictionary<string, string> ctx__)
+            {
+                return begin_remove_role_group(groupID, roleID, ctx__, true, false, null, null);
+            }
+
+            public Ice.AsyncResult begin_remove_role_group(string groupID, string roleID, Ice.AsyncCallback cb__, object cookie__)
+            {
+                return begin_remove_role_group(groupID, roleID, null, false, false, cb__, cookie__);
+            }
+
+            public Ice.AsyncResult begin_remove_role_group(string groupID, string roleID, _System.Collections.Generic.Dictionary<string, string> ctx__, Ice.AsyncCallback cb__, object cookie__)
+            {
+                return begin_remove_role_group(groupID, roleID, ctx__, true, false, cb__, cookie__);
+            }
+
+            private const string __remove_role_group_name = "remove_role_group";
+
+            public int end_remove_role_group(Ice.AsyncResult r__)
+            {
+                IceInternal.OutgoingAsync outAsync__ = IceInternal.OutgoingAsync.check(r__, this, __remove_role_group_name);
+                try
+                {
+                    if(!outAsync__.wait())
+                    {
+                        try
+                        {
+                            outAsync__.throwUserException();
+                        }
+                        catch(Ice.UserException ex__)
+                        {
+                            throw new Ice.UnknownUserException(ex__.ice_name(), ex__);
+                        }
+                    }
+                    int ret__;
+                    IceInternal.BasicStream is__ = outAsync__.startReadParams();
+                    ret__ = is__.readInt();
+                    outAsync__.endReadParams();
+                    return ret__;
+                }
+                finally
+                {
+                    outAsync__.cacheMessageBuffers();
+                }
+            }
+
+            private Ice.AsyncResult<minie.irpc.Callback_BackendService_remove_role_group> begin_remove_role_group(string groupID, string roleID, _System.Collections.Generic.Dictionary<string, string> ctx__, bool explicitContext__, bool synchronous__, Ice.AsyncCallback cb__, object cookie__)
+            {
+                checkAsyncTwowayOnly__(__remove_role_group_name);
+                IceInternal.TwowayOutgoingAsync<minie.irpc.Callback_BackendService_remove_role_group> result__ =  getTwowayOutgoingAsync<minie.irpc.Callback_BackendService_remove_role_group>(__remove_role_group_name, remove_role_group_completed__, cookie__);
+                if(cb__ != null)
+                {
+                    result__.whenCompletedWithAsyncCallback(cb__);
+                }
+                try
+                {
+                    result__.prepare(__remove_role_group_name, Ice.OperationMode.Normal, ctx__, explicitContext__, synchronous__);
+                    IceInternal.BasicStream os__ = result__.startWriteParams(Ice.FormatType.DefaultFormat);
+                    os__.writeString(groupID);
+                    os__.writeString(roleID);
+                    result__.endWriteParams();
+                    result__.invoke();
+                }
+                catch(Ice.Exception ex__)
+                {
+                    result__.abort(ex__);
+                }
+                return result__;
+            }
+
+            private void remove_role_group_completed__(Ice.AsyncResult r__, minie.irpc.Callback_BackendService_remove_role_group cb__, Ice.ExceptionCallback excb__)
+            {
+                int ret__;
+                try
+                {
+                    ret__ = end_remove_role_group(r__);
+                }
+                catch(Ice.Exception ex__)
+                {
+                    if(excb__ != null)
+                    {
+                        excb__(ex__);
+                    }
+                    return;
+                }
+                if(cb__ != null)
+                {
+                    cb__(ret__);
+                }
+            }
+
+            public Ice.AsyncResult<minie.irpc.Callback_BackendService_remove_role_user> begin_remove_role_user(string userID, string roleID)
+            {
+                return begin_remove_role_user(userID, roleID, null, false, false, null, null);
+            }
+
+            public Ice.AsyncResult<minie.irpc.Callback_BackendService_remove_role_user> begin_remove_role_user(string userID, string roleID, _System.Collections.Generic.Dictionary<string, string> ctx__)
+            {
+                return begin_remove_role_user(userID, roleID, ctx__, true, false, null, null);
+            }
+
+            public Ice.AsyncResult begin_remove_role_user(string userID, string roleID, Ice.AsyncCallback cb__, object cookie__)
+            {
+                return begin_remove_role_user(userID, roleID, null, false, false, cb__, cookie__);
+            }
+
+            public Ice.AsyncResult begin_remove_role_user(string userID, string roleID, _System.Collections.Generic.Dictionary<string, string> ctx__, Ice.AsyncCallback cb__, object cookie__)
+            {
+                return begin_remove_role_user(userID, roleID, ctx__, true, false, cb__, cookie__);
+            }
+
+            private const string __remove_role_user_name = "remove_role_user";
+
+            public int end_remove_role_user(Ice.AsyncResult r__)
+            {
+                IceInternal.OutgoingAsync outAsync__ = IceInternal.OutgoingAsync.check(r__, this, __remove_role_user_name);
+                try
+                {
+                    if(!outAsync__.wait())
+                    {
+                        try
+                        {
+                            outAsync__.throwUserException();
+                        }
+                        catch(Ice.UserException ex__)
+                        {
+                            throw new Ice.UnknownUserException(ex__.ice_name(), ex__);
+                        }
+                    }
+                    int ret__;
+                    IceInternal.BasicStream is__ = outAsync__.startReadParams();
+                    ret__ = is__.readInt();
+                    outAsync__.endReadParams();
+                    return ret__;
+                }
+                finally
+                {
+                    outAsync__.cacheMessageBuffers();
+                }
+            }
+
+            private Ice.AsyncResult<minie.irpc.Callback_BackendService_remove_role_user> begin_remove_role_user(string userID, string roleID, _System.Collections.Generic.Dictionary<string, string> ctx__, bool explicitContext__, bool synchronous__, Ice.AsyncCallback cb__, object cookie__)
+            {
+                checkAsyncTwowayOnly__(__remove_role_user_name);
+                IceInternal.TwowayOutgoingAsync<minie.irpc.Callback_BackendService_remove_role_user> result__ =  getTwowayOutgoingAsync<minie.irpc.Callback_BackendService_remove_role_user>(__remove_role_user_name, remove_role_user_completed__, cookie__);
+                if(cb__ != null)
+                {
+                    result__.whenCompletedWithAsyncCallback(cb__);
+                }
+                try
+                {
+                    result__.prepare(__remove_role_user_name, Ice.OperationMode.Normal, ctx__, explicitContext__, synchronous__);
+                    IceInternal.BasicStream os__ = result__.startWriteParams(Ice.FormatType.DefaultFormat);
+                    os__.writeString(userID);
+                    os__.writeString(roleID);
+                    result__.endWriteParams();
+                    result__.invoke();
+                }
+                catch(Ice.Exception ex__)
+                {
+                    result__.abort(ex__);
+                }
+                return result__;
+            }
+
+            private void remove_role_user_completed__(Ice.AsyncResult r__, minie.irpc.Callback_BackendService_remove_role_user cb__, Ice.ExceptionCallback excb__)
+            {
+                int ret__;
+                try
+                {
+                    ret__ = end_remove_role_user(r__);
+                }
+                catch(Ice.Exception ex__)
+                {
+                    if(excb__ != null)
+                    {
+                        excb__(ex__);
+                    }
+                    return;
+                }
+                if(cb__ != null)
+                {
+                    cb__(ret__);
+                }
+            }
+
+            public Ice.AsyncResult<minie.irpc.Callback_BackendService_remove_sys_group> begin_remove_sys_group(string groupID)
+            {
+                return begin_remove_sys_group(groupID, null, false, false, null, null);
+            }
+
+            public Ice.AsyncResult<minie.irpc.Callback_BackendService_remove_sys_group> begin_remove_sys_group(string groupID, _System.Collections.Generic.Dictionary<string, string> ctx__)
+            {
+                return begin_remove_sys_group(groupID, ctx__, true, false, null, null);
+            }
+
+            public Ice.AsyncResult begin_remove_sys_group(string groupID, Ice.AsyncCallback cb__, object cookie__)
+            {
+                return begin_remove_sys_group(groupID, null, false, false, cb__, cookie__);
+            }
+
+            public Ice.AsyncResult begin_remove_sys_group(string groupID, _System.Collections.Generic.Dictionary<string, string> ctx__, Ice.AsyncCallback cb__, object cookie__)
+            {
+                return begin_remove_sys_group(groupID, ctx__, true, false, cb__, cookie__);
+            }
+
+            private const string __remove_sys_group_name = "remove_sys_group";
+
+            public int end_remove_sys_group(Ice.AsyncResult r__)
+            {
+                IceInternal.OutgoingAsync outAsync__ = IceInternal.OutgoingAsync.check(r__, this, __remove_sys_group_name);
+                try
+                {
+                    if(!outAsync__.wait())
+                    {
+                        try
+                        {
+                            outAsync__.throwUserException();
+                        }
+                        catch(Ice.UserException ex__)
+                        {
+                            throw new Ice.UnknownUserException(ex__.ice_name(), ex__);
+                        }
+                    }
+                    int ret__;
+                    IceInternal.BasicStream is__ = outAsync__.startReadParams();
+                    ret__ = is__.readInt();
+                    outAsync__.endReadParams();
+                    return ret__;
+                }
+                finally
+                {
+                    outAsync__.cacheMessageBuffers();
+                }
+            }
+
+            private Ice.AsyncResult<minie.irpc.Callback_BackendService_remove_sys_group> begin_remove_sys_group(string groupID, _System.Collections.Generic.Dictionary<string, string> ctx__, bool explicitContext__, bool synchronous__, Ice.AsyncCallback cb__, object cookie__)
+            {
+                checkAsyncTwowayOnly__(__remove_sys_group_name);
+                IceInternal.TwowayOutgoingAsync<minie.irpc.Callback_BackendService_remove_sys_group> result__ =  getTwowayOutgoingAsync<minie.irpc.Callback_BackendService_remove_sys_group>(__remove_sys_group_name, remove_sys_group_completed__, cookie__);
+                if(cb__ != null)
+                {
+                    result__.whenCompletedWithAsyncCallback(cb__);
+                }
+                try
+                {
+                    result__.prepare(__remove_sys_group_name, Ice.OperationMode.Normal, ctx__, explicitContext__, synchronous__);
+                    IceInternal.BasicStream os__ = result__.startWriteParams(Ice.FormatType.DefaultFormat);
+                    os__.writeString(groupID);
+                    result__.endWriteParams();
+                    result__.invoke();
+                }
+                catch(Ice.Exception ex__)
+                {
+                    result__.abort(ex__);
+                }
+                return result__;
+            }
+
+            private void remove_sys_group_completed__(Ice.AsyncResult r__, minie.irpc.Callback_BackendService_remove_sys_group cb__, Ice.ExceptionCallback excb__)
+            {
+                int ret__;
+                try
+                {
+                    ret__ = end_remove_sys_group(r__);
+                }
+                catch(Ice.Exception ex__)
+                {
+                    if(excb__ != null)
+                    {
+                        excb__(ex__);
+                    }
+                    return;
+                }
+                if(cb__ != null)
+                {
+                    cb__(ret__);
+                }
+            }
+
+            public Ice.AsyncResult<minie.irpc.Callback_BackendService_remove_sys_user> begin_remove_sys_user(string userID)
+            {
+                return begin_remove_sys_user(userID, null, false, false, null, null);
+            }
+
+            public Ice.AsyncResult<minie.irpc.Callback_BackendService_remove_sys_user> begin_remove_sys_user(string userID, _System.Collections.Generic.Dictionary<string, string> ctx__)
+            {
+                return begin_remove_sys_user(userID, ctx__, true, false, null, null);
+            }
+
+            public Ice.AsyncResult begin_remove_sys_user(string userID, Ice.AsyncCallback cb__, object cookie__)
+            {
+                return begin_remove_sys_user(userID, null, false, false, cb__, cookie__);
+            }
+
+            public Ice.AsyncResult begin_remove_sys_user(string userID, _System.Collections.Generic.Dictionary<string, string> ctx__, Ice.AsyncCallback cb__, object cookie__)
+            {
+                return begin_remove_sys_user(userID, ctx__, true, false, cb__, cookie__);
+            }
+
+            private const string __remove_sys_user_name = "remove_sys_user";
+
+            public int end_remove_sys_user(Ice.AsyncResult r__)
+            {
+                IceInternal.OutgoingAsync outAsync__ = IceInternal.OutgoingAsync.check(r__, this, __remove_sys_user_name);
+                try
+                {
+                    if(!outAsync__.wait())
+                    {
+                        try
+                        {
+                            outAsync__.throwUserException();
+                        }
+                        catch(Ice.UserException ex__)
+                        {
+                            throw new Ice.UnknownUserException(ex__.ice_name(), ex__);
+                        }
+                    }
+                    int ret__;
+                    IceInternal.BasicStream is__ = outAsync__.startReadParams();
+                    ret__ = is__.readInt();
+                    outAsync__.endReadParams();
+                    return ret__;
+                }
+                finally
+                {
+                    outAsync__.cacheMessageBuffers();
+                }
+            }
+
+            private Ice.AsyncResult<minie.irpc.Callback_BackendService_remove_sys_user> begin_remove_sys_user(string userID, _System.Collections.Generic.Dictionary<string, string> ctx__, bool explicitContext__, bool synchronous__, Ice.AsyncCallback cb__, object cookie__)
+            {
+                checkAsyncTwowayOnly__(__remove_sys_user_name);
+                IceInternal.TwowayOutgoingAsync<minie.irpc.Callback_BackendService_remove_sys_user> result__ =  getTwowayOutgoingAsync<minie.irpc.Callback_BackendService_remove_sys_user>(__remove_sys_user_name, remove_sys_user_completed__, cookie__);
+                if(cb__ != null)
+                {
+                    result__.whenCompletedWithAsyncCallback(cb__);
+                }
+                try
+                {
+                    result__.prepare(__remove_sys_user_name, Ice.OperationMode.Normal, ctx__, explicitContext__, synchronous__);
+                    IceInternal.BasicStream os__ = result__.startWriteParams(Ice.FormatType.DefaultFormat);
+                    os__.writeString(userID);
+                    result__.endWriteParams();
+                    result__.invoke();
+                }
+                catch(Ice.Exception ex__)
+                {
+                    result__.abort(ex__);
+                }
+                return result__;
+            }
+
+            private void remove_sys_user_completed__(Ice.AsyncResult r__, minie.irpc.Callback_BackendService_remove_sys_user cb__, Ice.ExceptionCallback excb__)
+            {
+                int ret__;
+                try
+                {
+                    ret__ = end_remove_sys_user(r__);
+                }
+                catch(Ice.Exception ex__)
+                {
+                    if(excb__ != null)
+                    {
+                        excb__(ex__);
+                    }
+                    return;
+                }
+                if(cb__ != null)
+                {
+                    cb__(ret__);
+                }
+            }
+
+            public Ice.AsyncResult<minie.irpc.Callback_BackendService_remove_user_group> begin_remove_user_group(string groupID, string userID)
+            {
+                return begin_remove_user_group(groupID, userID, null, false, false, null, null);
+            }
+
+            public Ice.AsyncResult<minie.irpc.Callback_BackendService_remove_user_group> begin_remove_user_group(string groupID, string userID, _System.Collections.Generic.Dictionary<string, string> ctx__)
+            {
+                return begin_remove_user_group(groupID, userID, ctx__, true, false, null, null);
+            }
+
+            public Ice.AsyncResult begin_remove_user_group(string groupID, string userID, Ice.AsyncCallback cb__, object cookie__)
+            {
+                return begin_remove_user_group(groupID, userID, null, false, false, cb__, cookie__);
+            }
+
+            public Ice.AsyncResult begin_remove_user_group(string groupID, string userID, _System.Collections.Generic.Dictionary<string, string> ctx__, Ice.AsyncCallback cb__, object cookie__)
+            {
+                return begin_remove_user_group(groupID, userID, ctx__, true, false, cb__, cookie__);
+            }
+
+            private const string __remove_user_group_name = "remove_user_group";
+
+            public int end_remove_user_group(Ice.AsyncResult r__)
+            {
+                IceInternal.OutgoingAsync outAsync__ = IceInternal.OutgoingAsync.check(r__, this, __remove_user_group_name);
+                try
+                {
+                    if(!outAsync__.wait())
+                    {
+                        try
+                        {
+                            outAsync__.throwUserException();
+                        }
+                        catch(Ice.UserException ex__)
+                        {
+                            throw new Ice.UnknownUserException(ex__.ice_name(), ex__);
+                        }
+                    }
+                    int ret__;
+                    IceInternal.BasicStream is__ = outAsync__.startReadParams();
+                    ret__ = is__.readInt();
+                    outAsync__.endReadParams();
+                    return ret__;
+                }
+                finally
+                {
+                    outAsync__.cacheMessageBuffers();
+                }
+            }
+
+            private Ice.AsyncResult<minie.irpc.Callback_BackendService_remove_user_group> begin_remove_user_group(string groupID, string userID, _System.Collections.Generic.Dictionary<string, string> ctx__, bool explicitContext__, bool synchronous__, Ice.AsyncCallback cb__, object cookie__)
+            {
+                checkAsyncTwowayOnly__(__remove_user_group_name);
+                IceInternal.TwowayOutgoingAsync<minie.irpc.Callback_BackendService_remove_user_group> result__ =  getTwowayOutgoingAsync<minie.irpc.Callback_BackendService_remove_user_group>(__remove_user_group_name, remove_user_group_completed__, cookie__);
+                if(cb__ != null)
+                {
+                    result__.whenCompletedWithAsyncCallback(cb__);
+                }
+                try
+                {
+                    result__.prepare(__remove_user_group_name, Ice.OperationMode.Normal, ctx__, explicitContext__, synchronous__);
+                    IceInternal.BasicStream os__ = result__.startWriteParams(Ice.FormatType.DefaultFormat);
+                    os__.writeString(groupID);
+                    os__.writeString(userID);
+                    result__.endWriteParams();
+                    result__.invoke();
+                }
+                catch(Ice.Exception ex__)
+                {
+                    result__.abort(ex__);
+                }
+                return result__;
+            }
+
+            private void remove_user_group_completed__(Ice.AsyncResult r__, minie.irpc.Callback_BackendService_remove_user_group cb__, Ice.ExceptionCallback excb__)
+            {
+                int ret__;
+                try
+                {
+                    ret__ = end_remove_user_group(r__);
                 }
                 catch(Ice.Exception ex__)
                 {
@@ -3205,26 +5141,75 @@ namespace minie
 
             public abstract minie.irpc.cm_user_rpc register_app_user_step2(string cellphone, string password, int verifyCode, Ice.Current current__);
 
-            public int add_user_group(minie.irpc.sys_user_rpc user, minie.irpc.sys_group_rpc group)
+            public int add_user_group(string groupID, string userID)
             {
-                return add_user_group(user, group, Ice.ObjectImpl.defaultCurrent);
+                return add_user_group(groupID, userID, Ice.ObjectImpl.defaultCurrent);
             }
 
-            public abstract int add_user_group(minie.irpc.sys_user_rpc user, minie.irpc.sys_group_rpc group, Ice.Current current__);
+            public abstract int add_user_group(string groupID, string userID, Ice.Current current__);
 
-            public int add_role_group(minie.irpc.sys_role_rpc role, minie.irpc.sys_group_rpc group)
+            public int add_role_group(string groupID, string roleID)
             {
-                return add_role_group(role, group, Ice.ObjectImpl.defaultCurrent);
+                return add_role_group(groupID, roleID, Ice.ObjectImpl.defaultCurrent);
             }
 
-            public abstract int add_role_group(minie.irpc.sys_role_rpc role, minie.irpc.sys_group_rpc group, Ice.Current current__);
+            public abstract int add_role_group(string groupID, string roleID, Ice.Current current__);
 
-            public int add_role_user(minie.irpc.sys_role_rpc role, minie.irpc.sys_user_rpc user)
+            public int add_role_user(string userID, string roleID)
             {
-                return add_role_user(role, user, Ice.ObjectImpl.defaultCurrent);
+                return add_role_user(userID, roleID, Ice.ObjectImpl.defaultCurrent);
             }
 
-            public abstract int add_role_user(minie.irpc.sys_role_rpc role, minie.irpc.sys_user_rpc user, Ice.Current current__);
+            public abstract int add_role_user(string userID, string roleID, Ice.Current current__);
+
+            public int remove_user_group(string groupID, string userID)
+            {
+                return remove_user_group(groupID, userID, Ice.ObjectImpl.defaultCurrent);
+            }
+
+            public abstract int remove_user_group(string groupID, string userID, Ice.Current current__);
+
+            public int remove_role_group(string groupID, string roleID)
+            {
+                return remove_role_group(groupID, roleID, Ice.ObjectImpl.defaultCurrent);
+            }
+
+            public abstract int remove_role_group(string groupID, string roleID, Ice.Current current__);
+
+            public int remove_role_user(string userID, string roleID)
+            {
+                return remove_role_user(userID, roleID, Ice.ObjectImpl.defaultCurrent);
+            }
+
+            public abstract int remove_role_user(string userID, string roleID, Ice.Current current__);
+
+            public int add_sys_group(minie.irpc.sys_group_rpc group)
+            {
+                return add_sys_group(group, Ice.ObjectImpl.defaultCurrent);
+            }
+
+            public abstract int add_sys_group(minie.irpc.sys_group_rpc group, Ice.Current current__);
+
+            public int add_sys_user(minie.irpc.sys_user_rpc user)
+            {
+                return add_sys_user(user, Ice.ObjectImpl.defaultCurrent);
+            }
+
+            public abstract int add_sys_user(minie.irpc.sys_user_rpc user, Ice.Current current__);
+
+            public int add_cm_node(minie.irpc.cm_node_rpc node)
+            {
+                return add_cm_node(node, Ice.ObjectImpl.defaultCurrent);
+            }
+
+            public abstract int add_cm_node(minie.irpc.cm_node_rpc node, Ice.Current current__);
+
+            public int add_cm_entrance(minie.irpc.cm_entrance_rpc entrance)
+            {
+                return add_cm_entrance(entrance, Ice.ObjectImpl.defaultCurrent);
+            }
+
+            public abstract int add_cm_entrance(minie.irpc.cm_entrance_rpc entrance, Ice.Current current__);
 
             public int update_sys_group(minie.irpc.sys_group_rpc group)
             {
@@ -3253,6 +5238,62 @@ namespace minie
             }
 
             public abstract int update_cm_entrance(minie.irpc.cm_entrance_rpc entrance, Ice.Current current__);
+
+            public minie.irpc.sys_group_rpc get_sys_group(string groupID)
+            {
+                return get_sys_group(groupID, Ice.ObjectImpl.defaultCurrent);
+            }
+
+            public abstract minie.irpc.sys_group_rpc get_sys_group(string groupID, Ice.Current current__);
+
+            public minie.irpc.sys_user_rpc get_sys_user(string userID)
+            {
+                return get_sys_user(userID, Ice.ObjectImpl.defaultCurrent);
+            }
+
+            public abstract minie.irpc.sys_user_rpc get_sys_user(string userID, Ice.Current current__);
+
+            public minie.irpc.cm_node_rpc get_cm_node(string nodeID)
+            {
+                return get_cm_node(nodeID, Ice.ObjectImpl.defaultCurrent);
+            }
+
+            public abstract minie.irpc.cm_node_rpc get_cm_node(string nodeID, Ice.Current current__);
+
+            public minie.irpc.cm_entrance_rpc get_cm_entrance(string entranceID)
+            {
+                return get_cm_entrance(entranceID, Ice.ObjectImpl.defaultCurrent);
+            }
+
+            public abstract minie.irpc.cm_entrance_rpc get_cm_entrance(string entranceID, Ice.Current current__);
+
+            public int remove_sys_group(string groupID)
+            {
+                return remove_sys_group(groupID, Ice.ObjectImpl.defaultCurrent);
+            }
+
+            public abstract int remove_sys_group(string groupID, Ice.Current current__);
+
+            public int remove_sys_user(string userID)
+            {
+                return remove_sys_user(userID, Ice.ObjectImpl.defaultCurrent);
+            }
+
+            public abstract int remove_sys_user(string userID, Ice.Current current__);
+
+            public int remove_cm_node(string nodeID)
+            {
+                return remove_cm_node(nodeID, Ice.ObjectImpl.defaultCurrent);
+            }
+
+            public abstract int remove_cm_node(string nodeID, Ice.Current current__);
+
+            public int remove_cm_entrance(string entranceID)
+            {
+                return remove_cm_entrance(entranceID, Ice.ObjectImpl.defaultCurrent);
+            }
+
+            public abstract int remove_cm_entrance(string entranceID, Ice.Current current__);
 
             #endregion
 
@@ -3457,13 +5498,12 @@ namespace minie
             {
                 Ice.ObjectImpl.checkMode__(Ice.OperationMode.Normal, current__.mode);
                 IceInternal.BasicStream is__ = inS__.startReadParams();
-                IceInternal.ParamPatcher<minie.irpc.sys_user_rpc> user__PP = new IceInternal.ParamPatcher<minie.irpc.sys_user_rpc>(minie.irpc.sys_user_rpc.ice_staticId());
-                is__.readObject(user__PP);
-                IceInternal.ParamPatcher<minie.irpc.sys_group_rpc> group__PP = new IceInternal.ParamPatcher<minie.irpc.sys_group_rpc>(minie.irpc.sys_group_rpc.ice_staticId());
-                is__.readObject(group__PP);
-                is__.readPendingObjects();
+                string groupID;
+                string userID;
+                groupID = is__.readString();
+                userID = is__.readString();
                 inS__.endReadParams();
-                int ret__ = obj__.add_user_group(user__PP.value, group__PP.value, current__);
+                int ret__ = obj__.add_user_group(groupID, userID, current__);
                 IceInternal.BasicStream os__ = inS__.startWriteParams__(Ice.FormatType.DefaultFormat);
                 os__.writeInt(ret__);
                 inS__.endWriteParams__(true);
@@ -3475,13 +5515,12 @@ namespace minie
             {
                 Ice.ObjectImpl.checkMode__(Ice.OperationMode.Normal, current__.mode);
                 IceInternal.BasicStream is__ = inS__.startReadParams();
-                IceInternal.ParamPatcher<minie.irpc.sys_role_rpc> role__PP = new IceInternal.ParamPatcher<minie.irpc.sys_role_rpc>(minie.irpc.sys_role_rpc.ice_staticId());
-                is__.readObject(role__PP);
-                IceInternal.ParamPatcher<minie.irpc.sys_group_rpc> group__PP = new IceInternal.ParamPatcher<minie.irpc.sys_group_rpc>(minie.irpc.sys_group_rpc.ice_staticId());
-                is__.readObject(group__PP);
-                is__.readPendingObjects();
+                string groupID;
+                string roleID;
+                groupID = is__.readString();
+                roleID = is__.readString();
                 inS__.endReadParams();
-                int ret__ = obj__.add_role_group(role__PP.value, group__PP.value, current__);
+                int ret__ = obj__.add_role_group(groupID, roleID, current__);
                 IceInternal.BasicStream os__ = inS__.startWriteParams__(Ice.FormatType.DefaultFormat);
                 os__.writeInt(ret__);
                 inS__.endWriteParams__(true);
@@ -3493,13 +5532,127 @@ namespace minie
             {
                 Ice.ObjectImpl.checkMode__(Ice.OperationMode.Normal, current__.mode);
                 IceInternal.BasicStream is__ = inS__.startReadParams();
-                IceInternal.ParamPatcher<minie.irpc.sys_role_rpc> role__PP = new IceInternal.ParamPatcher<minie.irpc.sys_role_rpc>(minie.irpc.sys_role_rpc.ice_staticId());
-                is__.readObject(role__PP);
+                string userID;
+                string roleID;
+                userID = is__.readString();
+                roleID = is__.readString();
+                inS__.endReadParams();
+                int ret__ = obj__.add_role_user(userID, roleID, current__);
+                IceInternal.BasicStream os__ = inS__.startWriteParams__(Ice.FormatType.DefaultFormat);
+                os__.writeInt(ret__);
+                inS__.endWriteParams__(true);
+                return Ice.DispatchStatus.DispatchOK;
+            }
+
+            [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+            public static Ice.DispatchStatus remove_user_group___(BackendService obj__, IceInternal.Incoming inS__, Ice.Current current__)
+            {
+                Ice.ObjectImpl.checkMode__(Ice.OperationMode.Normal, current__.mode);
+                IceInternal.BasicStream is__ = inS__.startReadParams();
+                string groupID;
+                string userID;
+                groupID = is__.readString();
+                userID = is__.readString();
+                inS__.endReadParams();
+                int ret__ = obj__.remove_user_group(groupID, userID, current__);
+                IceInternal.BasicStream os__ = inS__.startWriteParams__(Ice.FormatType.DefaultFormat);
+                os__.writeInt(ret__);
+                inS__.endWriteParams__(true);
+                return Ice.DispatchStatus.DispatchOK;
+            }
+
+            [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+            public static Ice.DispatchStatus remove_role_group___(BackendService obj__, IceInternal.Incoming inS__, Ice.Current current__)
+            {
+                Ice.ObjectImpl.checkMode__(Ice.OperationMode.Normal, current__.mode);
+                IceInternal.BasicStream is__ = inS__.startReadParams();
+                string groupID;
+                string roleID;
+                groupID = is__.readString();
+                roleID = is__.readString();
+                inS__.endReadParams();
+                int ret__ = obj__.remove_role_group(groupID, roleID, current__);
+                IceInternal.BasicStream os__ = inS__.startWriteParams__(Ice.FormatType.DefaultFormat);
+                os__.writeInt(ret__);
+                inS__.endWriteParams__(true);
+                return Ice.DispatchStatus.DispatchOK;
+            }
+
+            [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+            public static Ice.DispatchStatus remove_role_user___(BackendService obj__, IceInternal.Incoming inS__, Ice.Current current__)
+            {
+                Ice.ObjectImpl.checkMode__(Ice.OperationMode.Normal, current__.mode);
+                IceInternal.BasicStream is__ = inS__.startReadParams();
+                string userID;
+                string roleID;
+                userID = is__.readString();
+                roleID = is__.readString();
+                inS__.endReadParams();
+                int ret__ = obj__.remove_role_user(userID, roleID, current__);
+                IceInternal.BasicStream os__ = inS__.startWriteParams__(Ice.FormatType.DefaultFormat);
+                os__.writeInt(ret__);
+                inS__.endWriteParams__(true);
+                return Ice.DispatchStatus.DispatchOK;
+            }
+
+            [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+            public static Ice.DispatchStatus add_sys_group___(BackendService obj__, IceInternal.Incoming inS__, Ice.Current current__)
+            {
+                Ice.ObjectImpl.checkMode__(Ice.OperationMode.Normal, current__.mode);
+                IceInternal.BasicStream is__ = inS__.startReadParams();
+                IceInternal.ParamPatcher<minie.irpc.sys_group_rpc> group__PP = new IceInternal.ParamPatcher<minie.irpc.sys_group_rpc>(minie.irpc.sys_group_rpc.ice_staticId());
+                is__.readObject(group__PP);
+                is__.readPendingObjects();
+                inS__.endReadParams();
+                int ret__ = obj__.add_sys_group(group__PP.value, current__);
+                IceInternal.BasicStream os__ = inS__.startWriteParams__(Ice.FormatType.DefaultFormat);
+                os__.writeInt(ret__);
+                inS__.endWriteParams__(true);
+                return Ice.DispatchStatus.DispatchOK;
+            }
+
+            [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+            public static Ice.DispatchStatus add_sys_user___(BackendService obj__, IceInternal.Incoming inS__, Ice.Current current__)
+            {
+                Ice.ObjectImpl.checkMode__(Ice.OperationMode.Normal, current__.mode);
+                IceInternal.BasicStream is__ = inS__.startReadParams();
                 IceInternal.ParamPatcher<minie.irpc.sys_user_rpc> user__PP = new IceInternal.ParamPatcher<minie.irpc.sys_user_rpc>(minie.irpc.sys_user_rpc.ice_staticId());
                 is__.readObject(user__PP);
                 is__.readPendingObjects();
                 inS__.endReadParams();
-                int ret__ = obj__.add_role_user(role__PP.value, user__PP.value, current__);
+                int ret__ = obj__.add_sys_user(user__PP.value, current__);
+                IceInternal.BasicStream os__ = inS__.startWriteParams__(Ice.FormatType.DefaultFormat);
+                os__.writeInt(ret__);
+                inS__.endWriteParams__(true);
+                return Ice.DispatchStatus.DispatchOK;
+            }
+
+            [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+            public static Ice.DispatchStatus add_cm_node___(BackendService obj__, IceInternal.Incoming inS__, Ice.Current current__)
+            {
+                Ice.ObjectImpl.checkMode__(Ice.OperationMode.Normal, current__.mode);
+                IceInternal.BasicStream is__ = inS__.startReadParams();
+                IceInternal.ParamPatcher<minie.irpc.cm_node_rpc> node__PP = new IceInternal.ParamPatcher<minie.irpc.cm_node_rpc>(minie.irpc.cm_node_rpc.ice_staticId());
+                is__.readObject(node__PP);
+                is__.readPendingObjects();
+                inS__.endReadParams();
+                int ret__ = obj__.add_cm_node(node__PP.value, current__);
+                IceInternal.BasicStream os__ = inS__.startWriteParams__(Ice.FormatType.DefaultFormat);
+                os__.writeInt(ret__);
+                inS__.endWriteParams__(true);
+                return Ice.DispatchStatus.DispatchOK;
+            }
+
+            [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+            public static Ice.DispatchStatus add_cm_entrance___(BackendService obj__, IceInternal.Incoming inS__, Ice.Current current__)
+            {
+                Ice.ObjectImpl.checkMode__(Ice.OperationMode.Normal, current__.mode);
+                IceInternal.BasicStream is__ = inS__.startReadParams();
+                IceInternal.ParamPatcher<minie.irpc.cm_entrance_rpc> entrance__PP = new IceInternal.ParamPatcher<minie.irpc.cm_entrance_rpc>(minie.irpc.cm_entrance_rpc.ice_staticId());
+                is__.readObject(entrance__PP);
+                is__.readPendingObjects();
+                inS__.endReadParams();
+                int ret__ = obj__.add_cm_entrance(entrance__PP.value, current__);
                 IceInternal.BasicStream os__ = inS__.startWriteParams__(Ice.FormatType.DefaultFormat);
                 os__.writeInt(ret__);
                 inS__.endWriteParams__(true);
@@ -3570,18 +5723,150 @@ namespace minie
                 return Ice.DispatchStatus.DispatchOK;
             }
 
+            [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+            public static Ice.DispatchStatus get_sys_group___(BackendService obj__, IceInternal.Incoming inS__, Ice.Current current__)
+            {
+                Ice.ObjectImpl.checkMode__(Ice.OperationMode.Normal, current__.mode);
+                IceInternal.BasicStream is__ = inS__.startReadParams();
+                string groupID;
+                groupID = is__.readString();
+                inS__.endReadParams();
+                minie.irpc.sys_group_rpc ret__ = obj__.get_sys_group(groupID, current__);
+                IceInternal.BasicStream os__ = inS__.startWriteParams__(Ice.FormatType.DefaultFormat);
+                os__.writeObject(ret__);
+                os__.writePendingObjects();
+                inS__.endWriteParams__(true);
+                return Ice.DispatchStatus.DispatchOK;
+            }
+
+            [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+            public static Ice.DispatchStatus get_sys_user___(BackendService obj__, IceInternal.Incoming inS__, Ice.Current current__)
+            {
+                Ice.ObjectImpl.checkMode__(Ice.OperationMode.Normal, current__.mode);
+                IceInternal.BasicStream is__ = inS__.startReadParams();
+                string userID;
+                userID = is__.readString();
+                inS__.endReadParams();
+                minie.irpc.sys_user_rpc ret__ = obj__.get_sys_user(userID, current__);
+                IceInternal.BasicStream os__ = inS__.startWriteParams__(Ice.FormatType.DefaultFormat);
+                os__.writeObject(ret__);
+                os__.writePendingObjects();
+                inS__.endWriteParams__(true);
+                return Ice.DispatchStatus.DispatchOK;
+            }
+
+            [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+            public static Ice.DispatchStatus get_cm_node___(BackendService obj__, IceInternal.Incoming inS__, Ice.Current current__)
+            {
+                Ice.ObjectImpl.checkMode__(Ice.OperationMode.Normal, current__.mode);
+                IceInternal.BasicStream is__ = inS__.startReadParams();
+                string nodeID;
+                nodeID = is__.readString();
+                inS__.endReadParams();
+                minie.irpc.cm_node_rpc ret__ = obj__.get_cm_node(nodeID, current__);
+                IceInternal.BasicStream os__ = inS__.startWriteParams__(Ice.FormatType.DefaultFormat);
+                os__.writeObject(ret__);
+                os__.writePendingObjects();
+                inS__.endWriteParams__(true);
+                return Ice.DispatchStatus.DispatchOK;
+            }
+
+            [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+            public static Ice.DispatchStatus get_cm_entrance___(BackendService obj__, IceInternal.Incoming inS__, Ice.Current current__)
+            {
+                Ice.ObjectImpl.checkMode__(Ice.OperationMode.Normal, current__.mode);
+                IceInternal.BasicStream is__ = inS__.startReadParams();
+                string entranceID;
+                entranceID = is__.readString();
+                inS__.endReadParams();
+                minie.irpc.cm_entrance_rpc ret__ = obj__.get_cm_entrance(entranceID, current__);
+                IceInternal.BasicStream os__ = inS__.startWriteParams__(Ice.FormatType.DefaultFormat);
+                os__.writeObject(ret__);
+                os__.writePendingObjects();
+                inS__.endWriteParams__(true);
+                return Ice.DispatchStatus.DispatchOK;
+            }
+
+            [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+            public static Ice.DispatchStatus remove_sys_group___(BackendService obj__, IceInternal.Incoming inS__, Ice.Current current__)
+            {
+                Ice.ObjectImpl.checkMode__(Ice.OperationMode.Normal, current__.mode);
+                IceInternal.BasicStream is__ = inS__.startReadParams();
+                string groupID;
+                groupID = is__.readString();
+                inS__.endReadParams();
+                int ret__ = obj__.remove_sys_group(groupID, current__);
+                IceInternal.BasicStream os__ = inS__.startWriteParams__(Ice.FormatType.DefaultFormat);
+                os__.writeInt(ret__);
+                inS__.endWriteParams__(true);
+                return Ice.DispatchStatus.DispatchOK;
+            }
+
+            [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+            public static Ice.DispatchStatus remove_sys_user___(BackendService obj__, IceInternal.Incoming inS__, Ice.Current current__)
+            {
+                Ice.ObjectImpl.checkMode__(Ice.OperationMode.Normal, current__.mode);
+                IceInternal.BasicStream is__ = inS__.startReadParams();
+                string userID;
+                userID = is__.readString();
+                inS__.endReadParams();
+                int ret__ = obj__.remove_sys_user(userID, current__);
+                IceInternal.BasicStream os__ = inS__.startWriteParams__(Ice.FormatType.DefaultFormat);
+                os__.writeInt(ret__);
+                inS__.endWriteParams__(true);
+                return Ice.DispatchStatus.DispatchOK;
+            }
+
+            [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+            public static Ice.DispatchStatus remove_cm_node___(BackendService obj__, IceInternal.Incoming inS__, Ice.Current current__)
+            {
+                Ice.ObjectImpl.checkMode__(Ice.OperationMode.Normal, current__.mode);
+                IceInternal.BasicStream is__ = inS__.startReadParams();
+                string nodeID;
+                nodeID = is__.readString();
+                inS__.endReadParams();
+                int ret__ = obj__.remove_cm_node(nodeID, current__);
+                IceInternal.BasicStream os__ = inS__.startWriteParams__(Ice.FormatType.DefaultFormat);
+                os__.writeInt(ret__);
+                inS__.endWriteParams__(true);
+                return Ice.DispatchStatus.DispatchOK;
+            }
+
+            [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+            public static Ice.DispatchStatus remove_cm_entrance___(BackendService obj__, IceInternal.Incoming inS__, Ice.Current current__)
+            {
+                Ice.ObjectImpl.checkMode__(Ice.OperationMode.Normal, current__.mode);
+                IceInternal.BasicStream is__ = inS__.startReadParams();
+                string entranceID;
+                entranceID = is__.readString();
+                inS__.endReadParams();
+                int ret__ = obj__.remove_cm_entrance(entranceID, current__);
+                IceInternal.BasicStream os__ = inS__.startWriteParams__(Ice.FormatType.DefaultFormat);
+                os__.writeInt(ret__);
+                inS__.endWriteParams__(true);
+                return Ice.DispatchStatus.DispatchOK;
+            }
+
             private static string[] all__ =
             {
+                "add_cm_entrance",
+                "add_cm_node",
                 "add_role_group",
                 "add_role_user",
+                "add_sys_group",
+                "add_sys_user",
                 "add_user_group",
                 "find_app_user",
+                "get_cm_entrance",
+                "get_cm_node",
                 "get_current_user_info",
                 "get_groups",
                 "get_node_categories",
                 "get_nodes",
                 "get_permissions",
                 "get_roles",
+                "get_sys_group",
+                "get_sys_user",
                 "ice_id",
                 "ice_ids",
                 "ice_isA",
@@ -3589,6 +5874,13 @@ namespace minie
                 "logout",
                 "register_app_user_step1",
                 "register_app_user_step2",
+                "remove_cm_entrance",
+                "remove_cm_node",
+                "remove_role_group",
+                "remove_role_user",
+                "remove_sys_group",
+                "remove_sys_user",
+                "remove_user_group",
                 "update_cm_entrance",
                 "update_cm_node",
                 "update_sys_group",
@@ -3607,85 +5899,145 @@ namespace minie
                 {
                     case 0:
                     {
-                        return add_role_group___(this, inS__, current__);
+                        return add_cm_entrance___(this, inS__, current__);
                     }
                     case 1:
                     {
-                        return add_role_user___(this, inS__, current__);
+                        return add_cm_node___(this, inS__, current__);
                     }
                     case 2:
                     {
-                        return add_user_group___(this, inS__, current__);
+                        return add_role_group___(this, inS__, current__);
                     }
                     case 3:
                     {
-                        return find_app_user___(this, inS__, current__);
+                        return add_role_user___(this, inS__, current__);
                     }
                     case 4:
                     {
-                        return get_current_user_info___(this, inS__, current__);
+                        return add_sys_group___(this, inS__, current__);
                     }
                     case 5:
                     {
-                        return get_groups___(this, inS__, current__);
+                        return add_sys_user___(this, inS__, current__);
                     }
                     case 6:
                     {
-                        return get_node_categories___(this, inS__, current__);
+                        return add_user_group___(this, inS__, current__);
                     }
                     case 7:
                     {
-                        return get_nodes___(this, inS__, current__);
+                        return find_app_user___(this, inS__, current__);
                     }
                     case 8:
                     {
-                        return get_permissions___(this, inS__, current__);
+                        return get_cm_entrance___(this, inS__, current__);
                     }
                     case 9:
                     {
-                        return get_roles___(this, inS__, current__);
+                        return get_cm_node___(this, inS__, current__);
                     }
                     case 10:
                     {
-                        return Ice.ObjectImpl.ice_id___(this, inS__, current__);
+                        return get_current_user_info___(this, inS__, current__);
                     }
                     case 11:
                     {
-                        return Ice.ObjectImpl.ice_ids___(this, inS__, current__);
+                        return get_groups___(this, inS__, current__);
                     }
                     case 12:
                     {
-                        return Ice.ObjectImpl.ice_isA___(this, inS__, current__);
+                        return get_node_categories___(this, inS__, current__);
                     }
                     case 13:
                     {
-                        return Ice.ObjectImpl.ice_ping___(this, inS__, current__);
+                        return get_nodes___(this, inS__, current__);
                     }
                     case 14:
                     {
-                        return minie.irpc.BaseServiceDisp_.logout___(this, inS__, current__);
+                        return get_permissions___(this, inS__, current__);
                     }
                     case 15:
                     {
-                        return register_app_user_step1___(this, inS__, current__);
+                        return get_roles___(this, inS__, current__);
                     }
                     case 16:
                     {
-                        return register_app_user_step2___(this, inS__, current__);
+                        return get_sys_group___(this, inS__, current__);
                     }
                     case 17:
                     {
-                        return update_cm_entrance___(this, inS__, current__);
+                        return get_sys_user___(this, inS__, current__);
                     }
                     case 18:
                     {
-                        return update_cm_node___(this, inS__, current__);
+                        return Ice.ObjectImpl.ice_id___(this, inS__, current__);
                     }
                     case 19:
                     {
-                        return update_sys_group___(this, inS__, current__);
+                        return Ice.ObjectImpl.ice_ids___(this, inS__, current__);
                     }
                     case 20:
+                    {
+                        return Ice.ObjectImpl.ice_isA___(this, inS__, current__);
+                    }
+                    case 21:
+                    {
+                        return Ice.ObjectImpl.ice_ping___(this, inS__, current__);
+                    }
+                    case 22:
+                    {
+                        return minie.irpc.BaseServiceDisp_.logout___(this, inS__, current__);
+                    }
+                    case 23:
+                    {
+                        return register_app_user_step1___(this, inS__, current__);
+                    }
+                    case 24:
+                    {
+                        return register_app_user_step2___(this, inS__, current__);
+                    }
+                    case 25:
+                    {
+                        return remove_cm_entrance___(this, inS__, current__);
+                    }
+                    case 26:
+                    {
+                        return remove_cm_node___(this, inS__, current__);
+                    }
+                    case 27:
+                    {
+                        return remove_role_group___(this, inS__, current__);
+                    }
+                    case 28:
+                    {
+                        return remove_role_user___(this, inS__, current__);
+                    }
+                    case 29:
+                    {
+                        return remove_sys_group___(this, inS__, current__);
+                    }
+                    case 30:
+                    {
+                        return remove_sys_user___(this, inS__, current__);
+                    }
+                    case 31:
+                    {
+                        return remove_user_group___(this, inS__, current__);
+                    }
+                    case 32:
+                    {
+                        return update_cm_entrance___(this, inS__, current__);
+                    }
+                    case 33:
+                    {
+                        return update_cm_node___(this, inS__, current__);
+                    }
+                    case 34:
+                    {
+                        return update_sys_group___(this, inS__, current__);
+                    }
+                    case 35:
                     {
                         return update_sys_user___(this, inS__, current__);
                     }

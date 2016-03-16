@@ -41,7 +41,7 @@ namespace MiniEClient.frames
             try
             {
                 var list = m_Main.Client.get_nodes();
-                foreach(cm_node_rpc node in list)
+                foreach (cm_node_rpc node in list)
                 {
                     itemList.Add(new CMNode(node));
 
@@ -53,7 +53,7 @@ namespace MiniEClient.frames
                 var clist = m_Main.Client.get_node_categories();
                 foreach (cm_node_category_rpc c in clist)
                 {
-                    _categories.Add( c );
+                    _categories.Add(c);
                 }
             }
             catch (Exception ex)
@@ -67,17 +67,12 @@ namespace MiniEClient.frames
             var item = e.SourceItem as CMNode;
             var new_item = new CMNode(new cm_node_rpc()
             {
-                //id =  Do not set the id, as the server will generate id for us.
+                id = Guid.NewGuid().ToString(),
                 name = "New Node",
                 desc = "",
                 parent = item.Data as cm_node_rpc,
                 children = new List<cm_node_rpc>(),
-                category = new cm_node_category_rpc()
-                {
-                    id = 100,
-                    name = "room",
-                    desc = "住户"
-                },
+                category = _categories.First() as cm_node_category_rpc,
             }, item);
             new_item.IsNew = true;
             new_item.IsSelected = true;
@@ -92,6 +87,13 @@ namespace MiniEClient.frames
         private void treeView_ClickDelete(object sender, PNRoutedEventArgs e)
         {
             var item = e.SourceItem as PNTreeViewItem;
+            var data = item.Data as cm_node_rpc;
+            if (m_Main.Client.remove_cm_node(data.id) != 0)
+            {
+                return;
+            }
+            if (data.parent != null)
+                data.parent.children.Remove(data);
             var parent = item.Parent;
             if (parent != null)
             {
@@ -123,16 +125,44 @@ namespace MiniEClient.frames
                 page.IsEditable = true;
             }
         }
+        private int UpdateNode(cm_node_rpc node, bool isNew)
+        {
+            var data = node.Clone() as cm_node_rpc;
+
+            if (data.parent != null)
+            {
+                data.parent = data.parent.Clone() as cm_node_rpc;
+                data.parent.children = null;
+                data.parent.parent = null;
+            }
+            data.children = null;
+            return isNew ? m_Main.Client.add_cm_node(data) : m_Main.Client.update_cm_node(data);
+        }
 
         private void OnSave(object sender, RoutedEventArgs e)
         {
             var page = frame.Content as EditorPage;
             var item = treeView.SelectedItem as PNTreeViewItem;
+            var data = page.EditorData as cm_node_rpc;
 
-            if (true)
+            if (item.IsNew)
             {
-                page.Editor.DataContext = item.CloneData();
-                return;
+                if (UpdateNode(data, true) != 0)
+                {
+                    page.IsEditable = true;
+                    return;
+                }
+                ///Update local children list.
+                var parent = (page.EditorData as cm_node_rpc).parent;
+                parent.children.Add(item.Data as cm_node_rpc);
+            }
+            else
+            {
+                if (UpdateNode(data, false) != 0)
+                {
+                    page.Editor.DataContext = item.CloneData();
+                    return;
+                }
             }
 
             item.UpdateData(page.EditorData); // Update data object

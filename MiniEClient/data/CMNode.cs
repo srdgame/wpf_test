@@ -76,8 +76,15 @@ namespace MiniEClient.data
             _data.name = d.name;
             _data.desc = d.desc;
             _data.address = d.address;
-            _data.parent = d.parent;
             _data.category = d.category;
+            if (_data.parent != d.parent)
+            {
+                if (_data.parent != null)
+                    _data.parent.children.Remove(_data);
+                _data.parent = d.parent;
+                if (_data.parent != null)
+                    _data.parent.children.Add(_data);
+            }
         }
 
         public override object CloneData()

@@ -25,15 +25,33 @@ module minie
 			bool register_app_user_step1(string cellphone);
 			cm_user_rpc register_app_user_step2(string cellphone, string password, int verifyCode)  throws VerificationError;
 			
-			int add_user_group(sys_user_rpc user, sys_group_rpc group);
-			int add_role_group(sys_role_rpc role, sys_group_rpc group);
-			int add_role_user(sys_role_rpc role, sys_user_rpc user);
+			int add_user_group(string groupID, string userID);
+			int add_role_group(string groupID, string roleID);
+			int add_role_user(string userID, string roleID);
+			
+			int remove_user_group(string groupID, string userID);
+			int remove_role_group(string groupID, string roleID);
+			int remove_role_user(string userID, string roleID);
+			
+			int add_sys_group(sys_group_rpc group);
+			int add_sys_user(sys_user_rpc user);
+			int add_cm_node(cm_node_rpc node);
+			int add_cm_entrance(cm_entrance_rpc entrance);
 
 			int update_sys_group(sys_group_rpc group);
 			int update_sys_user(sys_user_rpc user);
 			int update_cm_node(cm_node_rpc node);
 			int update_cm_entrance(cm_entrance_rpc entrance);
 
+			sys_group_rpc get_sys_group(string groupID);
+			sys_user_rpc get_sys_user(string userID);
+			cm_node_rpc get_cm_node(string nodeID);
+			cm_entrance_rpc get_cm_entrance(string entranceID);
+
+			int remove_sys_group(string groupID);
+			int remove_sys_user(string userID);
+			int remove_cm_node(string nodeID);
+			int remove_cm_entrance(string entranceID);
 		};
 	
 	};
