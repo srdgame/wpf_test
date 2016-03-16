@@ -29,6 +29,11 @@ module minie
 			int add_role_group(sys_role_rpc role, sys_group_rpc group);
 			int add_role_user(sys_role_rpc role, sys_user_rpc user);
 
+			int update_sys_group(sys_group_rpc group);
+			int update_sys_user(sys_user_rpc user);
+			int update_cm_node(cm_node_rpc node);
+			int update_cm_entrance(cm_entrance_rpc entrance);
+
 		};
 	
 	};

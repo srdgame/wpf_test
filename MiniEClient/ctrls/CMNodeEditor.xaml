@@ -18,5 +18,14 @@
         <ComboBox x:Name="categoryList" HorizontalAlignment="Left" Margin="61,98,0,0" VerticalAlignment="Top" Width="120" SelectedValue="{Binding category.id, Mode=OneWay}" SelectedValuePath="id" SelectedItem="{Binding category}" ItemsSource="{Binding Categories, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" DisplayMemberPath="desc"/>
         <Label Content="父节点：" HorizontalAlignment="Left" Margin="10,121,0,0" VerticalAlignment="Top"/>
         <local:ComboTree x:Name="nodeList" HorizontalAlignment="Left" Margin="73,125,0,0" VerticalAlignment="Top" Width="120" SelectedValue="{Binding parent}"  SelectedValuePath="Data" ItemsSource="{Binding NodeList, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"/>
+        <ListView x:Name="listView" Margin="10,151,10,10" ItemsSource="{Binding children}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding name}" Header="Name"></GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding desc}" Header="Description"></GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding address}" Header="Address"></GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
     </Grid>
 </UserControl>

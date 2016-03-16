@@ -34,6 +34,12 @@
                     </StackPanel>
                 </HierarchicalDataTemplate>
             </TreeView.ItemTemplate>
+            <TreeView.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Copy"></MenuItem>
+                    <MenuItem Header="Paste"></MenuItem>
+                </ContextMenu>
+            </TreeView.ContextMenu>
         </TreeView>
         <local:ItemShowControl x:Name="itemshow" Margin="194,0,0,0"/>
     </Grid>

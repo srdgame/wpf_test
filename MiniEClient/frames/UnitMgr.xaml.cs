@@ -129,6 +129,12 @@ namespace MiniEClient.frames
             var page = frame.Content as EditorPage;
             var item = treeView.SelectedItem as PNTreeViewItem;
 
+            if (true)
+            {
+                page.Editor.DataContext = item.CloneData();
+                return;
+            }
+
             item.UpdateData(page.EditorData); // Update data object
             item.UpdateGUI(); // Update GUI
             // Trigger parent update

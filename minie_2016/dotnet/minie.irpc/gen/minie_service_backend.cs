@@ -181,6 +181,18 @@ namespace minie
 
         [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.6.1")]
         public delegate void Callback_BackendService_add_role_user(int ret__);
+
+        [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.6.1")]
+        public delegate void Callback_BackendService_update_sys_group(int ret__);
+
+        [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.6.1")]
+        public delegate void Callback_BackendService_update_sys_user(int ret__);
+
+        [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.6.1")]
+        public delegate void Callback_BackendService_update_cm_node(int ret__);
+
+        [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.6.1")]
+        public delegate void Callback_BackendService_update_cm_entrance(int ret__);
     }
 }
 
@@ -348,6 +360,50 @@ namespace minie
             Ice.AsyncResult begin_add_role_user(minie.irpc.sys_role_rpc role, minie.irpc.sys_user_rpc user, _System.Collections.Generic.Dictionary<string, string> ctx__, Ice.AsyncCallback cb__, object cookie__);
 
             int end_add_role_user(Ice.AsyncResult r__);
+
+            int update_sys_group(minie.irpc.sys_group_rpc group);
+            int update_sys_group(minie.irpc.sys_group_rpc group, _System.Collections.Generic.Dictionary<string, string> context__);
+
+            Ice.AsyncResult<minie.irpc.Callback_BackendService_update_sys_group> begin_update_sys_group(minie.irpc.sys_group_rpc group);
+            Ice.AsyncResult<minie.irpc.Callback_BackendService_update_sys_group> begin_update_sys_group(minie.irpc.sys_group_rpc group, _System.Collections.Generic.Dictionary<string, string> ctx__);
+
+            Ice.AsyncResult begin_update_sys_group(minie.irpc.sys_group_rpc group, Ice.AsyncCallback cb__, object cookie__);
+            Ice.AsyncResult begin_update_sys_group(minie.irpc.sys_group_rpc group, _System.Collections.Generic.Dictionary<string, string> ctx__, Ice.AsyncCallback cb__, object cookie__);
+
+            int end_update_sys_group(Ice.AsyncResult r__);
+
+            int update_sys_user(minie.irpc.sys_user_rpc user);
+            int update_sys_user(minie.irpc.sys_user_rpc user, _System.Collections.Generic.Dictionary<string, string> context__);
+
+            Ice.AsyncResult<minie.irpc.Callback_BackendService_update_sys_user> begin_update_sys_user(minie.irpc.sys_user_rpc user);
+            Ice.AsyncResult<minie.irpc.Callback_BackendService_update_sys_user> begin_update_sys_user(minie.irpc.sys_user_rpc user, _System.Collections.Generic.Dictionary<string, string> ctx__);
+
+            Ice.AsyncResult begin_update_sys_user(minie.irpc.sys_user_rpc user, Ice.AsyncCallback cb__, object cookie__);
+            Ice.AsyncResult begin_update_sys_user(minie.irpc.sys_user_rpc user, _System.Collections.Generic.Dictionary<string, string> ctx__, Ice.AsyncCallback cb__, object cookie__);
+
+            int end_update_sys_user(Ice.AsyncResult r__);
+
+            int update_cm_node(minie.irpc.cm_node_rpc node);
+            int update_cm_node(minie.irpc.cm_node_rpc node, _System.Collections.Generic.Dictionary<string, string> context__);
+
+            Ice.AsyncResult<minie.irpc.Callback_BackendService_update_cm_node> begin_update_cm_node(minie.irpc.cm_node_rpc node);
+            Ice.AsyncResult<minie.irpc.Callback_BackendService_update_cm_node> begin_update_cm_node(minie.irpc.cm_node_rpc node, _System.Collections.Generic.Dictionary<string, string> ctx__);
+
+            Ice.AsyncResult begin_update_cm_node(minie.irpc.cm_node_rpc node, Ice.AsyncCallback cb__, object cookie__);
+            Ice.AsyncResult begin_update_cm_node(minie.irpc.cm_node_rpc node, _System.Collections.Generic.Dictionary<string, string> ctx__, Ice.AsyncCallback cb__, object cookie__);
+
+            int end_update_cm_node(Ice.AsyncResult r__);
+
+            int update_cm_entrance(minie.irpc.cm_entrance_rpc entrance);
+            int update_cm_entrance(minie.irpc.cm_entrance_rpc entrance, _System.Collections.Generic.Dictionary<string, string> context__);
+
+            Ice.AsyncResult<minie.irpc.Callback_BackendService_update_cm_entrance> begin_update_cm_entrance(minie.irpc.cm_entrance_rpc entrance);
+            Ice.AsyncResult<minie.irpc.Callback_BackendService_update_cm_entrance> begin_update_cm_entrance(minie.irpc.cm_entrance_rpc entrance, _System.Collections.Generic.Dictionary<string, string> ctx__);
+
+            Ice.AsyncResult begin_update_cm_entrance(minie.irpc.cm_entrance_rpc entrance, Ice.AsyncCallback cb__, object cookie__);
+            Ice.AsyncResult begin_update_cm_entrance(minie.irpc.cm_entrance_rpc entrance, _System.Collections.Generic.Dictionary<string, string> ctx__, Ice.AsyncCallback cb__, object cookie__);
+
+            int end_update_cm_entrance(Ice.AsyncResult r__);
         }
     }
 }
@@ -398,6 +454,14 @@ namespace minie
             int add_role_group(minie.irpc.sys_role_rpc role, minie.irpc.sys_group_rpc group, Ice.Current current__);
 
             int add_role_user(minie.irpc.sys_role_rpc role, minie.irpc.sys_user_rpc user, Ice.Current current__);
+
+            int update_sys_group(minie.irpc.sys_group_rpc group, Ice.Current current__);
+
+            int update_sys_user(minie.irpc.sys_user_rpc user, Ice.Current current__);
+
+            int update_cm_node(minie.irpc.cm_node_rpc node, Ice.Current current__);
+
+            int update_cm_entrance(minie.irpc.cm_entrance_rpc entrance, Ice.Current current__);
         }
 
         [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.6.1")]
@@ -426,6 +490,14 @@ namespace minie
             int add_role_group(minie.irpc.sys_role_rpc role, minie.irpc.sys_group_rpc group);
 
             int add_role_user(minie.irpc.sys_role_rpc role, minie.irpc.sys_user_rpc user);
+
+            int update_sys_group(minie.irpc.sys_group_rpc group);
+
+            int update_sys_user(minie.irpc.sys_user_rpc user);
+
+            int update_cm_node(minie.irpc.cm_node_rpc node);
+
+            int update_cm_entrance(minie.irpc.cm_entrance_rpc entrance);
         }
     }
 }
@@ -1034,6 +1106,70 @@ namespace minie
             {
                 checkTwowayOnly__(__register_app_user_step2_name);
                 return end_register_app_user_step2(begin_register_app_user_step2(cellphone, password, verifyCode, context__, explicitCtx__, true, null, null));
+            }
+
+            public int update_cm_entrance(minie.irpc.cm_entrance_rpc entrance)
+            {
+                return this.update_cm_entrance(entrance, null, false);
+            }
+
+            public int update_cm_entrance(minie.irpc.cm_entrance_rpc entrance, _System.Collections.Generic.Dictionary<string, string> context__)
+            {
+                return this.update_cm_entrance(entrance, context__, true);
+            }
+
+            private int update_cm_entrance(minie.irpc.cm_entrance_rpc entrance, _System.Collections.Generic.Dictionary<string, string> context__, bool explicitCtx__)
+            {
+                checkTwowayOnly__(__update_cm_entrance_name);
+                return end_update_cm_entrance(begin_update_cm_entrance(entrance, context__, explicitCtx__, true, null, null));
+            }
+
+            public int update_cm_node(minie.irpc.cm_node_rpc node)
+            {
+                return this.update_cm_node(node, null, false);
+            }
+
+            public int update_cm_node(minie.irpc.cm_node_rpc node, _System.Collections.Generic.Dictionary<string, string> context__)
+            {
+                return this.update_cm_node(node, context__, true);
+            }
+
+            private int update_cm_node(minie.irpc.cm_node_rpc node, _System.Collections.Generic.Dictionary<string, string> context__, bool explicitCtx__)
+            {
+                checkTwowayOnly__(__update_cm_node_name);
+                return end_update_cm_node(begin_update_cm_node(node, context__, explicitCtx__, true, null, null));
+            }
+
+            public int update_sys_group(minie.irpc.sys_group_rpc group)
+            {
+                return this.update_sys_group(group, null, false);
+            }
+
+            public int update_sys_group(minie.irpc.sys_group_rpc group, _System.Collections.Generic.Dictionary<string, string> context__)
+            {
+                return this.update_sys_group(group, context__, true);
+            }
+
+            private int update_sys_group(minie.irpc.sys_group_rpc group, _System.Collections.Generic.Dictionary<string, string> context__, bool explicitCtx__)
+            {
+                checkTwowayOnly__(__update_sys_group_name);
+                return end_update_sys_group(begin_update_sys_group(group, context__, explicitCtx__, true, null, null));
+            }
+
+            public int update_sys_user(minie.irpc.sys_user_rpc user)
+            {
+                return this.update_sys_user(user, null, false);
+            }
+
+            public int update_sys_user(minie.irpc.sys_user_rpc user, _System.Collections.Generic.Dictionary<string, string> context__)
+            {
+                return this.update_sys_user(user, context__, true);
+            }
+
+            private int update_sys_user(minie.irpc.sys_user_rpc user, _System.Collections.Generic.Dictionary<string, string> context__, bool explicitCtx__)
+            {
+                checkTwowayOnly__(__update_sys_user_name);
+                return end_update_sys_user(begin_update_sys_user(user, context__, explicitCtx__, true, null, null));
             }
 
             public void logout()
@@ -2195,6 +2331,386 @@ namespace minie
                 }
             }
 
+            public Ice.AsyncResult<minie.irpc.Callback_BackendService_update_cm_entrance> begin_update_cm_entrance(minie.irpc.cm_entrance_rpc entrance)
+            {
+                return begin_update_cm_entrance(entrance, null, false, false, null, null);
+            }
+
+            public Ice.AsyncResult<minie.irpc.Callback_BackendService_update_cm_entrance> begin_update_cm_entrance(minie.irpc.cm_entrance_rpc entrance, _System.Collections.Generic.Dictionary<string, string> ctx__)
+            {
+                return begin_update_cm_entrance(entrance, ctx__, true, false, null, null);
+            }
+
+            public Ice.AsyncResult begin_update_cm_entrance(minie.irpc.cm_entrance_rpc entrance, Ice.AsyncCallback cb__, object cookie__)
+            {
+                return begin_update_cm_entrance(entrance, null, false, false, cb__, cookie__);
+            }
+
+            public Ice.AsyncResult begin_update_cm_entrance(minie.irpc.cm_entrance_rpc entrance, _System.Collections.Generic.Dictionary<string, string> ctx__, Ice.AsyncCallback cb__, object cookie__)
+            {
+                return begin_update_cm_entrance(entrance, ctx__, true, false, cb__, cookie__);
+            }
+
+            private const string __update_cm_entrance_name = "update_cm_entrance";
+
+            public int end_update_cm_entrance(Ice.AsyncResult r__)
+            {
+                IceInternal.OutgoingAsync outAsync__ = IceInternal.OutgoingAsync.check(r__, this, __update_cm_entrance_name);
+                try
+                {
+                    if(!outAsync__.wait())
+                    {
+                        try
+                        {
+                            outAsync__.throwUserException();
+                        }
+                        catch(Ice.UserException ex__)
+                        {
+                            throw new Ice.UnknownUserException(ex__.ice_name(), ex__);
+                        }
+                    }
+                    int ret__;
+                    IceInternal.BasicStream is__ = outAsync__.startReadParams();
+                    ret__ = is__.readInt();
+                    outAsync__.endReadParams();
+                    return ret__;
+                }
+                finally
+                {
+                    outAsync__.cacheMessageBuffers();
+                }
+            }
+
+            private Ice.AsyncResult<minie.irpc.Callback_BackendService_update_cm_entrance> begin_update_cm_entrance(minie.irpc.cm_entrance_rpc entrance, _System.Collections.Generic.Dictionary<string, string> ctx__, bool explicitContext__, bool synchronous__, Ice.AsyncCallback cb__, object cookie__)
+            {
+                checkAsyncTwowayOnly__(__update_cm_entrance_name);
+                IceInternal.TwowayOutgoingAsync<minie.irpc.Callback_BackendService_update_cm_entrance> result__ =  getTwowayOutgoingAsync<minie.irpc.Callback_BackendService_update_cm_entrance>(__update_cm_entrance_name, update_cm_entrance_completed__, cookie__);
+                if(cb__ != null)
+                {
+                    result__.whenCompletedWithAsyncCallback(cb__);
+                }
+                try
+                {
+                    result__.prepare(__update_cm_entrance_name, Ice.OperationMode.Normal, ctx__, explicitContext__, synchronous__);
+                    IceInternal.BasicStream os__ = result__.startWriteParams(Ice.FormatType.DefaultFormat);
+                    os__.writeObject(entrance);
+                    os__.writePendingObjects();
+                    result__.endWriteParams();
+                    result__.invoke();
+                }
+                catch(Ice.Exception ex__)
+                {
+                    result__.abort(ex__);
+                }
+                return result__;
+            }
+
+            private void update_cm_entrance_completed__(Ice.AsyncResult r__, minie.irpc.Callback_BackendService_update_cm_entrance cb__, Ice.ExceptionCallback excb__)
+            {
+                int ret__;
+                try
+                {
+                    ret__ = end_update_cm_entrance(r__);
+                }
+                catch(Ice.Exception ex__)
+                {
+                    if(excb__ != null)
+                    {
+                        excb__(ex__);
+                    }
+                    return;
+                }
+                if(cb__ != null)
+                {
+                    cb__(ret__);
+                }
+            }
+
+            public Ice.AsyncResult<minie.irpc.Callback_BackendService_update_cm_node> begin_update_cm_node(minie.irpc.cm_node_rpc node)
+            {
+                return begin_update_cm_node(node, null, false, false, null, null);
+            }
+
+            public Ice.AsyncResult<minie.irpc.Callback_BackendService_update_cm_node> begin_update_cm_node(minie.irpc.cm_node_rpc node, _System.Collections.Generic.Dictionary<string, string> ctx__)
+            {
+                return begin_update_cm_node(node, ctx__, true, false, null, null);
+            }
+
+            public Ice.AsyncResult begin_update_cm_node(minie.irpc.cm_node_rpc node, Ice.AsyncCallback cb__, object cookie__)
+            {
+                return begin_update_cm_node(node, null, false, false, cb__, cookie__);
+            }
+
+            public Ice.AsyncResult begin_update_cm_node(minie.irpc.cm_node_rpc node, _System.Collections.Generic.Dictionary<string, string> ctx__, Ice.AsyncCallback cb__, object cookie__)
+            {
+                return begin_update_cm_node(node, ctx__, true, false, cb__, cookie__);
+            }
+
+            private const string __update_cm_node_name = "update_cm_node";
+
+            public int end_update_cm_node(Ice.AsyncResult r__)
+            {
+                IceInternal.OutgoingAsync outAsync__ = IceInternal.OutgoingAsync.check(r__, this, __update_cm_node_name);
+                try
+                {
+                    if(!outAsync__.wait())
+                    {
+                        try
+                        {
+                            outAsync__.throwUserException();
+                        }
+                        catch(Ice.UserException ex__)
+                        {
+                            throw new Ice.UnknownUserException(ex__.ice_name(), ex__);
+                        }
+                    }
+                    int ret__;
+                    IceInternal.BasicStream is__ = outAsync__.startReadParams();
+                    ret__ = is__.readInt();
+                    outAsync__.endReadParams();
+                    return ret__;
+                }
+                finally
+                {
+                    outAsync__.cacheMessageBuffers();
+                }
+            }
+
+            private Ice.AsyncResult<minie.irpc.Callback_BackendService_update_cm_node> begin_update_cm_node(minie.irpc.cm_node_rpc node, _System.Collections.Generic.Dictionary<string, string> ctx__, bool explicitContext__, bool synchronous__, Ice.AsyncCallback cb__, object cookie__)
+            {
+                checkAsyncTwowayOnly__(__update_cm_node_name);
+                IceInternal.TwowayOutgoingAsync<minie.irpc.Callback_BackendService_update_cm_node> result__ =  getTwowayOutgoingAsync<minie.irpc.Callback_BackendService_update_cm_node>(__update_cm_node_name, update_cm_node_completed__, cookie__);
+                if(cb__ != null)
+                {
+                    result__.whenCompletedWithAsyncCallback(cb__);
+                }
+                try
+                {
+                    result__.prepare(__update_cm_node_name, Ice.OperationMode.Normal, ctx__, explicitContext__, synchronous__);
+                    IceInternal.BasicStream os__ = result__.startWriteParams(Ice.FormatType.DefaultFormat);
+                    os__.writeObject(node);
+                    os__.writePendingObjects();
+                    result__.endWriteParams();
+                    result__.invoke();
+                }
+                catch(Ice.Exception ex__)
+                {
+                    result__.abort(ex__);
+                }
+                return result__;
+            }
+
+            private void update_cm_node_completed__(Ice.AsyncResult r__, minie.irpc.Callback_BackendService_update_cm_node cb__, Ice.ExceptionCallback excb__)
+            {
+                int ret__;
+                try
+                {
+                    ret__ = end_update_cm_node(r__);
+                }
+                catch(Ice.Exception ex__)
+                {
+                    if(excb__ != null)
+                    {
+                        excb__(ex__);
+                    }
+                    return;
+                }
+                if(cb__ != null)
+                {
+                    cb__(ret__);
+                }
+            }
+
+            public Ice.AsyncResult<minie.irpc.Callback_BackendService_update_sys_group> begin_update_sys_group(minie.irpc.sys_group_rpc group)
+            {
+                return begin_update_sys_group(group, null, false, false, null, null);
+            }
+
+            public Ice.AsyncResult<minie.irpc.Callback_BackendService_update_sys_group> begin_update_sys_group(minie.irpc.sys_group_rpc group, _System.Collections.Generic.Dictionary<string, string> ctx__)
+            {
+                return begin_update_sys_group(group, ctx__, true, false, null, null);
+            }
+
+            public Ice.AsyncResult begin_update_sys_group(minie.irpc.sys_group_rpc group, Ice.AsyncCallback cb__, object cookie__)
+            {
+                return begin_update_sys_group(group, null, false, false, cb__, cookie__);
+            }
+
+            public Ice.AsyncResult begin_update_sys_group(minie.irpc.sys_group_rpc group, _System.Collections.Generic.Dictionary<string, string> ctx__, Ice.AsyncCallback cb__, object cookie__)
+            {
+                return begin_update_sys_group(group, ctx__, true, false, cb__, cookie__);
+            }
+
+            private const string __update_sys_group_name = "update_sys_group";
+
+            public int end_update_sys_group(Ice.AsyncResult r__)
+            {
+                IceInternal.OutgoingAsync outAsync__ = IceInternal.OutgoingAsync.check(r__, this, __update_sys_group_name);
+                try
+                {
+                    if(!outAsync__.wait())
+                    {
+                        try
+                        {
+                            outAsync__.throwUserException();
+                        }
+                        catch(Ice.UserException ex__)
+                        {
+                            throw new Ice.UnknownUserException(ex__.ice_name(), ex__);
+                        }
+                    }
+                    int ret__;
+                    IceInternal.BasicStream is__ = outAsync__.startReadParams();
+                    ret__ = is__.readInt();
+                    outAsync__.endReadParams();
+                    return ret__;
+                }
+                finally
+                {
+                    outAsync__.cacheMessageBuffers();
+                }
+            }
+
+            private Ice.AsyncResult<minie.irpc.Callback_BackendService_update_sys_group> begin_update_sys_group(minie.irpc.sys_group_rpc group, _System.Collections.Generic.Dictionary<string, string> ctx__, bool explicitContext__, bool synchronous__, Ice.AsyncCallback cb__, object cookie__)
+            {
+                checkAsyncTwowayOnly__(__update_sys_group_name);
+                IceInternal.TwowayOutgoingAsync<minie.irpc.Callback_BackendService_update_sys_group> result__ =  getTwowayOutgoingAsync<minie.irpc.Callback_BackendService_update_sys_group>(__update_sys_group_name, update_sys_group_completed__, cookie__);
+                if(cb__ != null)
+                {
+                    result__.whenCompletedWithAsyncCallback(cb__);
+                }
+                try
+                {
+                    result__.prepare(__update_sys_group_name, Ice.OperationMode.Normal, ctx__, explicitContext__, synchronous__);
+                    IceInternal.BasicStream os__ = result__.startWriteParams(Ice.FormatType.DefaultFormat);
+                    os__.writeObject(group);
+                    os__.writePendingObjects();
+                    result__.endWriteParams();
+                    result__.invoke();
+                }
+                catch(Ice.Exception ex__)
+                {
+                    result__.abort(ex__);
+                }
+                return result__;
+            }
+
+            private void update_sys_group_completed__(Ice.AsyncResult r__, minie.irpc.Callback_BackendService_update_sys_group cb__, Ice.ExceptionCallback excb__)
+            {
+                int ret__;
+                try
+                {
+                    ret__ = end_update_sys_group(r__);
+                }
+                catch(Ice.Exception ex__)
+                {
+                    if(excb__ != null)
+                    {
+                        excb__(ex__);
+                    }
+                    return;
+                }
+                if(cb__ != null)
+                {
+                    cb__(ret__);
+                }
+            }
+
+            public Ice.AsyncResult<minie.irpc.Callback_BackendService_update_sys_user> begin_update_sys_user(minie.irpc.sys_user_rpc user)
+            {
+                return begin_update_sys_user(user, null, false, false, null, null);
+            }
+
+            public Ice.AsyncResult<minie.irpc.Callback_BackendService_update_sys_user> begin_update_sys_user(minie.irpc.sys_user_rpc user, _System.Collections.Generic.Dictionary<string, string> ctx__)
+            {
+                return begin_update_sys_user(user, ctx__, true, false, null, null);
+            }
+
+            public Ice.AsyncResult begin_update_sys_user(minie.irpc.sys_user_rpc user, Ice.AsyncCallback cb__, object cookie__)
+            {
+                return begin_update_sys_user(user, null, false, false, cb__, cookie__);
+            }
+
+            public Ice.AsyncResult begin_update_sys_user(minie.irpc.sys_user_rpc user, _System.Collections.Generic.Dictionary<string, string> ctx__, Ice.AsyncCallback cb__, object cookie__)
+            {
+                return begin_update_sys_user(user, ctx__, true, false, cb__, cookie__);
+            }
+
+            private const string __update_sys_user_name = "update_sys_user";
+
+            public int end_update_sys_user(Ice.AsyncResult r__)
+            {
+                IceInternal.OutgoingAsync outAsync__ = IceInternal.OutgoingAsync.check(r__, this, __update_sys_user_name);
+                try
+                {
+                    if(!outAsync__.wait())
+                    {
+                        try
+                        {
+                            outAsync__.throwUserException();
+                        }
+                        catch(Ice.UserException ex__)
+                        {
+                            throw new Ice.UnknownUserException(ex__.ice_name(), ex__);
+                        }
+                    }
+                    int ret__;
+                    IceInternal.BasicStream is__ = outAsync__.startReadParams();
+                    ret__ = is__.readInt();
+                    outAsync__.endReadParams();
+                    return ret__;
+                }
+                finally
+                {
+                    outAsync__.cacheMessageBuffers();
+                }
+            }
+
+            private Ice.AsyncResult<minie.irpc.Callback_BackendService_update_sys_user> begin_update_sys_user(minie.irpc.sys_user_rpc user, _System.Collections.Generic.Dictionary<string, string> ctx__, bool explicitContext__, bool synchronous__, Ice.AsyncCallback cb__, object cookie__)
+            {
+                checkAsyncTwowayOnly__(__update_sys_user_name);
+                IceInternal.TwowayOutgoingAsync<minie.irpc.Callback_BackendService_update_sys_user> result__ =  getTwowayOutgoingAsync<minie.irpc.Callback_BackendService_update_sys_user>(__update_sys_user_name, update_sys_user_completed__, cookie__);
+                if(cb__ != null)
+                {
+                    result__.whenCompletedWithAsyncCallback(cb__);
+                }
+                try
+                {
+                    result__.prepare(__update_sys_user_name, Ice.OperationMode.Normal, ctx__, explicitContext__, synchronous__);
+                    IceInternal.BasicStream os__ = result__.startWriteParams(Ice.FormatType.DefaultFormat);
+                    os__.writeObject(user);
+                    os__.writePendingObjects();
+                    result__.endWriteParams();
+                    result__.invoke();
+                }
+                catch(Ice.Exception ex__)
+                {
+                    result__.abort(ex__);
+                }
+                return result__;
+            }
+
+            private void update_sys_user_completed__(Ice.AsyncResult r__, minie.irpc.Callback_BackendService_update_sys_user cb__, Ice.ExceptionCallback excb__)
+            {
+                int ret__;
+                try
+                {
+                    ret__ = end_update_sys_user(r__);
+                }
+                catch(Ice.Exception ex__)
+                {
+                    if(excb__ != null)
+                    {
+                        excb__(ex__);
+                    }
+                    return;
+                }
+                if(cb__ != null)
+                {
+                    cb__(ret__);
+                }
+            }
+
             public Ice.AsyncResult<minie.irpc.Callback_BaseService_logout> begin_logout()
             {
                 return begin_logout(null, false, false, null, null);
@@ -2710,6 +3226,34 @@ namespace minie
 
             public abstract int add_role_user(minie.irpc.sys_role_rpc role, minie.irpc.sys_user_rpc user, Ice.Current current__);
 
+            public int update_sys_group(minie.irpc.sys_group_rpc group)
+            {
+                return update_sys_group(group, Ice.ObjectImpl.defaultCurrent);
+            }
+
+            public abstract int update_sys_group(minie.irpc.sys_group_rpc group, Ice.Current current__);
+
+            public int update_sys_user(minie.irpc.sys_user_rpc user)
+            {
+                return update_sys_user(user, Ice.ObjectImpl.defaultCurrent);
+            }
+
+            public abstract int update_sys_user(minie.irpc.sys_user_rpc user, Ice.Current current__);
+
+            public int update_cm_node(minie.irpc.cm_node_rpc node)
+            {
+                return update_cm_node(node, Ice.ObjectImpl.defaultCurrent);
+            }
+
+            public abstract int update_cm_node(minie.irpc.cm_node_rpc node, Ice.Current current__);
+
+            public int update_cm_entrance(minie.irpc.cm_entrance_rpc entrance)
+            {
+                return update_cm_entrance(entrance, Ice.ObjectImpl.defaultCurrent);
+            }
+
+            public abstract int update_cm_entrance(minie.irpc.cm_entrance_rpc entrance, Ice.Current current__);
+
             #endregion
 
             #region Inherited Slice operations
@@ -2962,6 +3506,70 @@ namespace minie
                 return Ice.DispatchStatus.DispatchOK;
             }
 
+            [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+            public static Ice.DispatchStatus update_sys_group___(BackendService obj__, IceInternal.Incoming inS__, Ice.Current current__)
+            {
+                Ice.ObjectImpl.checkMode__(Ice.OperationMode.Normal, current__.mode);
+                IceInternal.BasicStream is__ = inS__.startReadParams();
+                IceInternal.ParamPatcher<minie.irpc.sys_group_rpc> group__PP = new IceInternal.ParamPatcher<minie.irpc.sys_group_rpc>(minie.irpc.sys_group_rpc.ice_staticId());
+                is__.readObject(group__PP);
+                is__.readPendingObjects();
+                inS__.endReadParams();
+                int ret__ = obj__.update_sys_group(group__PP.value, current__);
+                IceInternal.BasicStream os__ = inS__.startWriteParams__(Ice.FormatType.DefaultFormat);
+                os__.writeInt(ret__);
+                inS__.endWriteParams__(true);
+                return Ice.DispatchStatus.DispatchOK;
+            }
+
+            [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+            public static Ice.DispatchStatus update_sys_user___(BackendService obj__, IceInternal.Incoming inS__, Ice.Current current__)
+            {
+                Ice.ObjectImpl.checkMode__(Ice.OperationMode.Normal, current__.mode);
+                IceInternal.BasicStream is__ = inS__.startReadParams();
+                IceInternal.ParamPatcher<minie.irpc.sys_user_rpc> user__PP = new IceInternal.ParamPatcher<minie.irpc.sys_user_rpc>(minie.irpc.sys_user_rpc.ice_staticId());
+                is__.readObject(user__PP);
+                is__.readPendingObjects();
+                inS__.endReadParams();
+                int ret__ = obj__.update_sys_user(user__PP.value, current__);
+                IceInternal.BasicStream os__ = inS__.startWriteParams__(Ice.FormatType.DefaultFormat);
+                os__.writeInt(ret__);
+                inS__.endWriteParams__(true);
+                return Ice.DispatchStatus.DispatchOK;
+            }
+
+            [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+            public static Ice.DispatchStatus update_cm_node___(BackendService obj__, IceInternal.Incoming inS__, Ice.Current current__)
+            {
+                Ice.ObjectImpl.checkMode__(Ice.OperationMode.Normal, current__.mode);
+                IceInternal.BasicStream is__ = inS__.startReadParams();
+                IceInternal.ParamPatcher<minie.irpc.cm_node_rpc> node__PP = new IceInternal.ParamPatcher<minie.irpc.cm_node_rpc>(minie.irpc.cm_node_rpc.ice_staticId());
+                is__.readObject(node__PP);
+                is__.readPendingObjects();
+                inS__.endReadParams();
+                int ret__ = obj__.update_cm_node(node__PP.value, current__);
+                IceInternal.BasicStream os__ = inS__.startWriteParams__(Ice.FormatType.DefaultFormat);
+                os__.writeInt(ret__);
+                inS__.endWriteParams__(true);
+                return Ice.DispatchStatus.DispatchOK;
+            }
+
+            [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+            public static Ice.DispatchStatus update_cm_entrance___(BackendService obj__, IceInternal.Incoming inS__, Ice.Current current__)
+            {
+                Ice.ObjectImpl.checkMode__(Ice.OperationMode.Normal, current__.mode);
+                IceInternal.BasicStream is__ = inS__.startReadParams();
+                IceInternal.ParamPatcher<minie.irpc.cm_entrance_rpc> entrance__PP = new IceInternal.ParamPatcher<minie.irpc.cm_entrance_rpc>(minie.irpc.cm_entrance_rpc.ice_staticId());
+                is__.readObject(entrance__PP);
+                is__.readPendingObjects();
+                inS__.endReadParams();
+                int ret__ = obj__.update_cm_entrance(entrance__PP.value, current__);
+                IceInternal.BasicStream os__ = inS__.startWriteParams__(Ice.FormatType.DefaultFormat);
+                os__.writeInt(ret__);
+                inS__.endWriteParams__(true);
+                return Ice.DispatchStatus.DispatchOK;
+            }
+
             private static string[] all__ =
             {
                 "add_role_group",
@@ -2980,7 +3588,11 @@ namespace minie
                 "ice_ping",
                 "logout",
                 "register_app_user_step1",
-                "register_app_user_step2"
+                "register_app_user_step2",
+                "update_cm_entrance",
+                "update_cm_node",
+                "update_sys_group",
+                "update_sys_user"
             };
 
             public override Ice.DispatchStatus dispatch__(IceInternal.Incoming inS__, Ice.Current current__)
@@ -3060,6 +3672,22 @@ namespace minie
                     case 16:
                     {
                         return register_app_user_step2___(this, inS__, current__);
+                    }
+                    case 17:
+                    {
+                        return update_cm_entrance___(this, inS__, current__);
+                    }
+                    case 18:
+                    {
+                        return update_cm_node___(this, inS__, current__);
+                    }
+                    case 19:
+                    {
+                        return update_sys_group___(this, inS__, current__);
+                    }
+                    case 20:
+                    {
+                        return update_sys_user___(this, inS__, current__);
                     }
                 }
 
