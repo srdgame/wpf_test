@@ -260,6 +260,7 @@ namespace MiniEClient.frames
             {
                 if (SaveGroup(page.EditorData as sys_group_rpc, item.IsNew) != 0)
                 {
+                    MessageBox.Show("Cannot save data to server", "Error");
                     page.Editor.DataContext = item.CloneData();
                     return;
                 }
@@ -268,6 +269,7 @@ namespace MiniEClient.frames
             {
                 if (SaveRole(page.EditorData as sys_role_rpc, item.IsNew) != 0)
                 {
+                    MessageBox.Show("Cannot save data to server", "Error");
                     page.Editor.DataContext = item.CloneData();
                     return;
                 }
@@ -275,7 +277,11 @@ namespace MiniEClient.frames
             if (page.EditorData as sys_user_rpc != null)
             {
                 if (SaveUser(page.EditorData as sys_user_rpc, item.IsNew) != 0)
+                {
+                    MessageBox.Show("Cannot save data to server", "Error");
+                    page.Editor.DataContext = item.CloneData();
                     return;
+                }
             }
             item.UpdateData(page.EditorData);
             item.UpdateGUI();
