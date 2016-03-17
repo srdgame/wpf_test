@@ -33,53 +33,12 @@ namespace MiniEClient.frames
     class CateDataItem : PNTreeViewItem
     {
         private CateData _data;
-        public override object Data
-        {
-            get
-            {
-                return _data;
-            }
-        }
-
-        public override string DisplayName
-        {
-            get
-            {
-                return _data.name;
-            }
-        }
-
-        public override string Id
-        {
-            get
-            {
-                return _data.id;
-            }
-        }
-
-        public override string Tips
-        {
-            get
-            {
-                return _data.desc;
-            }
-        }
-
-        public override PNItemType Type
-        {
-            get
-            {
-                return _data.type;
-            }
-        }
-
-        public override string Editor
-        {
-            get
-            {
-                return string.Empty;
-            }
-        }
+        public override object Data { get { return _data; } }
+        public override string DisplayName { get { return _data.name; } }
+        public override string Id { get { return _data.id; } }
+        public override string Tips { get { return _data.desc; } }
+        public override PNItemType Type { get { return _data.type; } }
+        public override string Editor { get { return string.Empty; } }
 
         public override object CloneData()
         {
@@ -94,6 +53,7 @@ namespace MiniEClient.frames
         {
             _data = data;
         }
+        public Func<PNTreeViewItem, PNTreeViewItem> Creator { get; set; }
     }
     /// <summary>
     /// UsersPage.xaml 的交互逻辑
@@ -114,8 +74,11 @@ namespace MiniEClient.frames
         {
             var sys = new CateDataItem( new CateData() { name = "System", desc = "System Edit", type = PNItemType.BOLE | PNItemType.NOEDIT | PNItemType.NOADD | PNItemType.NODELETE} );
             var sys_roles = new CateDataItem(new CateData() { name = "Roles", desc = "Roles Edit", type = PNItemType.BOLE | PNItemType.NOEDIT | PNItemType.NODELETE }, sys);
+            sys_roles.Creator = CreateRole; 
             var sys_groups = new CateDataItem(new CateData() { name = "Groups", desc = "Groups Edit", type = PNItemType.BOLE | PNItemType.NOEDIT | PNItemType.NODELETE }, sys);
+            sys_groups.Creator = CreateGroup; 
             var sys_users = new CateDataItem(new CateData() { name = "Users", desc = "Users Edit", type = PNItemType.BOLE | PNItemType.NOEDIT | PNItemType.NODELETE }, sys);
+            sys_users.Creator = CreateUser;
 
             var roles = m_Main.Client.get_roles();
             foreach (var item in roles)
@@ -148,24 +111,38 @@ namespace MiniEClient.frames
 
             }
         }
+
+        private PNTreeViewItem CreateUser(PNTreeViewItem item)
+        {
+            return new SYSUser(new sys_user_rpc()
+            {
+                id = Guid.NewGuid().ToString()
+            }, item);
+        }
+
+        private PNTreeViewItem CreateGroup(PNTreeViewItem item)
+        {
+            return new SYSGroup(new sys_group_rpc()
+            {
+                id = Guid.NewGuid().ToString(),
+                name = "New Group",
+            }, item);
+        }
+
+        private PNTreeViewItem CreateRole(PNTreeViewItem item)
+        {
+            return new SYSRole(new sys_role_rpc()
+            {
+                name = "New Role",
+            }, item);
+        }
+
         private void treeView_ClickAdd(object sender, PNRoutedEventArgs e)
         {
             var item = e.SourceItem as CateDataItem;
-            if (item.DisplayName == "Groups")
-            {
-                var new_item = new SYSGroup(new sys_group_rpc()
-                {
-                    id = Guid.NewGuid().ToString(),
-                    name = "New Group",
-                    desc = "",
-                    node = null,
-                    group_roles = new List<sys_role_rpc>(),
-                    group_users = new List<sys_user_rpc>(),
-                    is_system = false,
-                }, item);
-                new_item.IsNew = true;
-                new_item.IsSelected = true;
-            }
+            var new_item = item.Creator(item);
+            new_item.IsNew = true;
+            new_item.IsSelected = true;
         }
 
         private void treeView_ClickDelete(object sender, PNRoutedEventArgs e)
@@ -206,74 +183,104 @@ namespace MiniEClient.frames
                 page.IsEditable = true;
             }
         }
-        private int UpdateNode(sys_group_rpc group, bool isNew)
+        private int SaveGroup(sys_group_rpc group, bool isNew)
         {
-            var data = group.Clone() as sys_group_rpc;
-            var cdata = data.CleanupEx();
+            var data = group.CleanupEx();
 
-            var group_users = data.group_users;
-            var group_roles = data.group_roles;
-            if (group_users.Count == 0)
-            {
-                //group_users.Add(m_Main.Client.get_current_user_info().Clone() as sys_user_rpc);
-                group_users.Add(new sys_user_rpc()
-                {
-                    id = m_Main.Client.get_current_user_info().id,
-                });
-            }
+            //var data = group.Clone() as sys_group_rpc;
+            //var group_users = data.group_users;
+            //var group_roles = data.group_roles;
+            //if (group_users.Count == 0)
+            //{
+            //    //group_users.Add(m_Main.Client.get_current_user_info().Clone() as sys_user_rpc);
+            //    group_users.Add(new sys_user_rpc()
+            //    {
+            //        id = m_Main.Client.get_current_user_info().id,
+            //    });
+            //}
 
-            data.group_users = new List<sys_user_rpc>();
-            foreach (var item in group_users)
-            {
-                var user = new sys_user_rpc()
-                {
-                    id = item.id,
-                };
-                data.group_users.Add(user);
-            }
-            data.group_roles = new List<sys_role_rpc>();
-            foreach (var item in group_roles)
-            {
-                var role = new sys_role_rpc()
-                {
-                    name = item.name,
-                    desc = item.desc,
-                };
-                data.group_roles.Add(role);
-            }
-            if (data.node == null)
-            {
-                var gl = m_Main.Client.get_current_user_info().user_groups;
-                //data.node = gl.First().node.Clone() as cm_node_rpc;
-                data.node = new cm_node_rpc()
-                {
-                    id = gl.First().node.id,
-                };
-            }
-            if (data.node != null)
-            {
-                var node = data.node;
-                data.node = new cm_node_rpc()
-                {
-                    id = node.id,
-                };
-            }
+            //data.group_users = new List<sys_user_rpc>();
+            //foreach (var item in group_users)
+            //{
+            //    var user = new sys_user_rpc()
+            //    {
+            //        id = item.id,
+            //    };
+            //    data.group_users.Add(user);
+            //}
+            //data.group_roles = new List<sys_role_rpc>();
+            //foreach (var item in group_roles)
+            //{
+            //    var role = new sys_role_rpc()
+            //    {
+            //        name = item.name,
+            //        desc = item.desc,
+            //    };
+            //    data.group_roles.Add(role);
+            //}
+            //if (data.node == null)
+            //{
+            //    var gl = m_Main.Client.get_current_user_info().user_groups;
+            //    //data.node = gl.First().node.Clone() as cm_node_rpc;
+            //    data.node = new cm_node_rpc()
+            //    {
+            //        id = gl.First().node.id,
+            //    };
+            //}
+            //if (data.node != null)
+            //{
+            //    var node = data.node;
+            //    data.node = new cm_node_rpc()
+            //    {
+            //        id = node.id,
+            //    };
+            //}
 
             return isNew ? m_Main.Client.add_sys_group(data) : m_Main.Client.update_sys_group(data);
+        }
+
+        private int SaveUser(sys_user_rpc user, bool isNew)
+        {
+            var data = user.CleanupEx();
+            return isNew ? m_Main.Client.add_sys_user(data) : m_Main.Client.update_sys_user(data);
+        }
+
+        private int SaveRole(sys_role_rpc role, bool isNew)
+        {
+            return -1;
+            //var data = role.CleanupEx();
+            //return isNew ? m_Main.Client.add_sys_role(data) : m_Main.Client.update_sys_role(data);
         }
         private void OnSave(object sender, RoutedEventArgs e)
         {
             var page = frame.Content as EditorPage;
             var item = treeView.SelectedItem as PNTreeViewItem;
-            var data = page.EditorData as sys_group_rpc;
-            if (UpdateNode(data, item.IsNew) != 0)
+
+            if (page.EditorData as sys_group_rpc != null)
             {
-                page.Editor.DataContext = item.CloneData();
-                return;
+                if (SaveGroup(page.EditorData as sys_group_rpc, item.IsNew) != 0)
+                {
+                    page.Editor.DataContext = item.CloneData();
+                    return;
+                }
+            }
+            if (page.EditorData as sys_role_rpc != null)
+            {
+                if (SaveRole(page.EditorData as sys_role_rpc, item.IsNew) != 0)
+                {
+                    page.Editor.DataContext = item.CloneData();
+                    return;
+                }
+            }
+            if (page.EditorData as sys_user_rpc != null)
+            {
+                if (SaveUser(page.EditorData as sys_user_rpc, item.IsNew) != 0)
+                    return;
             }
             item.UpdateData(page.EditorData);
             item.UpdateGUI();
             item.IsNew = false;
         }
+
     }
 }
