@@ -137,11 +137,15 @@
     <Compile Include="ctrls\TestEditor.xaml.cs">
       <DependentUpon>TestEditor.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ctrls\UserListView.xaml.cs">
+      <DependentUpon>UserListView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="data\CheckableListViewItem.cs" />
     <Compile Include="data\CMEntrance.cs" />
     <Compile Include="data\CMNode.cs" />
     <Compile Include="data\CMUser.cs" />
-    <Compile Include="data\PNDataBase.cs" />
+    <Compile Include="data\DataCleanUp.cs" />
+    <Compile Include="data\EqualsChecker.cs" />
     <Compile Include="data\SYSRole.cs" />
     <Compile Include="data\SYSGroup.cs" />
     <Compile Include="data\SYSUser.cs" />
@@ -150,6 +154,9 @@
     </Compile>
     <Compile Include="diags\UserCreateDlg.xaml.cs">
       <DependentUpon>UserCreateDlg.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="diags\UserFindDlg.xaml.cs">
+      <DependentUpon>UserFindDlg.xaml</DependentUpon>
     </Compile>
     <Compile Include="frames\AdMgr.xaml.cs">
       <DependentUpon>AdMgr.xaml</DependentUpon>
@@ -219,11 +226,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ctrls\UserListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="diags\RoleListSelectorDlg.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="diags\UserCreateDlg.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="diags\UserFindDlg.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

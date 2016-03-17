@@ -93,6 +93,8 @@ module minie
 			string code;
 			string email;
 			int level;
+			sys_user_rpc creator;
+			string creation_time;
 		
 			sys_group_rpc_list user_groups;
 			sys_role_rpc_list user_roles;

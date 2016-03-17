@@ -18,6 +18,15 @@ using MiniEClient.data;
 
 namespace MiniEClient.frames
 {
+    public partial class test_p
+    {
+        public string name { get; set; }
+
+    }
+    public partial class test_p
+    {
+        public string Name { get { return name; } set { name = value; } }
+    }
     public class test_data_rpc : ICloneable
     {
         public PNItemType type { get; set; }
@@ -28,6 +37,8 @@ namespace MiniEClient.frames
         public List<test_data_rpc> children;
         public test_data_rpc(test_data_rpc parent = null)
         {
+            test_p p = new test_p();
+            p.Name = "1";
             this.parent = parent;
             children = new List<test_data_rpc>();
             if (this.parent != null)

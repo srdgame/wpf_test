@@ -35,6 +35,8 @@ namespace MiniEClient.ctrls
             {
                 if (EqualsChecker.Check(item, i))
                     return true;
+                //if (item.Compare(i))
+                //    return true;
             }
             return false;
         }

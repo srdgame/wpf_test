@@ -7,7 +7,7 @@
         xmlns:ctrls="clr-namespace:MiniEClient.ctrls"
         mc:Ignorable="d"
         x:Name="_this"
-        Title="登入" Height="300" Width="480" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        Title="系统登录" Height="300" Width="480" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
         <Image Height="110" Margin="0,2,0,0" VerticalAlignment="Top" Source="/images/banner.jpg" Stretch="UniformToFill"/>
         <Label Content="用户名：" HorizontalAlignment="Left" Height="27" Margin="44,136,0,0" VerticalAlignment="Top"/>

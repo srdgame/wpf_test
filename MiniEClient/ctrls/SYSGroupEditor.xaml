@@ -13,6 +13,13 @@
         <TextBox HorizontalAlignment="Left" Height="23" Margin="61,40,0,0" TextWrapping="Wrap" Text="{Binding desc}" VerticalAlignment="Top" Width="300"/>
         <Label Content="所属：" HorizontalAlignment="Left" Margin="10,70,0,0" VerticalAlignment="Top"/>
         <local:ComboTree x:Name="nodeList" HorizontalAlignment="Left" Margin="61,74,0,0"  VerticalAlignment="Top" Width="120" SelectedValue="{Binding node}" SelectedValuePath="Data" ItemsSource="{Binding NodeList, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"/>
-        <local:RoleListView x:Name="roleListView" Margin="10,100,10,10" ItemsSelected="{Binding group_roles}" ItemsSource="{Binding Path=RoleList, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"/>
+        <TabControl x:Name="tabControl" Margin="10,100,10,10">
+            <TabItem Header="用户">
+                <local:UserListView x:Name="userListView" ItemsSelected="{Binding group_users}"/>
+            </TabItem>
+            <TabItem Header="角色">
+                <local:RoleListView x:Name="roleListView" ItemsSelected="{Binding group_roles}" ItemsSource="{Binding Path=RoleList, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"/>
+            </TabItem>
+        </TabControl>
     </Grid>
 </UserControl>

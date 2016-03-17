@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MiniEClient.data;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -41,6 +42,8 @@ namespace MiniEClient.ctrls
             {
                 item = pi != null ? pi.GetValue(i) : i;
                 if (item.Equals(value))
+                    return i;
+                if (EqualsChecker.Check(value, item))
                     return i;
 
                 item = FindItem(cpi.GetValue(i) as IEnumerable, pi, cpi, value);
@@ -93,7 +96,7 @@ namespace MiniEClient.ctrls
         public string ChildrenPath
         {
             get { return GetValue(ChildrenPathProperty) as string; }
-            //set { SetValue(ChildrenPathProperty, value); }
+            set { SetValue(ChildrenPathProperty, value); }
         }
         public static readonly DependencyProperty ChildrenPathProperty =
             DependencyProperty.Register(

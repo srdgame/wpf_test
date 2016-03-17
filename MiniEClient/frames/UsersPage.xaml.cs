@@ -100,6 +100,8 @@ namespace MiniEClient.frames
     /// </summary>
     public partial class UsersPage : Page
     {
+        private PNTreeViewItemList _node_list;
+        private List<sys_role_rpc> _role_list;
         private MainWindow m_Main;
         public UsersPage()
         {
@@ -130,15 +132,40 @@ namespace MiniEClient.frames
                 }
             }
 
-            // Get roles
             PNTreeViewItemList treeList = new PNTreeViewItemList();
             treeList.Add(sys);
 
             treeView.ItemsSource = treeList;
+
+
+            // Get roles
+            _role_list = roles;
+            var node_list = (App.Current as App).Client.Proxy.get_nodes();
+            _node_list = new PNTreeViewItemList();
+            foreach (cm_node_rpc node in node_list)
+            {
+                _node_list.Add(new CMNode(node));
+
+            }
         }
         private void treeView_ClickAdd(object sender, PNRoutedEventArgs e)
         {
-
+            var item = e.SourceItem as CateDataItem;
+            if (item.DisplayName == "Groups")
+            {
+                var new_item = new SYSGroup(new sys_group_rpc()
+                {
+                    id = Guid.NewGuid().ToString(),
+                    name = "New Group",
+                    desc = "",
+                    node = null,
+                    group_roles = new List<sys_role_rpc>(),
+                    group_users = new List<sys_user_rpc>(),
+                    is_system = false,
+                }, item);
+                new_item.IsNew = true;
+                new_item.IsSelected = true;
+            }
         }
 
         private void treeView_ClickDelete(object sender, PNRoutedEventArgs e)
@@ -162,6 +189,11 @@ namespace MiniEClient.frames
                 frame.Navigate(null);
                 return;
             }
+            if (editor as SYSGroupEditor != null)
+            {
+                (editor as SYSGroupEditor).NodeList = _node_list;
+                (editor as SYSGroupEditor).RoleList = _role_list;
+            }
 
             var page = new frames.EditorPage()
             {
@@ -177,24 +209,54 @@ namespace MiniEClient.frames
         private int UpdateNode(sys_group_rpc group, bool isNew)
         {
             var data = group.Clone() as sys_group_rpc;
+            var cdata = data.CleanupEx();
+
             var group_users = data.group_users;
             var group_roles = data.group_roles;
-            data.group_users = new List<sys_user_rpc>();
-            foreach ( var item in group_users)
+            if (group_users.Count == 0)
             {
-                var user = item.Clone() as sys_user_rpc;
-                user.user_groups = null;
-                user.user_roles = null;
+                //group_users.Add(m_Main.Client.get_current_user_info().Clone() as sys_user_rpc);
+                group_users.Add(new sys_user_rpc()
+                {
+                    id = m_Main.Client.get_current_user_info().id,
+                });
+            }
+
+            data.group_users = new List<sys_user_rpc>();
+            foreach (var item in group_users)
+            {
+                var user = new sys_user_rpc()
+                {
+                    id = item.id,
+                };
                 data.group_users.Add(user);
             }
             data.group_roles = new List<sys_role_rpc>();
             foreach (var item in group_roles)
             {
-                var role = item.Clone() as sys_role_rpc;
-                role.role_groups = null;
-                role.role_users = null;
-                role.role_permissions = null;
+                var role = new sys_role_rpc()
+                {
+                    name = item.name,
+                    desc = item.desc,
+                };
                 data.group_roles.Add(role);
+            }
+            if (data.node == null)
+            {
+                var gl = m_Main.Client.get_current_user_info().user_groups;
+                //data.node = gl.First().node.Clone() as cm_node_rpc;
+                data.node = new cm_node_rpc()
+                {
+                    id = gl.First().node.id,
+                };
+            }
+            if (data.node != null)
+            {
+                var node = data.node;
+                data.node = new cm_node_rpc()
+                {
+                    id = node.id,
+                };
             }
 
             return isNew ? m_Main.Client.add_sys_group(data) : m_Main.Client.update_sys_group(data);
@@ -204,7 +266,7 @@ namespace MiniEClient.frames
             var page = frame.Content as EditorPage;
             var item = treeView.SelectedItem as PNTreeViewItem;
             var data = page.EditorData as sys_group_rpc;
-            if (UpdateNode(data, false) != 0)
+            if (UpdateNode(data, item.IsNew) != 0)
             {
                 page.Editor.DataContext = item.CloneData();
                 return;

@@ -45,6 +45,7 @@ namespace MiniEClient.diags
             }
             catch (Exception e1)
             {
+                // FIXME: Show user friendly message instead of exception message. e.g. 无法连接服务器，请检查网络连接是否正常。
                 Console.WriteLine("{0} Exception caught", e1);
                 var msg = e1.Message;
                 if (msg.Length == 0)

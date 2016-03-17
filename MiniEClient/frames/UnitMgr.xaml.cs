@@ -30,6 +30,7 @@ namespace MiniEClient.frames
 
         public UnitMgr()
         {
+            var i = cm_node_rpc_equals.instance;
             m_Main = App.Current.MainWindow as MainWindow;
             InitializeComponent();
             _categories = new ObservableCollection<object>();
@@ -73,6 +74,10 @@ namespace MiniEClient.frames
                 parent = item.Data as cm_node_rpc,
                 children = new List<cm_node_rpc>(),
                 category = _categories.First() as cm_node_category_rpc,
+                creator = new sys_user_rpc()
+                {
+                    id = m_Main.Client.get_current_user_info().id,
+                },
             }, item);
             new_item.IsNew = true;
             new_item.IsSelected = true;

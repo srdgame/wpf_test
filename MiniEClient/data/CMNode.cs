@@ -8,6 +8,16 @@ using minie.irpc;
 
 namespace MiniEClient.data
 {
+    public class cm_node_rpc_equals : EqualsRegister<cm_node_rpc, cm_node_rpc_equals>
+    {
+        protected override bool Equals(cm_node_rpc obj1, object obj2)
+        {
+            var o = obj2 as cm_node_rpc;
+            if (o != null)
+                return obj1.id == o.id;
+            return obj1.Equals(obj2);
+        }
+    }
     public class CMNodeCategory
     {
         private cm_node_category_rpc _data;
@@ -31,7 +41,6 @@ namespace MiniEClient.data
             return _data.id.GetHashCode();
         }
     }
-
     public class CMNode : PNTreeViewItem
     {
         private cm_node_rpc _data;

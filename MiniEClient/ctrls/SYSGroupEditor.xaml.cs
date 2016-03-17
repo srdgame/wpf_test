@@ -42,6 +42,7 @@ namespace MiniEClient.ctrls
         }
         public SYSGroupEditor()
         {
+            var i = cm_node_rpc_equals.instance;
             InitializeComponent();
         }
 
@@ -50,9 +51,9 @@ namespace MiniEClient.ctrls
             //var list = new ObservableCollection<object>();
             //list.Add(new sys_role_rpc() { name = "T1", desc = "Desc1" });
             //list.Add(new sys_role_rpc() { name = "T1", desc = "Desc1" });
-            var list = (App.Current as App).Client.Proxy.get_roles();
-            RoleList = list;
+
+            //var list = (App.Current as App).Client.Proxy.get;
         }
-        
+
     }
 }

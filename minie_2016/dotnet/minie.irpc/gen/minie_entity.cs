@@ -812,6 +812,34 @@ namespace minie
                 }
             }
 
+            private minie.irpc.sys_user_rpc creator__prop;
+            [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.6.1")]
+            public virtual minie.irpc.sys_user_rpc creator
+            {
+                get
+                {
+                    return creator__prop;
+                }
+                set
+                {
+                    creator__prop = value;
+                }
+            }
+
+            private string creation_time__prop;
+            [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.6.1")]
+            public virtual string creation_time
+            {
+                get
+                {
+                    return creation_time__prop;
+                }
+                set
+                {
+                    creation_time__prop = value;
+                }
+            }
+
             private _System.Collections.Generic.List<minie.irpc.sys_group_rpc> user_groups__prop;
             [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.6.1")]
             public virtual _System.Collections.Generic.List<minie.irpc.sys_group_rpc> user_groups
@@ -854,10 +882,11 @@ namespace minie
                 fullname = "";
                 code = "";
                 email = "";
+                creation_time = "";
             }
 
             [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.6.1")]
-            public sys_user_rpc(string id, string username, string cellphone, string password, string fullname, string code, string email, int level, _System.Collections.Generic.List<minie.irpc.sys_group_rpc> user_groups, _System.Collections.Generic.List<minie.irpc.sys_role_rpc> user_roles)
+            public sys_user_rpc(string id, string username, string cellphone, string password, string fullname, string code, string email, int level, minie.irpc.sys_user_rpc creator, string creation_time, _System.Collections.Generic.List<minie.irpc.sys_group_rpc> user_groups, _System.Collections.Generic.List<minie.irpc.sys_role_rpc> user_roles)
             {
                 this.id__prop = id;
                 this.username__prop = username;
@@ -867,6 +896,8 @@ namespace minie
                 this.code__prop = code;
                 this.email__prop = email;
                 this.level__prop = level;
+                this.creator__prop = creator;
+                this.creation_time__prop = creation_time;
                 this.user_groups__prop = user_groups;
                 this.user_roles__prop = user_roles;
             }
@@ -1065,9 +1096,34 @@ namespace minie
                 os__.writeString(code__prop);
                 os__.writeString(email__prop);
                 os__.writeInt(level__prop);
+                os__.writeObject(creator__prop);
+                os__.writeString(creation_time__prop);
                 minie.irpc.sys_group_rpc_listHelper.write(os__, user_groups__prop);
                 minie.irpc.sys_role_rpc_listHelper.write(os__, user_roles__prop);
                 os__.endWriteSlice();
+            }
+
+            [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.6.1")]
+            public sealed class Patcher__ : IceInternal.Patcher
+            {
+                internal Patcher__(string type, Ice.Object instance) : base(type)
+                {
+                    _instance = (sys_user_rpc)instance;
+                }
+
+                public override void patch(Ice.Object v)
+                {
+                    try
+                    {
+                        _instance.creator = (minie.irpc.sys_user_rpc)v;
+                    }
+                    catch(_System.InvalidCastException)
+                    {
+                        IceInternal.Ex.throwUOE(type(), v.ice_id());
+                    }
+                }
+
+                private sys_user_rpc _instance;
             }
 
             [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.6.1")]
@@ -1082,6 +1138,8 @@ namespace minie
                 code__prop = is__.readString();
                 email__prop = is__.readString();
                 level__prop = is__.readInt();
+                is__.readObject(new Patcher__(minie.irpc.sys_user_rpc.ice_staticId(), this));
+                creation_time__prop = is__.readString();
                 user_groups__prop = minie.irpc.sys_group_rpc_listHelper.read(is__);
                 user_roles__prop = minie.irpc.sys_role_rpc_listHelper.read(is__);
                 is__.endReadSlice();
@@ -1099,6 +1157,8 @@ namespace minie
                 outS__.writeString(code__prop);
                 outS__.writeString(email__prop);
                 outS__.writeInt(level__prop);
+                outS__.writeObject(creator__prop);
+                outS__.writeString(creation_time__prop);
                 minie.irpc.sys_group_rpc_listHelper.write(outS__, user_groups__prop);
                 minie.irpc.sys_role_rpc_listHelper.write(outS__, user_roles__prop);
                 outS__.endSlice();
@@ -1116,6 +1176,8 @@ namespace minie
                 code__prop = inS__.readString();
                 email__prop = inS__.readString();
                 level__prop = inS__.readInt();
+                inS__.readObject(new Patcher__(minie.irpc.sys_user_rpc.ice_staticId(), this));
+                creation_time__prop = inS__.readString();
                 user_groups__prop = minie.irpc.sys_group_rpc_listHelper.read(inS__);
                 user_roles__prop = minie.irpc.sys_role_rpc_listHelper.read(inS__);
                 inS__.endSlice();
