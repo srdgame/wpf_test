@@ -26,25 +26,24 @@ namespace MiniEClient.frames
             m_Main = App.Current.MainWindow as MainWindow;
             InitializeComponent();
         }
-
         private void btn_dist_Click(object sender, RoutedEventArgs e)
         {
-            m_Main.ActiveDist();
+            m_Main.NavigateMain< UnitMgr >("Units");
         }
 
         private void btn_users_Click(object sender, RoutedEventArgs e)
         {
-            m_Main.ActiveUsers();
+            m_Main.NavigateMain< UsersPage >("Users");
         }
 
         private void btn_ads_Click(object sender, RoutedEventArgs e)
         {
-            m_Main.ActiveAds();
+            m_Main.NavigateMain<AdMgr>("Ads");
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            m_Main.ActiveHelp();
+            m_Main.NavigateMain<TestPage>("Helps");
         }
     }
 }

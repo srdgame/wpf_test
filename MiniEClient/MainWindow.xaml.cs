@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using minie.irpc;
+using System.Linq.Expressions;
 
 namespace MiniEClient
 {
@@ -43,29 +44,10 @@ namespace MiniEClient
             }
         }
 
-        internal void ActiveDist()
+        internal void NavigateMain<T>(string key) where T : new()
         {
-            this.frame_main.Navigate(new frames.UnitMgr());
-        }
-
-        internal void ActiveUsers()
-        {
-            this.frame_main.Navigate(new frames.UsersPage());
-        }
-
-        internal void ActiveHelp()
-        {
-            this.frame_main.Navigate(new frames.TestPage());
-        }
-
-        internal void ActiveAds()
-        {
-            this.frame_main.Navigate(new frames.AdMgr());
-        }
-
-        internal void ActiveMsg()
-        {
-            this.frame_main.Navigate(new frames.MessagesPage());
+           // frame_main.RemoveBackEntry();
+            frame_main.Navigate(new T());
         }
 
         internal void CreateUser()

@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:MiniEClient.frames"
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
-      Title="main_page">
+      Title="Welcome">
 
     <Grid>
         <Grid.Background>

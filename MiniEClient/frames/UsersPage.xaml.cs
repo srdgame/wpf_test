@@ -192,10 +192,10 @@ namespace MiniEClient.frames
             //var group_roles = data.group_roles;
             //if (group_users.Count == 0)
             //{
-            //    //group_users.Add(m_Main.Client.get_current_user_info().Clone() as sys_user_rpc);
+            //    //group_users.Add(m_Main.UserInfo.Clone() as sys_user_rpc);
             //    group_users.Add(new sys_user_rpc()
             //    {
-            //        id = m_Main.Client.get_current_user_info().id,
+            //        id = m_Main.UserInfo.id,
             //    });
             //}
 
@@ -220,7 +220,7 @@ namespace MiniEClient.frames
             //}
             //if (data.node == null)
             //{
-            //    var gl = m_Main.Client.get_current_user_info().user_groups;
+            //    var gl = m_Main.UserInfo.user_groups;
             //    //data.node = gl.First().node.Clone() as cm_node_rpc;
             //    data.node = new cm_node_rpc()
             //    {

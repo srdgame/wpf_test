@@ -76,7 +76,7 @@ namespace MiniEClient.frames
                 category = _categories.First() as cm_node_category_rpc,
                 creator = new sys_user_rpc()
                 {
-                    id = m_Main.Client.get_current_user_info().id,
+                    id = m_Main.UserInfo.id,
                 },
             }, item);
             new_item.IsNew = true;

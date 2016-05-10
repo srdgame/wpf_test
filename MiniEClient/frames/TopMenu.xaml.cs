@@ -39,7 +39,7 @@ namespace MiniEClient.frames
 
         private void btn_user_msg_Click(object sender, RoutedEventArgs e)
         {
-            m_Main.ActiveMsg();
+            m_Main.NavigateMain<MessagesPage>("Msgs");
         }
     }
 }
